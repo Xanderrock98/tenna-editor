@@ -1,6 +1,7 @@
 import { FieldWrapper, NumberInput } from '@components';
 import type { CharacterIndex } from '@data';
 import { useSave } from '@store';
+import { useTranslation } from '../../i18n';
 
 type StatsType = 'attack' | 'defence' | 'magic' | 'health' | 'maxHealth';
 
@@ -12,6 +13,14 @@ const STATS_TITLES: Record<StatsType, string> = {
   maxHealth: 'Max HP',
 } as const;
 
+const STATS_TITLE_KEYS: Record<StatsType, string> = {
+  attack: 'ui.stats.attack',
+  defence: 'ui.stats.defence',
+  magic: 'ui.stats.magic',
+  health: 'ui.stats.currentHp',
+  maxHealth: 'ui.stats.maxHp',
+};
+
 interface StatFieldProps {
   id?: string;
   type: StatsType;
@@ -19,6 +28,7 @@ interface StatFieldProps {
 }
 
 export function StatsField({ id, type, character }: StatFieldProps) {
+  const { t } = useTranslation();
   const current =
     useSave((s) => {
       if (s.save) {
@@ -34,10 +44,15 @@ export function StatsField({ id, type, character }: StatFieldProps) {
   }
 
   return (
-    <FieldWrapper id={id} className="flex-1" title={STATS_TITLES[type]} label>
+    <FieldWrapper
+      id={id}
+      className="flex-1"
+      title={t(STATS_TITLE_KEYS[type], STATS_TITLES[type])}
+      label
+    >
       <NumberInput
         value={current}
-        placeholder={`Enter value...`}
+        placeholder={t('ui.stats.enterValue', 'Enter value...')}
         min={0}
         max={9999}
         onChange={onChange}

@@ -13,7 +13,7 @@ import {
   writeFlagBitfield,
   type KnownBitfield,
 } from '@utils';
-import { useTranslation } from '../../i18n';
+import { formatTranslation, useTranslation } from '../../i18n';
 
 type ManualMode = 'value' | 'bitfield';
 
@@ -74,9 +74,9 @@ function validateManualEdit(
       flagId,
       directValue: null,
       bitfield: null,
-      error: t('ui.flags.flagIdRange', 'Flag id must be between 0 and {max}.').replace(
-        '{max}',
-        String(Math.max(flagCount - 1, 0)),
+      error: formatTranslation(
+        t('ui.flags.flagIdRange', 'Flag id must be between 0 and {max}.'),
+        { max: Math.max(flagCount - 1, 0) },
       ),
     };
   }
@@ -141,9 +141,9 @@ function validateManualEdit(
       flagId,
       directValue: null,
       bitfield: null,
-      error: t('ui.flags.valueRange', 'Value must be between 0 and {max}.').replace(
-        '{max}',
-        String(maxValue),
+      error: formatTranslation(
+        t('ui.flags.valueRange', 'Value must be between 0 and {max}.'),
+        { max: maxValue },
       ),
     };
   }

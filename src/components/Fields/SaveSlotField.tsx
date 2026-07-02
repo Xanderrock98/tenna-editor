@@ -29,6 +29,11 @@ export function SaveSlotField({ id, className }: SaveSlotFieldProps) {
     }
   }
 
+  const slotOptions = SLOT_OPTIONS.map((item, index) => ({
+    ...item,
+    label: `${t('ui.field.slot', 'Slot')} ${index + 1}`,
+  }));
+
   return (
     <FieldWrapper
       id={id}
@@ -37,10 +42,10 @@ export function SaveSlotField({ id, className }: SaveSlotFieldProps) {
       label
     >
       <Select
-        items={SLOT_OPTIONS}
+        items={slotOptions}
         placeholder={t('ui.field.selectSlot', 'Select slot')}
-        selectedItem={SLOT_OPTIONS[slot]}
-        defaultSelectedItem={SLOT_OPTIONS[slot]}
+        selectedItem={slotOptions[slot]}
+        defaultSelectedItem={slotOptions[slot]}
         onSelectionChange={onSelectionChange}
       />
     </FieldWrapper>

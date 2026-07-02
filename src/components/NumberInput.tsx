@@ -78,7 +78,7 @@ export function NumberInput({
           isOutOfRange && 'border-danger text-danger',
         )}
         style={{ MozAppearance: 'textfield' }}
-        aria-label={placeholder || 'Number input'}
+        aria-label={placeholder || t('ui.common.numberInput', 'Number input')}
         aria-invalid={isOutOfRange || undefined}
         aria-describedby={
           isOutOfRange ? `${placeholder || 'number'}-range-hint` : undefined
@@ -93,7 +93,7 @@ export function NumberInput({
           className="absolute -bottom-5 left-0 text-xs text-danger"
           role="alert"
         >
-          Range: {rangeHint}
+          {t('ui.common.range', 'Range:')} {rangeHint}
         </div>
       )}
 

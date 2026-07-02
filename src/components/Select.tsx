@@ -27,7 +27,7 @@ interface SelectProps {
 
 export function Select({
   items = [],
-  placeholder = 'Select an option...',
+  placeholder,
   label = '',
   onSelectionChange,
   defaultSelectedItem = null,
@@ -36,6 +36,8 @@ export function Select({
   strict = true,
 }: SelectProps) {
   const { t } = useTranslation();
+  const translatedPlaceholder =
+    placeholder ?? t('ui.common.selectOption', 'Select an option...');
   const [inputItems, setInputItems] = useState(items);
   const [shouldOpenUp, setShouldOpenUp] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -256,7 +258,7 @@ export function Select({
               ? 'text-text-2 selection:text-text-2'
               : 'text-text-1 selection:text-text-1',
           )}
-          placeholder={placeholder}
+          placeholder={translatedPlaceholder}
           data-lpignore="true"
           autoComplete="off"
         />
@@ -269,7 +271,7 @@ export function Select({
               <WarningIcon />
             </span>
           ) : null}
-          {selectedItem?.invalid ? 'Invalid' : ''}
+          {selectedItem?.invalid ? t('ui.common.invalid', 'Invalid') : ''}
         </div>
         <button
           {...getToggleButtonProps({
@@ -352,7 +354,7 @@ export function Select({
                           <WarningIcon />
                         </span>
                       ) : null}
-                      {item.invalid ? 'Invalid' : ''}
+                      {item.invalid ? t('ui.common.invalid', 'Invalid') : ''}
                     </div>
                   </div>
                 </li>

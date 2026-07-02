@@ -1,4 +1,5 @@
 import { Section, Card, Heading } from '@components';
+import { useTranslation } from '../../i18n';
 
 const LICENSE = `zlib License
 
@@ -28,11 +29,13 @@ If you redistribute this project, please ensure that this notice is preserved an
 ` as const;
 
 export function AboutLicense() {
+  const { t } = useTranslation();
+
   return (
     <div className="page">
       <Section>
         <Card className="p-6">
-          <Heading level={3}>License</Heading>
+          <Heading level={3}>{t('ui.about.license', 'License')}</Heading>
           <code className="px-6 py-6 block">
             <pre className="font-mono whitespace-pre-wrap text-text-2">
               {LICENSE}

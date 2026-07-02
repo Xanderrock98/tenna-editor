@@ -4,6 +4,7 @@ import {
   ARMORS_META,
   CHARACTERS,
   CHARACTERS_META,
+  CHARACTER_TITLES,
   CHAPTERS,
   CHAPTERS_META,
   CONSUMABLES,
@@ -48,6 +49,7 @@ export const SUPPORTED_LOCALES = {
 export type Locale = UiLocale;
 
 type TranslationDictionary = Record<string, string>;
+type TranslationValues = Record<string, string | number>;
 
 const TRANSLATIONS: Record<Exclude<Locale, 'en'>, TranslationDictionary> = {
   ja,
@@ -118,6 +120,10 @@ const UI_FALLBACKS: TranslationDictionary = {
   'ui.nav.welcome': 'Welcome',
   'ui.common.noOptionsFound': 'No options found',
   'ui.common.unknown': 'Unknown',
+  'ui.common.empty': 'Empty',
+  'ui.common.invalid': 'Invalid',
+  'ui.common.none': 'None',
+  'ui.common.selectOption': 'Select an option...',
   'ui.guard.developerModeDisabled': 'Developer mode is not enabled',
   'ui.guard.noSaveLoaded': 'There is no save loaded',
   'ui.guard.wrongChapter': 'This page is not available in this chapter',
@@ -176,6 +182,11 @@ const UI_FALLBACKS: TranslationDictionary = {
   'ui.common.delete': 'Delete',
   'ui.common.gotIt': 'Got it',
   'ui.common.noSaves': 'No saves...',
+  'ui.common.help': 'Help',
+  'ui.common.clickToShowDescription': 'Click to show description',
+  'ui.common.loading': 'Loading...',
+  'ui.common.numberInput': 'Number input',
+  'ui.common.range': 'Range:',
   'ui.common.uploadFile': 'Upload file',
   'ui.common.dropFileHere': 'Drop your file here!',
   'ui.common.dragDropFileHere': 'Drag & drop a file here',
@@ -210,13 +221,39 @@ const UI_FALLBACKS: TranslationDictionary = {
   'ui.home.showRoomsWithoutSavePoint': 'Show rooms without save point',
   'ui.home.source': 'Source:',
   'ui.home.unreversible': 'This action cannot be reversed!',
+  'ui.home.welcomeTitle': 'Welcome',
+  'ui.home.welcomeDescription':
+    'Tenna Editor is a powerful tool for editing DELTARUNE save files.',
+  'ui.home.welcomeGettingStarted':
+    'To get started, click the area below or click the upload button in the top-right corner.',
+  'ui.home.backupReminder':
+    'Remember to always back up your saves before editing them!',
+  'ui.home.uploadSaveCta': 'Click here to upload save',
+  'ui.home.uploadSaveCtaSubtext':
+    'or click upload button in the top-right corner',
+  'ui.home.whereToFindSaves': 'Where to find saves?',
+  'ui.home.saveLocationsIntro':
+    'Your DELTARUNE save files are typically located in the following directories:',
+  'ui.home.compatibility': 'Compatibility',
+  'ui.home.compatibilityDescription':
+    'Tenna Editor is compatible with DELTARUNE Chapter 1-5 save files from PC platforms and already-exported Switch save containers. Chapter 5 support is experimental and includes basic features like recruits, rooms, items, weapons, and armors. Flags and plot points will come later.',
+  'ui.home.switchCompatibilityDescription':
+    'Switch save containers are experimental and require an already-exported {fileName}. Tenna Editor cannot extract or restore saves on hardware.',
+  'ui.home.platformPcWindows': 'PC (Windows)',
+  'ui.home.platformMac': 'Mac',
+  'ui.home.platformLinuxProton': 'Linux (through Steam Proton)',
   'ui.lightWorld.items': 'Items',
   'ui.lightWorld.itemsDescription': 'This inventory applies to Light World only.',
   'ui.lightWorld.phoneContacts': 'Phone Contacts',
   'ui.party.allowNonStandardParty': 'Allow non-standard party combinations',
   'ui.party.allowNonStandardPartyDescription':
     'Enabling this allows you to set every character at every slot.',
+  'ui.party.allowNonStandardPartyCrashWarning':
+    "The game isn't usually set up to handle this, so using it will usually lead to a lot of crashes.",
   'ui.party.member': 'MEMBER',
+  'ui.party.level': 'LV{level}',
+  'ui.party.slot': 'Slot {slot}',
+  'ui.party.unknownCharacterDescription': 'This is unknown character',
   'ui.recruits.cafe': 'Cafe',
   'ui.recruits.cafeSeating': 'Cafe seating',
   'ui.recruits.cafeSeatingDescription':
@@ -260,6 +297,7 @@ const UI_FALLBACKS: TranslationDictionary = {
   'ui.field.selectPlotPoint': 'Select a plot point...',
   'ui.field.selectRoom': 'Select a room...',
   'ui.field.selectSlot': 'Select slot',
+  'ui.field.completeSlot': 'Complete {slot}',
   'ui.field.selectSpell': 'Select a spell...',
   'ui.field.selectStorageItem': 'Select a storage item...',
   'ui.field.selectWeapon': 'Select a weapon...',
@@ -268,6 +306,14 @@ const UI_FALLBACKS: TranslationDictionary = {
   'ui.field.spell': 'Spell',
   'ui.field.status': 'Status',
   'ui.field.weapon': 'Weapon',
+  'ui.stats.attack': 'Attack',
+  'ui.stats.defence': 'Defence',
+  'ui.stats.magic': 'Magic',
+  'ui.stats.experience': 'Experience',
+  'ui.stats.currentHp': 'Current HP',
+  'ui.stats.maxHp': 'Max HP',
+  'ui.stats.level': 'Level',
+  'ui.stats.enterValue': 'Enter value...',
   'ui.flags.advancedWarning':
     'This feature is intended for advanced users only who want more control over specific flags.',
   'ui.flags.alreadyCoveredWarning':
@@ -341,6 +387,76 @@ const UI_FALLBACKS: TranslationDictionary = {
   'ui.flags.widthMustBePositive': 'Width must be a positive integer.',
   'ui.flags.valueMustBeNonNegative': 'Value must be a non-negative integer.',
   'ui.flags.valueRange': 'Value must be between 0 and {max}.',
+  'ui.about.legalInfo': 'Legal Info',
+  'ui.about.fanProject': 'This is fan made project.',
+  'ui.about.notAffiliated':
+    'This project is not affiliated with, endorsed by, or in any way associated with Toby Fox or any related entities.',
+  'ui.about.deltaruneTrademark':
+    'DELTARUNE™ is a registered trademark of Royal Sciences, LLC',
+  'ui.about.assetsNotice':
+    'The assets used in this project from the DELTARUNE™ are copyrighted by Toby Fox and included under the fair use for non-commercial, transformative purposes. No endorsement is implied.',
+  'ui.about.privacy': 'Privacy',
+  'ui.about.privacyLocal':
+    'We don’t collect or store anything about you. All data is processed on-device and never sent anywhere.',
+  'ui.about.cloudflarePrivacy':
+    'Tenna Editor is hosted on Cloudflare, which may collect some of your personal data.',
+  'ui.about.cloudflarePrivacyLink':
+    "Click here to read Cloudflare's privacy policy and GDPR/HIPAA compliance info.",
+  'ui.about.sourceCode': 'Source Code',
+  'ui.about.sourceCodeDescription':
+    'The source code of Tenna Editor is available on {host}',
+  'ui.about.contributors': 'Contributors',
+  'ui.about.buildInfo': 'Build Info',
+  'ui.about.buildId': 'ID: {value}',
+  'ui.about.buildVersion': 'Version: {value}',
+  'ui.about.buildEnvironment': 'Environment: {value}',
+  'ui.about.buildBranch': 'Branch: {value}',
+  'ui.about.buildTimestamp': 'Timestamp: {value}',
+  'ui.about.license': 'License',
+  'ui.about.specialThanks': 'Special Thanks',
+  'ui.about.specialThanksToby':
+    'Toby Fox and whole Team behind Deltarune - for creating the game.',
+  'ui.about.specialThanksSpamton':
+    'Spamton Editor - for being direct inspiration.',
+  'ui.about.specialThanksSpamtonSuffix': ' - for being direct inspiration.',
+  'ui.about.specialThanksFlowey':
+    "Flowey's Time Machine - for being another inspiration.",
+  'ui.about.specialThanksFloweySuffix': ' - for being another inspiration.',
+  'ui.about.specialThanksJacky':
+    "Jacky720's \"Flowey's Time Machine\" fork - for save data research and references that helped with a lot of Tenna Editor's data mapping.",
+  'ui.about.specialThanksJackySuffix':
+    " - for save data research and references that helped with a lot of Tenna Editor's data mapping.",
+  'ui.about.specialThanksWiki':
+    'Deltarune Wiki - for much useful information that sped up the process of building this project significantly.',
+  'ui.about.specialThanksWikiSuffix':
+    ' - for much useful information that sped up the process of building this project significantly.',
+  'ui.about.specialThanksUmt':
+    'Undertale Mod Tool - for allowing me to mine through the game code and assets to understand how things work.',
+  'ui.about.specialThanksUmtSuffix':
+    ' - for allowing me to mine through the game code and assets to understand how things work.',
+  'ui.about.pixelOperatorAttribution':
+    'Pixel Operator and Pixel Operator Mono — License: SIL Open Font License 1.1 ({license}). Source: {source}',
+  'ui.about.pixelOperatorLicensePrefix':
+    'Pixel Operator and Pixel Operator Mono — License: SIL Open Font License 1.1',
+  'ui.about.sourcePrefix': 'Source:',
+  'ui.about.pixelarticonsAttribution':
+    'Pixelarticons by Gerrit Halfmann — License: {license}. Website: {website}',
+  'ui.about.pixelarticonsLicensePrefix':
+    'Pixelarticons by Gerrit Halfmann — License:',
+  'ui.about.websitePrefix': 'Website:',
+  'ui.about.fonts': 'Fonts',
+  'ui.about.icons': 'Icons',
+  'ui.about.dependencies': 'Dependencies',
+  'ui.about.licenseLabel': 'License: {license}',
+  'ui.about.sourceLabel': 'Source: {source}',
+  'ui.about.websiteLabel': 'Website: {website}',
+  'ui.placeholder.loadingHeadline': 'MIKE, the BOARD, please!',
+  'ui.placeholder.underConstruction': 'This tab is under construction',
+  'ui.saveSource.importedSwitch':
+    'Imported from an already-exported save container',
+  'ui.saveSource.importedPc': 'Imported from a PC save file',
+  'ui.saveSource.switch': 'SWITCH',
+  'ui.saveSource.pc': 'PC',
 };
 
 const SOURCE_TRANSLATIONS = {
@@ -370,6 +486,7 @@ const SOURCE_TRANSLATIONS = {
   ),
   ...getMetaSourceTranslations('items.weapons', WEAPONS_META, WEAPON_NAMES_BY_ID),
   ...getMetaSourceTranslations('characters', CHARACTERS_META, CHARACTER_NAMES_BY_ID),
+  ...getCharacterTitleSourceTranslations(),
   ...getMetaSourceTranslations('chapters', CHAPTERS_META, CHAPTER_NAMES_BY_ID),
   ...getMetaSourceTranslations('enemies', ENEMIES_META, ENEMY_NAMES_BY_ID),
   ...getMetaSourceTranslations('rooms', ROOMS_META, ROOM_NAMES_BY_ID),
@@ -421,6 +538,20 @@ function getNamesById<TName extends string, TId extends number>(
   ) as Record<number, string>;
 }
 
+function getCharacterTitleSourceTranslations() {
+  const source: TranslationDictionary = {};
+
+  Object.entries(CHARACTER_TITLES).forEach(([characterName, titles]) => {
+    Object.entries(titles).forEach(([titleName, title]) => {
+      const keyPrefix = `characterTitles.${characterName}.${titleName}`;
+      source[`${keyPrefix}.name`] = title.name;
+      source[`${keyPrefix}.description`] = title.description;
+    });
+  });
+
+  return source;
+}
+
 export function translate(
   key: string,
   fallback: string,
@@ -428,6 +559,15 @@ export function translate(
 ) {
   if (locale === 'en') return fallback;
   return TRANSLATIONS[locale][key] ?? fallback;
+}
+
+export function formatTranslation(
+  template: string,
+  values: TranslationValues,
+) {
+  return template.replace(/\{(\w+)\}/g, (match, key: string) =>
+    values[key] === undefined ? match : String(values[key]),
+  );
 }
 
 export function useTranslation() {
@@ -465,6 +605,23 @@ export function getArmorTranslationKeyPrefix(id: number) {
 
 export function getCharacterTranslationKeyPrefix(id: number) {
   return getNamedKeyPrefix('characters', id, CHARACTER_NAMES_BY_ID);
+}
+
+export function getCharacterTitleTranslationKeyPrefix(
+  characterId: number,
+  title: { name: string; description: string },
+) {
+  const characterName = CHARACTER_NAMES_BY_ID[characterId];
+  const titles = characterName
+    ? CHARACTER_TITLES[characterName as keyof typeof CHARACTER_TITLES]
+    : undefined;
+  if (!titles) return undefined;
+
+  const titleName = Object.entries(titles).find(
+    ([, candidate]) => candidate === title,
+  )?.[0];
+
+  return titleName ? `characterTitles.${characterName}.${titleName}` : undefined;
 }
 
 export function getChapterTranslationKeyPrefix(id: number) {

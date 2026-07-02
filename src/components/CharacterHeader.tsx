@@ -5,6 +5,13 @@ import { characterHelpers } from '@utils/data-helpers';
 import { getCharacterColor } from '@utils/get-character-color';
 import { mergeClass } from '@utils/merge-class';
 import type { ReactNode } from 'react';
+import {
+  formatTranslation,
+  getCharacterTitleTranslationKeyPrefix,
+  getCharacterTranslationKeyPrefix,
+  translateMeta,
+  useTranslation,
+} from '../i18n';
 
 interface CharacterHeaderProps {
   character: CharacterIndex;
@@ -12,6 +19,7 @@ interface CharacterHeaderProps {
 }
 
 export function CharacterHeader({ character, icon }: CharacterHeaderProps) {
+  const { t } = useTranslation();
   const { chapter, plot, flags, hasEgg, weapon, room } =
     useCharacterOverrideInputs(character);
 
@@ -32,6 +40,22 @@ export function CharacterHeader({ character, icon }: CharacterHeaderProps) {
   };
 
   const color = getCharacterColor(character);
+  const translatedCharacter = translateMeta(
+    getCharacterTranslationKeyPrefix(character),
+    characterMeta,
+    t,
+  );
+  const titleKeyPrefix = getCharacterTitleTranslationKeyPrefix(
+    character,
+    characterMeta.title,
+  );
+  const titleName = titleKeyPrefix
+    ? t(`${titleKeyPrefix}.name`, characterMeta.title.name)
+    : characterMeta.title.name;
+  const titleDescription = titleKeyPrefix
+    ? t(`${titleKeyPrefix}.description`, characterMeta.title.description)
+    : characterMeta.title.description;
+
   return (
     <Section
       id="main-title"
@@ -44,15 +68,16 @@ export function CharacterHeader({ character, icon }: CharacterHeaderProps) {
       )}
       <div className="mb-1">
         <Heading level={2} className={mergeClass('uppercase', color.text)}>
-          {characterMeta.displayName}
+          {translatedCharacter.displayName}
         </Heading>
       </div>
       <Heading level={5}>
-        LV{characterMeta.lv} {characterMeta.title.name}
+        {formatTranslation(t('ui.party.level', 'LV{level}'), {
+          level: characterMeta.lv,
+        })}{' '}
+        {titleName}
       </Heading>
-      <p className="ui-prose-muted text-center">
-        {characterMeta.title.description}
-      </p>
+      <p className="ui-prose-muted text-center">{titleDescription}</p>
     </Section>
   );
 }

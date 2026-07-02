@@ -27,6 +27,7 @@ import { formatLocalDateTime } from '@utils/format-date';
 import { saveStorage, toast } from '@services';
 import { PlayerNameField } from '@components/Fields/PlayerNameField';
 import {
+  formatTranslation,
   getChapterTranslationKeyPrefix,
   translateMeta,
   useTranslation,
@@ -75,16 +76,14 @@ function SaveTimestamp() {
   return (
     <div className="text-text-2">
       <p>
-        {t('ui.home.createdAt', 'Created at: {date}').replace(
-          '{date}',
-          formatLocalDateTime(createdAt),
-        )}
+        {formatTranslation(t('ui.home.createdAt', 'Created at: {date}'), {
+          date: formatLocalDateTime(createdAt),
+        })}
       </p>
       <p>
-        {t('ui.home.modifiedAt', 'Modified at: {date}').replace(
-          '{date}',
-          formatLocalDateTime(modifiedAt),
-        )}
+        {formatTranslation(t('ui.home.modifiedAt', 'Modified at: {date}'), {
+          date: formatLocalDateTime(modifiedAt),
+        })}
       </p>
     </div>
   );

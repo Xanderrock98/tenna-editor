@@ -1,6 +1,8 @@
 import { Section, Card, Heading, Link } from '@components';
+import { formatTranslation, useTranslation } from '../../i18n';
 
 export function AboutAttributions() {
+  const { t } = useTranslation();
   const runtimeDeps = [
     { name: 'React', url: 'https://react.dev', license: 'MIT' },
     { name: 'react-dom', url: 'https://react.dev', license: 'MIT' },
@@ -73,51 +75,71 @@ export function AboutAttributions() {
     <div className="page">
       <Section id="special-thanks">
         <Card className="space-y-4 p-6">
-          <Heading level={3}>Special Thanks</Heading>
+          <Heading level={3}>
+            {t('ui.about.specialThanks', 'Special Thanks')}
+          </Heading>
           <ul className="list-disc pl-6 space-y-1 text-text-2">
             <li>
-              Toby Fox and whole Team behind Deltarune - for creating the game.
+              {t(
+                'ui.about.specialThanksToby',
+                'Toby Fox and whole Team behind Deltarune - for creating the game.',
+              )}
             </li>
             <li>
               <Link href="https://saveeditor.spamton.com">Spamton Editor</Link>{' '}
-              - for being direct inspiration.
+              {t(
+                'ui.about.specialThanksSpamtonSuffix',
+                ' - for being direct inspiration.',
+              )}
             </li>
             <li>
               <Link href="https://crumblingstatue.github.io/FloweysTimeMachine">
                 Flowey's Time Machine
               </Link>{' '}
-              - for being another inspiration.
+              {t(
+                'ui.about.specialThanksFloweySuffix',
+                ' - for being another inspiration.',
+              )}
             </li>
             <li>
               <Link href="https://github.com/Jacky720/FloweysTimeMachine/tree/deltarune">
                 Jacky720's "Flowey's Time Machine" fork
               </Link>{' '}
-              - for save data research and references that helped with a lot of
-              Tenna Editor's data mapping.
+              {t(
+                'ui.about.specialThanksJackySuffix',
+                " - for save data research and references that helped with a lot of Tenna Editor's data mapping.",
+              )}
             </li>
             <li>
-              <Link href="https://deltarune.wiki">Deltarune Wiki</Link> - for
-              much useful information that sped up the process of building this
-              project significantly.
+              <Link href="https://deltarune.wiki">Deltarune Wiki</Link>
+              {t(
+                'ui.about.specialThanksWikiSuffix',
+                ' - for much useful information that sped up the process of building this project significantly.',
+              )}
             </li>
             <li>
               <Link href="https://github.com/UnderminersTeam/UndertaleModTool">
                 Undertale Mod Tool
               </Link>{' '}
-              - for allowing me to mine through the game code and assets to
-              understand how things work.
+              {t(
+                'ui.about.specialThanksUmtSuffix',
+                ' - for allowing me to mine through the game code and assets to understand how things work.',
+              )}
             </li>
           </ul>
         </Card>
       </Section>
       <Section id="fonts">
         <Card className="space-y-4 p-6">
-          <Heading level={3}>Fonts</Heading>
+          <Heading level={3}>{t('ui.about.fonts', 'Fonts')}</Heading>
           <ul className="list-disc pl-6 space-y-1">
             <li className="text-text-2">
-              Pixel Operator and Pixel Operator Mono — License: SIL Open Font
-              License 1.1 (<Link href="https://scripts.sil.org/OFL">OFL</Link>
-              ). Source:{' '}
+              {t(
+                'ui.about.pixelOperatorLicensePrefix',
+                'Pixel Operator and Pixel Operator Mono — License: SIL Open Font License 1.1',
+              )}{' '}
+              (<Link href="https://scripts.sil.org/OFL">OFL</Link>).{' '}
+              {t('ui.about.sourcePrefix', 'Source:')}{' '}
               <Link href="https://www.dafont.com/pixel-operator.font">
                 dafont.com/pixel-operator
               </Link>
@@ -127,14 +149,17 @@ export function AboutAttributions() {
       </Section>
       <Section id="icons">
         <Card className="space-y-4 p-6">
-          <Heading level={3}>Icons</Heading>
+          <Heading level={3}>{t('ui.about.icons', 'Icons')}</Heading>
           <ul className="list-disc pl-6 space-y-1">
             <li className="text-text-2">
-              Pixelarticons by Gerrit Halfmann — License:{' '}
+              {t(
+                'ui.about.pixelarticonsLicensePrefix',
+                'Pixelarticons by Gerrit Halfmann — License:',
+              )}{' '}
               <Link href="https://github.com/halfmage/pixelarticons/blob/main/LICENSE">
                 MIT
               </Link>
-              . Website:{' '}
+              . {t('ui.about.websitePrefix', 'Website:')}{' '}
               <Link href="https://pixelarticons.com/">pixelarticons.com</Link>
             </li>
           </ul>
@@ -142,13 +167,19 @@ export function AboutAttributions() {
       </Section>
       <Section id="dependencies">
         <Card className="space-y-4 p-6">
-          <Heading level={3}>Dependencies</Heading>
+          <Heading level={3}>
+            {t('ui.about.dependencies', 'Dependencies')}
+          </Heading>
           <div className="space-y-2">
             <div>
               <ul className="list-disc pl-6 space-y-1">
                 {runtimeDeps.map((d) => (
                   <li key={d.name} className="text-text-2">
-                    <Link href={d.url}>{d.name}</Link> — License: {d.license}
+                    <Link href={d.url}>{d.name}</Link> —{' '}
+                    {formatTranslation(
+                      t('ui.about.licenseLabel', 'License: {license}'),
+                      { license: d.license },
+                    )}
                   </li>
                 ))}
               </ul>

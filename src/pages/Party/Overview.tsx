@@ -24,6 +24,8 @@ import SusieIcon from '@assets/deltarune/characters/susie.svg?react';
 import RalseiIcon from '@assets/deltarune/characters/ralsei.svg?react';
 import NoelleIcon from '@assets/deltarune/characters/noelle.svg?react';
 import {
+  formatTranslation,
+  getCharacterTitleTranslationKeyPrefix,
   getCharacterTranslationKeyPrefix,
   translateMeta,
   useTranslation,
@@ -68,10 +70,13 @@ function CharacterCard({
   if (!isExisting) {
     characterMeta = {
       allowedSlots: [],
-      displayName: 'Unknown',
+      displayName: t('ui.common.unknown', 'Unknown'),
       title: {
-        name: 'Unknown',
-        description: 'This is unkown character',
+        name: t('ui.common.unknown', 'Unknown'),
+        description: t(
+          'ui.party.unknownCharacterDescription',
+          'This is unknown character',
+        ),
       },
       lv: 0,
       allowedArmors: new Set([]),
@@ -98,7 +103,14 @@ function CharacterCard({
     chapter,
     slot,
     allowNonStandardParty,
-  );
+  ).map((item) => ({
+    ...item,
+    label: translateMeta(
+      getCharacterTranslationKeyPrefix(item.value as CharacterIndex),
+      { displayName: item.label },
+      t,
+    ).displayName,
+  }));
 
   if (!allowNonStandardParty) {
     const usedInOtherSlots = new Set(
@@ -123,7 +135,11 @@ function CharacterCard({
       ...selectItems,
       {
         id: `${character}`,
-        label: characterMeta.displayName,
+        label: translateMeta(
+          getCharacterTranslationKeyPrefix(character),
+          characterMeta,
+          t,
+        ).displayName,
         value: character,
         invalid: true,
       },
@@ -135,6 +151,22 @@ function CharacterCard({
 
   const color = getCharacterColor(character);
   const Icon = BATTLE_ICONS[character];
+  const translatedCharacter = translateMeta(
+    getCharacterTranslationKeyPrefix(character),
+    characterMeta,
+    t,
+  );
+  const titleKeyPrefix = getCharacterTitleTranslationKeyPrefix(
+    character,
+    characterMeta.title,
+  );
+  const titleName = titleKeyPrefix
+    ? t(`${titleKeyPrefix}.name`, characterMeta.title.name)
+    : characterMeta.title.name;
+  const titleDescription = titleKeyPrefix
+    ? t(`${titleKeyPrefix}.description`, characterMeta.title.description)
+    : characterMeta.title.description;
+
   return (
     <Section
       id={`slot${slot}`}
@@ -157,13 +189,7 @@ function CharacterCard({
               </span>
             )}
             <Heading level={3} className={mergeClass('uppercase', color.text)}>
-              {
-                translateMeta(
-                  getCharacterTranslationKeyPrefix(character),
-                  characterMeta,
-                  t,
-                ).displayName
-              }
+              {translatedCharacter.displayName}
             </Heading>
           </div>
           <div className="flex flex-col justify-between items-center">
@@ -173,15 +199,20 @@ function CharacterCard({
                 !character || !isExisting ? 'opacity-0' : '',
               )}
             >
-              LV{characterMeta.lv} {characterMeta.title.name}
+              {formatTranslation(t('ui.party.level', 'LV{level}'), {
+                level: characterMeta.lv,
+              })}{' '}
+              {titleName}
             </Heading>
             <p className="text-text-2 text-sm text-center max-w-xs">
-              {characterMeta.title.description}
+              {titleDescription}
             </p>
           </div>
 
           <Select
-            label={`Slot ${slot}`}
+            label={formatTranslation(t('ui.party.slot', 'Slot {slot}'), {
+              slot: slot + 1,
+            })}
             items={selectItems}
             defaultSelectedItem={selectedItem}
             selectedItem={selectedItem}
@@ -235,8 +266,10 @@ export function PartyOverview() {
             )}
           </p>
           <p>
-            The game isn't usually set up to handle this, so using it will
-            usually lead to a lot of crashes.
+            {t(
+              'ui.party.allowNonStandardPartyCrashWarning',
+              "The game isn't usually set up to handle this, so using it will usually lead to a lot of crashes.",
+            )}
           </p>
         </HelpTip>
       </InlineGroup>

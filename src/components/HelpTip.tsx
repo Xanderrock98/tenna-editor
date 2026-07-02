@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect, type ReactNode } from 'react';
 import LightbulbIcon from '@assets/icons/lightbulb-on.svg?react';
 import { ModalLayout } from './ModalLayout';
+import { useTranslation } from '../i18n';
 
 interface HelpTipProps {
   title?: string;
@@ -8,6 +9,7 @@ interface HelpTipProps {
 }
 
 export function HelpTip({ title, children }: HelpTipProps) {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isSuppressed, setIsSuppressed] = useState(false);
   const tipTimerRef = useRef<number | null>(null);
@@ -49,7 +51,7 @@ export function HelpTip({ title, children }: HelpTipProps) {
       {!isOpen && !isSuppressed && (
         <div className="hidden lg:inline absolute left-1/2 -translate-x-1/2 -top-8 opacity-0 group-hover:opacity-100 motion-reduce:transition-none transition-opacity duration-200 ease-in-out pointer-events-none z-[70]">
           <div className="border border-border bg-surface-3 px-2 py-1 shadow-lg whitespace-nowrap text-text-1 text-xs">
-            Click to show description
+            {t('ui.common.clickToShowDescription', 'Click to show description')}
           </div>
         </div>
       )}
@@ -58,7 +60,7 @@ export function HelpTip({ title, children }: HelpTipProps) {
         isOpen={isOpen}
         setOpen={setIsOpen}
         onClose={onClose}
-        title={title ?? 'Help'}
+        title={title ?? t('ui.common.help', 'Help')}
         size="content"
       >
         <div className="ui-prose-muted">{children}</div>

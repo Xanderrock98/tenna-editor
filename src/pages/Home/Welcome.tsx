@@ -1,24 +1,34 @@
 import { Card, Heading, Section, Upload } from '@components';
 import { useState } from 'react';
+import { formatTranslation, useTranslation } from '../../i18n';
 
 export function HomeWelcome() {
+  const { t } = useTranslation();
   const [isUploadOpen, setIsUploadOpen] = useState(false);
 
   return (
     <Section className="page select-text">
       <Card className="p-6 flex flex-col gap-4">
         <Section id="heading" className="flex flex-col gap-3">
-          <Heading level={3}>Welcome</Heading>
+          <Heading level={3}>{t('ui.home.welcomeTitle', 'Welcome')}</Heading>
           <div className="ui-prose-muted flex flex-col gap-2">
             <p>
-              Tenna Editor is a powerful tool for editing DELTARUNE save files.
+              {t(
+                'ui.home.welcomeDescription',
+                'Tenna Editor is a powerful tool for editing DELTARUNE save files.',
+              )}
             </p>
             <p>
-              To get started, click the area below or click the upload button in
-              the top-right corner.
+              {t(
+                'ui.home.welcomeGettingStarted',
+                'To get started, click the area below or click the upload button in the top-right corner.',
+              )}
             </p>
             <p className="ui-danger font-bold">
-              Remember to always back up your saves before editing them!
+              {t(
+                'ui.home.backupReminder',
+                'Remember to always back up your saves before editing them!',
+              )}
             </p>
           </div>
         </Section>
@@ -30,21 +40,28 @@ export function HomeWelcome() {
           >
             <div className="flex flex-col justify-center items-center">
               <h1 className="font-bold text-lg md:text-xl">
-                Click here to upload save
+                {t('ui.home.uploadSaveCta', 'Click here to upload save')}
               </h1>
               <p className="ui-prose-muted">
-                or click upload button in the top-right corner
+                {t(
+                  'ui.home.uploadSaveCtaSubtext',
+                  'or click upload button in the top-right corner',
+                )}
               </p>
             </div>
           </button>
           <Upload isOpen={isUploadOpen} setOpen={setIsUploadOpen} />
         </Section>
         <Section id="filelocation" className="flex flex-col gap-1">
-          <Heading level={4}>Where to find saves?</Heading>
+          <Heading level={4}>
+            {t('ui.home.whereToFindSaves', 'Where to find saves?')}
+          </Heading>
           <div className="ui-prose-muted">
             <p>
-              Your DELTARUNE save files are typically located in the following
-              directories:
+              {t(
+                'ui.home.saveLocationsIntro',
+                'Your DELTARUNE save files are typically located in the following directories:',
+              )}
             </p>
             <ul className="list-disc pl-5 break-words">
               <li>
@@ -67,23 +84,34 @@ export function HomeWelcome() {
           </div>
         </Section>
         <Section id="compatibility" className="flex flex-col gap-1">
-          <Heading level={4}>Compatibility</Heading>
+          <Heading level={4}>
+            {t('ui.home.compatibility', 'Compatibility')}
+          </Heading>
           <div className="ui-prose-muted">
             <p>
-              Tenna Editor is compatible with DELTARUNE Chapter 1-5 save files
-              from the following platforms. Chapter 5 support is experimental
-              and includes basic features like recruits, rooms, items, weapons,
-              and armors. Flags and plot points will come later.
+              {t(
+                'ui.home.compatibilityDescription',
+                'Tenna Editor is compatible with DELTARUNE Chapter 1-5 save files from PC platforms and already-exported Switch save containers. Chapter 5 support is experimental and includes basic features like recruits, rooms, items, weapons, and armors. Flags and plot points will come later.',
+              )}
             </p>
             <ul className="list-disc pl-5">
-              <li>PC (Windows)</li>
-              <li>Mac</li>
-              <li>Linux (through Steam Proton)</li>
+              <li>{t('ui.home.platformPcWindows', 'PC (Windows)')}</li>
+              <li>{t('ui.home.platformMac', 'Mac')}</li>
+              <li>
+                {t(
+                  'ui.home.platformLinuxProton',
+                  'Linux (through Steam Proton)',
+                )}
+              </li>
             </ul>
             <p>
-              Console versions{' '}
-              <strong className="text-text-1">are not supported</strong> at the
-              moment.
+              {formatTranslation(
+                t(
+                  'ui.home.switchCompatibilityDescription',
+                  'Switch save containers are experimental and require an already-exported {fileName}. Tenna Editor cannot extract or restore saves on hardware.',
+                ),
+                { fileName: 'deltarune.sav' },
+              )}
             </p>
           </div>
         </Section>

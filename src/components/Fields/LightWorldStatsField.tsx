@@ -1,5 +1,6 @@
 import { FieldWrapper, NumberInput } from '@components';
 import { useSave } from '@store';
+import { useTranslation } from '../../i18n';
 
 type LightWorldStatsType =
   | 'attack'
@@ -18,12 +19,22 @@ const STATS_TITLES: Record<LightWorldStatsType, string> = {
   level: 'Level',
 } as const;
 
+const STATS_TITLE_KEYS: Record<LightWorldStatsType, string> = {
+  attack: 'ui.stats.attack',
+  defence: 'ui.stats.defence',
+  experience: 'ui.stats.experience',
+  health: 'ui.stats.currentHp',
+  maxHealth: 'ui.stats.maxHp',
+  level: 'ui.stats.level',
+};
+
 interface LightWorldStatsFieldProps {
   id?: string;
   type: LightWorldStatsType;
 }
 
 export function LightWorldStatsField({ id, type }: LightWorldStatsFieldProps) {
+  const { t } = useTranslation();
   const current =
     useSave((s) => {
       if (s.save) {
@@ -39,10 +50,15 @@ export function LightWorldStatsField({ id, type }: LightWorldStatsFieldProps) {
   }
 
   return (
-    <FieldWrapper id={id} className="flex-1" title={STATS_TITLES[type]} label>
+    <FieldWrapper
+      id={id}
+      className="flex-1"
+      title={t(STATS_TITLE_KEYS[type], STATS_TITLES[type])}
+      label
+    >
       <NumberInput
         value={current}
-        placeholder={`Enter value...`}
+        placeholder={t('ui.stats.enterValue', 'Enter value...')}
         min={0}
         max={9999}
         onChange={onChange}

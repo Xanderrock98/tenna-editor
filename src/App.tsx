@@ -9,6 +9,7 @@ import { Sidebar } from '@components/Sidebar';
 import { ToastContainer } from '@components/Toast';
 import { useSave, useUi } from '@store';
 import { MotionConfig } from 'framer-motion';
+import { translate } from './i18n';
 
 export function App() {
   const hasInitialized = useSave((s) => s.hasInitialized);
@@ -38,7 +39,11 @@ export function App() {
 
               <div className="flex-1 min-h-0 min-w-0 bg-surface-2">
                 <ErrorBoundary>
-                  <Suspense fallback={<div>Loading…</div>}>
+                  <Suspense
+                    fallback={
+                      <div>{translate('ui.common.loading', 'Loading...', locale)}</div>
+                    }
+                  >
                     <AppRouter />
                   </Suspense>
                 </ErrorBoundary>

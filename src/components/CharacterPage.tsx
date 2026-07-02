@@ -16,6 +16,7 @@ import {
   LoadoutField,
 } from '@components';
 import {
+  formatTranslation,
   getCharacterTranslationKeyPrefix,
   translateMeta,
   useTranslation,
@@ -49,10 +50,13 @@ export function CharacterPage({
           <Checkbox
             onChange={setAllowAllElements}
             checked={allowAllElements}
-            label={t(
-              'ui.party.allowNonCharacterEquipment',
-              "Allow non-{name}'s weapons, armors and spells",
-            ).replace('{name}', name)}
+            label={formatTranslation(
+              t(
+                'ui.party.allowNonCharacterEquipment',
+                "Allow non-{name}'s weapons, armors and spells",
+              ),
+              { name },
+            )}
           />
         </InlineGroup>
       </div>
