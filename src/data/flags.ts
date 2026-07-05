@@ -114,6 +114,7 @@ export const FLAGS = {
   DOOR_FREEZE_TIMER: 21,
   X_SLOWING_DISABLED: 22,
   CAN_CLIMB: 23,
+  OBTAINED_PETAL_FEATHER: 24,
   SUSIE_SHOW_EYES: 29,
   RALSEI_HAT_STATE: 30,
   LOUD_STEPS_DISABLED: 31,
@@ -1042,6 +1043,7 @@ export const FLAGS = {
   SWORDROUTE_SODA: 1278,
   RAISE_BAT_HARD_HISCORE: 1279,
   RAISE_BAT_HARD_HIRANK: 1280,
+  RALSEI_HAT_STATE_CH5: 1311,
   PINK_COINS: 1312,
   SCISSORS_PUZZLE_FLAGS: 1365,
   VOICE_CLIPS_ENABLED: 1391,
@@ -1385,6 +1387,11 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   [FLAGS.CAN_CLIMB]: {
     displayName: 'Climb unlocked',
     description: 'Whether you can climb walls using the Claimb Claws.',
+    valueType: 'boolean',
+  },
+  [FLAGS.OBTAINED_PETAL_FEATHER]: {
+    displayName: 'Obtained Petal Feather',
+    description: 'Whether you can enter platformer mode with Mysterious Statues using the Petal Feather.',
     valueType: 'boolean',
   },
   [FLAGS.SUSIE_SHOW_EYES]: {
@@ -8018,6 +8025,12 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueRules: {
       map: GAMESHOW_RANKS,
     },
+  },
+  [FLAGS.RALSEI_HAT_STATE_CH5]: {
+    displayName: 'Ralsei hat state (Chapter 5)',
+    description:
+      "Whether Ralsei is wearing his hat in Chapter 5",
+    valueType: 'boolean',
   },
   [FLAGS.PINK_COINS]: {
     displayName: 'Pink Coins',
