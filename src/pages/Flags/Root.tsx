@@ -81,13 +81,12 @@ export function FlagsRoot() {
     [debouncedSearchQuery],
   );
 
-  const filteredFlags = useMemo(() => {
-    if (!normalizedSearchQuery) return allFlags;
-
-    return allFlags.filter((flag) =>
-      flag.searchText.includes(normalizedSearchQuery),
-    );
-  }, [allFlags, normalizedSearchQuery]);
+  const filteredFlags = useMemo(
+    () => allFlags
+      .filter((flag) => flag.searchText.includes(normalizedSearchQuery))
+      .sort((a, b) => a.index - b.index),
+    [allFlags, normalizedSearchQuery],
+  );
 
   const totalPages = Math.ceil(filteredFlags.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
