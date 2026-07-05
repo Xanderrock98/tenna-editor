@@ -4,7 +4,7 @@ import { immer } from 'zustand/middleware/immer';
 import { STORE_NAMESPACE } from './schema';
 import { createDebouncedJSONStorage } from 'zustand-debounce';
 
-export const UI_VERSION = 5;
+export const UI_VERSION = 6;
 
 export type UiLocale = 'en' | 'ja' | 'ko';
 
@@ -19,6 +19,7 @@ export interface Ui {
   home: {
     allowAllSaves: boolean;
     showDogcheckedRooms: boolean;
+    allowManualPlotEntry: boolean;
   };
   party: {
     allowNonStandardParty: boolean;
@@ -59,6 +60,7 @@ export const useUi = create<UiState>()(
         home: {
           allowAllSaves: false,
           showDogcheckedRooms: false,
+          allowManualPlotEntry: false,
         },
         party: {
           allowNonStandardParty: false,
@@ -134,6 +136,7 @@ export const useUi = create<UiState>()(
               home: {
                 allowAllSaves: false,
                 showDogcheckedRooms: false,
+                allowManualPlotEntry: false,
               },
               party: {
                 allowNonStandardParty: allowNonStandardParty ?? false,
@@ -163,6 +166,7 @@ export const useUi = create<UiState>()(
             current.ui.home = {
               allowAllSaves: false,
               showDogcheckedRooms: false,
+              allowManualPlotEntry: false,
             };
           }
         }
@@ -178,6 +182,13 @@ export const useUi = create<UiState>()(
           const current = nextState as { ui: Partial<Ui> };
           if (current.ui) {
             current.ui.locale ??= 'en';
+          }
+        }
+
+        if (version < 6) {
+          const current = nextState as { ui: Partial<Ui> };
+          if (current.ui?.home) {
+            current.ui.home.allowManualPlotEntry ??= false;
           }
         }
 

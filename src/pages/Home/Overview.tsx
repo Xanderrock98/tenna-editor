@@ -163,6 +163,7 @@ export function HomeOverview() {
   const isSavePresent = useSave((s) => !!s.save);
   const allowAllSaves = useUi((s) => s.ui.home.allowAllSaves);
   const showDogcheckedRooms = useUi((s) => s.ui.home.showDogcheckedRooms);
+  const allowManualPlotEntry = useUi((s) => s.ui.home.allowManualPlotEntry);
   const updateUi = useUi((s) => s.updateUi);
 
   if (!isSavePresent) {
@@ -221,6 +222,32 @@ export function HomeOverview() {
             </p>
           </HelpTip>
         </InlineGroup>
+        <InlineGroup>
+          <Checkbox
+            onChange={(checked) =>
+              updateUi((ui) => (ui.home.allowManualPlotEntry = checked))
+            }
+            checked={allowManualPlotEntry}
+            label={t(
+              'ui.home.allowManualPlotEntry',
+              'Allow manual plot point entry',
+            )}
+          />
+          <HelpTip
+            title={t(
+              'ui.home.allowManualPlotEntry',
+              'Allow manual plot point entry',
+            )}
+          >
+            <p>
+              Enter any plot point value directly instead of selecting from the
+              known chapter list.{' '}
+              <span className="ui-danger font-bold">
+                Invalid values may cause issues when loading the save.
+              </span>
+            </p>
+          </HelpTip>
+        </InlineGroup>
       </div>
       <>
         <Section id="general">
@@ -244,7 +271,7 @@ export function HomeOverview() {
                   showNonSavepoint={allowAllSaves}
                   showDogcheckedRooms={showDogcheckedRooms}
                 />
-                <PlotField id="plot" />
+                <PlotField id="plot" allowManualEntry={allowManualPlotEntry} />
                 <InDarkWorldField id="in-dark-world" />
                 <TimeField />
               </div>

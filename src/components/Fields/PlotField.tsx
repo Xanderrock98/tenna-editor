@@ -1,4 +1,4 @@
-import { FieldWrapper, Select, type SelectItem } from '@components';
+import { FieldWrapper, NumberInput, Select, type SelectItem } from '@components';
 import { useSave } from '@store';
 import { getChapterPlotOptions, getPlotPointLabel } from '@utils';
 import { mergeClass } from '@utils/merge-class';
@@ -8,9 +8,10 @@ import { useTranslation } from '../../i18n';
 interface PlotFieldProps {
   id?: string;
   className?: string;
+  allowManualEntry?: boolean;
 }
 
-export function PlotField({ id, className }: PlotFieldProps) {
+export function PlotField({ id, className, allowManualEntry = false }: PlotFieldProps) {
   const { t } = useTranslation();
   const plot = useSave((s) => s.save?.plot) ?? 0;
   const chapter = useSave((s) => s.save?.meta.chapter) || 1;
@@ -36,6 +37,10 @@ export function PlotField({ id, className }: PlotFieldProps) {
     }
   }
 
+  function onManualChange(value: number) {
+    updateSave((save) => (save.plot = value));
+  }
+
   const selectedItem = items.find((item) => item.value === plot) ?? null;
 
   const description = `
@@ -50,14 +55,22 @@ export function PlotField({ id, className }: PlotFieldProps) {
       description={description}
       label
     >
-      <Select
-        items={items}
-        placeholder={t('ui.field.selectPlotPoint', 'Select a plot point...')}
-        label={t('ui.field.plotPoint', 'Plot Point')}
-        defaultSelectedItem={selectedItem}
-        selectedItem={selectedItem}
-        onSelectionChange={onChange}
-      />
+      {allowManualEntry ? (
+        <NumberInput
+          value={plot}
+          onChange={onManualChange}
+          placeholder={t('ui.field.plotPoint', 'Plot Point')}
+        />
+      ) : (
+        <Select
+          items={items}
+          placeholder={t('ui.field.selectPlotPoint', 'Select a plot point...')}
+          label={t('ui.field.plotPoint', 'Plot Point')}
+          defaultSelectedItem={selectedItem}
+          selectedItem={selectedItem}
+          onSelectionChange={onChange}
+        />
+      )}
     </FieldWrapper>
   );
 }

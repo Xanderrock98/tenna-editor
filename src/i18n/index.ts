@@ -217,6 +217,7 @@ const UI_FALLBACKS: TranslationDictionary = {
   'ui.home.modifiedAt': 'Modified at: {date}',
   'ui.home.noSaveLoaded': 'No save loaded',
   'ui.home.saveDeleted': 'Save deleted.',
+  'ui.home.allowManualPlotEntry': 'Allow manual plot point entry',
   'ui.home.showDogcheckedRooms': 'Show dogchecked rooms',
   'ui.home.showRoomsWithoutSavePoint': 'Show rooms without save point',
   'ui.home.source': 'Source:',
