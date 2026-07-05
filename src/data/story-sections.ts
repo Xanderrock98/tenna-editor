@@ -1444,6 +1444,8 @@ export const STORY_SECTIONS = {
       id: 'all-flags-ch5',
       title: 'All flags',
       flags: [
+        'OBTAINED_PETAL_FEATHER',
+        'RALSEI_HAT_STATE_CH5',
         'PINK_COINS',
         'PINK_PROGRESS',
         'VOICE_CLIPS_ENABLED',
