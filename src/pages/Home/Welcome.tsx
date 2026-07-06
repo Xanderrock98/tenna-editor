@@ -63,7 +63,7 @@ export function HomeWelcome() {
                 'Your DELTARUNE save files are typically located in the following directories:',
               )}
             </p>
-            <ul className="list-disc pl-5 break-words">
+            <ul className="list-disc pl-5 wrap-break-word">
               <li>
                 Windows:{' '}
                 <span className="font-mono">%LOCALAPPDATA%\DELTARUNE</span>
@@ -79,6 +79,24 @@ export function HomeWelcome() {
                 <span className="font-mono">
                   ~/.steam/steam/steamapps/compatdata/1671210/pfx/drive_c/users/steamuser/AppData/Local/DELTARUNE/
                 </span>
+                <br />
+                {t('ui.home.deltaportNote', "If you're using")}{' '}
+                <a
+                  href="https://github.com/pugdev3/deltaport"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="underline"
+                >
+                  deltaport
+                </a>{' '}
+                (
+                {t(
+                  'ui.home.deltaportUnofficial',
+                  'an unofficial native Linux port',
+                )}
+                ),{' '}
+                {t('ui.home.deltaportNoteSuffix', 'your saves are located at')}{' '}
+                <span className="font-mono">~/.config/DELTARUNE/</span>
               </li>
             </ul>
           </div>
