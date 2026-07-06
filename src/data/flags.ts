@@ -1043,15 +1043,58 @@ export const FLAGS = {
   SWORDROUTE_SODA: 1278,
   RAISE_BAT_HARD_HISCORE: 1279,
   RAISE_BAT_HARD_HIRANK: 1280,
+  SPAWNED_TROPICAL_STARWALKER: 1309,
   RALSEI_HAT_STATE_CH5: 1311,
   PINK_COINS: 1312,
+  STRONGEST_AQUA_ATTACK: 1313,
+  WATCHED_FLOWERY_ASGORE_FISHING: 1315,
+  WATCHED_COWBOY_SHOW: 1319,
+  // Chapter 5 Festival
+  SUSIES_OUTFIT_OPINION: 1322,
+  ADVENTURES_EXPLANATION: 1323,
+  HOMETOWN_FESTIVAL_STATE: 1324,
+  INTERACTED_WITH_MEWMEW_DOLL: 1326,
+  TALKED_TO_ASGORE_FESTIVAL: 1327,
+  TALKED_TO_ASGORE_BEFORE_FESTIVAL: 1328,
+  LISTENED_TO_ASGORES_SERIOUS_TOPIC: 1329,
+  LOOKED_AT_ASGORES_ROSES: 1330,
+  TALKED_TO_ASGORES_FLOWERS: 1331,
+  ITEM_HELD_DURING_ROOM_TRANSITION: 1332,
+  FESTIVAL_KING: 1333,
+  FESTIVAL_QUEEN: 1334,
+  SHOWED_KINGQUEEN_VOTE: 1335,
+  JOCKINGTON_GREW_THE_BEARD: 1336,
+  BERDLY_FESTIVAL_CUTSCENE: 1337,
+  BERDLY_POEM_LISTENED: 1338,
+  BERDLY_POEM_RESPONSE: 1339,
+  FLORADINN_FLATTER_AMOUNT: 1340,
+  FLORADINN_CONVINCE_AMOUNT: 1341,
+  FLORADINN_FLIRTS_AMOUNT: 1342,
+  BERDLY_BROKEN_ARM_FESTIVAL: 1343,
+  SANS_PUNCH_CARD_DRAWING: 1344,
+  SUSIE_ATE_ONIONSAN: 1345,
+  NOELLE_ATE_ONIONSAN: 1346,
+  KRIS_ATE_ONIONSAN: 1347,
+  PLAYED_DUNK_TANK: 1348,
+  TALKED_TO_VULKIN: 1350,
+  SCARED_CHILD_RABBIT: 1351,
+  WHO_RODE_FERRIS_WHEEL: 1352,
+  KRIS_NOELLE_FERRIS_WHEEL_OUTCOME: 1353,
+  KRIS_NOELLE_FERRIS_WHEEL_CHOICE: 1354,
+  KRIS_SUSIE_FERRIS_WHEEL_CHOICE: 1355,
+  SUSIE_NOELLE_FERRIS_WHEEL_CHOICE: 1356,
+  FLOWER_KING_DARK_WORLD_LEAVE_ATTEMPTS: 1358,
   SCISSORS_PUZZLE_FLAGS: 1365,
+  KOOBY_DEVELOPED: 1372,
   VOICE_CLIPS_ENABLED: 1391,
   HOPSCHEF_PROGRESS_FLAG: 1399,
   RIBBON_CHEST_STATE: 1404,
   FLOWERY_DOLLARS: 1411,
   TALKED_TORIEL_TOAST_REQUEST: 1435,
+  TORIEL_TOAST_REQUEST_TOILET_FLUSH: 1436,
+  PUT_TOAST_IN_MICROWAVE: 1437,
   LOOKED_AT_MICROWAVE: 1438,
+  GAVE_TORIEL_TOAST: 1439,
   CASTLE_CLIMB_HISCORE: 1440,
   SEEN_HOW_TO_DRAW_DRAGONS: 1443,
   // Chapter 5 Thrash Fit
@@ -1240,6 +1283,23 @@ export const FLAGS = {
   UNLOCKED_MIKE_MINIGAMES: 1702,
   OBTAINED_TV_ZONE_3_CHEST: 1703,
   KRIS_NOELLE_ESCAPE_WEIRD_ABORT: 1704,
+  TRIED_TO_ENTER_CHURCH_WEIRDROUTE: 1734,
+  ASKED_CATTY_DAD_KINGQUEEN: 1738,
+  WEIRD_ROUTE_STOP_COUNT: 1742,
+  WEIRD_ROUTE_FAIL_CH5: 1743,
+  TORIEL_TOAST_TIMER: 1745,
+  TALKED_TORIEL_HOW_YOU_SLEPT: 1746,
+  TALKED_TORIEL_LAST_NIGHT: 1747,
+  KNOCK_TOGETHER: 1748,
+  TRASHY_TRIO_NPC_INTERACTIONS: 1749,
+  TERRACOTA_BATTLE_TALK: 1750,
+  TRIED_GOING_HOME_DURING_FESTIVAL: 1751,
+  NETSKIE_BATTLE_TALK: 1752,
+  GUESSED_DONUT_GUY_SPENT_MONEY: 1753,
+  SUSIE_MENTIONED_JACKENSTEIN: 1754,
+  METTATON_HOUSE_VOICES: 1755,
+  SUGGESTED_TENNA_TO_METTATON_CH5: 1756,
+  SUSIE_DINER_RESPONSE: 1757,
   // Chapter 4 encounters
   BALTHIZARD_ENCOUNTER_OUTCOME: 1780,
   BALTHIZARD_OLDMAN_ENCOUNTER_OUTCOME: 1781,
@@ -1260,11 +1320,13 @@ export const FLAGS = {
   BIBLIOX_ENCOUNTER_OUTCOME: 1796,
   SCENTED_CANDLES_ENCOUNTER_OUTCOME: 1797,
   SECOND_MIZZLE_ENCOUNTER_OUTCOME: 1798,
+  INTERACTED_WITH_ASGORES_FLOWERS_WEIRDROUTE: 1807,
+  SUSIE_MADE_LEMONADE_WEIRDROUTE: 1808,
+  PINK_PROGRESS: 1846,
+  SUSIE_FLOWER_CROWN_WEIRDROUTE: 1883,
   PLATMODE_JUMP_COUNT: 1904,
   PLATMODE_SWING_COUNT: 1905,
   DEFEATED_PINK: 1908,
-  TALKED_TORIEL_LAST_NIGHT: 1747,
-  PINK_PROGRESS: 1846,
 } as const;
 
 export type FlagIndex = (typeof FLAGS)[keyof typeof FLAGS];
@@ -3604,7 +3666,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     displayName: 'Ride With Me',
     unused: true,
     description:
-      "Whether you said 'Noelle will ride with me' on Snowgrave. Unaccessed.",
+      "Whether you said 'Noelle will ride with me' on Snowgrave.",
     valueType: 'boolean',
   },
   [FLAGS.DEFEATED_SNOWGRAVE_NEO]: {
@@ -8026,10 +8088,14 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       map: GAMESHOW_RANKS,
     },
   },
+  [FLAGS.SPAWNED_TROPICAL_STARWALKER]: {
+    displayName: 'Spawned Tropical Starwalker',
+    description: 'Activated the bell that spawns Tropical Starwalker and drops the pink chest.',
+    valueType: 'boolean',
+  },
   [FLAGS.RALSEI_HAT_STATE_CH5]: {
-    displayName: 'Ralsei hat state (Chapter 5)',
-    description:
-      "Whether Ralsei is wearing his hat in Chapter 5",
+    displayName: 'Ralsei hat state',
+    description: 'Whether Ralsei is wearing his hat in Chapter 5.',
     valueType: 'boolean',
   },
   [FLAGS.PINK_COINS]: {
@@ -8066,11 +8132,340 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       },
     },
   },
+  [FLAGS.STRONGEST_AQUA_ATTACK]: {
+    displayName: 'Strongest Aqua attack',
+    description: 'Which of Aqua\'s attacks you got hit most from.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Didn\'t take any hits',
+        1: 'KnifeChain',
+        2: 'FanOfKnives',
+        3: 'KnifePetal',
+        4: 'OmegaKnife',
+      },
+    },
+  },
+  [FLAGS.WATCHED_FLOWERY_ASGORE_FISHING]: {
+    displayName: 'Watched Flowery and Asgore\'s fishing trip',
+    description: 'If you watched Flowery and Asgore\'s fishing trip.',
+    valueType: 'boolean',
+  },
+  [FLAGS.WATCHED_COWBOY_SHOW]: {
+    displayName: 'Times Cowboy show was watched',
+    description: 'Amount of times you watched Yellow\'s cowboy show made for Asgore.',
+    valueType: 'number',
+  },
+  [FLAGS.SUSIES_OUTFIT_OPINION]: {
+    displayName: 'How Susie\'s outfit looks in the Light World',
+    description: 'Response to how Susie\'s outfit looks in the Light World.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Great',
+        2: 'Like trash',
+      },
+    },
+  },
+  [FLAGS.ADVENTURES_EXPLANATION]: {
+    displayName: 'Explanation of adventures',
+    description: '"Explanation" of Kris and Susie\'s adventures to Noelle.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Adventures, like Quests',
+        2: 'Pretend to be a dog',
+      },
+    },
+  },
+  [FLAGS.HOMETOWN_FESTIVAL_STATE]: {
+    displayName: 'Hometown festival state',
+    description: 'Current state of the Festival.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Morning (Pre-Festival)',
+        1: 'Afternoon (During Festival)',
+        2: 'Evening (After Festival)',
+        3: 'Night (After exiting the Dark World)',
+      },
+    },
+  },
+  [FLAGS.INTERACTED_WITH_MEWMEW_DOLL]: {
+    displayName: 'Interacted with Asgore\'s Mew Mew figure',
+    description: 'Interacted with Asgore\'s Mew Mew Kissy Cutie figure during the Festival.',
+    valueType: 'boolean',
+  },
+  [FLAGS.TALKED_TO_ASGORE_FESTIVAL]: {
+    displayName: 'Talked to Asgore',
+    description: 'Talked to Asgore during the Festival.',
+    valueType: 'boolean',
+  },
+  [FLAGS.TALKED_TO_ASGORE_BEFORE_FESTIVAL]: {
+    displayName: 'Response to Asgore before Festival',
+    description: 'Response to Asgore telling you about him and Toriel being voted Festival King and Queen.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'You tell me every year',
+        2: 'I didn\'t know that',
+        3: 'I\'m good',
+      },
+    },
+  },
+  [FLAGS.LISTENED_TO_ASGORES_SERIOUS_TOPIC]: {
+    displayName: 'Response to Asgore\'s serious topic',
+    description: 'Response to Asgore asking if he can bring up a serious topic when talking to him before the Festival.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Maybe later',
+        2: 'Yes please',
+      },
+    },
+  },
+  [FLAGS.LOOKED_AT_ASGORES_ROSES]: {
+    displayName: 'Anyone needs a romantic moment',
+    description: 'Looked at Asgore\'s roses and said if anyone needed a romantic moment.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Yes absolutely definitely',
+        2: 'No',
+      },
+    },
+  },
+  [FLAGS.TALKED_TO_ASGORES_FLOWERS]: {
+    displayName: 'Talked to Asgore\'s flowers',
+    description: 'Talked to Asgore\'s flowers during the Festival.',
+    valueType: 'boolean',
+  },
+  [FLAGS.ITEM_HELD_DURING_ROOM_TRANSITION]: {
+    displayName: 'Item held during room transition',
+    description: 'Volatile. Keeps track of the item you had on your head before entering a new room if that room keeps the item.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'None',
+        1: 'Watering Can',
+        2: 'Watering Can (being used)',
+        3: 'Pinwheel (Unused?)',
+      },
+    },
+  },
+  [FLAGS.FESTIVAL_KING]: {
+    displayName: 'Festival King',
+    description: 'Who you voted as Festival King during the festival.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Kris',
+        2: 'Susie',
+        3: 'Noelle',
+        4: 'Berdly',
+      },
+    },
+  },
+  [FLAGS.FESTIVAL_QUEEN]: {
+    displayName: 'Festival Queen',
+    description: 'Who you voted as Festival Queen during the festival.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Kris',
+        2: 'Susie',
+        3: 'Noelle',
+        4: 'Queen',
+      },
+    },
+  },
+  [FLAGS.SHOWED_KINGQUEEN_VOTE]: {
+    displayName: 'What you did with the ballot',
+    description: 'What you did with the Festival King & Queen ballot.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Show to Noelle and Vote',
+        2: 'Vote Without Showing Noelle',
+      },
+    },
+  },
+  [FLAGS.JOCKINGTON_GREW_THE_BEARD]: {
+    displayName: 'Jockington grew the beard',
+    description: 'Whether you talked to Jockington and watched him grow a beard',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Talked to Jockington',
+        2: 'Jockington grew the beard',
+      },
+    },
+  },
+  [FLAGS.BERDLY_FESTIVAL_CUTSCENE]: {
+    displayName: 'Berdly Festival Cutscene',
+    description: 'Encountered Berdly on your way to the beach.',
+    valueType: 'boolean',
+  },
+  [FLAGS.BERDLY_POEM_LISTENED]: {
+    displayName: 'Listened to Berdly\'s poem',
+    description: 'Listened to Berdly\'s poem for Noelle to use on Susie.',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Yes',
+        2: 'No',
+      },
+    },
+  },
+  [FLAGS.BERDLY_POEM_RESPONSE]: {
+    displayName: 'Berdly poem response',
+    description: 'Thoughts on Berdly\'s poem.',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'ME LIKE!!!!',
+        2: 'That sucked so bad man.',
+      },
+    },
+  },
+  [FLAGS.FLORADINN_FLATTER_AMOUNT]: {
+    displayName: 'Times you flattened Floradinn',
+    description: 'Amount of times you flattened Floradinn using the Flatter act.',
+    valueType: 'number',
+  },
+  [FLAGS.FLORADINN_CONVINCE_AMOUNT]: {
+    displayName: 'Times Ralsei convinced Floradinn',
+    description: 'Amount of times Ralsei convinced Floradinn using the Convince act.',
+    valueType: 'number',
+  },
+  [FLAGS.FLORADINN_FLIRTS_AMOUNT]: {
+    displayName: 'Times flirted with Floradinn',
+    description: 'Amount of times you or Susie flirted with Floradinn using the FlirtS act.',
+    valueType: 'number',
+  },
+  [FLAGS.BERDLY_BROKEN_ARM_FESTIVAL]: {
+    displayName: 'Talked to Berdly about his broken arm',
+    description: 'Noelle talked to Berdly about his broken arm during the Festival.',
+    valueType: 'boolean',
+  },
+  [FLAGS.SANS_PUNCH_CARD_DRAWING]: {
+    displayName: 'Susie drew her friends for Sans',
+    description: 'If Susie drew her friends on the card for Sans.',
+    valueType: 'boolean',
+  },
+  [FLAGS.SUSIE_ATE_ONIONSAN]: {
+    displayName: 'Susie ate "Fried dough ball of Octopus"',
+    description: 'If gave a "Fried dough ball of Octopus" to Susie.',
+    valueType: 'boolean',
+  },
+  [FLAGS.NOELLE_ATE_ONIONSAN]: {
+    displayName: 'Noelle ate "Fried dough ball of Octopus"',
+    description: 'If gave a "Fried dough ball of Octopus" to Noelle.',
+    valueType: 'boolean',
+  },
+  [FLAGS.KRIS_ATE_ONIONSAN]: {
+    displayName: 'You ate "Fried dough ball of Octopus"',
+    description: 'If you tried a "Fried dough ball of Octopus".',
+    valueType: 'boolean',
+  },
+  [FLAGS.PLAYED_DUNK_TANK]: {
+    displayName: 'Played dunk tank',
+    description: 'If you dunked Purple Guy into the water tank during the Festival.',
+    valueType: 'boolean',
+  },
+  [FLAGS.TALKED_TO_VULKIN]: {
+    displayName: 'Talked to Vulkin',
+    description: 'Talked to Vulkin during the Festival.',
+    valueType: 'boolean',
+  },
+  [FLAGS.SCARED_CHILD_RABBIT]: {
+    displayName: 'Scared child rabbit',
+    description: 'If Susie scared the child rabbit during the Festival.',
+    valueType: 'boolean',
+  },
+  [FLAGS.WHO_RODE_FERRIS_WHEEL]: {
+    displayName: 'Who rode the ferris wheel',
+    description: 'Who rode Sans\' ferris wheel during the Festival.',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Kris and Noelle',
+        2: 'Kris and Susie',
+        3: 'Susie and Noelle',
+        4: 'Chose not to ride',
+      },
+    },
+  },
+  [FLAGS.KRIS_NOELLE_FERRIS_WHEEL_OUTCOME]: {
+    displayName: 'Kris and Noelle ferris wheel outcome',
+    description: 'Outcome of riding the ferris wheel with Noelle.',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Rejected because you didn\'t vote Susie and Noelle for Festival King and Queen',
+        2: 'Rejected because you said Noelle will ride with you in Chapter 2 during the Weird Route',
+        3: 'Rode the wheel with Noelle',
+        4: 'Rode the wheel with Noelle in the unused aborted Weird Route cutscene',
+      },
+    },
+  },
+  [FLAGS.KRIS_NOELLE_FERRIS_WHEEL_CHOICE]: {
+    displayName: 'Kris and Noelle ferris wheel choice',
+    description: 'What you did in the ferris wheel with Noelle.',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Shake the Ferris wheel',
+        2: 'Sit silently',
+      },
+    },
+  },
+  [FLAGS.KRIS_SUSIE_FERRIS_WHEEL_CHOICE]: {
+    displayName: 'Kris and Susie ferris wheel choice',
+    description: 'What you did in the ferris wheel with Susie.',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Make heart with hands',
+        2: 'Rude gesture',
+      },
+    },
+  },
+  FLAGS.SUSIE_NOELLE_FERRIS_WHEEL_CHOICE]: {
+    displayName: 'Susie and Noelle ferris wheel choice',
+    description: 'What you did when Susie and Noelle were in the ferris wheel.',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Close eyes think about what they\'re doing now',
+        2: 'Think about other things',
+      },
+    },
+  },
+  [FLAGS.FLOWER_KING_DARK_WORLD_LEAVE_ATTEMPTS]: {
+    displayName: 'Dark world leave attempts',
+    description: 'Amount of times you attempted to leave the dark world early.',
+    valueType: 'number',
+  },
   [FLAGS.SCISSORS_PUZZLE_FLAGS]: {
     displayName: 'Scissors puzzle flags',
     description: 'Raw bitfield state for Chapter 5 scissors puzzle progress.',
     valueType: 'number',
     valueRules: { min: 0 },
+  },
+  [FLAGS.KOOBY_DEVELOPED]: {
+    displayName: 'Kooby developed',
+    description: 'If you watered Kooby, causing him to develop.',
+    valueType: 'boolean',
   },
   [FLAGS.HOPSCHEF_PROGRESS_FLAG]: {
     displayName: 'Hop Chef progress',
@@ -8098,6 +8493,21 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     description: 'Your amount of Flowery Dollars.',
     valueType: 'number',
   },
+  [FLAGS.WEIRD_ROUTE_STOP_COUNT]: {
+    displayName: 'Weird Route "Stop" count',
+    description: 'Amount of times you said "Stop" during the Weird Route lake cutscene.',
+    valueType: 'number',
+  },
+  [FLAGS.WEIRD_ROUTE_FAIL_CH5]: {
+    displayName: 'Nothing changed',
+    description: 'Aborted the Weird Route at the lake.',
+    valueType: 'boolean',
+  },
+  [FLAGS.TORIEL_TOAST_TIMER]: {
+    displayName: 'Microwave toast timer',
+    description: 'Volatile. Used to keep track of the microwave timer during Toriel\'s toast request.',
+    valueType: 'number',
+  },
   [FLAGS.TALKED_TORIEL_TOAST_REQUEST]: {
     displayName: 'Toriel toast request',
     description: 'Toriel toast request answer.',
@@ -8106,13 +8516,36 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       map: {
         0: 'Default state',
         1: 'Yes',
-        2: "I'm busy",
+        2: 'I\'m busy',
       },
     },
+  },
+  [FLAGS.TORIEL_TOAST_REQUEST_TOILET_FLUSH]: {
+    displayName: 'Toriel toast request toilet flushes',
+    description: 'Handles dialogue relating to flushing the toilet during Toriel\'s toast request.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Flushed three or more times before talking to Toriel',
+        2: 'Flushed again after saying "I\'m busy"',
+        3: 'Talked to Toriel after flushing the toilet again',
+      },
+    },
+  },
+  [FLAGS.PUT_TOAST_IN_MICROWAVE]: {
+    displayName: 'Put toast in microwave',
+    description: 'Put toast in microwave for Toriel.',
+    valueType: 'boolean',
   },
   [FLAGS.LOOKED_AT_MICROWAVE]: {
     displayName: 'Looked at microwave',
     description: 'Looked at microwave while it was running.',
+    valueType: 'boolean',
+  },
+  [FLAGS.GAVE_TORIEL_TOAST]: {
+    displayName: 'Gave Toriel toast',
+    description: 'If you gave Toriel the toast.',
     valueType: 'boolean',
   },
   [FLAGS.CASTLE_CLIMB_HISCORE]: {
@@ -8203,9 +8636,21 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       },
     },
   },
+  [FLAGS.TALKED_TORIEL_HOW_YOU_SLEPT]: {
+    displayName: 'Talked with Toriel about your sleep',
+    description: 'Talked with Toriel about how you slept.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Fine and dandy',
+        2: 'Terrible.',
+      },
+    },
+  },
   [FLAGS.TALKED_TORIEL_LAST_NIGHT]: {
-    displayName: 'Talked with Toriel last night',
-    description: 'Talked with Toriel about her behavior night before Festival.',
+    displayName: 'Talked with Toriel about last night',
+    description: 'Talked with Toriel about her behavior on the night before the Festival.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -8214,6 +8659,100 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
         2: 'You were way too loud',
       },
     },
+  },
+  [FLAGS.KNOCK_TOGETHER]: {
+    displayName: 'Knocked together',
+    description: 'Did a team knock on the apartment door with Susie and Noelle.',
+    valueType: 'boolean',
+  },
+  [FLAGS.TRASHY_TRIO_NPC_INTERACTIONS]: {
+    displayName: 'Trashy Trio Interactions',
+    description: 'Which members of the Trashy Trio near the right door of Castle Town you interacted with.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'None',
+        1: 'Ball Person',
+        2: 'Trashy',
+        4: 'Nubert',
+		3: 'Ball Person & Trashy',
+        5: 'Ball Person & Nubert',
+        6: 'Trashy & Nubert',
+        7: 'Ball Person, Trashy, & Nubert',
+      },
+    },
+  },
+  [FLAGS.TRIED_GOING_HOME_DURING_FESTIVAL]: {
+    displayName: 'Tried going to your house',
+    description: 'Tried going back to your house during the festival.',
+    valueType: 'boolean',
+  },
+  [FLAGS.GUESSED_DONUT_GUY_SPENT_MONEY]: {
+    displayName: 'Guessed what Donut Guy spent his allowance on',
+    description: 'Guessed what Donut Guy spent his allowance on outside the fried dough balls stand.',
+    valueType: 'boolean',
+  },
+  [FLAGS.SUSIE_MENTIONED_JACKENSTEIN]: {
+    displayName: 'Interacted with pumpkins outside church',
+    description: 'Interected with the pumpkins outside the church, causing Susie to accidentally mention stealing Jackenstein to Noelle.',
+    valueType: 'boolean',
+  },
+  [FLAGS.METTATON_HOUSE_VOICES]: {
+    displayName: 'Mettaton house voices listened to',
+    description: 'Which voices coming from Mettaton\'s house you listened to.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'None',
+        1: 'Angry voice',
+        4: 'Glamorous voice',
+        5: 'Angry voice and glamorous voice',
+        8: 'Listened with Tenna broken',
+      },
+    },
+  },
+  [FLAGS.SUGGESTED_TENNA_TO_METTATON_CH5]: {
+    displayName: 'Suggested Tenna',
+    description: "Suggested Tenna to Mettaton in Chapter 5, if it wasn't repaired.",
+    valueType: 'boolean',
+  },
+  [FLAGS.TERRACOTA_BATTLE_TALK]: {
+    displayName: 'Terracota talked during battle',
+    description: 'If Terracota talked once during a battle.',
+    valueType: 'boolean',
+  },
+  [FLAGS.NETSKIE_BATTLE_TALK]: {
+    displayName: 'Netskie talked during battle',
+    description: 'If Netskie talked once during a battle.',
+    valueType: 'boolean',
+  },
+  [FLAGS.SUSIE_DINER_RESPONSE]: {
+    displayName: 'Response to Susie about the diner and buying a cinnamon bunny',
+    description: 'Response to Susie about having another diner hangout. This flag is also used for Noelle buying a mega cinnamon bunny for Susie.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: '(Try to include Noelle!)',
+        2: 'Exactly',
+        4: 'Noelle bought a mega cinnamon bunny for Susie',
+      },
+    },
+  },
+  [FLAGS.INTERACTED_WITH_ASGORES_FLOWERS_WEIRDROUTE]: {
+    displayName: 'Interacted with Asgore\'s flowers',
+    description: 'Interacted with Asgore\'s flowers during the Weird Route.',
+    valueType: 'boolean',
+  },
+  [FLAGS.SUSIE_MADE_LEMONADE_WEIRDROUTE]: {
+    displayName: 'Susie made lemonade',
+    description: 'If Susie made free lemonade at the food stand during the Weird Route.',
+    valueType: 'boolean',
+  },
+  [FLAGS.SUSIE_FLOWER_CROWN_WEIRDROUTE]: {
+    displayName: 'Susie made a flower crown',
+    description: 'If Susie put a flower crown on your head during the Weird Route.',
+    valueType: 'boolean',
   },
   [FLAGS.PLATMODE_JUMP_COUNT]: {
     displayName: 'Platform mode jump count',
@@ -8783,7 +9322,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.SUGGESTED_TENNA_TO_METTATON]: {
     displayName: 'Suggested Tenna',
-    description: "Suggested Tenna to Mettaton, if it wasn't repaired.",
+    description: "Suggested Tenna to Mettaton in Chapter 4, if it wasn't repaired.",
     valueType: 'boolean',
   },
   [FLAGS.INTERACTED_WITH_TV_FIXED]: {
@@ -9483,6 +10022,16 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
         2: 'Got put back in closet',
       },
     },
+  },
+  [FLAGS.TRIED_TO_ENTER_CHURCH_WEIRDROUTE]: {
+    displayName: 'Tried to enter church',
+    description: 'Tried to enter the church during the Weird Route.',
+    valueType: 'boolean',
+  },
+  [FLAGS.ASKED_CATTY_DAD_KINGQUEEN]: {
+    displayName: 'Asked Catty\'s dad about Festival King and Queen',
+    description: 'Asked Catty\'s dad about the Festival King and Queen vote.',
+    valueType: 'boolean',
   },
   [FLAGS.BALTHIZARD_ENCOUNTER_OUTCOME]: {
     displayName: 'Balthizard',
