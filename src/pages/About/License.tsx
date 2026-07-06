@@ -21,6 +21,10 @@ freely, subject to the following restrictions:
    misrepresented as being the original software.
 3. This notice may not be removed or altered from any source distribution.
 
+Name And Branding Notice
+
+The "Tenna Editor" name, logo, icons, and branding assets are not covered by the zlib License and remain reserved by the author. They may not be used to brand other instances or derivatives of this project. Forks and rehosted copies must use their own name and branding, must not misrepresent the origin of the software, and must be plainly marked as altered versions. The official instance is available at https://tennaproject.com. See BRANDING.md in the source repository for details.
+
 DELTARUNE™ Assets Notice
 
 The files located under the directory /src/assets/deltarune/ are assets from the DELTARUNE™ which are copyrighted by Toby Fox. These assets are included in this project under the fair use. This project is non-commercial and transformative in nature. No endorsement by Toby Fox or any related entities is implied.
