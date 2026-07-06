@@ -1304,6 +1304,16 @@ export const FLAGS = {
   LOOKED_IN_BRATTYS_HOUSE: 1758,
   THOUGHTS_ON_SANS: 1759,
   INTERACTED_WITH_GIANT_TEACUP: 1760,
+  SANS_SIGN_INTERACTION_CH5: 1761,
+  TEM_DRAW_CARICATURE: 1766,
+  SKIPPED_FESTIVAL: 1767,
+  ASKED_PINK_ABOUT_PLACE: 1768,
+  ASKED_PINK_ABOUT_NAME: 1769,
+  ASKED_PINK_ABOUT_OTHER_PEOPLE: 1770,
+  MIKE_CUTSCENE_CH5: 1771,
+  GREETED_JONGLER: 1772,
+  GREETED_BATTAT: 1773,
+  GREETED_PLUEY: 1774,
   // Chapter 4 encounters
   BALTHIZARD_ENCOUNTER_OUTCOME: 1780,
   BALTHIZARD_OLDMAN_ENCOUNTER_OUTCOME: 1781,
@@ -1327,6 +1337,7 @@ export const FLAGS = {
   INTERACTED_WITH_ASGORES_FLOWERS_WEIRDROUTE: 1807,
   SUSIE_MADE_LEMONADE_WEIRDROUTE: 1808,
   PINK_PROGRESS: 1846,
+  INTERACTED_WITH_MIKE_DOOR_WITHOUT_MIKE_BATTLE: 1854,
   SUSIE_FLOWER_CROWN_WEIRDROUTE: 1883,
   PLATMODE_JUMP_COUNT: 1904,
   PLATMODE_SWING_COUNT: 1905,
@@ -8123,6 +8134,23 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       },
     },
   },
+  [FLAGS.INTERACTED_WITH_MIKE_DOOR_WITHOUT_MIKE_BATTLE]: {
+    displayName: 'Interacted with Michaeldoor without context',
+    description: 'Whether you interacted with the Michaeldoor in Chapter 5 without battling them in Chapter 4.',
+    valueType: 'boolean',
+  },
+  [FLAGS.AMOUNT_OF_GIANT_TEACUPS]: {
+    displayName: 'Amount of giant teacups',
+    description: 'The last amount of giant teacups run by Sans. Switches to the opposite amount when going over to them.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'One',
+        2: 'Two',
+      },
+    },
+  },
   [FLAGS.VOICE_CLIPS_ENABLED]: {
     displayName: 'Voice Clips',
     description: 'Voice Clips toggle in settings.',
@@ -8771,6 +8799,78 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     displayName: 'Interacted with giant teacup',
     description: 'Interacted with giant teacup during the festival.',
     valueType: 'boolean',
+  },
+  [FLAGS.SANS_SIGN_INTERACTION_CH5]: {
+    displayName: 'Interacted with Sans\'s shop sign',
+    description: 'Interacted with Sans\'s shop sign during the festival in either the normal or weird route.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Susie talked to Noelle about it being wrong in normal route',
+        2: 'Susie changed sign to say "NOPE" during Weird Route',
+      },
+    },
+  },
+  [FLAGS.TEM_DRAW_CARICATURE]: {
+    displayName: 'Tem draw caricature',
+    description: 'If Tem drew a caricature. Unaccessed as of Chapter 5.',
+    valueType: 'boolean',
+  },
+  [FLAGS.SKIPPED_FESTIVAL]: {
+    displayName: 'Skipped the Festival',
+    description: 'Whether you went back to bed to skip the Festival in Chapter 5.',
+    valueType: 'boolean',
+  },
+  [FLAGS.ASKED_PINK_ABOUT_PLACE]: {
+    displayName: 'Asked Pink "What is this place?"',
+    description: 'Whether you asked Pink "What is this place?" in her shop.',
+    valueType: 'boolean',
+  },
+  [FLAGS.ASKED_PINK_ABOUT_NAME]: {
+    displayName: 'Asked Pink about her name',
+    description: 'Whether you asked Pink about her name in her shop.',
+    valueType: 'boolean',
+  },
+  [FLAGS.ASKED_PINK_ABOUT_OTHER_PEOPLE]: {
+    displayName: 'Asked Pink about other people',
+    description: 'Whether you asked Pink about other people in her shop.',
+    valueType: 'boolean',
+  },
+  [FLAGS.MIKE_CUTSCENE_CH5]: {
+    displayName: 'Mike cutscene state',
+    description: 'Tracks your progress in the Mike cutscenes.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Knocked lightly on Michaeldoor',
+        2: 'Knocked gloobily',
+        3: 'Can enter the room',
+      },
+    },
+  },
+  [FLAGS.GREETED_JONGLER]: {
+    displayName: 'Greeted Cowboy Hat Mike',
+    description: 'Whether you greeted Cowboy Hat Mike in the Mike room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.GREETED_BATTAT]: {
+    displayName: 'Asked Small Mike to play a game',
+    description: 'Whether you asked Small Mike to play a game in the Mike room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.GREETED_PLUEY]: {
+    displayName: 'Cat Mike/Pluey Greeting',
+    description: 'What you can currently call Cat Mike/Pluey when interacting with him in the Mike room.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Call him "Pluey"',
+        2: 'Call him "Cat Mike"',
+      },
+    },
   },
   [FLAGS.INTERACTED_WITH_ASGORES_FLOWERS_WEIRDROUTE]: {
     displayName: 'Interacted with Asgore\'s flowers',
