@@ -1530,6 +1530,9 @@ export const STORY_SECTIONS = {
             'SUSIE_MENTIONED_JACKENSTEIN',
             'METTATON_HOUSE_VOICES',
             'SUGGESTED_TENNA_TO_METTATON_CH5',
+            'LOOKED_IN_BRATTYS_HOUSE',
+            'THOUGHTS_ON_SANS',
+            'INTERACTED_WITH_GIANT_TEACUP',
           ],
         },
         {

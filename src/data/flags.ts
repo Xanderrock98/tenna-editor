@@ -1086,6 +1086,7 @@ export const FLAGS = {
   FLOWER_KING_DARK_WORLD_LEAVE_ATTEMPTS: 1358,
   SCISSORS_PUZZLE_FLAGS: 1365,
   KOOBY_DEVELOPED: 1372,
+  AMOUNT_OF_GIANT_TEACUPS: 1390,
   VOICE_CLIPS_ENABLED: 1391,
   HOPSCHEF_PROGRESS_FLAG: 1399,
   RIBBON_CHEST_STATE: 1404,
@@ -1300,6 +1301,9 @@ export const FLAGS = {
   METTATON_HOUSE_VOICES: 1755,
   SUGGESTED_TENNA_TO_METTATON_CH5: 1756,
   SUSIE_DINER_RESPONSE: 1757,
+  LOOKED_IN_BRATTYS_HOUSE: 1758,
+  THOUGHTS_ON_SANS: 1759,
+  INTERACTED_WITH_GIANT_TEACUP: 1760,
   // Chapter 4 encounters
   BALTHIZARD_ENCOUNTER_OUTCOME: 1780,
   BALTHIZARD_OLDMAN_ENCOUNTER_OUTCOME: 1781,
@@ -8440,7 +8444,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       },
     },
   },
-  FLAGS.SUSIE_NOELLE_FERRIS_WHEEL_CHOICE]: {
+  [FLAGS.SUSIE_NOELLE_FERRIS_WHEEL_CHOICE]: {
     displayName: 'Susie and Noelle ferris wheel choice',
     description: 'What you did when Susie and Noelle were in the ferris wheel.',
     valueRules: {
@@ -8738,6 +8742,35 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
         4: 'Noelle bought a mega cinnamon bunny for Susie',
       },
     },
+  },
+  [FLAGS.LOOKED_IN_BRATTYS_HOUSE]: {
+    displayName: 'Looked in Bratty\'s house',
+    description: 'If you looked in Bratty\'s house in the normal route or weird route.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Yes (Normal route)',
+        2: 'Yes (Weird route)',
+      },
+    },
+  },
+  [FLAGS.THOUGHTS_ON_SANS]: {
+    displayName: 'Thoughts on Sans',
+    description: 'Your answer to why you\'re talking to Sans.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'We hate him, that\'s why',
+        2: 'We kinda looove him',
+      },
+    },
+  },
+  [FLAGS.INTERACTED_WITH_GIANT_TEACUP]: {
+    displayName: 'Interacted with giant teacup',
+    description: 'Interacted with giant teacup during the festival.',
+    valueType: 'boolean',
   },
   [FLAGS.INTERACTED_WITH_ASGORES_FLOWERS_WEIRDROUTE]: {
     displayName: 'Interacted with Asgore\'s flowers',
