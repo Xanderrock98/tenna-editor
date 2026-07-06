@@ -79,6 +79,18 @@ export function AboutOverview() {
               GitHub
             </Link>
           </p>
+          <p className="text-text-2">
+            {t(
+              'ui.about.officialInstance',
+              'The official Tenna Editor instance is available at',
+            )}{' '}
+            <Link href="https://tennaproject.com">tennaproject.com</Link>
+            {'. '}
+            {t(
+              'ui.about.officialInstanceNote',
+              'Copies hosted anywhere else are unofficial and may be outdated.',
+            )}
+          </p>
         </Card>
       </Section>
 
