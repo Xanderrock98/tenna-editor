@@ -1361,7 +1361,14 @@ export const FLAGS = {
   UNLOCKED_ORANGE_BREAKS: 1815,
   UNLOCKED_PINK_BREAKS: 1816,
   PINK_PROGRESS: 1846,
+  FLOWER_CHOSEN: 1850,
   INTERACTED_WITH_MIKE_DOOR_WITHOUT_MIKE_BATTLE: 1854,
+  UNLOCKED_BREAK_CHARACTERS_PRECAFE: 1856,
+  BOUGHT_BREAKS1: 1430,
+  BOUGHT_BREAKS2: 1892,
+  WATCHED_BREAKS1: 1855,
+  WATCHED_BREAKS2: 1893,
+  FREE_DRINK_OUTCOME: 1879,
   SUSIE_FLOWER_CROWN_WEIRDROUTE: 1883,
   PLATMODE_JUMP_COUNT: 1904,
   PLATMODE_SWING_COUNT: 1905,
@@ -8159,11 +8166,67 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       },
     },
   },
+  [FLAGS.FLOWER_CHOSEN]: {
+    displayName: 'Flower color chosen',
+    description: 'What color of flower from Ralsei you chose.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Green and yellow',
+        2: 'Blue and pink',
+      },
+    },
+  },
   [FLAGS.INTERACTED_WITH_MIKE_DOOR_WITHOUT_MIKE_BATTLE]: {
     displayName: 'Interacted with Michaeldoor without context',
     description:
       'Whether you interacted with the Michaeldoor in Chapter 5 without battling them in Chapter 4.',
     valueType: 'boolean',
+  },
+  [FLAGS.UNLOCKED_BREAK_CHARACTERS_PRECAFE]: {
+    displayName: 'Pre-Cafe break character unlocks',
+    description: 'Raw bitfield state for break character unlocks prior to revisiting the Flower Cafe. Used for checking if a character was recently unlocked or lost.',
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
+  [FLAGS.BOUGHT_BREAKS1]: {
+    displayName: 'Bought breaks 1',
+    description: 'Raw bitfield state for break IDs 0 to 15 being bought.',
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
+  [FLAGS.BOUGHT_BREAKS2]: {
+    displayName: 'Bought breaks 2',
+    description: 'Raw bitfield state for break IDs 16 to 31 being bought.',
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
+  [FLAGS.WATCHED_BREAKS1]: {
+    displayName: 'Watched breaks 1',
+    description: 'Raw bitfield state for break IDs 0 to 15 being watched.',
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
+  [FLAGS.WATCHED_BREAKS2]: {
+    displayName: 'Watched breaks 2',
+    description: 'Raw bitfield state for break IDs 16 to 31 being watched.',
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
+  [FLAGS.FREE_DRINK_OUTCOME]: {
+    displayName: 'Free Drinks outcome',
+    description: 'Outcome of the free drinks scene.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Susie drank your drink without your permission',
+        2: 'You stopped Susie from drinking your drink',
+        3: 'You wanted Susie to drink your drink so she drank Ralsei\'s',
+        4: 'Ralsei let Susie drink his drink',
+      },
+    },
   },
   [FLAGS.AMOUNT_OF_GIANT_TEACUPS]: {
     displayName: 'Amount of giant teacups',
@@ -9040,39 +9103,86 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueType: 'boolean',
   },
   [FLAGS.UNLOCKED_AQUA_BREAKS]: {
-    displayName: 'Unlocked breaks with Aqua',
+    displayName: 'Aqua',
     description: 'Whether you can take breaks that involve Aqua.',
-    valueType: 'boolean',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Locked',
+        1: 'Unlocked',
+      },
+    },
   },
   [FLAGS.UNLOCKED_SETH_BREAKS]: {
-    displayName: 'Unlocked breaks with Seth',
+    displayName: 'Seth',
     description: 'Whether you can take breaks that involve Seth.',
-    valueType: 'boolean',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        '-1': 'Lost',
+        0: 'Locked',
+        1: 'Unlocked',
+      },
+    },
   },
   [FLAGS.UNLOCKED_YELLOW_BREAKS]: {
-    displayName: 'Unlocked breaks with Yellow',
+    displayName: 'Yellow',
     description: 'Whether you can take breaks that involve Yellow.',
-    valueType: 'boolean',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        '-1': 'Lost',
+        0: 'Locked',
+        1: 'Unlocked',
+      },
+    },
   },
   [FLAGS.UNLOCKED_GREEN_BREAKS]: {
-    displayName: 'Unlocked breaks with Green',
+    displayName: 'Green',
     description: 'Whether you can take breaks that involve Green.',
-    valueType: 'boolean',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        '-1': 'Lost',
+        0: 'Locked',
+        1: 'Unlocked',
+      },
+    },
   },
   [FLAGS.UNLOCKED_BLUE_BREAKS]: {
-    displayName: 'Unlocked breaks with Blue',
+    displayName: 'Blue',
     description: 'Whether you can take breaks that involve Blue.',
-    valueType: 'boolean',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        '-1': 'Lost',
+        0: 'Locked',
+        1: 'Unlocked',
+      },
+    },
   },
   [FLAGS.UNLOCKED_ORANGE_BREAKS]: {
-    displayName: 'Unlocked breaks with Orange',
+    displayName: 'Orange',
     description: 'Whether you can take breaks that involve Orange.',
-    valueType: 'boolean',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        '-1': 'Lost',
+        0: 'Locked',
+        1: 'Unlocked',
+      },
+    },
   },
   [FLAGS.UNLOCKED_PINK_BREAKS]: {
-    displayName: 'Unlocked breaks with Pink',
+    displayName: 'Pink',
     description: 'Whether you can take breaks that involve Pink.',
-    valueType: 'boolean',
+    valueType: 'map',
+	valueRules: {
+      map: {
+        0: 'Locked',
+        1: 'Unlocked',
+      },
+    },
   },
   [FLAGS.SUSIE_FLOWER_CROWN_WEIRDROUTE]: {
     displayName: 'Susie made a flower crown',
