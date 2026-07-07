@@ -8381,7 +8381,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   [FLAGS.BERDLY_POEM_LISTENED]: {
     displayName: "Listened to Berdly's poem",
     description: "Listened to Berdly's poem for Noelle to use on Susie.",
-    valueRules: {
+    valueType: 'map',
+	valueRules: {
       map: {
         0: 'Default state',
         1: 'Yes',
@@ -8392,7 +8393,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   [FLAGS.BERDLY_POEM_RESPONSE]: {
     displayName: 'Berdly poem response',
     description: "Thoughts on Berdly's poem.",
-    valueRules: {
+    valueType: 'map',
+	valueRules: {
       map: {
         0: 'Default state',
         1: 'ME LIKE!!!!',
