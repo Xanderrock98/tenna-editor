@@ -1286,6 +1286,7 @@ export const FLAGS = {
   UNLOCKED_MIKE_MINIGAMES: 1702,
   OBTAINED_TV_ZONE_3_CHEST: 1703,
   KRIS_NOELLE_ESCAPE_WEIRD_ABORT: 1704,
+  FOURD_SANCTUARY_FULL_CLEAR: 1705,
   // More Chapter 5 Festival flags, along with other minor dark world flags
   TRIED_TO_ENTER_CHURCH_WEIRDROUTE: 1734,
   ASKED_CATTY_DAD_KINGQUEEN: 1738,
@@ -10358,6 +10359,19 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
         0: 'Default state',
         1: 'Let Kris and Noelle escape',
         2: 'Got put back in closet',
+      },
+    },
+  },
+  [FLAGS.FOURD_SANCTUARY_FULL_CLEAR]: {
+    displayName: '4rd Sanctuary full clear',
+    description: 'Whether you full cleared 4rd Sanctuary.',
+    valueType: 'boolean',
+    valueRules: {
+      booleanMap: {
+        trueValues: [2],
+        falseValues: [0],
+        writeTrue: 2,
+        writeFalse: 0,
       },
     },
   },
