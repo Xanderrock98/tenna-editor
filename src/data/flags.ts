@@ -8141,7 +8141,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueType: 'boolean',
   },
   [FLAGS.RALSEI_HAT_STATE_CH5]: {
-    displayName: 'Ralsei hat state',
+    displayName: 'Ralsei is wearing hat',
     description: 'Whether Ralsei is wearing his hat in Chapter 5.',
     valueType: 'boolean',
   },
