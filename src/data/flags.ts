@@ -8423,7 +8423,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   [FLAGS.BERDLY_BROKEN_ARM_FESTIVAL]: {
     displayName: 'Talked to Berdly about his broken arm',
     description:
-      'Noelle talked to Berdly about his broken arm during the Festival.',
+      'Noelle talked to Berdly about his broken arm during the Festival if it broke in Chapter 2.',
     valueType: 'boolean',
   },
   [FLAGS.SANS_PUNCH_CARD_DRAWING]: {
