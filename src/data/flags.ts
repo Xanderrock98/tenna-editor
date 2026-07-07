@@ -8463,7 +8463,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   [FLAGS.WHO_RODE_FERRIS_WHEEL]: {
     displayName: 'Who rode the ferris wheel',
     description: "Who rode Sans' ferris wheel during the Festival.",
-    valueRules: {
+    valueType: 'map',
+	valueRules: {
       map: {
         0: 'Default state',
         1: 'Kris and Noelle',
@@ -8476,7 +8477,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   [FLAGS.KRIS_NOELLE_FERRIS_WHEEL_OUTCOME]: {
     displayName: 'Kris and Noelle ferris wheel outcome',
     description: 'Outcome of riding the ferris wheel with Noelle.',
-    valueRules: {
+    valueType: 'map',
+	valueRules: {
       map: {
         0: 'Default state',
         1: "Rejected because you didn't vote Susie and Noelle for Festival King and Queen",
@@ -8489,7 +8491,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   [FLAGS.KRIS_NOELLE_FERRIS_WHEEL_CHOICE]: {
     displayName: 'Kris and Noelle ferris wheel choice',
     description: 'What you did in the ferris wheel with Noelle.',
-    valueRules: {
+    valueType: 'map',
+	valueRules: {
       map: {
         0: 'Default state',
         1: 'Shake the Ferris wheel',
@@ -8500,7 +8503,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   [FLAGS.KRIS_SUSIE_FERRIS_WHEEL_CHOICE]: {
     displayName: 'Kris and Susie ferris wheel choice',
     description: 'What you did in the ferris wheel with Susie.',
-    valueRules: {
+    valueType: 'map',
+	valueRules: {
       map: {
         0: 'Default state',
         1: 'Make heart with hands',
@@ -8511,7 +8515,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   [FLAGS.SUSIE_NOELLE_FERRIS_WHEEL_CHOICE]: {
     displayName: 'Susie and Noelle ferris wheel choice',
     description: 'What you did when Susie and Noelle were in the ferris wheel.',
-    valueRules: {
+    valueType: 'map',
+	valueRules: {
       map: {
         0: 'Default state',
         1: "Close eyes think about what they're doing now",
