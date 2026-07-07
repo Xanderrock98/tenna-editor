@@ -8431,12 +8431,12 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.SUSIE_ATE_ONIONSAN]: {
     displayName: 'Susie ate "Fried dough ball of Octopus"',
-    description: 'If gave a "Fried dough ball of Octopus" to Susie.',
+    description: 'If you gave a "Fried dough ball of Octopus" to Susie.',
     valueType: 'boolean',
   },
   [FLAGS.NOELLE_ATE_ONIONSAN]: {
     displayName: 'Noelle ate "Fried dough ball of Octopus"',
-    description: 'If gave a "Fried dough ball of Octopus" to Noelle.',
+    description: 'If you gave a "Fried dough ball of Octopus" to Noelle.',
     valueType: 'boolean',
   },
   [FLAGS.KRIS_ATE_ONIONSAN]: {
@@ -10347,7 +10347,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueType: 'boolean',
   },
   [FLAGS.ASKED_CATTY_DAD_KINGQUEEN]: {
-    displayName: "Asked Catty's dad about Festival King and Queen",
+    displayName: "Asked Catty's dad",
     description: "Asked Catty's dad about the Festival King and Queen vote.",
     valueType: 'boolean',
   },
