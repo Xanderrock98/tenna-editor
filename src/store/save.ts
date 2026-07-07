@@ -156,10 +156,10 @@ export const useSave = create<SaveState>()(
             });
 
             toast(
-              translate('ui.save.switchedTo', 'Switched to save "{name}"').replace(
-                '{name}',
-                newSave.meta.name,
-              ),
+              translate(
+                'ui.save.switchedTo',
+                'Switched to save "{name}"',
+              ).replace('{name}', newSave.meta.name),
               'success',
             );
           } else {

@@ -9,9 +9,18 @@ export function AboutRoot() {
     <Page>
       <Page.TopBar title={t('ui.nav.about', 'About')}>
         <Page.Nav>
-          <Page.NavItem title={t('ui.nav.overview', 'Overview')} to="/about/overview" />
-          <Page.NavItem title={t('ui.nav.changelog', 'Changelog')} to="/about/changelog" />
-          <Page.NavItem title={t('ui.nav.license', 'License')} to="/about/license" />
+          <Page.NavItem
+            title={t('ui.nav.overview', 'Overview')}
+            to="/about/overview"
+          />
+          <Page.NavItem
+            title={t('ui.nav.changelog', 'Changelog')}
+            to="/about/changelog"
+          />
+          <Page.NavItem
+            title={t('ui.nav.license', 'License')}
+            to="/about/license"
+          />
           <Page.NavItem
             title={t('ui.nav.attributions', 'Attributions')}
             to="/about/attributions"

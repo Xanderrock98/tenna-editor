@@ -78,7 +78,10 @@ export function SettingsRoot() {
       const message =
         error instanceof Error
           ? error.message
-          : t('ui.settings.importFailedGeneric', 'Failed to import backup file');
+          : t(
+              'ui.settings.importFailedGeneric',
+              'Failed to import backup file',
+            );
       toast(message, 'error');
     } finally {
       e.target.value = '';
@@ -92,7 +95,9 @@ export function SettingsRoot() {
         <div className="page">
           <Section id="language">
             <Card className="flex flex-col gap-3 p-6">
-              <Heading level={3}>{t('ui.settings.language', 'Language')}</Heading>
+              <Heading level={3}>
+                {t('ui.settings.language', 'Language')}
+              </Heading>
               <p className="text-text-2 text-sm">
                 {t(
                   'ui.settings.languageDescription',
@@ -118,7 +123,9 @@ export function SettingsRoot() {
           {import.meta.env.VITE_DEVTOOLS_TAB === 'true' && (
             <Section id="general">
               <Card className="flex flex-col gap-3 p-6">
-                <Heading level={3}>{t('ui.settings.general', 'General')}</Heading>
+                <Heading level={3}>
+                  {t('ui.settings.general', 'General')}
+                </Heading>
                 <Checkbox
                   label={t(
                     'ui.settings.enableDeveloperMode',

@@ -3,12 +3,7 @@ import { useSave } from '@store';
 import { useTranslation } from '../../i18n';
 
 type LightWorldStatsType =
-  | 'attack'
-  | 'defence'
-  | 'experience'
-  | 'health'
-  | 'maxHealth'
-  | 'level';
+  'attack' | 'defence' | 'experience' | 'health' | 'maxHealth' | 'level';
 
 const STATS_TITLES: Record<LightWorldStatsType, string> = {
   attack: 'Attack',

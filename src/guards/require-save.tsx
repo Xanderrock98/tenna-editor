@@ -15,7 +15,10 @@ export function RequireSave({ children, navigateTo = '/' }: RequireSaveProps) {
 
   useEffect(() => {
     if (!save && !shownRef.current) {
-      toast(translate('ui.guard.noSaveLoaded', 'There is no save loaded'), 'error');
+      toast(
+        translate('ui.guard.noSaveLoaded', 'There is no save loaded'),
+        'error',
+      );
       shownRef.current = true;
     }
 

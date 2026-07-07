@@ -23,8 +23,7 @@ async function get(id: string): Promise<Save | null> {
     const tx = db.transaction(STORE_NAME);
     if (!tx) return null;
     const value = (await tx.objectStore(STORE_NAME).get(id)) as
-      | Save
-      | undefined;
+      Save | undefined;
     return value ?? null;
   } catch (error) {
     console.error('save-storage: get failed', error);

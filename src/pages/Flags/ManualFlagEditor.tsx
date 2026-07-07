@@ -271,8 +271,7 @@ export function ManualFlagEditor() {
       ? (parsedFlagId as FlagIndex)
       : null;
   const knownBitfields = useMemo(
-    () =>
-      earlyFlagIndex !== null ? getKnownBitfields(earlyFlagIndex) : [],
+    () => (earlyFlagIndex !== null ? getKnownBitfields(earlyFlagIndex) : []),
     [earlyFlagIndex],
   );
   const isBitfieldFlag = knownBitfields.length > 0;
@@ -288,7 +287,15 @@ export function ManualFlagEditor() {
         flagCount,
         t,
       ),
-    [fieldIndexInput, fieldWidthInput, flagCount, flagInput, mode, valueInput, t],
+    [
+      fieldIndexInput,
+      fieldWidthInput,
+      flagCount,
+      flagInput,
+      mode,
+      valueInput,
+      t,
+    ],
   );
 
   const currentValue =

@@ -131,12 +131,7 @@ export function ItemField({ type, slot, label }: ItemFieldProps) {
   const placeholder = t(getPlaceholderKey(type), getPlaceholder(type));
   const baseItems = getChapterItemOptions(chapter, type).map((item) => ({
     ...item,
-    label: getTranslatedDisplayName(
-      type,
-      item.value as number,
-      item.label,
-      t,
-    ),
+    label: getTranslatedDisplayName(type, item.value as number, item.label, t),
   }));
   const chapterContent = chapterHelpers.getById(chapter).content;
 

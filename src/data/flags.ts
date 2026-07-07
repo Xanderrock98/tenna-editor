@@ -1342,7 +1342,7 @@ export const FLAGS = {
   SECOND_MIZZLE_ENCOUNTER_OUTCOME: 1798,
   BOUGHT_SHIKA_COLA: 1800,
   BOUGHT_FLOWERYS_SECRET: 1801,
-  4RD_SANCTUARY_PIPPINS_DIALOGUE: 1802,
+  FOURD_SANCTUARY_PIPPINS_DIALOGUE: 1802,
   OBTAINED_THATCHET: 1803,
   WALKED_SUSIE_HOME: 1804,
   WALKED_SUSIE_HOME_CONVO: 1805,
@@ -1489,7 +1489,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.OBTAINED_PETAL_FEATHER]: {
     displayName: 'Obtained Petal Feather',
-    description: 'Whether you can enter platformer mode with Mysterious Statues using the Petal Feather.',
+    description:
+      'Whether you can enter platformer mode with Mysterious Statues using the Petal Feather.',
     valueType: 'boolean',
   },
   [FLAGS.SUSIE_SHOW_EYES]: {
@@ -3701,8 +3702,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   [FLAGS.RIDE_WITH_ME]: {
     displayName: 'Ride With Me',
     unused: true,
-    description:
-      "Whether you said 'Noelle will ride with me' on Snowgrave.",
+    description: "Whether you said 'Noelle will ride with me' on Snowgrave.",
     valueType: 'boolean',
   },
   [FLAGS.DEFEATED_SNOWGRAVE_NEO]: {
@@ -8126,7 +8126,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.SPAWNED_TROPICAL_STARWALKER]: {
     displayName: 'Spawned Tropical Starwalker',
-    description: 'Activated the bell that spawns Tropical Starwalker and drops the pink chest.',
+    description:
+      'Activated the bell that spawns Tropical Starwalker and drops the pink chest.',
     valueType: 'boolean',
   },
   [FLAGS.RALSEI_HAT_STATE_CH5]: {
@@ -8157,12 +8158,14 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.INTERACTED_WITH_MIKE_DOOR_WITHOUT_MIKE_BATTLE]: {
     displayName: 'Interacted with Michaeldoor without context',
-    description: 'Whether you interacted with the Michaeldoor in Chapter 5 without battling them in Chapter 4.',
+    description:
+      'Whether you interacted with the Michaeldoor in Chapter 5 without battling them in Chapter 4.',
     valueType: 'boolean',
   },
   [FLAGS.AMOUNT_OF_GIANT_TEACUPS]: {
     displayName: 'Amount of giant teacups',
-    description: 'The last amount of giant teacups run by Sans. Switches to the opposite amount when going over to them.',
+    description:
+      'The last amount of giant teacups run by Sans. Switches to the opposite amount when going over to them.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -8187,11 +8190,11 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.STRONGEST_AQUA_ATTACK]: {
     displayName: 'Strongest Aqua attack',
-    description: 'Which of Aqua\'s attacks you got hit most from.',
+    description: "Which of Aqua's attacks you got hit most from.",
     valueType: 'map',
     valueRules: {
       map: {
-        0: 'Didn\'t take any hits',
+        0: "Didn't take any hits",
         1: 'KnifeChain',
         2: 'FanOfKnives',
         3: 'KnifePetal',
@@ -8200,18 +8203,19 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     },
   },
   [FLAGS.WATCHED_FLOWERY_ASGORE_FISHING]: {
-    displayName: 'Watched Flowery and Asgore\'s fishing trip',
-    description: 'If you watched Flowery and Asgore\'s fishing trip.',
+    displayName: "Watched Flowery and Asgore's fishing trip",
+    description: "If you watched Flowery and Asgore's fishing trip.",
     valueType: 'boolean',
   },
   [FLAGS.WATCHED_COWBOY_SHOW]: {
     displayName: 'Times Cowboy show was watched',
-    description: 'Amount of times you watched Yellow\'s cowboy show made for Asgore.',
+    description:
+      "Amount of times you watched Yellow's cowboy show made for Asgore.",
     valueType: 'number',
   },
   [FLAGS.SUSIES_OUTFIT_OPINION]: {
-    displayName: 'How Susie\'s outfit looks in the Light World',
-    description: 'Response to how Susie\'s outfit looks in the Light World.',
+    displayName: "How Susie's outfit looks in the Light World",
+    description: "Response to how Susie's outfit looks in the Light World.",
     valueType: 'map',
     valueRules: {
       map: {
@@ -8247,8 +8251,9 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     },
   },
   [FLAGS.INTERACTED_WITH_MEWMEW_DOLL]: {
-    displayName: 'Interacted with Asgore\'s Mew Mew figure',
-    description: 'Interacted with Asgore\'s Mew Mew Kissy Cutie figure during the Festival.',
+    displayName: "Interacted with Asgore's Mew Mew figure",
+    description:
+      "Interacted with Asgore's Mew Mew Kissy Cutie figure during the Festival.",
     valueType: 'boolean',
   },
   [FLAGS.TALKED_TO_ASGORE_FESTIVAL]: {
@@ -8258,20 +8263,22 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.TALKED_TO_ASGORE_BEFORE_FESTIVAL]: {
     displayName: 'Response to Asgore before Festival',
-    description: 'Response to Asgore telling you about him and Toriel being voted Festival King and Queen.',
+    description:
+      'Response to Asgore telling you about him and Toriel being voted Festival King and Queen.',
     valueType: 'map',
     valueRules: {
       map: {
         0: 'Default state',
         1: 'You tell me every year',
-        2: 'I didn\'t know that',
-        3: 'I\'m good',
+        2: "I didn't know that",
+        3: "I'm good",
       },
     },
   },
   [FLAGS.LISTENED_TO_ASGORES_SERIOUS_TOPIC]: {
-    displayName: 'Response to Asgore\'s serious topic',
-    description: 'Response to Asgore asking if he can bring up a serious topic when talking to him before the Festival.',
+    displayName: "Response to Asgore's serious topic",
+    description:
+      'Response to Asgore asking if he can bring up a serious topic when talking to him before the Festival.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -8283,7 +8290,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.LOOKED_AT_ASGORES_ROSES]: {
     displayName: 'Anyone needs a romantic moment',
-    description: 'Looked at Asgore\'s roses and said if anyone needed a romantic moment.',
+    description:
+      "Looked at Asgore's roses and said if anyone needed a romantic moment.",
     valueType: 'map',
     valueRules: {
       map: {
@@ -8294,13 +8302,14 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     },
   },
   [FLAGS.TALKED_TO_ASGORES_FLOWERS]: {
-    displayName: 'Talked to Asgore\'s flowers',
-    description: 'Talked to Asgore\'s flowers during the Festival.',
+    displayName: "Talked to Asgore's flowers",
+    description: "Talked to Asgore's flowers during the Festival.",
     valueType: 'boolean',
   },
   [FLAGS.ITEM_HELD_DURING_ROOM_TRANSITION]: {
     displayName: 'Item held during room transition',
-    description: 'Volatile. Keeps track of the item you had on your head before entering a new room if that room keeps the item.',
+    description:
+      'Volatile. Keeps track of the item you had on your head before entering a new room if that room keeps the item.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -8353,7 +8362,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.JOCKINGTON_GREW_THE_BEARD]: {
     displayName: 'Jockington grew the beard',
-    description: 'Whether you talked to Jockington and watched him grow a beard',
+    description:
+      'Whether you talked to Jockington and watched him grow a beard',
     valueType: 'map',
     valueRules: {
       map: {
@@ -8369,8 +8379,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueType: 'boolean',
   },
   [FLAGS.BERDLY_POEM_LISTENED]: {
-    displayName: 'Listened to Berdly\'s poem',
-    description: 'Listened to Berdly\'s poem for Noelle to use on Susie.',
+    displayName: "Listened to Berdly's poem",
+    description: "Listened to Berdly's poem for Noelle to use on Susie.",
     valueRules: {
       map: {
         0: 'Default state',
@@ -8381,7 +8391,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.BERDLY_POEM_RESPONSE]: {
     displayName: 'Berdly poem response',
-    description: 'Thoughts on Berdly\'s poem.',
+    description: "Thoughts on Berdly's poem.",
     valueRules: {
       map: {
         0: 'Default state',
@@ -8392,22 +8402,26 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.FLORADINN_FLATTER_AMOUNT]: {
     displayName: 'Times you flattened Floradinn',
-    description: 'Amount of times you flattened Floradinn using the Flatter act.',
+    description:
+      'Amount of times you flattened Floradinn using the Flatter act.',
     valueType: 'number',
   },
   [FLAGS.FLORADINN_CONVINCE_AMOUNT]: {
     displayName: 'Times Ralsei convinced Floradinn',
-    description: 'Amount of times Ralsei convinced Floradinn using the Convince act.',
+    description:
+      'Amount of times Ralsei convinced Floradinn using the Convince act.',
     valueType: 'number',
   },
   [FLAGS.FLORADINN_FLIRTS_AMOUNT]: {
     displayName: 'Times flirted with Floradinn',
-    description: 'Amount of times you or Susie flirted with Floradinn using the FlirtS act.',
+    description:
+      'Amount of times you or Susie flirted with Floradinn using the FlirtS act.',
     valueType: 'number',
   },
   [FLAGS.BERDLY_BROKEN_ARM_FESTIVAL]: {
     displayName: 'Talked to Berdly about his broken arm',
-    description: 'Noelle talked to Berdly about his broken arm during the Festival.',
+    description:
+      'Noelle talked to Berdly about his broken arm during the Festival.',
     valueType: 'boolean',
   },
   [FLAGS.SANS_PUNCH_CARD_DRAWING]: {
@@ -8432,7 +8446,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.PLAYED_DUNK_TANK]: {
     displayName: 'Played dunk tank',
-    description: 'If you dunked Purple Guy into the water tank during the Festival.',
+    description:
+      'If you dunked Purple Guy into the water tank during the Festival.',
     valueType: 'boolean',
   },
   [FLAGS.TALKED_TO_VULKIN]: {
@@ -8447,7 +8462,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.WHO_RODE_FERRIS_WHEEL]: {
     displayName: 'Who rode the ferris wheel',
-    description: 'Who rode Sans\' ferris wheel during the Festival.',
+    description: "Who rode Sans' ferris wheel during the Festival.",
     valueRules: {
       map: {
         0: 'Default state',
@@ -8464,7 +8479,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueRules: {
       map: {
         0: 'Default state',
-        1: 'Rejected because you didn\'t vote Susie and Noelle for Festival King and Queen',
+        1: "Rejected because you didn't vote Susie and Noelle for Festival King and Queen",
         2: 'Rejected because you said Noelle will ride with you in Chapter 2 during the Weird Route',
         3: 'Rode the wheel with Noelle',
         4: 'Rode the wheel with Noelle in the unused aborted Weird Route cutscene',
@@ -8499,7 +8514,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueRules: {
       map: {
         0: 'Default state',
-        1: 'Close eyes think about what they\'re doing now',
+        1: "Close eyes think about what they're doing now",
         2: 'Think about other things',
       },
     },
@@ -8548,7 +8563,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.WEIRD_ROUTE_STOP_COUNT]: {
     displayName: 'Weird Route "Stop" count',
-    description: 'Amount of times you said "Stop" during the Weird Route lake cutscene.',
+    description:
+      'Amount of times you said "Stop" during the Weird Route lake cutscene.',
     valueType: 'number',
   },
   [FLAGS.WEIRD_ROUTE_FAIL_CH5]: {
@@ -8558,7 +8574,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.TORIEL_TOAST_TIMER]: {
     displayName: 'Microwave toast timer',
-    description: 'Volatile. Used to keep track of the microwave timer during Toriel\'s toast request.',
+    description:
+      "Volatile. Used to keep track of the microwave timer during Toriel's toast request.",
     valueType: 'number',
   },
   [FLAGS.TALKED_TORIEL_TOAST_REQUEST]: {
@@ -8569,13 +8586,14 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       map: {
         0: 'Default state',
         1: 'Yes',
-        2: 'I\'m busy',
+        2: "I'm busy",
       },
     },
   },
   [FLAGS.TORIEL_TOAST_REQUEST_TOILET_FLUSH]: {
     displayName: 'Toriel toast request toilet flushes',
-    description: 'Handles dialogue relating to flushing the toilet during Toriel\'s toast request.',
+    description:
+      "Handles dialogue relating to flushing the toilet during Toriel's toast request.",
     valueType: 'map',
     valueRules: {
       map: {
@@ -8703,7 +8721,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.TALKED_TORIEL_LAST_NIGHT]: {
     displayName: 'Talked with Toriel about last night',
-    description: 'Talked with Toriel about her behavior on the night before the Festival.',
+    description:
+      'Talked with Toriel about her behavior on the night before the Festival.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -8715,12 +8734,14 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.KNOCK_TOGETHER]: {
     displayName: 'Knocked together',
-    description: 'Did a team knock on the apartment door with Susie and Noelle.',
+    description:
+      'Did a team knock on the apartment door with Susie and Noelle.',
     valueType: 'boolean',
   },
   [FLAGS.TRASHY_TRIO_NPC_INTERACTIONS]: {
     displayName: 'Trashy Trio Interactions',
-    description: 'Which members of the Trashy Trio near the right door of Castle Town you interacted with.',
+    description:
+      'Which members of the Trashy Trio near the right door of Castle Town you interacted with.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -8742,17 +8763,19 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.GUESSED_DONUT_GUY_SPENT_MONEY]: {
     displayName: 'Guessed what Donut Guy spent his allowance on',
-    description: 'Guessed what Donut Guy spent his allowance on outside the fried dough balls stand.',
+    description:
+      'Guessed what Donut Guy spent his allowance on outside the fried dough balls stand.',
     valueType: 'boolean',
   },
   [FLAGS.SUSIE_MENTIONED_JACKENSTEIN]: {
     displayName: 'Interacted with pumpkins outside church',
-    description: 'Interected with the pumpkins outside the church, causing Susie to accidentally mention stealing Jackenstein to Noelle.',
+    description:
+      'Interected with the pumpkins outside the church, causing Susie to accidentally mention stealing Jackenstein to Noelle.',
     valueType: 'boolean',
   },
   [FLAGS.METTATON_HOUSE_VOICES]: {
     displayName: 'Mettaton house voices listened to',
-    description: 'Which voices coming from Mettaton\'s house you listened to.',
+    description: "Which voices coming from Mettaton's house you listened to.",
     valueType: 'map',
     valueRules: {
       map: {
@@ -8766,7 +8789,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.SUGGESTED_TENNA_TO_METTATON_CH5]: {
     displayName: 'Suggested Tenna',
-    description: "Suggested Tenna to Mettaton in Chapter 5, if it wasn't repaired.",
+    description:
+      "Suggested Tenna to Mettaton in Chapter 5, if it wasn't repaired.",
     valueType: 'boolean',
   },
   [FLAGS.TERRACOTA_BATTLE_TALK]: {
@@ -8780,8 +8804,10 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueType: 'boolean',
   },
   [FLAGS.SUSIE_DINER_RESPONSE]: {
-    displayName: 'Response to Susie about the diner and buying a cinnamon bunny',
-    description: 'Response to Susie about having another diner hangout. This flag is also used for Noelle buying a mega cinnamon bunny for Susie.',
+    displayName:
+      'Response to Susie about the diner and buying a cinnamon bunny',
+    description:
+      'Response to Susie about having another diner hangout. This flag is also used for Noelle buying a mega cinnamon bunny for Susie.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -8793,8 +8819,9 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     },
   },
   [FLAGS.LOOKED_IN_BRATTYS_HOUSE]: {
-    displayName: 'Looked in Bratty\'s house',
-    description: 'If you looked in Bratty\'s house in the normal route or weird route.',
+    displayName: "Looked in Bratty's house",
+    description:
+      "If you looked in Bratty's house in the normal route or weird route.",
     valueType: 'map',
     valueRules: {
       map: {
@@ -8806,12 +8833,12 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.THOUGHTS_ON_SANS]: {
     displayName: 'Thoughts on Sans',
-    description: 'Your answer to why you\'re talking to Sans.',
+    description: "Your answer to why you're talking to Sans.",
     valueType: 'map',
     valueRules: {
       map: {
         0: 'Default state',
-        1: 'We hate him, that\'s why',
+        1: "We hate him, that's why",
         2: 'We kinda looove him',
       },
     },
@@ -8822,8 +8849,9 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueType: 'boolean',
   },
   [FLAGS.SANS_SIGN_INTERACTION_CH5]: {
-    displayName: 'Interacted with Sans\'s shop sign',
-    description: 'Interacted with Sans\'s shop sign during the festival in either the normal or weird route.',
+    displayName: "Interacted with Sans's shop sign",
+    description:
+      "Interacted with Sans's shop sign during the festival in either the normal or weird route.",
     valueType: 'map',
     valueRules: {
       map: {
@@ -8840,7 +8868,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.SKIPPED_FESTIVAL]: {
     displayName: 'Skipped the Festival',
-    description: 'Whether you went back to bed to skip the Festival in Chapter 5.',
+    description:
+      'Whether you went back to bed to skip the Festival in Chapter 5.',
     valueType: 'boolean',
   },
   [FLAGS.ASKED_PINK_ABOUT_PLACE]: {
@@ -8878,12 +8907,14 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.GREETED_BATTAT]: {
     displayName: 'Asked Small Mike to play a game',
-    description: 'Whether you asked Small Mike to play a game in the Mike room.',
+    description:
+      'Whether you asked Small Mike to play a game in the Mike room.',
     valueType: 'boolean',
   },
   [FLAGS.GREETED_PLUEY]: {
     displayName: 'Cat Mike/Pluey Greeting',
-    description: 'What you can currently call Cat Mike/Pluey when interacting with him in the Mike room.',
+    description:
+      'What you can currently call Cat Mike/Pluey when interacting with him in the Mike room.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -8895,42 +8926,50 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.HUNG_OUT_WITH_RALSEI]: {
     displayName: 'Hung out with Ralsei normally',
-    description: 'If you hung out with Ralsei normally near the hot springs or inspected the hot spring in the case you didn\'t hang out with Ralsei.',
+    description:
+      "If you hung out with Ralsei normally near the hot springs or inspected the hot spring in the case you didn't hang out with Ralsei.",
     valueType: 'boolean',
   },
   [FLAGS.TALKED_TO_SODA_MACHINE]: {
     displayName: 'Talked to soda machine',
-    description: 'Whether you talked to the soda machine in the Flower Castle cafe.',
+    description:
+      'Whether you talked to the soda machine in the Flower Castle cafe.',
     valueType: 'boolean',
   },
   [FLAGS.BOUGHT_RAW_MOON]: {
     displayName: 'Bought Raw Moon',
-    description: 'Whether you bought a Raw Moon from the vending machine in the Flower Castle cafe at least once.',
+    description:
+      'Whether you bought a Raw Moon from the vending machine in the Flower Castle cafe at least once.',
     valueType: 'boolean',
   },
   [FLAGS.BOUGHT_PHANTA]: {
     displayName: 'Bought Phanta',
-    description: 'Whether you bought a Phanta from the vending machine in the Flower Castle cafe at least once.',
+    description:
+      'Whether you bought a Phanta from the vending machine in the Flower Castle cafe at least once.',
     valueType: 'boolean',
   },
   [FLAGS.BOUGHT_FLOWERY_SODA]: {
     displayName: 'Bought FlowerySoda',
-    description: 'Whether you bought a FlowerySoda from the vending machine in the Flower Castle cafe at least once.',
+    description:
+      'Whether you bought a FlowerySoda from the vending machine in the Flower Castle cafe at least once.',
     valueType: 'boolean',
   },
   [FLAGS.BOUGHT_SHIKA_COLA]: {
     displayName: 'Bought Shikacola',
-    description: 'Whether you bought a Shikacola from the vending machine in the Flower Castle cafe at least once.',
+    description:
+      'Whether you bought a Shikacola from the vending machine in the Flower Castle cafe at least once.',
     valueType: 'boolean',
   },
   [FLAGS.BOUGHT_FLOWERYS_SECRET]: {
-    displayName: 'Bought Flowery\'s secret',
-    description: 'Whether you bought Flowery\'s secret from the vending machine in the Flower Castle cafe, allowing you to buy multiple items from the vending machine.',
+    displayName: "Bought Flowery's secret",
+    description:
+      "Whether you bought Flowery's secret from the vending machine in the Flower Castle cafe, allowing you to buy multiple items from the vending machine.",
     valueType: 'boolean',
   },
-  [FLAGS.4RD_SANCTUARY_PIPPINS_DIALOGUE]: {
+  [FLAGS.FOURD_SANCTUARY_PIPPINS_DIALOGUE]: {
     displayName: '4rd Sanctuary Pippins state',
-    description: 'Handles the state of the Pippins that claims "a special colored Pippins will give you a pat on the head" if you clear 4rd Sanctuary without missing a note.',
+    description:
+      'Handles the state of the Pippins that claims "a special colored Pippins will give you a pat on the head" if you clear 4rd Sanctuary without missing a note.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -8942,7 +8981,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.OBTAINED_THATCHET]: {
     displayName: 'Got Thatchet',
-    description: 'Whether you got the Thatchet from the room with the Flowery face flower field.',
+    description:
+      'Whether you got the Thatchet from the room with the Flowery face flower field.',
     valueType: 'boolean',
   },
   [FLAGS.WALKED_SUSIE_HOME]: {
@@ -8959,7 +8999,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.WALKED_SUSIE_HOME_CONVO]: {
     displayName: 'Walking Susie home dialogue state',
-    description: 'Volatile. Handles Susie\'s dialogue while walking her home.',
+    description: "Volatile. Handles Susie's dialogue while walking her home.",
     valueType: 'map',
     valueRules: {
       map: {
@@ -8972,18 +9012,21 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     },
   },
   [FLAGS.INTERACTED_WITH_ASGORES_FLOWERS_WEIRDROUTE]: {
-    displayName: 'Interacted with Asgore\'s flowers',
-    description: 'Whether you interacted with Asgore\'s flowers during the Weird Route.',
+    displayName: "Interacted with Asgore's flowers",
+    description:
+      "Whether you interacted with Asgore's flowers during the Weird Route.",
     valueType: 'boolean',
   },
   [FLAGS.SUSIE_MADE_LEMONADE_WEIRDROUTE]: {
     displayName: 'Susie made lemonade',
-    description: 'Whether Susie made free lemonade at the food stand during the Weird Route.',
+    description:
+      'Whether Susie made free lemonade at the food stand during the Weird Route.',
     valueType: 'boolean',
   },
   [FLAGS.SUSIE_PICKED_UP_COIN_WEIRDROUTE]: {
     displayName: 'Susie found coin on the ground',
-    description: 'Whether Susie found and picked up a coin from the ground during the Weird Route.',
+    description:
+      'Whether Susie found and picked up a coin from the ground during the Weird Route.',
     valueType: 'boolean',
   },
   [FLAGS.UNLOCKED_AQUA_BREAKS]: {
@@ -9023,7 +9066,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.SUSIE_FLOWER_CROWN_WEIRDROUTE]: {
     displayName: 'Susie made a flower crown',
-    description: 'Whether Susie put a flower crown on your head during the Weird Route.',
+    description:
+      'Whether Susie put a flower crown on your head during the Weird Route.',
     valueType: 'boolean',
   },
   [FLAGS.PLATMODE_JUMP_COUNT]: {
@@ -9594,7 +9638,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.SUGGESTED_TENNA_TO_METTATON]: {
     displayName: 'Suggested Tenna',
-    description: "Suggested Tenna to Mettaton in Chapter 4, if it wasn't repaired.",
+    description:
+      "Suggested Tenna to Mettaton in Chapter 4, if it wasn't repaired.",
     valueType: 'boolean',
   },
   [FLAGS.INTERACTED_WITH_TV_FIXED]: {
@@ -10297,12 +10342,13 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.TRIED_TO_ENTER_CHURCH_WEIRDROUTE]: {
     displayName: 'Tried to enter church',
-    description: 'Whether you tried to enter the church during the Weird Route.',
+    description:
+      'Whether you tried to enter the church during the Weird Route.',
     valueType: 'boolean',
   },
   [FLAGS.ASKED_CATTY_DAD_KINGQUEEN]: {
-    displayName: 'Asked Catty\'s dad about Festival King and Queen',
-    description: 'Asked Catty\'s dad about the Festival King and Queen vote.',
+    displayName: "Asked Catty's dad about Festival King and Queen",
+    description: "Asked Catty's dad about the Festival King and Queen vote.",
     valueType: 'boolean',
   },
   [FLAGS.BALTHIZARD_ENCOUNTER_OUTCOME]: {

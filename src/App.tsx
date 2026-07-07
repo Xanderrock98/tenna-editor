@@ -41,7 +41,9 @@ export function App() {
                 <ErrorBoundary>
                   <Suspense
                     fallback={
-                      <div>{translate('ui.common.loading', 'Loading...', locale)}</div>
+                      <div>
+                        {translate('ui.common.loading', 'Loading...', locale)}
+                      </div>
                     }
                   >
                     <AppRouter />

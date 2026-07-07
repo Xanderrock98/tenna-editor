@@ -1,10 +1,5 @@
 export type SubtabTab =
-  | 'home'
-  | 'about'
-  | 'inventory'
-  | 'party'
-  | 'story'
-  | 'devtools';
+  'home' | 'about' | 'inventory' | 'party' | 'story' | 'devtools';
 
 const STORAGE_KEY = 'tenna-last-subtabs';
 

@@ -27,7 +27,10 @@ export function StoryChapterLayout(props: StoryChapterLayoutProps) {
             <TextInput
               value={search}
               onChange={setSearch}
-              placeholder={t('ui.story.searchPlaceholder', 'Search story fields...')}
+              placeholder={t(
+                'ui.story.searchPlaceholder',
+                'Search story fields...',
+              )}
               type="search"
               fullWidth
               aria-label={t('ui.story.searchFields', 'Search fields')}

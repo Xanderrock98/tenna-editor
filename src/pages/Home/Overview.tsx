@@ -47,11 +47,8 @@ function Chapter() {
         </div>
         <p>
           {
-            translateMeta(
-              getChapterTranslationKeyPrefix(value),
-              chapterMeta,
-              t,
-            ).displayName
+            translateMeta(getChapterTranslationKeyPrefix(value), chapterMeta, t)
+              .displayName
           }
         </p>
       </InlineGroup>

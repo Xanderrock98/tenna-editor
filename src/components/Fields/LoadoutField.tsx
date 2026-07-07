@@ -67,7 +67,9 @@ export function LoadoutField({
   const isValid = isExisting && isInChapter;
 
   const allowedElementsOverride =
-    optionType === 'weapon' ? overrides?.allowedWeapons : overrides?.allowedArmors;
+    optionType === 'weapon'
+      ? overrides?.allowedWeapons
+      : overrides?.allowedArmors;
 
   const baseItems = getChapterLoadoutOptions(
     chapter,

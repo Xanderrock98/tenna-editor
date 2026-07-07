@@ -97,8 +97,7 @@ export function FlagField(props: FlagFieldProps) {
   const chapterFlagsContext = useChapterFlags();
   const saveChapter = useSave((s) => s.save?.meta.chapter) ?? 1;
   const chapterFlags =
-    chapterFlagsContext ??
-    chapterHelpers.getById(saveChapter).content.flags;
+    chapterFlagsContext ?? chapterHelpers.getById(saveChapter).content.flags;
 
   if (sourceFlag === undefined || !chapterFlags.has(sourceFlag)) return;
   if (!resolvedField) return;
@@ -176,8 +175,7 @@ export function FlagField(props: FlagFieldProps) {
       });
 
       selectItems.sort(
-        (itemA, itemB) =>
-          Number(itemA.value) - Number(itemB.value),
+        (itemA, itemB) => Number(itemA.value) - Number(itemB.value),
       );
 
       const selectedItem = selectItems.find(

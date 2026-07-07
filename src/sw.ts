@@ -35,7 +35,10 @@ export function setupPWA() {
               installing.state === 'installed' &&
               navigator.serviceWorker.controller
             ) {
-              toast(translate('ui.sw.updating', 'Editor is updating...'), 'info');
+              toast(
+                translate('ui.sw.updating', 'Editor is updating...'),
+                'info',
+              );
               localStorage.setItem(storageisUpdatingKey, 'true');
             }
           });
@@ -59,7 +62,10 @@ export function setupPWA() {
     onRegisterError(error) {
       console.error('Service worker registration error', error);
       toast(
-        translate('ui.sw.registrationFailed', 'Failed to register service worker'),
+        translate(
+          'ui.sw.registrationFailed',
+          'Failed to register service worker',
+        ),
         'error',
       );
     },

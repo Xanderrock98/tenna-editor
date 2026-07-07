@@ -42,28 +42,25 @@ export function SpellField({
   const isInChapter = chapterSpells.has(currentSpell);
   const isValid = isExisting && isInChapter;
 
-  const baseItems = getChapterSpellOptions(chapter, character, allowAllItems).map(
-    (item) => {
-      const label =
-        item.value === SPELLS.SUSIE_HEAL
-          ? getSpellDisplayName(
-              item.value as SpellIndex,
-              chapter,
-              plot,
-              flags,
-            )
-          : item.label;
+  const baseItems = getChapterSpellOptions(
+    chapter,
+    character,
+    allowAllItems,
+  ).map((item) => {
+    const label =
+      item.value === SPELLS.SUSIE_HEAL
+        ? getSpellDisplayName(item.value as SpellIndex, chapter, plot, flags)
+        : item.label;
 
-      return {
-        ...item,
-        label: translateMeta(
-          getSpellTranslationKeyPrefix(item.value as number),
-          { displayName: label },
-          t,
-        ).displayName,
-      };
-    },
-  );
+    return {
+      ...item,
+      label: translateMeta(
+        getSpellTranslationKeyPrefix(item.value as number),
+        { displayName: label },
+        t,
+      ).displayName,
+    };
+  });
 
   let selectItems: SelectItem[] = baseItems;
   if (!isValid || !baseItems.some((item) => item.value === currentSpell)) {
@@ -74,7 +71,12 @@ export function SpellField({
         label: translateMeta(
           getSpellTranslationKeyPrefix(currentSpell),
           {
-            displayName: getSpellDisplayName(currentSpell, chapter, plot, flags),
+            displayName: getSpellDisplayName(
+              currentSpell,
+              chapter,
+              plot,
+              flags,
+            ),
           },
           t,
         ).displayName,

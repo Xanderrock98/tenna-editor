@@ -243,9 +243,8 @@
   "ui.flags.fieldIndexMustBeNonNegative": "필드 인덱스는 음이 아닌 정수여야 합니다.",
   "ui.flags.widthMustBePositive": "너비는 양의 정수여야 합니다.",
   "ui.flags.valueMustBeNonNegative": "값은 음이 아닌 정수여야 합니다.",
-  "ui.flags.valueRange": "값은 0에서 {max} 사이여야 합니다.",  
-  
-  
+  "ui.flags.valueRange": "값은 0에서 {max} 사이여야 합니다.",
+
   "characters.EMPTY.displayName": "없음",
   "characters.KRIS.displayName": "크리스",
   "characters.SUSIE.displayName": "수지",
@@ -1664,7 +1663,7 @@
   "flags.INTERACTED_WITH_MAN_CAR.description": "910 플래그가 2였다면(제안을 거절했더라도), 남자가 차에서 당신에게 손을 흔드는 것을 보았는지 여부.",
   "flags.STARTING_CHAPTER.displayName": "시작 챕터",
   "flags.STARTING_CHAPTER.description": "현재 저장 파일이 시작된 챕터입니다. 현재 챕터에서 파일이 생성되었다면 0입니다.",
-"flags.SNOWGRAVE_ROUTE_PROGRESS.displayName": "우호도",
+  "flags.SNOWGRAVE_ROUTE_PROGRESS.displayName": "우호도",
   "flags.SNOWGRAVE_ROUTE_PROGRESS.description": "눈무덤 루트의 진행도입니다. 아주 중요한 부분입니다.",
   "flags.SNOWGRAVE_FAIL.displayName": "오류",
   "flags.SNOWGRAVE_FAIL.description": "어떤 행동으로든 어느 시점에서 눈무덤 루트에 실패했는지 여부입니다. 루트의 거의 모든 효과를 되돌립니다.",
@@ -3820,7 +3819,7 @@
   "items.weapons.BROKEN_SCARF.displayName": "BrokenScarf",
   "items.weapons.GILDED_ROSE.displayName": "GildedRose",
   "items.weapons.MISTLE_WP.displayName": "MistleWP",
-    "items.armors.EMPTY.displayName": "없음",
+  "items.armors.EMPTY.displayName": "없음",
   "items.armors.AMBER_CARD.displayName": "호박 카드",
   "items.armors.DICE_BRACE.displayName": "주사위 팔찌",
   "items.armors.PINK_RIBBON.displayName": "분홍 리본",

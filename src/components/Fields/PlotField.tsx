@@ -1,4 +1,9 @@
-import { FieldWrapper, NumberInput, Select, type SelectItem } from '@components';
+import {
+  FieldWrapper,
+  NumberInput,
+  Select,
+  type SelectItem,
+} from '@components';
 import { useSave } from '@store';
 import { getChapterPlotOptions, getPlotPointLabel } from '@utils';
 import { mergeClass } from '@utils/merge-class';
@@ -11,7 +16,11 @@ interface PlotFieldProps {
   allowManualEntry?: boolean;
 }
 
-export function PlotField({ id, className, allowManualEntry = false }: PlotFieldProps) {
+export function PlotField({
+  id,
+  className,
+  allowManualEntry = false,
+}: PlotFieldProps) {
   const { t } = useTranslation();
   const plot = useSave((s) => s.save?.plot) ?? 0;
   const chapter = useSave((s) => s.save?.meta.chapter) || 1;

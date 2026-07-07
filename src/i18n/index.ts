@@ -244,7 +244,8 @@ const UI_FALLBACKS: TranslationDictionary = {
   'ui.home.platformMac': 'Mac',
   'ui.home.platformLinuxProton': 'Linux (through Steam Proton)',
   'ui.lightWorld.items': 'Items',
-  'ui.lightWorld.itemsDescription': 'This inventory applies to Light World only.',
+  'ui.lightWorld.itemsDescription':
+    'This inventory applies to Light World only.',
   'ui.lightWorld.phoneContacts': 'Phone Contacts',
   'ui.party.allowNonStandardParty': 'Allow non-standard party combinations',
   'ui.party.allowNonStandardPartyDescription':
@@ -354,7 +355,8 @@ const UI_FALLBACKS: TranslationDictionary = {
   'ui.flags.useBitfieldValue': 'Use Bitfield value',
   'ui.flags.width': 'Width',
   'ui.inventory.storage': 'Storage',
-  'ui.party.allowNonCharacterEquipment': "Allow non-{name}'s weapons, armors and spells",
+  'ui.party.allowNonCharacterEquipment':
+    "Allow non-{name}'s weapons, armors and spells",
   'ui.party.spells': 'Spells',
   'ui.party.unobtainableSpellsWarning':
     'Some of the spells are unobtainable in game. They are often unfinished, broken and can cause issues.',
@@ -485,8 +487,16 @@ const SOURCE_TRANSLATIONS = {
     PHONECONTACTS_META,
     PHONE_CONTACT_NAMES_BY_ID,
   ),
-  ...getMetaSourceTranslations('items.weapons', WEAPONS_META, WEAPON_NAMES_BY_ID),
-  ...getMetaSourceTranslations('characters', CHARACTERS_META, CHARACTER_NAMES_BY_ID),
+  ...getMetaSourceTranslations(
+    'items.weapons',
+    WEAPONS_META,
+    WEAPON_NAMES_BY_ID,
+  ),
+  ...getMetaSourceTranslations(
+    'characters',
+    CHARACTERS_META,
+    CHARACTER_NAMES_BY_ID,
+  ),
   ...getCharacterTitleSourceTranslations(),
   ...getMetaSourceTranslations('chapters', CHAPTERS_META, CHAPTER_NAMES_BY_ID),
   ...getMetaSourceTranslations('enemies', ENEMIES_META, ENEMY_NAMES_BY_ID),
@@ -503,13 +513,17 @@ export function isSupportedLocale(value: unknown): value is Locale {
 
 function getMetaSourceTranslations(
   namespace: string,
-  entries: Record<string | number, {
-    displayName: string;
-    description?: string;
-    valueRules?: {
-      map?: Record<number, string>;
-    };
-  } | undefined>,
+  entries: Record<
+    string | number,
+    | {
+        displayName: string;
+        description?: string;
+        valueRules?: {
+          map?: Record<number, string>;
+        };
+      }
+    | undefined
+  >,
   namesById?: Record<number, string>,
 ) {
   const source: TranslationDictionary = {};
@@ -562,10 +576,7 @@ export function translate(
   return TRANSLATIONS[locale][key] ?? fallback;
 }
 
-export function formatTranslation(
-  template: string,
-  values: TranslationValues,
-) {
+export function formatTranslation(template: string, values: TranslationValues) {
   return template.replace(/\{(\w+)\}/g, (match, key: string) =>
     values[key] === undefined ? match : String(values[key]),
   );
@@ -622,7 +633,9 @@ export function getCharacterTitleTranslationKeyPrefix(
     ([, candidate]) => candidate === title,
   )?.[0];
 
-  return titleName ? `characterTitles.${characterName}.${titleName}` : undefined;
+  return titleName
+    ? `characterTitles.${characterName}.${titleName}`
+    : undefined;
 }
 
 export function getChapterTranslationKeyPrefix(id: number) {
@@ -722,12 +735,12 @@ export function translateMeta<
     return t(`${keyPrefix}.${field}`, fallback);
   };
   const translatedMap = meta.valueRules?.map
-    ? Object.fromEntries(
+    ? (Object.fromEntries(
         Object.entries(meta.valueRules.map).map(([value, label]) => [
           value,
           translateWithPrefixes(`map.${value}`, label),
         ]),
-      ) as Record<number, string>
+      ) as Record<number, string>)
     : undefined;
 
   return {

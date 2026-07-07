@@ -60,7 +60,10 @@ export async function downloadAppdata(filename?: string) {
 export async function exportAllSaves(): Promise<void> {
   const saves = await saveStorage.getAll();
   if (saves.length === 0) {
-    toast(translate('ui.backup.noSavesToExport', 'No saves to export'), 'warning');
+    toast(
+      translate('ui.backup.noSavesToExport', 'No saves to export'),
+      'warning',
+    );
     return;
   }
 
@@ -106,13 +109,19 @@ export async function importAllSaves(file: File): Promise<ImportResult> {
     data = JSON.parse(text);
   } catch {
     throw new Error(
-      translate('ui.backup.invalidBackupNotJson', 'Invalid backup file: not valid JSON'),
+      translate(
+        'ui.backup.invalidBackupNotJson',
+        'Invalid backup file: not valid JSON',
+      ),
     );
   }
 
   if (!data.saves || !Array.isArray(data.saves)) {
     throw new Error(
-      translate('ui.backup.invalidBackupNoSaves', 'Invalid backup file: no saves found'),
+      translate(
+        'ui.backup.invalidBackupNoSaves',
+        'Invalid backup file: no saves found',
+      ),
     );
   }
 

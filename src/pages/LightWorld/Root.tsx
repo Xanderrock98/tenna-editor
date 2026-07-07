@@ -88,7 +88,9 @@ export function LightWorldRoot() {
               <Section id="items" className="flex flex-1">
                 <Card className="flex-1 p-6 flex gap-3 flex-col">
                   <Section>
-                    <Heading level={4}>{t('ui.lightWorld.items', 'Items')}</Heading>
+                    <Heading level={4}>
+                      {t('ui.lightWorld.items', 'Items')}
+                    </Heading>
                     <div className="text-text-2">
                       <p>
                         {t(

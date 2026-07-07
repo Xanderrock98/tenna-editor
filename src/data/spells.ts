@@ -29,8 +29,7 @@ interface SpellOverrideInputs {
 }
 
 interface SpellProperties
-  extends BaseProperties,
-    WithOverrides<SpellProperties, SpellOverrideInputs> {}
+  extends BaseProperties, WithOverrides<SpellProperties, SpellOverrideInputs> {}
 
 export const SPELLS_META: Record<SpellIndex, SpellProperties> = {
   [SPELLS.EMPTY]: {
