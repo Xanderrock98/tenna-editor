@@ -210,8 +210,28 @@ export function Select({
   function computePosition() {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
-    const spaceBelow = window.innerHeight - rect.bottom;
-    const spaceAbove = rect.top;
+    let boundaryTop = 0;
+    let boundaryBottom = window.innerHeight;
+    let parent = containerRef.current.parentElement;
+
+    while (parent) {
+      const style = window.getComputedStyle(parent);
+      const canScroll = /(auto|scroll|hidden)/.test(
+        `${style.overflow}${style.overflowY}`,
+      );
+
+      if (canScroll) {
+        const boundary = parent.getBoundingClientRect();
+        boundaryTop = Math.max(boundaryTop, boundary.top);
+        boundaryBottom = Math.min(boundaryBottom, boundary.bottom);
+        break;
+      }
+
+      parent = parent.parentElement;
+    }
+
+    const spaceBelow = boundaryBottom - rect.bottom;
+    const spaceAbove = rect.top - boundaryTop;
     setShouldOpenUp(spaceBelow < 250 && spaceAbove > spaceBelow);
   }
 
@@ -312,18 +332,11 @@ export function Select({
               const itemProps = getItemProps({
                 item,
                 index,
-              }) as React.LiHTMLAttributes<HTMLLIElement> & {
-                onClick?: (e: React.MouseEvent<HTMLLIElement>) => void;
-              };
+              });
               return (
                 <li
                   key={item.id}
                   {...itemProps}
-                  onTouchStart={(e) =>
-                    itemProps.onClick?.(
-                      e as unknown as React.MouseEvent<HTMLLIElement>,
-                    )
-                  }
                   className="cursor-pointer text-sm select-none leading-none text-text-1 transition-colors"
                   aria-selected={chosen}
                 >
