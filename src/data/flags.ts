@@ -1267,6 +1267,8 @@ export const FLAGS = {
   TV_TIME_HARD_HISCORE: 1667,
   KNOCK_YOU_DOWN_HISCORE: 1668,
   KNOCK_YOU_DOWN_HARD_HISCORE: 1669,
+  FOURD_SANCTUARY_HISCORE: 1672,
+  FOURD_SANCTUARY_HARD_HISCORE: 1673,
   JUSTICE_AXE_REWARD_STATE: 1688,
   ENTERED_MIKE_ZONE_ACCOMPANIED: 1689,
   PET_FIRST_MIKE_STATUE: 1690,
@@ -7486,12 +7488,12 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     },
   },
   [FLAGS.RAISE_BAT_HISCORE]: {
-    displayName: 'High score',
+    displayName: 'Raise Up Your Bat Hiscore',
     description: 'Highest score on Raise Up Your Bat, Normal Mode',
     valueType: 'number',
   },
   [FLAGS.RAISE_BAT_HIRANK]: {
-    displayName: 'High rank',
+    displayName: 'Raise Up Your Bat High rank',
     description: 'Highest rank on Raise Up Your Bat, Normal Mode',
     valueType: 'map',
     valueRules: {
@@ -8110,13 +8112,13 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     },
   },
   [FLAGS.RAISE_BAT_HARD_HISCORE]: {
-    displayName: 'Hard score',
+    displayName: 'Raise Up Your Bat Hard Hiscore',
     description:
       'High score on Raise Up Your Bat, Hard Mode. (Unused in Chapter 3)',
     valueType: 'number',
   },
   [FLAGS.RAISE_BAT_HARD_HIRANK]: {
-    displayName: 'Hard rank',
+    displayName: 'Raise Up Your Bat Hard rank',
     description:
       'Highest rank on Raise Up Your Bat, Hard Mode. (Unused in Chapter 3)',
     valueType: 'map',
@@ -10233,6 +10235,18 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   [FLAGS.KNOCK_YOU_DOWN_HARD_HISCORE]: {
     displayName: 'Knock You Down!! Hard Hiscore',
     description: 'Score on the Knock You Down!! rhythm game, Hard Mode',
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
+  [FLAGS.FOURD_SANCTUARY_HISCORE]: {
+    displayName: '4rd Sanctuary Hiscore',
+    description: 'Score on the 4rd Sanctuary rhythm game',
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
+  [FLAGS.FOURD_SANCTUARY_HARD_HISCORE]: {
+    displayName: '4rd Sanctuary Hard Hiscore',
+    description: 'Score on the 4rd Sanctuary rhythm game, Hard Mode',
     valueType: 'number',
     valueRules: { min: 0 },
   },

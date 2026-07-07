@@ -1571,11 +1571,26 @@ export const STORY_SECTIONS = {
           ],
         },
         {
+          id: 'rhythm-games',
+          title: 'Rhythm Games',
+          flags: [
+            'RAISE_BAT_HISCORE',
+            'RAISE_BAT_HARD_HISCORE',
+            'RAISE_BAT_HARD_HIRANK',
+            'TV_TIME_HISCORE',
+            'TV_TIME_HARD_HISCORE',
+            'KNOCK_YOU_DOWN_HISCORE',
+            'KNOCK_YOU_DOWN_HARD_HISCORE',
+            'FOURD_SANCTUARY_HISCORE',
+            'FOURD_SANCTUARY_HARD_HISCORE',
+            'FOURD_SANCTUARY_PIPPINS_DIALOGUE',
+          ],
+        },
+        {
           id: 'other',
           title: 'Other',
           flags: [
             'TRASHY_TRIO_NPC_INTERACTIONS',
-            'FOURD_SANCTUARY_PIPPINS_DIALOGUE',
             'CASTLE_CLIMB_HISCORE',
           ],
         },
