@@ -8759,7 +8759,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
         3: 'Ball Person & Trashy',
         5: 'Ball Person & Nubert',
         6: 'Trashy & Nubert',
-        7: 'Ball Person, Trashy, & Nubert',
+        7: 'All members',
       },
     },
   },

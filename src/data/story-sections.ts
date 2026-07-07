@@ -1556,16 +1556,35 @@ export const STORY_SECTIONS = {
       ],
     },
     {
+      id: 'castle-town',
+      title: 'Castle Town',
+      clusters: [
+        {
+          id: 'mike-zone',
+          title: 'Mike Room',
+          flags: [
+            'INTERACTED_WITH_MIKE_DOOR_WITHOUT_MIKE_BATTLE',
+            'MIKE_CUTSCENE_CH5',
+            'GREETED_JONGLER',
+            'GREETED_BATTAT',
+            'GREETED_PLUEY',
+          ],
+        },
+        {
+          id: 'other',
+          title: 'Other',
+          flags: [
+            'TRASHY_TRIO_NPC_INTERACTIONS',
+            'FOURD_SANCTUARY_PIPPINS_DIALOGUE',
+            'CASTLE_CLIMB_HISCORE',
+          ],
+        },
+      ],
+    },
+    {
       id: 'all-flags-ch5',
-      title: 'All flags',
+      title: 'All other flags',
       flags: [
-        'TRASHY_TRIO_NPC_INTERACTIONS',
-        'INTERACTED_WITH_MIKE_DOOR_WITHOUT_MIKE_BATTLE',
-        'MIKE_CUTSCENE_CH5',
-        'GREETED_JONGLER',
-        'GREETED_BATTAT',
-        'GREETED_PLUEY',
-        'FOURD_SANCTUARY_PIPPINS_DIALOGUE',
         'STRONGEST_AQUA_ATTACK',
         'WATCHED_FLOWERY_ASGORE_FISHING',
         'WATCHED_COWBOY_SHOW',
@@ -1580,7 +1599,6 @@ export const STORY_SECTIONS = {
         'PINK_PROGRESS',
         'VOICE_CLIPS_ENABLED',
         'FLOWERY_DOLLARS',
-        'CASTLE_CLIMB_HISCORE',
         'PLATMODE_JUMP_COUNT',
         'PLATMODE_SWING_COUNT',
         'DEFEATED_PINK',
