@@ -1442,7 +1442,7 @@ export const STORY_SECTIONS = {
   5: [
     {
       id: 'festival',
-      title: 'Festival',
+      title: 'Hometown/Festival',
 	  clusters: [
         {
           id: 'pre-festival',
