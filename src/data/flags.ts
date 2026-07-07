@@ -1315,6 +1315,11 @@ export const FLAGS = {
   GREETED_JONGLER: 1772,
   GREETED_BATTAT: 1773,
   GREETED_PLUEY: 1774,
+  HUNG_OUT_WITH_RALSEI: 1775,
+  TALKED_TO_SODA_MACHINE: 1776,
+  BOUGHT_RAW_MOON: 1777,
+  BOUGHT_PHANTA: 1778,
+  BOUGHT_FLOWERY_SODA: 1779,
   // Chapter 4 encounters
   BALTHIZARD_ENCOUNTER_OUTCOME: 1780,
   BALTHIZARD_OLDMAN_ENCOUNTER_OUTCOME: 1781,
@@ -1335,8 +1340,23 @@ export const FLAGS = {
   BIBLIOX_ENCOUNTER_OUTCOME: 1796,
   SCENTED_CANDLES_ENCOUNTER_OUTCOME: 1797,
   SECOND_MIZZLE_ENCOUNTER_OUTCOME: 1798,
+  BOUGHT_SHIKA_COLA: 1800,
+  BOUGHT_FLOWERYS_SECRET: 1801,
+  4RD_SANCTUARY_PIPPINS_DIALOGUE: 1802,
+  OBTAINED_THATCHET: 1803,
+  WALKED_SUSIE_HOME: 1804,
+  WALKED_SUSIE_HOME_CONVO: 1805,
   INTERACTED_WITH_ASGORES_FLOWERS_WEIRDROUTE: 1807,
   SUSIE_MADE_LEMONADE_WEIRDROUTE: 1808,
+  SUSIE_PICKED_UP_COIN_WEIRDROUTE: 1809,
+  // Chapter 5 breaks
+  UNLOCKED_AQUA_BREAKS: 1810,
+  UNLOCKED_SETH_BREAKS: 1811,
+  UNLOCKED_YELLOW_BREAKS: 1812,
+  UNLOCKED_GREEN_BREAKS: 1813,
+  UNLOCKED_BLUE_BREAKS: 1814,
+  UNLOCKED_ORANGE_BREAKS: 1815,
+  UNLOCKED_PINK_BREAKS: 1816,
   PINK_PROGRESS: 1846,
   INTERACTED_WITH_MIKE_DOOR_WITHOUT_MIKE_BATTLE: 1854,
   SUSIE_FLOWER_CROWN_WEIRDROUTE: 1883,
@@ -8873,19 +8893,137 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       },
     },
   },
+  [FLAGS.HUNG_OUT_WITH_RALSEI]: {
+    displayName: 'Hung out with Ralsei normally',
+    description: 'If you hung out with Ralsei normally near the hot springs or inspected the hot spring in the case you didn\'t hang out with Ralsei.',
+    valueType: 'boolean',
+  },
+  [FLAGS.TALKED_TO_SODA_MACHINE]: {
+    displayName: 'Talked to soda machine',
+    description: 'Whether you talked to the soda machine in the Flower Castle cafe.',
+    valueType: 'boolean',
+  },
+  [FLAGS.BOUGHT_RAW_MOON]: {
+    displayName: 'Bought Raw Moon',
+    description: 'Whether you bought a Raw Moon from the vending machine in the Flower Castle cafe at least once.',
+    valueType: 'boolean',
+  },
+  [FLAGS.BOUGHT_PHANTA]: {
+    displayName: 'Bought Phanta',
+    description: 'Whether you bought a Phanta from the vending machine in the Flower Castle cafe at least once.',
+    valueType: 'boolean',
+  },
+  [FLAGS.BOUGHT_FLOWERY_SODA]: {
+    displayName: 'Bought FlowerySoda',
+    description: 'Whether you bought a FlowerySoda from the vending machine in the Flower Castle cafe at least once.',
+    valueType: 'boolean',
+  },
+  [FLAGS.BOUGHT_SHIKA_COLA]: {
+    displayName: 'Bought Shikacola',
+    description: 'Whether you bought a Shikacola from the vending machine in the Flower Castle cafe at least once.',
+    valueType: 'boolean',
+  },
+  [FLAGS.BOUGHT_FLOWERYS_SECRET]: {
+    displayName: 'Bought Flowery\'s secret',
+    description: 'Whether you bought Flowery\'s secret from the vending machine in the Flower Castle cafe, allowing you to buy multiple items from the vending machine.',
+    valueType: 'boolean',
+  },
+  [FLAGS.4RD_SANCTUARY_PIPPINS_DIALOGUE]: {
+    displayName: '4rd Sanctuary Pippins state',
+    description: 'Handles the state of the Pippins that claims "a special colored Pippins will give you a pat on the head" if you clear 4rd Sanctuary without missing a note.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Talked to him before perfectly clearing 4rd Sanctuary',
+        2: 'Talked to him after perfectly clearing 4rd Sanctuary',
+      },
+    },
+  },
+  [FLAGS.OBTAINED_THATCHET]: {
+    displayName: 'Got Thatchet',
+    description: 'Whether you got the Thatchet from the room with the Flowery face flower field.',
+    valueType: 'boolean',
+  },
+  [FLAGS.WALKED_SUSIE_HOME]: {
+    displayName: 'Walked Susie home',
+    description: 'Whether you walked Susie home at the end of the chapter.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Yes',
+        2: 'No',
+      },
+    },
+  },
+  [FLAGS.WALKED_SUSIE_HOME_CONVO]: {
+    displayName: 'Walking Susie home dialogue state',
+    description: 'Volatile. Handles Susie\'s dialogue while walking her home.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Susie mentioned the Festival lights still being up',
+        2: 'Susie wanted to say something',
+        3: 'Susie said how Kris and her make a pretty good team',
+        4: 'Susie said how the adventures feel like a special Kris and Susie thing',
+      },
+    },
+  },
   [FLAGS.INTERACTED_WITH_ASGORES_FLOWERS_WEIRDROUTE]: {
     displayName: 'Interacted with Asgore\'s flowers',
-    description: 'Interacted with Asgore\'s flowers during the Weird Route.',
+    description: 'Whether you interacted with Asgore\'s flowers during the Weird Route.',
     valueType: 'boolean',
   },
   [FLAGS.SUSIE_MADE_LEMONADE_WEIRDROUTE]: {
     displayName: 'Susie made lemonade',
-    description: 'If Susie made free lemonade at the food stand during the Weird Route.',
+    description: 'Whether Susie made free lemonade at the food stand during the Weird Route.',
+    valueType: 'boolean',
+  },
+  [FLAGS.SUSIE_PICKED_UP_COIN_WEIRDROUTE]: {
+    displayName: 'Susie found coin on the ground',
+    description: 'Whether Susie found and picked up a coin from the ground during the Weird Route.',
+    valueType: 'boolean',
+  },
+  [FLAGS.UNLOCKED_AQUA_BREAKS]: {
+    displayName: 'Unlocked breaks with Aqua',
+    description: 'Whether you can take breaks that involve Aqua.',
+    valueType: 'boolean',
+  },
+  [FLAGS.UNLOCKED_SETH_BREAKS]: {
+    displayName: 'Unlocked breaks with Seth',
+    description: 'Whether you can take breaks that involve Seth.',
+    valueType: 'boolean',
+  },
+  [FLAGS.UNLOCKED_YELLOW_BREAKS]: {
+    displayName: 'Unlocked breaks with Yellow',
+    description: 'Whether you can take breaks that involve Yellow.',
+    valueType: 'boolean',
+  },
+  [FLAGS.UNLOCKED_GREEN_BREAKS]: {
+    displayName: 'Unlocked breaks with Green',
+    description: 'Whether you can take breaks that involve Green.',
+    valueType: 'boolean',
+  },
+  [FLAGS.UNLOCKED_BLUE_BREAKS]: {
+    displayName: 'Unlocked breaks with Blue',
+    description: 'Whether you can take breaks that involve Blue.',
+    valueType: 'boolean',
+  },
+  [FLAGS.UNLOCKED_ORANGE_BREAKS]: {
+    displayName: 'Unlocked breaks with Orange',
+    description: 'Whether you can take breaks that involve Orange.',
+    valueType: 'boolean',
+  },
+  [FLAGS.UNLOCKED_PINK_BREAKS]: {
+    displayName: 'Unlocked breaks with Pink',
+    description: 'Whether you can take breaks that involve Pink.',
     valueType: 'boolean',
   },
   [FLAGS.SUSIE_FLOWER_CROWN_WEIRDROUTE]: {
     displayName: 'Susie made a flower crown',
-    description: 'If Susie put a flower crown on your head during the Weird Route.',
+    description: 'Whether Susie put a flower crown on your head during the Weird Route.',
     valueType: 'boolean',
   },
   [FLAGS.PLATMODE_JUMP_COUNT]: {
@@ -10159,7 +10297,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.TRIED_TO_ENTER_CHURCH_WEIRDROUTE]: {
     displayName: 'Tried to enter church',
-    description: 'Tried to enter the church during the Weird Route.',
+    description: 'Whether you tried to enter the church during the Weird Route.',
     valueType: 'boolean',
   },
   [FLAGS.ASKED_CATTY_DAD_KINGQUEEN]: {
