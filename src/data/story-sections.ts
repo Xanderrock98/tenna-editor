@@ -1758,11 +1758,36 @@ export const STORY_SECTIONS = {
           ],
         },
         {
+          id: 'asgores-documents',
+          title: 'Asgore\'s Documents',
+          flags: [
+            'ASGORE_DOCUMENT_TOTALREAD',
+            'ASGORE_DOCUMENT_LEFTFIRST',
+            'ASGORE_DOCUMENT_RIGHTFIRST',
+          ],
+        },
+        {
           id: 'right-side',
           title: 'Right Side',
           flags: [
             'FLOWER_CHOSEN',
             'HUNG_OUT_WITH_RALSEI',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'top-of-flower-castle',
+      title: 'Top of Flower Castle',
+      clusters: [
+        {
+          id: 'pink-door',
+          title: 'Pink Door',
+          flags: [
+            'PINK_DOOR_SHORTCUT_UNLOCKED',
+            'PINK_DOOR_SHORTCUT_CUTSCENE',
+            'PINK_DOOR_INTERACTED_NO_KEY',
+            'PINK_DOOR_PINKCOIN',
           ],
         },
       ],

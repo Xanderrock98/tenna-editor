@@ -1360,6 +1360,8 @@ export const FLAGS = {
   UNLOCKED_BLUE_BREAKS: 1814,
   UNLOCKED_ORANGE_BREAKS: 1815,
   UNLOCKED_PINK_BREAKS: 1816,
+  ASGORE_DOCUMENT_PROGRESS: 1817,
+  PINK_DOOR_FLAGS: 1818,
   PINK_PROGRESS: 1846,
   FLOWER_CHOSEN: 1850,
   INTERACTED_WITH_MIKE_DOOR_WITHOUT_MIKE_BATTLE: 1854,
@@ -8856,14 +8858,13 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
         1: 'Angry voice',
         4: 'Glamorous voice',
         5: 'Angry voice and glamorous voice',
-        8: 'Listened with Tenna broken',
+        8: 'Listened with Tenna unrepaired',
       },
     },
   },
   [FLAGS.SUGGESTED_TENNA_TO_METTATON_CH5]: {
-    displayName: 'Suggested Tenna',
-    description:
-      "Suggested Tenna to Mettaton in Chapter 5, if it wasn't repaired.",
+    displayName: 'Gave Tenna to Mettaton for first time',
+    description: 'Gave Tenna to Mettaton in Chapter 5 if you hadn\'t done so in Chapter 4.',
     valueType: 'boolean',
   },
   [FLAGS.TERRACOTA_BATTLE_TALK]: {
@@ -9183,6 +9184,18 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
         1: 'Unlocked',
       },
     },
+  },
+  [FLAGS.ASGORE_DOCUMENT_PROGRESS]: {
+    displayName: 'Asgore document progress',
+    description: 'Raw bitfield state handling Asgore\'s documents on the left and right sides of Flower Castle.',
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
+  [FLAGS.PINK_DOOR_FLAGS]: {
+    displayName: 'Pink door flags',
+    description: 'Raw bitfield state handling flags in the Pink Door room.',
+    valueType: 'number',
+    valueRules: { min: 0 },
   },
   [FLAGS.SUSIE_FLOWER_CROWN_WEIRDROUTE]: {
     displayName: 'Susie made a flower crown',
@@ -10478,7 +10491,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueType: 'boolean',
     valueRules: {
       booleanMap: {
-        trueValues: [2],
+        trueValues: [2], // values 1 and 3 are also referenced in the code, where this is set to 3 if you perfect clear 4rd sanctuary with this flag set to 1, however as far as I know it's not possible for this flag to be set to 1 normally
         falseValues: [0],
         writeTrue: 2,
         writeFalse: 0,
