@@ -1506,6 +1506,21 @@ export const STORY_SECTIONS = {
           ],
         },
         {
+          id: 'pizzapants',
+          title: 'Pizzapants',
+          flags: [
+            'PIZZAPANTS_GIRLFRIEND_CUTSCENE',
+            'PIZZAPANTS_GIRLFRIEND',
+            'TALKED_TO_BLUE_EARS_AFTER_PIZZAPANTS',
+            'TALKED_TO_CATTY_AFTER_PIZZAPANTS',
+            'TALKED_TO_BRATTY_AFTER_PIZZAPANTS',
+            'TALKED_TO_MILKLOOKER_BEFORE_PIZZAPANTS',
+            'TALKED_TO_MILKLOOKER_DURING_PIZZAPANTS',
+            'TALKED_TO_MILKLOOKER_AFTER_PIZZAPANTS',
+            'POST_PIZZAPANTS_BRATTY_BLUE_EARS',
+          ],
+        },
+        {
           id: 'normalnpc-foodstand',
           title: 'Normal NPC Food Stand',
           flags: [
@@ -1605,8 +1620,13 @@ export const STORY_SECTIONS = {
           id: 'garden-intro',
           title: 'Garden Intro',
           flags: [
+            'WATCHED_GARDEN_INTRO',
+            'FLORADINN_FLATTER_AMOUNT',
+            'FLORADINN_CONVINCE_AMOUNT',
+            'FLORADINN_FLIRTS_AMOUNT',
             'WATCHED_FLOWERY_ASGORE_FISHING',
             'WATCHED_COWBOY_SHOW',
+            'ITEMS_GIVEN_TO_FLOWERY',
             'KOOBY_DEVELOPED',
           ],
         },
@@ -1614,6 +1634,7 @@ export const STORY_SECTIONS = {
           id: 'scissors-puzzles',
           title: 'Scissors Puzzles',
           flags: [
+            'SHEARY_CUT_AMOUNT',
             'SCISSORS_PUZZLE_SHAPED_BUSH_CUT',
             'SCISSORS_PUZZLE_FLOWERY_FACE_PATH_CUT',
             'RALSEI_HOLD_Z_HINT',
@@ -1634,6 +1655,7 @@ export const STORY_SECTIONS = {
           title: 'Hopchef',
           flags: [
             'HOPSCHEF_PROGRESS',
+            'TOOK_TREE_CAKE',
             'SPAWNED_TROPICAL_STARWALKER',
           ],
         },
@@ -1790,6 +1812,13 @@ export const STORY_SECTIONS = {
             'PINK_DOOR_PINKCOIN',
           ],
         },
+        {
+          id: 'ultra-dash',
+          title: 'Ultra Dash',
+          flags: [
+            'FINAL_STARWALKER',
+          ],
+        },
       ],
     },
     {
@@ -1804,11 +1833,11 @@ export const STORY_SECTIONS = {
         'PLATMODE_JUMP_COUNT',
         'PLATMODE_SWING_COUNT',
         'DEFEATED_PINK',
-        'FLORADINN_FLATTER_AMOUNT',
-        'FLORADINN_CONVINCE_AMOUNT',
-        'FLORADINN_FLIRTS_AMOUNT',
         'TERRACOTA_BATTLE_TALK',
         'NETSKIE_BATTLE_TALK',
+        'USED_PARTY_ACTION_CH5',
+        'ENTERED_DOG_BALLOON_ROOM',
+        'OBTAINED_EGG_CH5',
       ],
     },
   ],

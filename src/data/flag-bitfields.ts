@@ -26,6 +26,7 @@ export const FLAG_BITFIELDS = {
   PINK_DOOR_SHORTCUT_CUTSCENE: 'PINK_DOOR_SHORTCUT_CUTSCENE',
   PINK_DOOR_INTERACTED_NO_KEY: 'PINK_DOOR_INTERACTED_NO_KEY',
   PINK_DOOR_PINKCOIN: 'PINK_DOOR_PINKCOIN',
+  FINAL_STARWALKER: 'FINAL_STARWALKER',
   UNLOCKED_SETH_BREAKS_PRECAFE: 'UNLOCKED_SETH_BREAKS_PRECAFE',
   UNLOCKED_YELLOW_BREAKS_PRECAFE: 'UNLOCKED_YELLOW_BREAKS_PRECAFE',
   UNLOCKED_GREEN_BREAKS_PRECAFE: 'UNLOCKED_GREEN_BREAKS_PRECAFE',
@@ -188,6 +189,14 @@ export const FLAG_BITFIELDS_META: Record<
     width: 1,
     displayName: 'Collected Pink Coin',
     description: 'Whether you\'ve collected the Pink Coin in the room containing the Pink Door.',
+    valueType: 'boolean',
+  },
+  [FLAG_BITFIELDS.FINAL_STARWALKER]: {
+    parent: FLAGS.FINAL_STARWALKER_FLAG,
+    index: 0,
+    width: 1,
+    displayName: 'Final &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Starwalker',
+    description: 'Whether you saw the original Starwalker transform into the final Starwalker.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.UNLOCKED_SETH_BREAKS_PRECAFE]: {

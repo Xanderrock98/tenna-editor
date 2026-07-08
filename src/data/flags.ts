@@ -779,6 +779,7 @@ export const FLAGS = {
   DAMAGE_TAKEN_COUNT_CH4: 937,
   ICE_E_PAIN_SCALE_VIEW_COUNT_CH4: 938,
   TREASURE_CHEST_COUNT: 939,
+  OBTAINED_EGG_CH5: 941,
   SHADOW_FAILED_CH2: 950,
   GLASS_FAILED_CH2: 951,
   SHADOW_LAB: 952,
@@ -1089,8 +1090,20 @@ export const FLAGS = {
   AMOUNT_OF_GIANT_TEACUPS: 1390,
   VOICE_CLIPS_ENABLED: 1391,
   HOPSCHEF_PROGRESS_FLAG: 1399,
+  TOOK_TREE_CAKE: 1400,
+  SHEARY_CUT_AMOUNT: 1401,
+  PIZZAPANTS_GIRLFRIEND_CUTSCENE: 1402,
+  PIZZAPANTS_GIRLFRIEND: 1403,
   RIBBON_CHEST_STATE: 1404,
+  ITEMS_GIVEN_TO_FLOWERY: 1405,
+  TALKED_TO_BLUE_EARS_AFTER_PIZZAPANTS: 1406,
+  TALKED_TO_CATTY_AFTER_PIZZAPANTS: 1407,
+  TALKED_TO_BRATTY_AFTER_PIZZAPANTS: 1408,
+  TALKED_TO_MILKLOOKER_AFTER_PIZZAPANTS: 1409,
+  WATCHED_GARDEN_INTRO: 1410,
   FLOWERY_DOLLARS: 1411,
+  POST_PIZZAPANTS_BRATTY_BLUE_EARS: 1415,
+  UNHAPPY_SUSIE_NOELLE: 1416,
   // Chapter 5 Thrash Fit
   THRASH_FIT_HAIR: 1421,
   THRASH_FIT_SHIRT: 1422,
@@ -1104,6 +1117,7 @@ export const FLAGS = {
   GAVE_TORIEL_TOAST: 1439,
   CASTLE_CLIMB_HISCORE: 1440,
   SEEN_HOW_TO_DRAW_DRAGONS: 1443,
+  TALKED_TO_MILKLOOKER_DURING_PIZZAPANTS: 1453,
   // Chapter 4 Dark Sanctuary
   MONEYFOUNTAIN_DONATION_OVER_100: 1500,
   CANDY_BOWL_PROGRESS: 1501,
@@ -1364,14 +1378,18 @@ export const FLAGS = {
   PINK_DOOR_FLAGS: 1818,
   PINK_PROGRESS: 1846,
   FLOWER_CHOSEN: 1850,
+  FINAL_STARWALKER_FLAG: 1851,
   INTERACTED_WITH_MIKE_DOOR_WITHOUT_MIKE_BATTLE: 1854,
   UNLOCKED_BREAK_CHARACTERS_PRECAFE: 1856,
   BOUGHT_BREAKS1: 1430,
   BOUGHT_BREAKS2: 1892,
   WATCHED_BREAKS1: 1855,
   WATCHED_BREAKS2: 1893,
+  ENTERED_DOG_BALLOON_ROOM: 1872,
   FREE_DRINK_OUTCOME: 1879,
   SUSIE_FLOWER_CROWN_WEIRDROUTE: 1883,
+  USED_PARTY_ACTION_CH5: 1888,
+  TALKED_TO_MILKLOOKER_BEFORE_PIZZAPANTS: 1900,
   PLATMODE_JUMP_COUNT: 1904,
   PLATMODE_SWING_COUNT: 1905,
   DEFEATED_PINK: 1908,
@@ -6140,6 +6158,11 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     description: 'Whether you got the Chapter 4 egg.',
     valueType: 'boolean',
   },
+  [FLAGS.OBTAINED_EGG_CH5]: {
+    displayName: 'Got the egg',
+    description: 'Whether you got the Chapter 5 egg.',
+    valueType: 'boolean',
+  },
   [FLAGS.DAMAGE_TAKEN_COUNT_CH1]: {
     displayName: 'Damage taken',
     description: 'Number of times hit in Chapter 1, used for trophies.',
@@ -8216,6 +8239,11 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueType: 'number',
     valueRules: { min: 0 },
   },
+  [FLAGS.ENTERED_DOG_BALLOON_ROOM]: {
+    displayName: "Entered Annoying Dog balloon room",
+    description: "Whether you entered the Annying Dog balloon room that is before the egg room.",
+    valueType: 'boolean',
+  },
   [FLAGS.FREE_DRINK_OUTCOME]: {
     displayName: 'Free Drinks outcome',
     description: 'Outcome of the free drinks scene.',
@@ -8607,7 +8635,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.KOOBY_DEVELOPED]: {
     displayName: 'Kooby developed',
-    description: 'If you watered Kooby, causing him to develop.',
+    description: 'Whether you watered Kooby, causing him to develop.',
     valueType: 'boolean',
   },
   [FLAGS.HOPSCHEF_PROGRESS_FLAG]: {
@@ -8616,10 +8644,85 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueType: 'number',
     valueRules: { min: 0 },
   },
+  [FLAGS.TOOK_TREE_CAKE]: {
+    displayName: 'Took TreeCake',
+    description: 'Whether you took a piece of TreeCake.',
+    valueType: 'boolean',
+  },
+  [FLAGS.SHEARY_CUT_AMOUNT]: {
+    displayName: 'Times you used cut on Sheary',
+    description: 'Amount of times you used a cut act on Sheary.',
+    valueType: 'number',
+  },
+  [FLAGS.PIZZAPANTS_GIRLFRIEND_CUTSCENE]: {
+    displayName: 'Watched Pizzapants cutscene',
+    description: 'Whether you watched the Pizzapants stage cutscene.',
+    valueType: 'boolean',
+  },
+  [FLAGS.PIZZAPANTS_GIRLFRIEND]: {
+    displayName: 'Who confronted Pizzapants',
+    description: 'Who you told to go up on stage with Pizzapants.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Bratty',
+        2: 'Blue Ears',
+        3: 'Catty',
+      },
+    },
+  },
+  [FLAGS.TALKED_TO_BLUE_EARS_AFTER_PIZZAPANTS]: {
+    displayName: 'Talked to Blue Ears afterwards',
+    description: 'Whether you talked to Blue Ears after someone went up to Pizzapants.',
+    valueType: 'boolean',
+  },
+  [FLAGS.TALKED_TO_CATTY_AFTER_PIZZAPANTS]: {
+    displayName: 'Talked to Catty afterwards',
+    description: 'Whether you talked to Catty after someone went up to Pizzapants.',
+    valueType: 'boolean',
+  },
+  [FLAGS.TALKED_TO_BRATTY_AFTER_PIZZAPANTS]: {
+    displayName: 'Talked to Bratty afterwards',
+    description: 'Whether you talked to Bratty after someone went up to Pizzapants.',
+    valueType: 'boolean',
+  },
+  [FLAGS.TALKED_TO_MILKLOOKER_AFTER_PIZZAPANTS]: {
+    displayName: 'Talked to Milklooker afterwards',
+    description: 'Whether you talked to Milklooker after someone went up to Pizzapants.',
+    valueType: 'boolean',
+  },
+  [FLAGS.TALKED_TO_MILKLOOKER_DURING_PIZZAPANTS]: {
+    displayName: 'Talked to Milklooker during Pizzapants\' show',
+    description: 'Whether you talked to Milklooker after Pizzapants does his intro.',
+    valueType: 'boolean',
+  },
+  [FLAGS.TALKED_TO_MILKLOOKER_BEFORE_PIZZAPANTS]: {
+    displayName: 'Talked to Milklooker before Pizzapants\' intro',
+    description: 'Whether you talked to Milklooker before Pizzapants does his intro.',
+    valueType: 'boolean',
+  },
+  [FLAGS.POST_PIZZAPANTS_BRATTY_BLUE_EARS]: {
+    displayName: 'Bratty is no longer Blue Ears\'s friend',
+    description: 'Progress of talking to Bratty and Blue Ears after Pizzapants found out Pizzerina wasn\'t real.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Talked to Bratty, who tells you to talk to Blue Ears',
+        2: 'Talked to Blue Ears, who said Bratty isn\'t his friend anymore',
+        3: 'Talked to Bratty again, who said it makes sense',
+      },
+    },
+  },
+  [FLAGS.UNHAPPY_SUSIE_NOELLE]: {
+    displayName: 'Unhappy Susie and Noelle',
+    description: 'Volatile. Used to set Susie and Noelle\'s expressions to unhappy after Pizzapants finds out the truth about Pizzarina in Chapter 5. Is set to 0 after leaving the room.',
+    valueType: 'boolean',
+  },
   [FLAGS.RIBBON_CHEST_STATE]: {
     displayName: 'Ribbon chest state',
-    description:
-      'Tracks the Chapter 5 RedRibbon chest and first ribbon equip scenes.',
+    description: 'Tracks the Chapter 5 RedRibbon chest and first ribbon equip scenes.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -8631,10 +8734,20 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       },
     },
   },
+  [FLAGS.ITEMS_GIVEN_TO_FLOWERY]: {
+    displayName: 'Items given to Flowery',
+    description: 'Amount of items given to Flowery while he is in your party.',
+    valueType: 'number',
+  },
   [FLAGS.FLOWERY_DOLLARS]: {
     displayName: 'Flowery Dollars',
     description: 'Your amount of Flowery Dollars.',
     valueType: 'number',
+  },
+  [FLAGS.WATCHED_GARDEN_INTRO]: {
+    displayName: 'Watched Garden of Hopes and Dreams intro',
+    description: 'If you\'ve watched the Garden of Hopes and Dreams intro sequence.',
+    valueType: 'boolean',
   },
   [FLAGS.WEIRD_ROUTE_STOP_COUNT]: {
     displayName: 'Weird Route "Stop" count',
@@ -9199,8 +9312,12 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.SUSIE_FLOWER_CROWN_WEIRDROUTE]: {
     displayName: 'Susie made a flower crown',
-    description:
-      'Whether Susie put a flower crown on your head during the Weird Route.',
+    description: 'Whether Susie put a flower crown on your head during the Weird Route.',
+    valueType: 'boolean',
+  },
+  [FLAGS.USED_PARTY_ACTION_CH5]: {
+    displayName: 'Used a party act on a Garden of Cliffs enemy',
+    description: 'Used S-Action or R-Action on an enemy in Garden or Cliffs, or was reminded if you didn\'t.',
     valueType: 'boolean',
   },
   [FLAGS.PLATMODE_JUMP_COUNT]: {
