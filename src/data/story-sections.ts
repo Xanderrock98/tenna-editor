@@ -1564,6 +1564,9 @@ export const STORY_SECTIONS = {
             'SUSIE_MADE_LEMONADE_WEIRDROUTE',
             'SUSIE_PICKED_UP_COIN_WEIRDROUTE',
             'TRIED_TO_ENTER_CHURCH_WEIRDROUTE',
+            'RODE_FERRIS_WHEEL_WEIRDROUTE',
+            'TRIED_TO_ENTER_SCHOOL_WEIRDROUTE',
+            'TRIED_TO_ENTER_BEACH_NO_ICECREAM_WEIRDROUTE',
             'WEIRD_ROUTE_STOP_COUNT',
             'WEIRD_ROUTE_FAIL_CH5',
           ],
@@ -1603,9 +1606,41 @@ export const STORY_SECTIONS = {
           ],
         },
         {
+          id: 'kris-room',
+          title: 'Kris\'s Room',
+          flags: [
+            'LOOKED_IN_KRIS_WARDROBE',
+            'KRIS_LAMP',
+            'MOSS_TROPHY',
+          ],
+        },
+		{
+          id: 'susie-room',
+          title: 'Susie\'s Room',
+          flags: [
+            'LOOKED_IN_SUSIES_WARDROBE',
+            'WHAT_NOELLE_LIKES',
+            'NUZZLED_SUSIE_DOLL',
+          ],
+        },
+        {
+          id: 'ralsei-room',
+          title: 'Ralsei\'s Room',
+          flags: [
+            'ENTERED_RALSEI_ROOM',
+            'RALSEI_RANCHER_LOCKED_AGAIN',
+            'THOUGHTS_ON_RALSEI_TRYING_DIFFERENT_DRINKS',
+            'PILLOW_FIGHT',
+            'SAW_RALSEI_ROOM_CH5',
+          ],
+        },
+		{
           id: 'other',
           title: 'Other',
           flags: [
+            'LISTENED_TO_CAPN_DOJO',
+            'TALKED_TO_JIGSAW_JOE_BAKERY',
+            'TRASHY_TRIO_DOJO_OUTCOME',
             'TRASHY_TRIO_NPC_INTERACTIONS',
             'CASTLE_CLIMB_HISCORE',
           ],
@@ -1626,6 +1661,14 @@ export const STORY_SECTIONS = {
             'FLORADINN_FLIRTS_AMOUNT',
             'WATCHED_FLOWERY_ASGORE_FISHING',
             'WATCHED_COWBOY_SHOW',
+          ],
+        },
+        {
+          id: 'watering-can',
+          title: 'Unlocking the Watering Can',
+          flags: [
+            'OBTAINED_GREENTEA_SHEARYDODGE',
+            'RIVER_PINKCOIN',
             'ITEMS_GIVEN_TO_FLOWERY',
             'KOOBY_DEVELOPED',
           ],
@@ -1639,6 +1682,14 @@ export const STORY_SECTIONS = {
             'SCISSORS_PUZZLE_FLOWERY_FACE_PATH_CUT',
             'RALSEI_HOLD_Z_HINT',
             'OBTAINED_THATCHET',
+            'FLOWERYGARDENING_FLOWERYDOLLARS',
+          ],
+        },
+        {
+          id: 'buttons-puzzle',
+          title: 'Buttons Puzzle',
+          flags: [
+            'OBTAINED_REVIVEMINT_CH5',
           ],
         },
         {
@@ -1646,6 +1697,8 @@ export const STORY_SECTIONS = {
           title: 'Diner to Shrine',
           flags: [
             'FLOWER_KING_DARK_WORLD_LEAVE_ATTEMPTS',
+            'OBTAINED_GREENTEA_PREAQUA',
+            'OBTAINED_REDRIBBON_PREAQUA',
             'STRONGEST_AQUA_ATTACK',
             'OBTAINED_PETAL_FEATHER',
           ],
@@ -1656,7 +1709,14 @@ export const STORY_SECTIONS = {
           flags: [
             'HOPSCHEF_PROGRESS',
             'TOOK_TREE_CAKE',
+          ],
+        },
+        {
+          id: 'tropical-starwalker',
+          title: 'Tropical Starwalker',
+          flags: [
             'SPAWNED_TROPICAL_STARWALKER',
+            'TROPICAL_STARWALKER_PINKCOIN',
           ],
         },
       ],
@@ -1672,6 +1732,21 @@ export const STORY_SECTIONS = {
             'ASKED_PINK_ABOUT_PLACE',
             'ASKED_PINK_ABOUT_NAME',
             'ASKED_PINK_ABOUT_OTHER_PEOPLE',
+          ],
+        },
+		{
+          id: 'netskie-climb',
+          title: 'Netskie Climb',
+          flags: [
+            'OBTAINED_MISTLEWP',
+            'OBTAINED_NETSKIEHAT_NETSKIECLIMB',
+          ],
+        },
+		{
+          id: 'other',
+          title: 'Other',
+          flags: [
+            'YELLOWCAVE_FLOWERYDOLLARS',
           ],
         },
       ],
@@ -1789,11 +1864,56 @@ export const STORY_SECTIONS = {
           ],
         },
         {
+          id: 'terakota-puzzle',
+          title: 'Terakota Statue Puzzle',
+          flags: [
+            'TERAKOTA_PUZZLE_STATUE1',
+            'TERAKOTA_PUZZLE_STATUE2',
+            'TERAKOTA_PUZZLE_STATUE3',
+            'TERAKOTA_PUZZLE_STATUE4',
+            'TERAKOTA_PUZZLE_STATUE5',
+            'TERAKOTA_PUZZLE_SOLVED',
+            'TERAKOTA_PUZZLE_PINKCOIN',
+            'TERAKOTA_BONUS_PINKCOIN',
+          ],
+        },
+        {
+          id: 'fox-hunt',
+          title: 'Fox Hunt',
+          flags: [
+            'FOXHUNT_FOX1',
+            'FOXHUNT_FOX2',
+            'FOXHUNT_FOX3',
+            'FOXHUNT_FOX4',
+            'FOXHUNT_FOX5',
+            'FOXHUNT_AQUA',
+            'FOXHUNT_OPENDOOR',
+            'FOXHUNT_PINKCOIN',
+            'FOXHUNT_FLOWERYDOLLARS',
+            'FOXHUNT_FIRST_TERAKOTA',
+            'FOXHUNT_TERAKOTA_PUSHED',
+            'FOXHUNT_TERASKIP',
+            'FOXHUNT_CHAOS_AQUA',
+            'FOXHUNT_CHAOS_SETH',
+            'FOXHUNT_CHAOS_WATER',
+            'FOXHUNT_CHAOS_DOG',
+          ],
+        },
+        {
           id: 'right-side',
           title: 'Right Side',
           flags: [
             'FLOWER_CHOSEN',
             'HUNG_OUT_WITH_RALSEI',
+            'HELD_MUSHROOM_PINKCOIN',
+          ],
+        },
+        {
+          id: 'left-side',
+          title: 'Left Side',
+          flags: [
+            'LEFTCASTLE_SHINOBEETLE_FLOWERYDOLLARS',
+            'OBTAINED_TENSIONMAX_ZEN',
           ],
         },
       ],
@@ -1817,6 +1937,7 @@ export const STORY_SECTIONS = {
           title: 'Ultra Dash',
           flags: [
             'FINAL_STARWALKER',
+            'OBTAINED_DOGDOLLAR_CH5',
           ],
         },
       ],

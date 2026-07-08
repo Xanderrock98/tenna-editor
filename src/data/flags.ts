@@ -682,6 +682,7 @@ export const FLAGS = {
   COMPLETED_ALLSTARS: 813,
   COMPLETED_JOE: 814,
   WEATHER_DUO_DOJO_OUTCOME: 815,
+  TRASHY_TRIO_DOJO_OUTCOME: 816,
   HEARD_TORIEL_POST_CHURCH_INVITATION: 831,
   TOOK_ASRIEL_DRAWER_MONEY_CH4: 832,
   DINER_PAYMENT_REFUSED: 833,
@@ -1044,6 +1045,7 @@ export const FLAGS = {
   SWORDROUTE_SODA: 1278,
   RAISE_BAT_HARD_HISCORE: 1279,
   RAISE_BAT_HARD_HIRANK: 1280,
+  TROPICAL_STARWALKER_PINKCOIN: 1304,
   SPAWNED_TROPICAL_STARWALKER: 1309,
   RALSEI_HAT_STATE_CH5: 1311,
   PINK_COINS: 1312,
@@ -1118,6 +1120,8 @@ export const FLAGS = {
   CASTLE_CLIMB_HISCORE: 1440,
   SEEN_HOW_TO_DRAW_DRAGONS: 1443,
   TALKED_TO_MILKLOOKER_DURING_PIZZAPANTS: 1453,
+  SAW_RALSEI_ROOM_CH5: 1458,
+  ENTERED_RALSEI_ROOM: 1459,
   // Chapter 4 Dark Sanctuary
   MONEYFOUNTAIN_DONATION_OVER_100: 1500,
   CANDY_BOWL_PROGRESS: 1501,
@@ -1301,11 +1305,28 @@ export const FLAGS = {
   OBTAINED_TV_ZONE_3_CHEST: 1703,
   KRIS_NOELLE_ESCAPE_WEIRD_ABORT: 1704,
   FOURD_SANCTUARY_FULL_CLEAR: 1705,
+  LISTENED_TO_CAPN_DOJO: 1720,
+  TALKED_TO_JIGSAW_JOE_BAKERY: 1721,
+  LOOKED_IN_KRIS_WARDROBE: 1722,
+  KRIS_LAMP: 1723,
+  MOSS_TROPHY: 1724,
+  LOOKED_IN_SUSIES_WARDROBE: 1725,
+  WHAT_NOELLE_LIKES: 1726,
+  NUZZLED_SUSIE_DOLL: 1727,
+  RALSEI_RANCHER_LOCKED_AGAIN: 1728,
+  THOUGHTS_ON_RALSEI_TRYING_DIFFERENT_DRINKS: 1729,
+  PILLOW_FIGHT: 1730,
+  YELLOWCAVE_FLOWERYDOLLARS: 1732,
   // More Chapter 5 Festival flags, along with other minor dark world flags
+  TRIED_TO_ENTER_BEACH_NO_ICECREAM_WEIRDROUTE: 1733,
   TRIED_TO_ENTER_CHURCH_WEIRDROUTE: 1734,
+  RODE_FERRIS_WHEEL_WEIRDROUTE: 1735,
+  TRIED_TO_ENTER_SCHOOL_WEIRDROUTE: 1736,
+  FOXHUNT_FLAGS: 1737,
   ASKED_CATTY_DAD_KINGQUEEN: 1738,
   WEIRD_ROUTE_STOP_COUNT: 1742,
   WEIRD_ROUTE_FAIL_CH5: 1743,
+  TERAKOTA_PUZZLE_FLAGS: 1744,
   TORIEL_TOAST_TIMER: 1745,
   TALKED_TORIEL_HOW_YOU_SLEPT: 1746,
   TALKED_TORIEL_LAST_NIGHT: 1747,
@@ -1376,16 +1397,32 @@ export const FLAGS = {
   UNLOCKED_PINK_BREAKS: 1816,
   ASGORE_DOCUMENT_PROGRESS: 1817,
   PINK_DOOR_FLAGS: 1818,
+  RIVER_PINKCOIN: 1827,
+  OBTAINED_GREENTEA_SHEARYDODGE: 1828,
+  OBTAINED_REVIVEMINT_CH5: 1829,
+  OBTAINED_GREENTEA_PREAQUA: 1830,
+  OBTAINED_REDRIBBON_PREAQUA: 1831,
+  FLOWERYGARDENING_FLOWERYDOLLARS: 1832,
+  OBTAINED_NETSKIEHAT_NETSKIECLIMB: 1833,
+  OBTAINED_MISTLEWP: 1834,
+  TERAKOTA_BONUS_PINKCOIN: 1835,
+  HELD_MUSHROOM_PINKCOIN: 1836,
+  OBTAINED_TENSIONMAX_ZEN: 1837,
+  FOXHUNT_PINKCOIN: 1840,
+  FOXHUNT_FLOWERYDOLLARS: 1841,
   PINK_PROGRESS: 1846,
   FLOWER_CHOSEN: 1850,
   FINAL_STARWALKER_FLAG: 1851,
+  LEFTCASTLE_SHINOBEETLE_FLOWERYDOLLARS: 1853,
   INTERACTED_WITH_MIKE_DOOR_WITHOUT_MIKE_BATTLE: 1854,
   UNLOCKED_BREAK_CHARACTERS_PRECAFE: 1856,
+  OBTAINED_DOGDOLLAR_CH5: 1866,
   BOUGHT_BREAKS1: 1430,
   BOUGHT_BREAKS2: 1892,
   WATCHED_BREAKS1: 1855,
   WATCHED_BREAKS2: 1893,
   ENTERED_DOG_BALLOON_ROOM: 1872,
+  TERAKOTA_PUZZLE_PINKCOIN: 1875,
   FREE_DRINK_OUTCOME: 1879,
   SUSIE_FLOWER_CROWN_WEIRDROUTE: 1883,
   USED_PARTY_ACTION_CH5: 1888,
@@ -5456,6 +5493,12 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       },
     },
   },
+  [FLAGS.TRASHY_TRIO_DOJO_OUTCOME]: {
+    displayName: 'Trashy Trio',
+    description:
+      'Whether you defeated Trashy Trio in the chapter 5 Bakery Dojo.',
+    valueType: 'boolean',
+  },
   [FLAGS.HEARD_TORIEL_POST_CHURCH_INVITATION]: {
     displayName: "Heard Toriel's post-church invitation",
     description:
@@ -8159,10 +8202,14 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       map: GAMESHOW_RANKS,
     },
   },
+  [FLAGS.TROPICAL_STARWALKER_PINKCOIN]: {
+    displayName: 'Got Pink Coin',
+    description: 'Whether you got the Pink Coin in the Tropical Starwalker room.',
+    valueType: 'boolean',
+  },
   [FLAGS.SPAWNED_TROPICAL_STARWALKER]: {
     displayName: 'Spawned Tropical Starwalker',
-    description:
-      'Activated the bell that spawns Tropical Starwalker and drops the pink chest.',
+    description: 'Whether you activated the bell that spawns Tropical Starwalker and drops the pink chest.',
     valueType: 'boolean',
   },
   [FLAGS.RALSEI_HAT_STATE_CH5]: {
@@ -8242,6 +8289,11 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   [FLAGS.ENTERED_DOG_BALLOON_ROOM]: {
     displayName: "Entered Annoying Dog balloon room",
     description: "Whether you entered the Annying Dog balloon room that is before the egg room.",
+    valueType: 'boolean',
+  },
+  [FLAGS.TERAKOTA_PUZZLE_PINKCOIN]: {
+    displayName: "Got Pink Coin",
+    description: "Whether you got the Pink Coin in the Terakota statue puzzle room.",
     valueType: 'boolean',
   },
   [FLAGS.FREE_DRINK_OUTCOME]: {
@@ -8650,7 +8702,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueType: 'boolean',
   },
   [FLAGS.SHEARY_CUT_AMOUNT]: {
-    displayName: 'Times you used cut on Sheary',
+    displayName: 'Times you used a cut act on Sheary',
     description: 'Amount of times you used a cut act on Sheary.',
     valueType: 'number',
   },
@@ -8759,6 +8811,12 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     displayName: 'Nothing changed',
     description: 'Aborted the Weird Route at the lake.',
     valueType: 'boolean',
+  },
+  [FLAGS.TERAKOTA_PUZZLE_FLAGS]: {
+    displayName: 'Terakota statue push flags',
+    description: 'Raw bitfield state handling pushed Terakota statues for the Terakota Pink Coin puzzle.',
+    valueType: 'number',
+    valueRules: { min: 0 },
   },
   [FLAGS.TORIEL_TOAST_TIMER]: {
     displayName: 'Microwave toast timer',
@@ -9168,8 +9226,12 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.OBTAINED_THATCHET]: {
     displayName: 'Got Thatchet',
-    description:
-      'Whether you got the Thatchet from the room with the Flowery face flower field.',
+    description: 'Whether you got the Thatchet from the Flowery face room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.FLOWERYGARDENING_FLOWERYDOLLARS]: {
+    displayName: 'Got 50 Flowery Dollars',
+    description: 'Whether you got 50 Flowery Dollars from the Flowery face room.',
     valueType: 'boolean',
   },
   [FLAGS.WALKED_SUSIE_HOME]: {
@@ -9309,6 +9371,76 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     description: 'Raw bitfield state handling flags in the Pink Door room.',
     valueType: 'number',
     valueRules: { min: 0 },
+  },
+  [FLAGS.RIVER_PINKCOIN]: {
+    displayName: 'Got river Pink Coin',
+    description: 'Whether you got the Pink Coin in the river room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.OBTAINED_GREENTEA_SHEARYDODGE]: {
+    displayName: 'Got GreenTea',
+    description: 'Whether you got the GreenTea in the scissors dodging room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.OBTAINED_REVIVEMINT_CH5]: {
+    displayName: 'Got ReviveMint',
+    description: 'Whether you got the ReviveMint in the Floradinn dinner dash room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.OBTAINED_GREENTEA_PREAQUA]: {
+    displayName: 'Got GreenTea',
+    description: 'Whether you got the GreenTea in the Quiet Glade room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.OBTAINED_REDRIBBON_PREAQUA]: {
+    displayName: 'Got RedRibbon',
+    description: 'Whether you got the RedRibbon in the Quiet Glade room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.OBTAINED_NETSKIEHAT_NETSKIECLIMB]: {
+    displayName: 'Got NetskieHat',
+    description: 'Whether you got the NetskieHat in the Netskie Climb room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.OBTAINED_MISTLEWP]: {
+    displayName: 'Got MistleWP',
+    description: 'Whether you got the MistleWP in the Netskie Climb room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.TERAKOTA_BONUS_PINKCOIN]: {
+    displayName: 'Got bonus Pink Coin',
+    description: 'Whether you got the Pink Coin in the room above the Terakota puzzle.',
+    valueType: 'boolean',
+  },
+  [FLAGS.HELD_MUSHROOM_PINKCOIN]: {
+    displayName: 'Got held mushroom Pink Coin',
+    description: 'Whether you got the Pink Coin in the mushroom button room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.OBTAINED_TENSIONMAX_ZEN]: {
+    displayName: 'Got TensionMax',
+    description: 'Whether you got the TensionMax in the zen room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.OBTAINED_DOGDOLLAR_CH5]: {
+    displayName: 'Got DogDollar',
+    description: 'Whether you got the DogDollar in the Laddery room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.FOXHUNT_PINKCOIN]: {
+    displayName: 'Got Pink Coin',
+    description: 'Whether you got the Pink Coin in the fox hunt room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.FOXHUNT_FLOWERYDOLLARS]: {
+    displayName: 'Got 10 Flowery Dollars',
+    description: 'Whether you got the 10 Flowery Dollars in the fox hunt room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.LEFTCASTLE_SHINOBEETLE_FLOWERYDOLLARS]: {
+    displayName: 'Got 50 Flowery Dollars',
+    description: 'Whether you got the 50 Flowery Dollars in the Shinobeetle room.',
+    valueType: 'boolean',
   },
   [FLAGS.SUSIE_FLOWER_CROWN_WEIRDROUTE]: {
     displayName: 'Susie made a flower crown',
@@ -10615,11 +10747,122 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       },
     },
   },
+  [FLAGS.LISTENED_TO_CAPN_DOJO]: {
+    displayName: 'Listened to Cap\'n',
+    description: 'Whether you listened to Cap\'n in the Love Dojo.',
+    valueType: 'boolean',
+  },
+  [FLAGS.TALKED_TO_JIGSAW_JOE_BAKERY]: {
+    displayName: 'Talked to Jigsaw Joe',
+    description: 'Whether you talked to Jigsaw Joe in the bakery.',
+    valueType: 'boolean',
+  },
+  [FLAGS.LOOKED_IN_KRIS_WARDROBE]: {
+    displayName: 'Looked in Kris\'s wardrobe',
+    description: 'Whether you looked in Kris\'s wardrobe.',
+    valueType: 'boolean',
+  },
+  [FLAGS.KRIS_LAMP]: {
+    displayName: 'Kris lamp',
+    description: 'Whether you interacted with the lamp, turning it into Kris lamp.',
+    valueType: 'boolean',
+  },
+  [FLAGS.MOSS_TROPHY]: {
+    displayName: 'Interacted with Moss trophy',
+    description: 'Whether you interacted with the Moss trophy in Kris\'s room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.LOOKED_IN_SUSIES_WARDROBE]: {
+    displayName: 'Looked in Susie\'s wardrobe',
+    description: 'Whether you looked in Susie\'s wardrobe and saw Queen with the duck costume.',
+    valueType: 'boolean',
+  },
+  [FLAGS.WHAT_NOELLE_LIKES]: {
+    displayName: 'What Noelle likes',
+    description: 'Your response to Susie asking what Noelle likes',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Likes statues',
+        2: 'Something else',
+      },
+    },
+  },
+  [FLAGS.NUZZLED_SUSIE_DOLL]: {
+    displayName: 'Nuzzled Susie doll',
+    description: 'Whether you nuzzled the Susie doll in Susie\'s room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.SAW_RALSEI_ROOM_CH5]: {
+    displayName: 'Saw Ralsei\'s room for the first time',
+    description: 'Whether you entered Ralsei\'s room after having not entered it previously in Chapter 4.',
+    valueType: 'boolean',
+  },
+  [FLAGS.ENTERED_RALSEI_ROOM]: {
+    displayName: 'Entered Ralsei\'s room',
+    description: 'Whether you entered Ralsei\'s room after having entered it previously in Chapter 4.',
+    valueType: 'boolean',
+  },
+  [FLAGS.RALSEI_RANCHER_LOCKED_AGAIN]: {
+    displayName: 'Ralsei Rancher locked (again)',
+    description: 'Whether you opened the Ralsei Rancher wardrobe in Ralsei\'s room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.THOUGHTS_ON_RALSEI_TRYING_DIFFERENT_DRINKS]: {
+    displayName: 'Your thoughts on Ralsei trying other drinks',
+    description: 'Your response to Ralsei saying he wants to try other drinks.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Sounds nice',
+        2: 'You like tea',
+      },
+    },
+  },
+  [FLAGS.PILLOW_FIGHT]: {
+    displayName: 'Pillow Fight',
+    description: 'Whether Susie attacked the pillow in Ralsei\'s room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.YELLOWCAVE_FLOWERYDOLLARS]: {
+    displayName: 'Got 50 Flowery Dollars from Yellow\'s cave',
+    description: 'Whether you got 50 Flowery Dollars from the Yellow cave room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.TRIED_TO_ENTER_BEACH_NO_ICECREAM_WEIRDROUTE]: {
+    displayName: 'Tried to go to beach without ice cream',
+    description: 'Whether you tried to go to the beach before getting ice cream during the Weird Route.',
+    valueType: 'boolean',
+  },
   [FLAGS.TRIED_TO_ENTER_CHURCH_WEIRDROUTE]: {
     displayName: 'Tried to enter church',
-    description:
-      'Whether you tried to enter the church during the Weird Route.',
+    description: 'Whether you tried to enter the church during the Weird Route.',
     valueType: 'boolean',
+  },
+  [FLAGS.RODE_FERRIS_WHEEL_WEIRDROUTE]: {
+    displayName: 'Rode the ferris wheel',
+    description: 'Whether you rode the ferris wheel with Susie during the Weird Route.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Rode the wheel',
+        2: 'Didn\'t ride the wheel',
+      },
+    },
+  },
+  [FLAGS.TRIED_TO_ENTER_SCHOOL_WEIRDROUTE]: {
+    displayName: 'Tried to enter school',
+    description: 'Whether you tried to enter the school during the Weird Route.',
+    valueType: 'boolean',
+  },
+  [FLAGS.FOXHUNT_FLAGS]: {
+    displayName: 'Fox hunt flags',
+    description: 'Raw bitfield state for the fox hunt.',
+    valueType: 'number',
+    valueRules: { min: 0 },
   },
   [FLAGS.ASKED_CATTY_DAD_KINGQUEEN]: {
     displayName: "Asked Catty's dad",
