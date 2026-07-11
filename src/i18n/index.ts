@@ -155,8 +155,6 @@ const UI_FALLBACKS: TranslationDictionary = {
   'ui.download.switchContainer': 'Switch container',
   'ui.download.noSaveLoadedCurrently': 'There is no save loaded currently',
   'ui.upload.chapter': 'Chapter',
-  'ui.upload.chapter5Experimental':
-    'Chapter 5 support is experimental. Basic data like recruits, rooms, items, weapons, and armors are in place. Flags and plot points will come later.',
   'ui.upload.chooseSwitchSave': 'Choose Switch Save',
   'ui.upload.confirmChapter': 'Confirm Chapter',
   'ui.upload.containedSave': 'Contained save',
@@ -198,15 +196,6 @@ const UI_FALLBACKS: TranslationDictionary = {
   'ui.common.decrease': 'Decrease',
   'ui.common.decreaseValue': 'Decrease value',
   'ui.upload.confirmUpload': 'Confirm upload',
-  'ui.chapter5.infoButton': 'Chapter 5 info',
-  'ui.chapter5.infoAria': 'Chapter 5 information',
-  'ui.chapter5.infoTitle': 'Chapter 5 Info',
-  'ui.chapter5.supportAvailable':
-    'Chapter 5 support is available in Tenna Editor.',
-  'ui.chapter5.new': 'NEW',
-  'ui.chapter5.basicFeatures':
-    'Basic features like recruits, rooms, items, weapons, and armors are in place.',
-  'ui.chapter5.flagsLater': 'Flags and plot points will come later.',
   'ui.home.chapter': 'Chapter',
   'ui.home.createdAt': 'Created at: {date}',
   'ui.home.deleteSave': 'Delete Save',
@@ -237,7 +226,7 @@ const UI_FALLBACKS: TranslationDictionary = {
     'Your DELTARUNE save files are typically located in the following directories:',
   'ui.home.compatibility': 'Compatibility',
   'ui.home.compatibilityDescription':
-    'Tenna Editor is compatible with DELTARUNE Chapter 1-5 save files from PC platforms and already-exported Switch save containers. Chapter 5 support is experimental and includes basic features like recruits, rooms, items, weapons, and armors. Flags and plot points will come later.',
+    'Tenna Editor is compatible with DELTARUNE Chapter 1-5 save files from PC platforms and already-exported Switch save containers. Chapter 5 support includes editor data for recruits, rooms, items, weapons, and armors. Dedicated flags and plot points are not mapped yet.',
   'ui.home.switchCompatibilityDescription':
     'Switch save containers are experimental and require an already-exported {fileName}. Tenna Editor cannot extract or restore saves on hardware.',
   'ui.home.platformPcWindows': 'PC (Windows)',

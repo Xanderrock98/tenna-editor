@@ -37,8 +37,8 @@ For example, in the Party tab, each character has their own subtab for managing 
 
 Tenna Editor automatically detects your save file Chapter when you upload it.
 It is currently compatible with saves from Chapters 1 to 5.
-Chapter 5 support is experimental and currently reuses known Chapter 1-4 editor data where applicable.
-Dedicated Chapter 5 weapons, armors, items, rooms, flags, and plot points are not mapped yet.
+Chapter 5 support includes editor data for the currently mapped weapons, armors, items, rooms, and other fields.
+Dedicated Chapter 5 flags and plot points are not mapped yet.
 
 _NOTE: Console versions are currently unsupported._
 

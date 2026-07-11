@@ -109,7 +109,7 @@ export function HomeWelcome() {
             <p>
               {t(
                 'ui.home.compatibilityDescription',
-                'Tenna Editor is compatible with DELTARUNE Chapter 1-5 save files from PC platforms and already-exported Switch save containers. Chapter 5 support is experimental and includes basic features like recruits, rooms, items, weapons, and armors. Flags and plot points will come later.',
+                'Tenna Editor is compatible with DELTARUNE Chapter 1-5 save files from PC platforms and already-exported Switch save containers. Chapter 5 support includes editor data for recruits, rooms, items, weapons, and armors. Dedicated flags and plot points are not mapped yet.',
               )}
             </p>
             <ul className="list-disc pl-5">
