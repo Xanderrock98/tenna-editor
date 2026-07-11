@@ -8239,8 +8239,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     },
   },
   [FLAGS.FLOWER_CHOSEN]: {
-    displayName: 'Flower color chosen',
-    description: 'What color of flower from Ralsei you chose.',
+    displayName: 'Drink voucher chosen',
+    description: 'What free drink voucher from Ralsei you chose.',
     valueType: 'map',
     valueRules: {
       map: {
