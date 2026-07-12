@@ -1,6 +1,5 @@
 import { FieldWrapper, TextInput } from '@components';
 import { useSave } from '@store';
-import { mergeClass } from '@utils/merge-class';
 import { formatTime, parseTime } from '@utils/time';
 import { useRef, useEffect, useState } from 'react';
 import { useTranslation } from '../../i18n';
@@ -50,7 +49,7 @@ export function TimeField({ id, className }: TimeFieldProps) {
   return (
     <FieldWrapper
       id={id}
-      className={mergeClass('flex flex-col gap-2', className)}
+      className={className}
       title={t('ui.field.playtime', 'Playtime')}
       label
     >

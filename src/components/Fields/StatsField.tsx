@@ -1,4 +1,4 @@
-import { FieldWrapper, NumberInput } from '@components';
+import { NumberField } from '@components';
 import type { CharacterIndex } from '@data';
 import { useSave } from '@store';
 import { useTranslation } from '../../i18n';
@@ -44,20 +44,16 @@ export function StatsField({ id, type, character }: StatFieldProps) {
   }
 
   return (
-    <FieldWrapper
+    <NumberField
       id={id}
       className="flex-1"
       title={t(STATS_TITLE_KEYS[type], STATS_TITLES[type])}
-      label
-    >
-      <NumberInput
-        value={current}
-        placeholder={t('ui.stats.enterValue', 'Enter value...')}
-        min={0}
-        max={9999}
-        onChange={onChange}
-        fullWidth
-      />
-    </FieldWrapper>
+      value={current}
+      placeholder={t('ui.stats.enterValue', 'Enter value...')}
+      min={0}
+      max={9999}
+      onChange={onChange}
+      fullWidth
+    />
   );
 }

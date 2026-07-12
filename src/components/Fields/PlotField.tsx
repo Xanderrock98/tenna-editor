@@ -6,7 +6,6 @@ import {
 } from '@components';
 import { useSave } from '@store';
 import { getChapterPlotOptions, getPlotPointLabel } from '@utils';
-import { mergeClass } from '@utils/merge-class';
 import { useMemo } from 'react';
 import { useTranslation } from '../../i18n';
 
@@ -59,7 +58,7 @@ export function PlotField({
   return (
     <FieldWrapper
       id={id}
-      className={mergeClass('flex flex-col gap-2', className)}
+      className={className}
       title={t('ui.field.plotPoint', 'Plot Point')}
       description={description}
       label

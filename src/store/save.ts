@@ -19,7 +19,13 @@ function sync() {
   }, SYNC_DELAY);
 }
 
-export const SAVE_VERSION = 3;
+export const SAVE_VERSION = 4;
+
+function ensureSaveSource(save: Save) {
+  save.meta.source ??= {
+    platform: 'pc',
+  };
+}
 
 interface SaveState {
   hasInitialized: boolean;
@@ -219,18 +225,15 @@ export const useSave = create<SaveState>()(
 
           const saveStoreV1 = state as SaveSchemaV1;
 
-          // Stuff that got changed since schema V1
           const format = saveStoreV1?.save?.meta?.format;
           const characterName = saveStoreV1?.save?.characterName ?? '';
 
           const id = saveStoreV1?.save?.meta?.id;
           const schema = SAVE_SCHEMA;
 
-          // Return blank when id is set to none or something completely broke
           if (typeof saveStoreV1 !== 'object' || !id || id === '')
             return { activeSaveId: null };
 
-          // Migrate active save
           delete saveStoreV1.save.characterName;
           if (saveStoreV1.save.meta?.format) {
             saveStoreV1.save.meta.format = format === 'v1' ? 1 : 2;
@@ -242,7 +245,6 @@ export const useSave = create<SaveState>()(
 
           await saveStorage.set(migratedSave.meta.id, migratedSave);
 
-          // Migrate other saves
           const saves = await saveStorage.getAll();
           saves.forEach((save) => {
             if (!save.meta.schema) {
@@ -263,6 +265,15 @@ export const useSave = create<SaveState>()(
           const saves = await saveStorage.getAll();
           saves.forEach((save) => {
             save.meta.schema = SAVE_SCHEMA;
+          });
+          await saveStorage.migrate(saves);
+        }
+
+        if (version < 4) {
+          const saves = await saveStorage.getAll();
+          saves.forEach((save) => {
+            save.meta.schema = SAVE_SCHEMA;
+            ensureSaveSource(save);
           });
           await saveStorage.migrate(saves);
         }

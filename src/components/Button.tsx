@@ -37,7 +37,7 @@ export function Button({
     <button
       type="button"
       className={mergeClass(
-        'motion-reduce:transition-none transition-colors disabled:opacity-50 inline-flex items-center justify-center',
+        'motion-reduce:transition-none transition-colors disabled:opacity-50 inline-flex items-center justify-center leading-none',
         variantClass[variant],
         sizeClass[size],
         className,
@@ -47,7 +47,7 @@ export function Button({
       aria-label={props['aria-label']}
       {...props}
     >
-      {children}
+      <span className="relative -top-px leading-none">{children}</span>
     </button>
   );
 }

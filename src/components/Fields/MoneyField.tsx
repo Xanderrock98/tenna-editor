@@ -1,6 +1,5 @@
-import { FieldWrapper, NumberInput } from '@components';
+import { NumberField } from '@components';
 import { useSave } from '@store';
-import { mergeClass } from '@utils/merge-class';
 import { useTranslation } from '../../i18n';
 
 interface MoneyFieldProps {
@@ -18,17 +17,13 @@ export function MoneyField({ id, className }: MoneyFieldProps) {
   }
 
   return (
-    <FieldWrapper
+    <NumberField
       id={id}
-      className={mergeClass('flex flex-col gap-2', className)}
+      className={className}
       title={t('ui.field.money', 'Money (D$)')}
-      label
-    >
-      <NumberInput
-        value={money}
-        placeholder={t('ui.field.selectMoney', 'Enter money amount...')}
-        onChange={onChange}
-      />
-    </FieldWrapper>
+      value={money}
+      placeholder={t('ui.field.selectMoney', 'Enter money amount...')}
+      onChange={onChange}
+    />
   );
 }

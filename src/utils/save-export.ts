@@ -1,0 +1,87 @@
+import type { Save } from '@types';
+import { strToU8, zipSync } from 'fflate';
+import { generateDrIni, getAllDrIniCells } from './dr-ini';
+import { serializeSave } from './save-serializer';
+import {
+  getPcSaveFileName,
+  getTargetKey,
+  getRawSaveSlot,
+  type RawSaveSlot,
+  type SaveExportCell,
+  type SaveExportTarget,
+} from './save-export-targets';
+import { pcSaveTextToSwitchEntry } from './switch-save-container';
+
+export function cloneSaveForTarget(target: SaveExportTarget): Save {
+  return {
+    ...target.save,
+    meta: {
+      ...target.save.meta,
+      chapter: target.chapter,
+      slot: target.slot,
+      isCompletionSave: target.isCompletionSave,
+    },
+  } as Save;
+}
+
+export function findDuplicateExportTargets(
+  targets: SaveExportTarget[],
+): string[] {
+  const counts = new Map<string, number>();
+  for (const target of targets) {
+    const key = getTargetKey(target);
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  }
+
+  return Array.from(counts.entries())
+    .filter(([, count]) => count > 1)
+    .map(([key]) => key);
+}
+
+export function buildCellsFromTargets(
+  targets: SaveExportTarget[],
+): SaveExportCell[] {
+  const cells = getAllDrIniCells();
+  for (const target of targets) {
+    const rawSlot = getRawSaveSlot(target) as RawSaveSlot;
+    const cell = cells.find(
+      (c) => c.chapter === target.chapter && c.rawSlot === rawSlot,
+    );
+    if (cell) cell.save = target.save;
+  }
+  return cells;
+}
+
+export function buildPcExportFromTargets(
+  targets: SaveExportTarget[],
+  baseDrIni = '',
+): Uint8Array {
+  const files: Record<string, Uint8Array> = {};
+  for (const target of targets) {
+    files[getPcSaveFileName(target)] = strToU8(
+      serializeSave(cloneSaveForTarget(target)),
+    );
+  }
+  const cells = buildCellsFromTargets(targets);
+  files['dr.ini'] = strToU8(generateDrIni(cells, baseDrIni));
+
+  return zipSync(files);
+}
+
+export function buildSwitchExportSet(
+  targets: SaveExportTarget[],
+  baseContainer?: Record<string, string>,
+): string {
+  const container: Record<string, string> = baseContainer
+    ? { ...baseContainer }
+    : {};
+  for (const target of targets) {
+    const key = getTargetKey(target);
+    container[key] = pcSaveTextToSwitchEntry(
+      key,
+      serializeSave(cloneSaveForTarget(target)),
+    );
+  }
+
+  return `${JSON.stringify(container, null, 0)}\0`;
+}

@@ -1,6 +1,5 @@
 import { FieldWrapper, TextInput } from '@components';
 import { useSave } from '@store';
-import { mergeClass } from '@utils/merge-class';
 import { useTranslation } from '../../i18n';
 
 interface VesselNameFieldProps {
@@ -20,7 +19,7 @@ export function VesselNameField({ id, className }: VesselNameFieldProps) {
   return (
     <FieldWrapper
       id={id}
-      className={mergeClass('flex flex-col gap-2', className)}
+      className={className}
       title={t('ui.field.name', 'Name')}
       label
     >

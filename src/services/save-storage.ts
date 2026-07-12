@@ -1,28 +1,16 @@
-import { openDB } from 'idb';
 import type { Save } from '@types';
 import type { UUID } from 'crypto';
 import { toast } from './toast';
 import { translate } from '../i18n';
-
-const STORE_NAME = 'saves';
-const DATABASE_NAME = 'tenna';
-const DATABASE_VERSION = 2;
-
-const DATABASE = openDB(DATABASE_NAME, DATABASE_VERSION, {
-  upgrade(db, oldVersion) {
-    if (oldVersion < 1 && !db.objectStoreNames.contains(STORE_NAME)) {
-      db.createObjectStore(STORE_NAME);
-    }
-  },
-});
+import { browserDatabase, SAVES_STORE } from './browser-database';
 
 async function get(id: string): Promise<Save | null> {
   try {
-    const db = await DATABASE;
+    const db = await browserDatabase;
     if (!db) return null;
-    const tx = db.transaction(STORE_NAME);
+    const tx = db.transaction(SAVES_STORE);
     if (!tx) return null;
-    const value = (await tx.objectStore(STORE_NAME).get(id)) as
+    const value = (await tx.objectStore(SAVES_STORE).get(id)) as
       Save | undefined;
     return value ?? null;
   } catch (error) {
@@ -37,11 +25,11 @@ async function get(id: string): Promise<Save | null> {
 
 async function set(id: string, save: Save): Promise<void> {
   try {
-    const db = await DATABASE;
+    const db = await browserDatabase;
     if (!db) return;
-    const tx = db.transaction(STORE_NAME, 'readwrite');
+    const tx = db.transaction(SAVES_STORE, 'readwrite');
     if (!tx) return;
-    await tx.objectStore(STORE_NAME).put(save, id);
+    await tx.objectStore(SAVES_STORE).put(save, id);
     await tx.done;
   } catch (error) {
     console.error('save-storage: set failed', error);
@@ -51,11 +39,11 @@ async function set(id: string, save: Save): Promise<void> {
 
 async function remove(id: string): Promise<void> {
   try {
-    const db = await DATABASE;
+    const db = await browserDatabase;
     if (!db) return;
-    const tx = db.transaction(STORE_NAME, 'readwrite');
+    const tx = db.transaction(SAVES_STORE, 'readwrite');
     if (!tx) return;
-    await tx.objectStore(STORE_NAME).delete(id);
+    await tx.objectStore(SAVES_STORE).delete(id);
     await tx.done;
   } catch (error) {
     console.error('save-storage: remove failed', error);
@@ -68,11 +56,11 @@ async function remove(id: string): Promise<void> {
 
 async function getKeys() {
   try {
-    const db = await DATABASE;
+    const db = await browserDatabase;
     if (!db) return [];
-    const tx = db.transaction(STORE_NAME);
+    const tx = db.transaction(SAVES_STORE);
     if (!tx) return [];
-    return (await tx.objectStore(STORE_NAME).getAllKeys()) as UUID[];
+    return (await tx.objectStore(SAVES_STORE).getAllKeys()) as UUID[];
   } catch (error) {
     console.error('save-storage: getKeys failed', error);
     toast(
@@ -85,11 +73,11 @@ async function getKeys() {
 
 async function getAll(): Promise<Save[]> {
   try {
-    const db = await DATABASE;
+    const db = await browserDatabase;
     if (!db) return [];
-    const tx = db.transaction(STORE_NAME);
+    const tx = db.transaction(SAVES_STORE);
     if (!tx) return [];
-    return (await tx.objectStore(STORE_NAME).getAll()) as Save[];
+    return (await tx.objectStore(SAVES_STORE).getAll()) as Save[];
   } catch (error) {
     console.error('save-storage: getAll failed', error);
     toast(
@@ -102,14 +90,14 @@ async function getAll(): Promise<Save[]> {
 
 async function migrate(saves: Save[]) {
   try {
-    const db = await DATABASE;
+    const db = await browserDatabase;
     if (!db) return;
-    const tx = db.transaction(STORE_NAME, 'readwrite');
+    const tx = db.transaction(SAVES_STORE, 'readwrite');
     if (!tx) return;
 
     const batch: Promise<IDBValidKey>[] = [];
     saves.forEach((save) => {
-      batch.push(tx.objectStore(STORE_NAME).put(save, save.meta.id));
+      batch.push(tx.objectStore(SAVES_STORE).put(save, save.meta.id));
     });
 
     await Promise.all(batch);

@@ -19,6 +19,7 @@ import {
   PlotField,
   Checkbox,
   HelpTip,
+  SaveSourceBadge,
 } from '@components';
 import { FLAGS } from '@data';
 import { useSave, useUi } from '@store';
@@ -86,6 +87,22 @@ function SaveTimestamp() {
   );
 }
 
+function SaveSource() {
+  const { t } = useTranslation();
+  const save = useSave((s) => s.save);
+
+  if (!save?.meta.source) return null;
+
+  return (
+    <div className="flex items-center gap-2">
+      <span className="text-sm text-text-2">
+        {t('ui.home.source', 'Source:')}
+      </span>
+      <SaveSourceBadge save={save} />
+    </div>
+  );
+}
+
 function DeleteSave() {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
@@ -98,7 +115,6 @@ function DeleteSave() {
     await saveStorage.remove(activeSaveId);
 
     const storageKeys = await saveStorage.getKeys();
-    // If it was the only save
     if (storageKeys.length === 0) {
       setSave(null);
     } else {
@@ -285,8 +301,11 @@ export function HomeOverview() {
                 <SaveIsCompletionSaveField id="save-is-completion-save" />
               </div>
               <div className="flex-1 flex flex-col">
-                <SaveId />
-                <SaveTimestamp />
+                <SaveSource />
+                <div className="mt-2">
+                  <SaveId />
+                  <SaveTimestamp />
+                </div>
               </div>
               <div className="flex-1 flex flex-col gap-3"></div>
             </div>

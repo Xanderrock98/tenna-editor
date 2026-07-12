@@ -1,6 +1,5 @@
 import { Checkbox, FieldWrapper } from '@components';
 import { useSave } from '@store';
-import { mergeClass } from '@utils/merge-class';
 import { useTranslation } from '../../i18n';
 
 interface SaveIsCompletionSaveFieldProps {
@@ -25,11 +24,7 @@ export function SaveIsCompletionSaveField({
   }
 
   return (
-    <FieldWrapper
-      id={id}
-      className={mergeClass('flex flex-col gap-2', className)}
-      inline
-    >
+    <FieldWrapper id={id} className={className} inline>
       <Checkbox
         label={t('ui.field.completionSave', 'Completion save')}
         checked={isCompletionSave}

@@ -1,6 +1,6 @@
 import { mergeClass } from '@utils/merge-class';
 import type { ReactNode } from 'react';
-import { useState } from 'react';
+import { useId, useState } from 'react';
 
 interface CheckboxProps {
   checked?: boolean;
@@ -12,6 +12,7 @@ interface CheckboxProps {
   className?: string;
   fixedHeight?: boolean;
   id?: string;
+  ariaLabel?: string;
 }
 
 export function Checkbox({
@@ -21,8 +22,11 @@ export function Checkbox({
   label,
   className,
   fixedHeight = false,
+  id,
+  ariaLabel,
 }: CheckboxProps) {
-  // Support controlled & uncontrolled usage
+  const generatedId = useId();
+  const inputId = id ?? generatedId;
   const isControlled = checked !== undefined;
   const [internalChecked, setInternalChecked] = useState(checked ?? false);
 
@@ -53,12 +57,14 @@ export function Checkbox({
     >
       <span className="relative inline-flex items-center justify-center group shrink">
         <input
+          id={inputId}
           type="checkbox"
           className={`absolute inset-0 m-0 w-5 h-5 opacity-0 ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'} peer z-10`}
           checked={currentChecked}
           onChange={handleChange}
           disabled={disabled}
           aria-checked={currentChecked}
+          aria-label={ariaLabel}
         />
         <span
           className={`w-5 h-5 border border-border motion-reduce:transition-none transition-all duration-200 ease-in-out
@@ -93,9 +99,12 @@ export function Checkbox({
 
       <span className="leading-none wrap-anywhere">
         {label && (
-          <span className="text-sm text-text-2 leading-none transition-colors duration-150 group-hover:text-text-1">
+          <label
+            htmlFor={inputId}
+            className={`text-sm text-text-2 leading-none transition-colors duration-150 group-hover:text-text-1 ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+          >
             {label}
-          </span>
+          </label>
         )}
       </span>
     </div>

@@ -24,25 +24,6 @@ const THRASH_FIT_FIELDS = [
   ['thrash-fit-shoes', FLAGS.THRASH_FIT_SHOES],
 ] as const;
 
-function Chapter5Notice() {
-  const { t } = useTranslation();
-  return (
-    <Card className="flex flex-col gap-3 p-6">
-      <Heading level={3}>{t('ui.nav.chapter5', 'Chapter 5')}</Heading>
-      <p className="text-text-2">
-        {t('ui.story.chapter5Wip', 'Chapter 5 support is a work in progress.')}
-        <br />
-        <span className="text-red font-bold">
-          {t(
-            'ui.story.chapter5UncategorizedWarning',
-            'For now, all flag fields are uncategorized, descriptions may be incomplete, and everything here is subject to change.',
-          )}
-        </span>
-      </p>
-    </Card>
-  );
-}
-
 function ThrashFitSection() {
   const { t } = useTranslation();
   const hair = useSaveFlag(FLAGS.THRASH_FIT_HAIR) as ThrashFitHairIndex;
@@ -82,7 +63,6 @@ function ThrashFitSection() {
 export function StoryChapter5() {
   return (
     <StoryChapterLayout chapter={5}>
-      <Chapter5Notice />
       <ThrashFitSection />
       <StoryChapterSections chapter={5} />
     </StoryChapterLayout>

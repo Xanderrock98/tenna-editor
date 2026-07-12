@@ -255,7 +255,7 @@ export function FlagsRoot() {
                     autoComplete="off"
                     noValidate
                   >
-                    <div className="ui-section-label grid grid-cols-[3.5rem_minmax(0,1fr)_7rem_1.25rem] sm:grid-cols-[3.5rem_minmax(9rem,16rem)_minmax(0,1fr)_7rem_1.25rem] items-center gap-4 bg-surface-2 px-4 py-2">
+                    <div className="ui-section-label grid grid-cols-[3.5rem_minmax(0,1fr)_7rem_1.25rem] sm:grid-cols-[3.5rem_minmax(9rem,16rem)_minmax(0,1fr)_7rem_1.25rem] items-center gap-4 bg-surface-3 px-4 py-2">
                       <span>{t('ui.flags.idColumn', 'Id')}</span>
                       <span>{t('ui.flags.flagColumn', 'Flag')}</span>
                       <span className="hidden sm:block">

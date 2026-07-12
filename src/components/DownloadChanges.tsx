@@ -7,6 +7,7 @@ import { mergeClass } from '@utils/merge-class';
 
 interface DownloadChangesProps {
   className?: string;
+  fill?: boolean;
 }
 
 function DiffRow({
@@ -34,7 +35,10 @@ function DiffRow({
   );
 }
 
-export function DownloadChanges({ className }: DownloadChangesProps) {
+export function DownloadChanges({
+  className,
+  fill = false,
+}: DownloadChangesProps) {
   const save = useSave((s) => s.save);
   const baseline = useSave((s) => s.save?.meta.baseline);
 
@@ -70,14 +74,21 @@ export function DownloadChanges({ className }: DownloadChangesProps) {
   }
 
   return (
-    <div className={mergeClass('flex flex-col gap-2 min-h-0', className)}>
+    <div
+      className={mergeClass(
+        'flex flex-col gap-2',
+        fill && 'min-h-0 flex-1',
+        className,
+      )}
+    >
       <p className="ui-prose-muted shrink-0">
         {diff.totalChanges} change{diff.totalChanges === 1 ? '' : 's'} since
         last {sourceLabel} on {capturedAt}
       </p>
       <div
         className={mergeClass(
-          'ui-panel overflow-y-auto min-h-[6rem] flex-1 divide-y divide-divider',
+          'ui-panel overflow-y-auto divide-y divide-divider',
+          fill ? 'min-h-0 flex-1' : 'max-h-[min(60vh,24rem)]',
         )}
       >
         {diff.groups.map((group) => (

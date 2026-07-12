@@ -1,7 +1,6 @@
 import { FieldWrapper, Select, type SelectItem } from '@components';
 import { useSave } from '@store';
 import type { SaveSlot } from '@types';
-import { mergeClass } from '@utils/merge-class';
 import { useTranslation } from '../../i18n';
 
 const SLOT_OPTIONS: SelectItem[] = [
@@ -37,7 +36,7 @@ export function SaveSlotField({ id, className }: SaveSlotFieldProps) {
   return (
     <FieldWrapper
       id={id}
-      className={mergeClass('flex flex-col gap-2', className)}
+      className={className}
       title={t('ui.field.inGameSlot', 'In-game slot')}
       label
     >

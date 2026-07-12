@@ -7,6 +7,7 @@ export * from './last-subtab';
 export * from './line-cursor';
 export * from './save-parser';
 export * from './save-serializer';
+export * from './switch-save-container';
 export * from './merge-class';
 export * from './get-character-color';
 export * from './time';

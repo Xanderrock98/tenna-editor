@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { mergeClass } from '@utils/merge-class';
 import { Section } from './Section';
 import { InlineGroup } from './InlineGroup';
 import { TextLabel } from './TextLabel';
@@ -33,7 +34,7 @@ export function FieldWrapper({
   label = false,
 }: FieldWrapperProps) {
   return (
-    <Section id={id} className={className}>
+    <Section id={id} className={mergeClass('flex flex-col gap-2', className)}>
       <InlineGroup>
         {inline && <>{children}</>}
         {label && (

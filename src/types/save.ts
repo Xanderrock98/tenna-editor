@@ -12,10 +12,24 @@ import type {
 } from '@data';
 import type { UUID } from 'crypto';
 
-export const SAVE_SCHEMA = 3;
+export const SAVE_SCHEMA = 4;
 export type SaveFormat = 1 | 2;
 export type SaveSlot = 0 | 1 | 2;
 export type BaselineSource = 'upload' | 'download';
+
+export interface PcSaveSource {
+  platform: 'pc';
+  fileName?: string;
+}
+
+export interface SwitchSaveSource {
+  platform: 'switch';
+  fileName: string;
+  key: string;
+  container: Record<string, string>;
+}
+
+export type SaveSource = PcSaveSource | SwitchSaveSource;
 
 export interface WeaponStats {
   attack: number;
@@ -104,6 +118,7 @@ export interface SaveData<
     isCompletionSave: boolean;
     name: string;
     baseline?: SaveBaseline;
+    source?: SaveSource;
   };
   playerName: string;
   vesselName: string;

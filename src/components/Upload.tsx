@@ -2,6 +2,12 @@ import { useSave, useUi } from '@store';
 import { detectChapter } from '@utils/detection';
 import { extractGamePayload } from '@utils/save-baseline';
 import { parseSave } from '@utils/save-parser';
+import {
+  parseSwitchSaveContainer,
+  parseSwitchSaveEntry,
+  type SwitchSaveContainer,
+  type SwitchSaveEntry,
+} from '@utils/switch-save-container';
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import type { Save, SaveSlot } from '@types';
@@ -18,6 +24,12 @@ import {
   ModalFooter,
 } from '@components';
 import type { ChapterIndex } from '@data';
+import {
+  getChapterTranslationKeyPrefix,
+  translateMeta,
+  useTranslation,
+} from '../i18n';
+import { chapterHelpers } from '@utils/data-helpers';
 
 const CHAPTER_OPTIONS: SelectItem[] = [
   { id: '2', label: `Chapter 2 (A Cyber's World)`, value: 2 },
@@ -32,22 +44,35 @@ const SLOT_OPTIONS: SelectItem[] = [
   { id: '3', label: 'Slot 3', value: 2 },
 ];
 
-const STAGE_TITLES: Record<'idle' | 'chapter' | 'settings' | 'error', string> =
-  {
-    idle: 'Upload Save',
-    chapter: 'Confirm Chapter',
-    settings: 'Save Settings',
-    error: 'Upload Failed',
-  };
+const STAGE_TITLES: Record<
+  'idle' | 'switch' | 'chapter' | 'settings' | 'error',
+  string
+> = {
+  idle: 'Upload Save',
+  switch: 'Choose Switch Save',
+  chapter: 'Confirm Chapter',
+  settings: 'Save Settings',
+  error: 'Upload Failed',
+};
+
+const STAGE_TITLE_KEYS: Record<keyof typeof STAGE_TITLES, string> = {
+  idle: 'ui.upload.uploadSave',
+  switch: 'ui.upload.chooseSwitchSave',
+  chapter: 'ui.upload.confirmChapter',
+  settings: 'ui.upload.saveSettings',
+  error: 'ui.upload.uploadFailed',
+};
 
 interface UploadProps {
   isOpen: boolean;
   setOpen: (state: boolean) => void;
 }
 
-type UploadStage = 'idle' | 'success' | 'error' | 'chapter' | 'settings';
+type UploadStage =
+  'idle' | 'success' | 'error' | 'switch' | 'chapter' | 'settings';
 
 export function Upload({ isOpen, setOpen }: UploadProps) {
+  const { t } = useTranslation();
   const reducedMotion = useReducedMotion();
 
   const switchSave = useSave((s) => s.switchSave);
@@ -64,6 +89,27 @@ export function Upload({ isOpen, setOpen }: UploadProps) {
   const [selectedSlot, setSelectedSlot] = useState<SaveSlot>(0);
   const [isCompletionSave, setIsCompletionSave] = useState(false);
   const [saveName, setSaveName] = useState<string>('');
+  const [switchContainer, setSwitchContainer] =
+    useState<SwitchSaveContainer | null>(null);
+  const [selectedSwitchEntry, setSelectedSwitchEntry] =
+    useState<SwitchSaveEntry | null>(null);
+  const [uploadedFileName, setUploadedFileName] = useState('');
+  const chapterOptions = CHAPTER_OPTIONS.map((item) => {
+    const chapter = item.value as ChapterIndex;
+    const meta = translateMeta(
+      getChapterTranslationKeyPrefix(chapter),
+      chapterHelpers.getById(chapter),
+      t,
+    );
+    return {
+      ...item,
+      label: `${t('ui.upload.chapter', 'Chapter')} ${chapter} (${meta.displayName})`,
+    };
+  });
+  const slotOptions = SLOT_OPTIONS.map((item, index) => ({
+    ...item,
+    label: `${t('ui.field.slot', 'Slot')} ${index + 1}`,
+  }));
 
   function onChapterSelection(item: SelectItem | null) {
     if (item) {
@@ -77,10 +123,105 @@ export function Upload({ isOpen, setOpen }: UploadProps) {
     }
   }
 
+  function onSwitchEntrySelection(item: SelectItem | null) {
+    const entry = item?.value as SwitchSaveEntry | undefined;
+    if (entry) setSelectedSwitchEntry(entry);
+  }
+
+  function prepareSaveForUpload(
+    save: Save,
+    sourceName: string,
+    source?: {
+      container: SwitchSaveContainer;
+      entry: SwitchSaveEntry;
+    },
+  ): boolean {
+    const detection = detectChapter(save, source?.entry.key ?? sourceName);
+    if (!detection.supported) {
+      setUploadError(
+        t(
+          'ui.upload.unsupportedChapterOrFormat',
+          'Unsupported chapter or save format detected. Please upload a DELTARUNE Chapter 1-5 PC, Mac, Linux, or already-exported save container.',
+        ),
+      );
+      changeStage('error');
+      return false;
+    }
+
+    const filename = source?.entry.key ?? sourceName;
+    const slotMatch = filename.match(/filech(\d+)_(\d+)/);
+    let slot: SaveSlot = 0;
+    let nextIsCompletionSave = false;
+    if (slotMatch) {
+      const detectedSlot = parseInt(slotMatch[2]);
+      if (detectedSlot === 0 || detectedSlot === 1 || detectedSlot === 2) {
+        slot = detectedSlot;
+      }
+
+      if (detectedSlot === 3 || detectedSlot === 4 || detectedSlot === 5) {
+        slot = (detectedSlot - 3) as SaveSlot;
+        nextIsCompletionSave = true;
+      }
+    }
+
+    if (source) {
+      save.meta.source = {
+        platform: 'switch',
+        fileName: sourceName,
+        key: source.entry.key,
+        container: source.container.files,
+      };
+    } else {
+      save.meta.source = {
+        platform: 'pc',
+        fileName: sourceName,
+      };
+    }
+
+    setParsedSave(save);
+    setSelectedChapter(detection.chapter ?? 1);
+    setSelectedSlot(slot);
+    setIsCompletionSave(nextIsCompletionSave);
+    updateUi((ui) => (ui.uploadedSaves += 1));
+
+    if (!slotMatch) {
+      setSaveName(sourceName);
+    } else {
+      setSaveName(`Save${uploadedSaves}`);
+    }
+
+    if (save.meta.format === 1) {
+      changeStage('settings');
+    } else {
+      changeStage('chapter');
+    }
+    return true;
+  }
+
+  function prepareSelectedSwitchSave() {
+    if (!switchContainer || !selectedSwitchEntry) return;
+
+    try {
+      const save = parseSwitchSaveEntry(
+        switchContainer,
+        selectedSwitchEntry.key,
+      );
+      prepareSaveForUpload(save, uploadedFileName, {
+        container: switchContainer,
+        entry: selectedSwitchEntry,
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unknown error';
+      setUploadError(message);
+      changeStage('error');
+    }
+  }
+
   function onFileSelect(file: File) {
     const reader = new FileReader();
     reader.onload = () => {
       const content = reader.result as string;
+      setUploadedFileName(file.name);
       if (!content) {
         setUploadError(
           'Failed to read file content. The file may be empty or corrupted.',
@@ -93,6 +234,14 @@ export function Upload({ isOpen, setOpen }: UploadProps) {
       try {
         save = parseSave(content);
       } catch (error) {
+        const container = parseSwitchSaveContainer(content);
+        if (container) {
+          setSwitchContainer(container);
+          setSelectedSwitchEntry(container.entries[0] ?? null);
+          changeStage('switch');
+          return;
+        }
+
         const message =
           error instanceof Error ? error.message : 'Unknown error';
         setUploadError(message);
@@ -100,50 +249,7 @@ export function Upload({ isOpen, setOpen }: UploadProps) {
         return;
       }
 
-      const detection = detectChapter(save, file.name);
-      if (!detection.supported) {
-        setUploadError(
-          `Unsupported chapter or save format detected. Please upload a DELTARUNE Chapter 1-5 PC, Mac, or Linux save file.`,
-        );
-        changeStage('error');
-        return;
-      }
-
-      const filename = file.name;
-      const slotMatch = filename.match(/filech(\d+)_(\d+)/);
-      let slot: SaveSlot = 1;
-      let isCompletionSave = false;
-      if (slotMatch) {
-        const detectedSlot = parseInt(slotMatch[2]);
-        if (detectedSlot === 0 || detectedSlot === 1 || detectedSlot === 2) {
-          slot = detectedSlot;
-        }
-
-        if (detectedSlot === 3 || detectedSlot === 4 || detectedSlot === 5) {
-          slot = (detectedSlot - 3) as SaveSlot;
-          isCompletionSave = true;
-        }
-      }
-
-      setParsedSave(save);
-      setSelectedChapter(detection.chapter ?? 1);
-      setSelectedSlot(slot);
-      setIsCompletionSave(isCompletionSave);
-      updateUi((ui) => (ui.uploadedSaves += 1));
-
-      if (!slotMatch) {
-        setSaveName(file.name);
-      } else {
-        setSaveName(`Save${uploadedSaves}`);
-      }
-
-      // Format 1 saves are exclusive to Chapter 1, so there is no chapter to
-      // choose. Skip straight to the settings stage.
-      if (save.meta.format === 1) {
-        changeStage('settings');
-      } else {
-        changeStage('chapter');
-      }
+      prepareSaveForUpload(save, file.name);
     };
     reader.readAsText(file);
   }
@@ -158,6 +264,9 @@ export function Upload({ isOpen, setOpen }: UploadProps) {
         setSelectedSlot(0);
         setIsCompletionSave(false);
         setSaveName('');
+        setSwitchContainer(null);
+        setSelectedSwitchEntry(null);
+        setUploadedFileName('');
         break;
       case 'success':
         if (!parsedSave) break;
@@ -196,7 +305,7 @@ export function Upload({ isOpen, setOpen }: UploadProps) {
 
   const transition = { duration: reducedMotion ? 0 : 0.2 };
   const selectedChapterOption =
-    CHAPTER_OPTIONS.find((option) => option.value === selectedChapter) ?? null;
+    chapterOptions.find((option) => option.value === selectedChapter) ?? null;
 
   function renderFooter() {
     switch (uploadStage) {
@@ -212,11 +321,28 @@ export function Upload({ isOpen, setOpen }: UploadProps) {
             </Button>
           </ModalFooter>
         );
+      case 'switch':
+        return (
+          <ModalFooter>
+            <Button onClick={() => changeStage('idle')} variant="secondary">
+              {t('ui.common.back', 'Back')}
+            </Button>
+            <Button
+              onClick={prepareSelectedSwitchSave}
+              variant="primary"
+              size="lg"
+              className="w-full sm:w-auto sm:min-w-40"
+              disabled={!selectedSwitchEntry}
+            >
+              {t('ui.common.next', 'Next')}
+            </Button>
+          </ModalFooter>
+        );
       case 'chapter':
         return (
           <ModalFooter>
             <Button onClick={() => changeStage('idle')} variant="secondary">
-              Back
+              {t('ui.common.back', 'Back')}
             </Button>
             <Button
               onClick={() => changeStage('settings')}
@@ -224,7 +350,7 @@ export function Upload({ isOpen, setOpen }: UploadProps) {
               size="lg"
               className="w-full sm:w-auto sm:min-w-40"
             >
-              Next
+              {t('ui.common.next', 'Next')}
             </Button>
           </ModalFooter>
         );
@@ -235,7 +361,7 @@ export function Upload({ isOpen, setOpen }: UploadProps) {
               onClick={() => changeStage(previousUploadStage)}
               variant="secondary"
             >
-              Back
+              {t('ui.common.back', 'Back')}
             </Button>
             <Button
               onClick={() => void changeStage('success')}
@@ -243,7 +369,7 @@ export function Upload({ isOpen, setOpen }: UploadProps) {
               size="lg"
               className="w-full sm:w-auto sm:min-w-40"
             >
-              Confirm upload
+              {t('ui.upload.confirmUpload', 'Confirm upload')}
             </Button>
           </ModalFooter>
         );
@@ -259,7 +385,7 @@ export function Upload({ isOpen, setOpen }: UploadProps) {
               size="lg"
               className="w-full sm:w-auto sm:min-w-40"
             >
-              Try again
+              {t('ui.common.tryAgain', 'Try again')}
             </Button>
           </ModalFooter>
         );
@@ -274,8 +400,8 @@ export function Upload({ isOpen, setOpen }: UploadProps) {
       setOpen={setOpen}
       title={
         uploadStage === 'success'
-          ? STAGE_TITLES.settings
-          : STAGE_TITLES[uploadStage]
+          ? t(STAGE_TITLE_KEYS.settings, STAGE_TITLES.settings)
+          : t(STAGE_TITLE_KEYS[uploadStage], STAGE_TITLES[uploadStage])
       }
       footer={renderFooter()}
       size="tall"
@@ -303,6 +429,65 @@ export function Upload({ isOpen, setOpen }: UploadProps) {
             </motion.div>
           )}
 
+          {uploadStage === 'switch' && (
+            <motion.div
+              key="switch"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={transition}
+              className="flex flex-col gap-4 max-w-md"
+            >
+              <p className="ui-prose-muted">
+                {t(
+                  'ui.upload.switchContainerChooseEntry',
+                  'This Switch container includes multiple save entries. Choose one to edit.',
+                )}
+              </p>
+              <div>
+                <TextLabel>
+                  {t('ui.upload.containedSave', 'Contained save')}
+                </TextLabel>
+                <Select
+                  items={
+                    switchContainer?.entries.map((entry) => ({
+                      id: entry.key,
+                      label: `${entry.key} (${entry.lineCount} lines)`,
+                      value: entry,
+                    })) ?? []
+                  }
+                  placeholder={t('ui.upload.selectSave', 'Select save')}
+                  className="w-full"
+                  selectedItem={
+                    selectedSwitchEntry
+                      ? {
+                          id: selectedSwitchEntry.key,
+                          label: `${selectedSwitchEntry.key} (${selectedSwitchEntry.lineCount} lines)`,
+                          value: selectedSwitchEntry,
+                        }
+                      : null
+                  }
+                  defaultSelectedItem={
+                    selectedSwitchEntry
+                      ? {
+                          id: selectedSwitchEntry.key,
+                          label: `${selectedSwitchEntry.key} (${selectedSwitchEntry.lineCount} lines)`,
+                          value: selectedSwitchEntry,
+                        }
+                      : null
+                  }
+                  onSelectionChange={onSwitchEntrySelection}
+                />
+              </div>
+              <p className="ui-panel-muted">
+                {t(
+                  'ui.upload.switchSupportWarning',
+                  'Switch support expects an already-exported save payload. Tenna Editor cannot extract or restore saves on hardware.',
+                )}
+              </p>
+            </motion.div>
+          )}
+
           {uploadStage === 'chapter' && (
             <motion.div
               key="chapter"
@@ -312,12 +497,17 @@ export function Upload({ isOpen, setOpen }: UploadProps) {
               transition={transition}
               className="flex flex-col gap-4 max-w-md"
             >
-              <p className="ui-prose-muted">Is this the correct chapter?</p>
+              <p className="ui-prose-muted">
+                {t(
+                  'ui.upload.correctChapterQuestion',
+                  'Is this the correct chapter?',
+                )}
+              </p>
               <div>
-                <TextLabel>Chapter</TextLabel>
+                <TextLabel>{t('ui.upload.chapter', 'Chapter')}</TextLabel>
                 <Select
-                  items={CHAPTER_OPTIONS}
-                  placeholder="Select chapter"
+                  items={chapterOptions}
+                  placeholder={t('ui.upload.selectChapter', 'Select chapter')}
                   className="w-full"
                   selectedItem={selectedChapterOption}
                   defaultSelectedItem={selectedChapterOption}
@@ -325,15 +515,11 @@ export function Upload({ isOpen, setOpen }: UploadProps) {
                 />
               </div>
               <p className="ui-prose-muted">
-                This cannot be changed after the save is uploaded.
+                {t(
+                  'ui.upload.chapterCannotChangeAfterUpload',
+                  'This cannot be changed after the save is uploaded.',
+                )}
               </p>
-              {selectedChapter === 5 && (
-                <p className="ui-panel-muted border-yellow/40 bg-yellow-soft text-text-1">
-                  Chapter 5 support is experimental. Basic data like recruits,
-                  rooms, items, weapons, and armors are in place. Flags and plot
-                  points will come later.
-                </p>
-              )}
             </motion.div>
           )}
 
@@ -347,22 +533,24 @@ export function Upload({ isOpen, setOpen }: UploadProps) {
               className="flex flex-col gap-3 max-w-md"
             >
               <div>
-                <TextLabel>Save name</TextLabel>
+                <TextLabel>{t('ui.field.saveName', 'Save name')}</TextLabel>
                 <TextInput value={saveName} onChange={setSaveName} />
               </div>
               <div>
-                <TextLabel>In-game slot</TextLabel>
+                <TextLabel>
+                  {t('ui.field.inGameSlot', 'In-game slot')}
+                </TextLabel>
                 <Select
-                  items={SLOT_OPTIONS}
-                  placeholder="Select slot"
+                  items={slotOptions}
+                  placeholder={t('ui.field.selectSlot', 'Select slot')}
                   className="w-full"
-                  selectedItem={SLOT_OPTIONS[selectedSlot]}
-                  defaultSelectedItem={SLOT_OPTIONS[selectedSlot]}
+                  selectedItem={slotOptions[selectedSlot]}
+                  defaultSelectedItem={slotOptions[selectedSlot]}
                   onSelectionChange={onSlotSelection}
                 />
               </div>
               <Checkbox
-                label="Completion save"
+                label={t('ui.field.completionSave', 'Completion save')}
                 checked={isCompletionSave}
                 onChange={setIsCompletionSave}
               />

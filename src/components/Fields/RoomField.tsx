@@ -3,7 +3,6 @@ import type { RoomIndex } from '@data';
 import { useSave } from '@store';
 import { getChapterRoomOptions } from '@utils/chapter-options';
 import { roomHelpers } from '@utils/data-helpers';
-import { mergeClass } from '@utils/merge-class';
 import {
   getRoomTranslationKeyPrefix,
   translateMeta,
@@ -80,7 +79,7 @@ export function RoomField({
   return (
     <FieldWrapper
       id={id}
-      className={mergeClass('flex flex-col gap-2', className)}
+      className={className}
       title={t('ui.field.currentRoom', 'Current Room')}
       description={description}
       label

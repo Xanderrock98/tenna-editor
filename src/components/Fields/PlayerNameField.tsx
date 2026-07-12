@@ -1,6 +1,5 @@
 import { TextInput, FieldWrapper } from '@components';
 import { useSave } from '@store';
-import { mergeClass } from '@utils/merge-class';
 import { useTranslation } from '../../i18n';
 
 interface PlayerNameFieldProps {
@@ -26,7 +25,7 @@ export function PlayerNameField({ id, className }: PlayerNameFieldProps) {
   return (
     <FieldWrapper
       id={id}
-      className={mergeClass('flex flex-col gap-2', className)}
+      className={className}
       title={t('ui.field.playerName', 'Player Name')}
       description={description}
       label

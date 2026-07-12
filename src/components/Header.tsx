@@ -71,7 +71,6 @@ export function Header() {
     <header className="w-full h-15 shrink-0 bg-surface-1 relative select-none">
       <div className="flex items-center justify-between h-full px-2">
         <div className="flex items-center gap-2 sm:gap-4">
-          {/* sidebar visibility button */}
           <button
             onClick={() => {
               updateUi((ui) => (ui.sidebar.open = !isSidebarOpen));
@@ -86,7 +85,6 @@ export function Header() {
             </div>
           </button>
 
-          {/* sidebar retraction button */}
           <button
             onClick={() => {
               updateUi((ui) => (ui.sidebar.retracted = !isSidebarRetracted));
@@ -104,7 +102,6 @@ export function Header() {
             </div>
           </button>
 
-          {/* <div className="w-8 h-8 bg-red flex-shrink-0" /> */}
           <InlineGroup className="hidden sm:flex">
             <div className="flex leading-none justify-center items-center">
               <div className="w-12 h-12 text-text-2">
@@ -118,9 +115,6 @@ export function Header() {
                 </h1>
                 {showEnvBadge && <Badge tone={envTone}>{envLabel}</Badge>}
               </div>
-              {/* <p className="text-text-2 font-bold leading-none hidden lg:block text-nowrap">
-                AN UNOFFICIAL DELTARUNE SAVE EDITOR
-              </p> */}
             </div>
           </InlineGroup>
         </div>
@@ -149,11 +143,9 @@ export function Header() {
             icon={<DownloadIcon />}
             onClick={() => setIsDownloadOpen(true)}
           />
-          {isDownloadOpen && (
-            <Suspense fallback={null}>
-              <Download isOpen={isDownloadOpen} setOpen={setIsDownloadOpen} />
-            </Suspense>
-          )}
+          <Suspense fallback={null}>
+            <Download isOpen={isDownloadOpen} setOpen={setIsDownloadOpen} />
+          </Suspense>
           <IconButton
             accent="blue"
             label={t('ui.header.uploadSave', 'Upload save')}
