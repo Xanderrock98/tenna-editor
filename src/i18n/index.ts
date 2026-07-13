@@ -291,6 +291,7 @@ const UI_FALLBACKS: TranslationDictionary = {
   'ui.field.currentRoom': 'Current Room',
   'ui.field.inDarkWorld': 'Currently in Dark World',
   'ui.field.inGameSlot': 'In-game slot',
+  'ui.field.lightWorldMoney': 'Light World Money',
   'ui.field.money': 'Money (D$)',
   'ui.field.name': 'Name',
   'ui.field.playerName': 'Player Name',
