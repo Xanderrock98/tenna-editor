@@ -1118,7 +1118,12 @@ export const FLAGS = {
   LOOKED_AT_MICROWAVE: 1438,
   GAVE_TORIEL_TOAST: 1439,
   CASTLE_CLIMB_HISCORE: 1440,
+  CASTLE_CLIMB_CUTSCENES: 1441,
+  PLATFORMING_INTRO_FLAGS: 1442,
   SEEN_HOW_TO_DRAW_DRAGONS: 1443,
+  INTERACTED_WITH_DESTROYED_FLOWERY: 1445,
+  ASRIEL_LOVE_LETTER: 1446,
+  LOOKED_AT_DEODORANT: 1447,
   TALKED_TO_MILKLOOKER_DURING_PIZZAPANTS: 1453,
   SAW_RALSEI_ROOM_CH5: 1458,
   ENTERED_RALSEI_ROOM: 1459,
@@ -1305,6 +1310,7 @@ export const FLAGS = {
   OBTAINED_TV_ZONE_3_CHEST: 1703,
   KRIS_NOELLE_ESCAPE_WEIRD_ABORT: 1704,
   FOURD_SANCTUARY_FULL_CLEAR: 1705,
+  PINK_FRIEND_INTERACTION: 1711,
   LISTENED_TO_CAPN_DOJO: 1720,
   TALKED_TO_JIGSAW_JOE_BAKERY: 1721,
   LOOKED_IN_KRIS_WARDROBE: 1722,
@@ -1426,6 +1432,7 @@ export const FLAGS = {
   FREE_DRINK_OUTCOME: 1879,
   SUSIE_FLOWER_CROWN_WEIRDROUTE: 1883,
   USED_PARTY_ACTION_CH5: 1888,
+  FRIEND_INTERACTED: 1895,
   TALKED_TO_MILKLOOKER_BEFORE_PIZZAPANTS: 1900,
   PLATMODE_JUMP_COUNT: 1904,
   PLATMODE_SWING_COUNT: 1905,
@@ -8870,9 +8877,36 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     description: 'Castle Town climbing minigame high score.',
     valueType: 'number',
   },
+  [FLAGS.CASTLE_CLIMB_CUTSCENES]: {
+    displayName: 'Castle climb cutscenes',
+    description: 'Raw bitfield state handling which castle climb cutscenes you\'ve watched.',
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
+  [FLAGS.PLATFORMING_INTRO_FLAGS]: {
+    displayName: 'Platforming intro flags',
+    description: 'Raw bitfield state handling flags for the platforming intro room.',
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
   [FLAGS.SEEN_HOW_TO_DRAW_DRAGONS]: {
     displayName: 'Seen "How To Draw Dragons"',
     description: 'Seen "How To Draw Dragons" inside the drawer.',
+    valueType: 'boolean',
+  },
+  [FLAGS.INTERACTED_WITH_DESTROYED_FLOWERY]: {
+    displayName: 'Interacted with damaged Flowery',
+    description: 'Whether you interacted with the destroyed golden flower at the end of the chapter.',
+    valueType: 'boolean',
+  },
+  [FLAGS.ASRIEL_LOVE_LETTER]: {
+    displayName: 'Looked at Asriel\'s love letter',
+    description: 'Whether you looked at Asriel\'s love letter to Dess.',
+    valueType: 'boolean',
+  },
+  [FLAGS.LOOKED_AT_DEODORANT]: {
+    displayName: 'Looked at deodorant',
+    description: 'Whether you looked at the pizza flavored deororant.',
     valueType: 'boolean',
   },
   [FLAGS.THRASH_FIT_HAIR]: {
@@ -9450,6 +9484,11 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   [FLAGS.USED_PARTY_ACTION_CH5]: {
     displayName: 'Used a party act on a Garden of Cliffs enemy',
     description: 'Used S-Action or R-Action on an enemy in Garden or Cliffs, or was reminded if you didn\'t.',
+    valueType: 'boolean',
+  },
+  [FLAGS.FRIEND_INTERACTED]: {
+    displayName: 'Acted on Friend',
+    description: 'Whether you acted on and was damaged by Friend in Chapter 5.',
     valueType: 'boolean',
   },
   [FLAGS.PLATMODE_JUMP_COUNT]: {
@@ -10746,6 +10785,11 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
         writeFalse: 0,
       },
     },
+  },
+  [FLAGS.PINK_FRIEND_INTERACTION]: {
+    displayName: 'Friend bite cutscene',
+    description: 'Whether Pink talked to you about a cat bite after interacting with Friend.',
+    valueType: 'boolean',
   },
   [FLAGS.LISTENED_TO_CAPN_DOJO]: {
     displayName: 'Listened to Cap\'n',
