@@ -15,6 +15,7 @@ import { useRef } from 'react';
 import FlagJp from '@assets/flags/flag-jp.png';
 import FlagKr from '@assets/flags/flag-kr.png';
 import FlagUs from '@assets/flags/flag-us.png';
+import FlagIt from '@assets/flags/flag-it.png';
 import {
   SUPPORTED_LOCALES,
   getLocaleTranslationStats,
@@ -23,26 +24,27 @@ import {
   type Locale,
 } from '../../i18n';
 
-const LANGUAGE_OPTIONS: SelectItem[] = Object.entries(SUPPORTED_LOCALES).map(
-  ([id, locale]) => ({
+const LANGUAGE_OPTIONS: SelectItem[] = Object.entries(SUPPORTED_LOCALES)
+  .sort(([, a], [, b]) => a.displayName.localeCompare(b.displayName))
+  .map(([id, locale]) => ({
     id,
     icon: <LocaleFlag country={locale.flag} />,
     label: `${locale.displayName} (${getLocaleTranslationStats(id as Locale).percentage}%)`,
-  }),
-);
+  }));
 
 const FLAG_ASSETS = {
   us: FlagUs,
   jp: FlagJp,
   kr: FlagKr,
+  it: FlagIt,
 };
 
-function LocaleFlag({ country }: { country: 'us' | 'jp' | 'kr' }) {
+function LocaleFlag({ country }: { country: keyof typeof FLAG_ASSETS }) {
   return (
     <img
       src={FLAG_ASSETS[country]}
       alt=""
-      className="block h-[26px] w-[38px] object-contain"
+      className="block h-[22px] w-[32px] object-contain"
     />
   );
 }

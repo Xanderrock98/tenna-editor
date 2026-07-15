@@ -75,6 +75,14 @@ export function buildSwitchExportSet(
   const container: Record<string, string> = baseContainer
     ? { ...baseContainer }
     : {};
+
+  const cells = buildCellsFromTargets(targets);
+  const generatedDrIni = generateDrIni(cells, container['dr.ini'] ?? '');
+  container['dr.ini'] = generatedDrIni
+    .replace(/\r\n/g, '\n')
+    .replace(/\r/g, '\n')
+    .replace(/\n/g, '\r\n');
+
   for (const target of targets) {
     const key = getTargetKey(target);
     container[key] = pcSaveTextToSwitchEntry(

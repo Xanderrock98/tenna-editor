@@ -69,6 +69,12 @@ function splitSaveLines(text: string): string[] {
   return lines;
 }
 
+function splitPcSaveLinesForSwitch(text: string): string[] {
+  return splitSaveLines(text).map((line, index) => {
+    return index <= 6 ? line : line.trim();
+  });
+}
+
 function joinPcLines(lines: string[]): string {
   return `${lines.join('\n')}\n`;
 }
@@ -378,7 +384,7 @@ export function switchEntryToPcSaveText(key: string, entry: string): string {
 
 export function pcSaveTextToSwitchEntry(key: string, text: string): string {
   const layout = detectLayout(key);
-  const src = new SwitchLineCursor(splitSaveLines(text));
+  const src = new SwitchLineCursor(splitPcSaveLinesForSwitch(text));
   const out: string[] = [];
 
   out.push(src.take());

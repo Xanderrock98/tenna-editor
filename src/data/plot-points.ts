@@ -255,6 +255,81 @@ export const CH4_PLOT = {
   CHAPTER_COMPLETE: 320,
 } as const;
 
+export const CH5_PLOT = {
+  NEW_GAME: 0,
+  WOKE_UP: 5,
+  EATING_BREAKFAST: 10,
+  FINISHED_BREAKFAST: 11,
+  ENTERED_CASTLE_TOWN: 50,
+  CREATED_THRASH_FIT: 60,
+  LEFT_CASTLE_TOWN: 80,
+  RETURNED_TO_LIGHT_WORLD: 90,
+  SUSIE_EXPLAINED_PLAN: 100,
+  STARTED_FESTIVAL: 105,
+  FINISHED_RHYTHM_GAME: 140,
+  FINISHED_SANS_ICE_CREAM_SCENE: 150,
+  WENT_TO_BEACH: 160,
+  ABORTED_WEIRD_ROUTE: 189,
+  FINISHED_BEACH_SCENE: 190,
+  ENTERED_FLOWER_SHOP_DARK_WORLD: 200,
+  MET_FLOWERY: 210,
+  ENTERED_RALSEI_CUPBOARD_ROOM: 219,
+  FREED_RALSEI_FROM_CUPBOARD: 220,
+  FLOWERY_PUT_HAT_ON_RALSEI: 230,
+  COMPLETED_FIRST_PRESSURE_PLATES_PUZZLE: 249,
+  ENTERED_ENEMY_RUSH: 251,
+  FLOWERY_LEFT_PARTY: 252,
+  ENTERED_FLOWER_DINER: 254,
+  FINISHED_FLOWER_DINER_SCENE: 255,
+  REACHED_FOUR_SWITCH_PUZZLE: 259,
+  BYPASSED_SECOND_PRESSURE_PLATE_PUZZLE: 264,
+  FLOWERY_LEARNED_ABOUT_CONFIG_MENU: 265,
+  FLOWERY_SOLVED_FOUR_SWITCH_PUZZLE: 270,
+  REFUSED_FLOWERYS_EXIT: 280,
+  ENTERED_AQUAS_GARDEN: 290,
+  OVERHEARD_AQUA_AND_SETH: 291,
+  DEFEATED_AQUA: 292,
+  MET_AQUA_AGAIN_DURING_PLATFORMING: 295,
+  ASGORE_TAKEN_TO_FLOWER_CASTLE: 300,
+  ENTERED_CLIFFS: 305,
+  STARTED_CLIFF_CLIMB: 306,
+  WATCHED_AQUA_IMITATE_SETH: 310,
+  ENCOUNTERED_SETH_IN_CLIFFS: 320,
+  AQUA_DEFEATED_SETHS_BULLET_PATTERN: 321,
+  SAW_AQUA_CARRYING_SETH: 325,
+  COMPLETED_STARWALKER_DASH: 326,
+  COMPLETED_TWIRLFLOWER_WIND_SECTION: 328,
+  COMPLETED_NETSKIE_CLIMB: 330,
+  MADE_SETH_FLEE_WITH_DASH: 340,
+  SETH_TAUGHT_AQUA_TO_USE_WIND: 350,
+  DEFEATED_AQUA_AND_SETH: 360,
+  THROWN_OUT_OF_FLOWER_CASTLE: 390,
+  ESCAPED_FLOWER_CASTLE_JAIL: 398,
+  RALSEI_REMOVED_TEMPORARY_BUTLER_OUTFIT: 399,
+  RETURNED_TO_FLOWER_CASTLE: 400,
+  ENTERED_FLOWER_CASTLE_FOYER: 405,
+  GREW_FOYER_BEANSTALK: 430,
+  STARTED_CLIMBING_CASTLE_SPROUT: 435,
+  FINISHED_CLIMBING_CASTLE_SPROUT: 440,
+  ENCOUNTERED_SETH_IN_CASTLE: 449,
+  SETH_BATTLE_STARTED: 450,
+  YELLOW_AND_BLUE_TRIAL_STARTED: 454,
+  COMPLETED_YELLOW_AND_BLUE_TRIAL: 455,
+  SUSIE_REJECTED_SEALING_CASTLE_TOWN_FOUNTAIN: 460,
+  DEFEATED_TRIPLE_SHI_FORMATION: 465,
+  RALSEIS_BREAKDOWN: 470,
+  REACHED_GREEN_CHECKPOINT: 473,
+  COMPLETED_ORANGE_GAUNTLET: 475,
+  DEFEATED_FLOWERY: 499,
+  ASGORE_ADMITTED_PLAYING_ALONG: 500,
+  SAID_GOODBYE_TO_FLOWERS: 510,
+  SEALED_KNIGHTS_FOUNTAIN: 550,
+  FOUND_SHELTER_CODE: 560,
+  LEFT_FLOWER_SHOP_WITH_SUSIE: 570,
+  WALKED_SUSIE_HOME: 580,
+  CREDITS_FINISHED: 590,
+} as const;
+
 export type Ch1PlotIndex = (typeof CH1_PLOT)[keyof typeof CH1_PLOT];
 
 export const CH1_PLOT_META: Record<Ch1PlotIndex, PlotPointProperties> = {
@@ -690,11 +765,196 @@ export const CH4_PLOT_META: Record<Ch4PlotIndex, PlotPointProperties> = {
   [CH4_PLOT.CHAPTER_COMPLETE]: { displayName: 'Chapter Complete' },
 };
 
+export type Ch5PlotIndex = (typeof CH5_PLOT)[keyof typeof CH5_PLOT];
+
+export const CH5_PLOT_META: Record<Ch5PlotIndex, PlotPointProperties> = {
+  [CH5_PLOT.NEW_GAME]: { displayName: 'New Game' },
+  [CH5_PLOT.WOKE_UP]: { displayName: 'Woke Up' },
+  [CH5_PLOT.EATING_BREAKFAST]: { displayName: 'Eating Breakfast' },
+  [CH5_PLOT.FINISHED_BREAKFAST]: { displayName: 'Finished Breakfast' },
+  [CH5_PLOT.ENTERED_CASTLE_TOWN]: { displayName: 'Entered Castle Town' },
+  [CH5_PLOT.CREATED_THRASH_FIT]: { displayName: 'Created Thrash Fit' },
+  [CH5_PLOT.LEFT_CASTLE_TOWN]: { displayName: 'Left Castle Town' },
+  [CH5_PLOT.RETURNED_TO_LIGHT_WORLD]: {
+    displayName: 'Returned to Light World',
+  },
+  [CH5_PLOT.SUSIE_EXPLAINED_PLAN]: {
+    displayName: 'Susie Explained Her Plan',
+  },
+  [CH5_PLOT.STARTED_FESTIVAL]: {
+    displayName: 'Started Festival',
+    description:
+      'The Normal Route meets Noelle here; the Weird Route reaches the same plot value without her.',
+  },
+  [CH5_PLOT.FINISHED_RHYTHM_GAME]: {
+    displayName: 'Finished Rhythm Game',
+  },
+  [CH5_PLOT.FINISHED_SANS_ICE_CREAM_SCENE]: {
+    displayName: "Finished Sans's Ice Cream Scene",
+    description:
+      'The Weird Route receives Bread instead of ice cream during this scene.',
+  },
+  [CH5_PLOT.WENT_TO_BEACH]: { displayName: 'Went to Beach' },
+  [CH5_PLOT.ABORTED_WEIRD_ROUTE]: {
+    displayName: 'Aborted Weird Route',
+    description: 'Stopped proceeding across the lake with Noelle.',
+  },
+  [CH5_PLOT.FINISHED_BEACH_SCENE]: {
+    displayName: 'Finished Beach Scene',
+  },
+  [CH5_PLOT.ENTERED_FLOWER_SHOP_DARK_WORLD]: {
+    displayName: 'Entered Flower Shop Dark World',
+  },
+  [CH5_PLOT.MET_FLOWERY]: { displayName: 'Met Flowery' },
+  [CH5_PLOT.ENTERED_RALSEI_CUPBOARD_ROOM]: {
+    displayName: "Entered Ralsei's Cupboard Room",
+  },
+  [CH5_PLOT.FREED_RALSEI_FROM_CUPBOARD]: {
+    displayName: 'Freed Ralsei from Cupboard',
+  },
+  [CH5_PLOT.FLOWERY_PUT_HAT_ON_RALSEI]: {
+    displayName: 'Flowery Put Hat on Ralsei',
+  },
+  [CH5_PLOT.COMPLETED_FIRST_PRESSURE_PLATES_PUZZLE]: {
+    displayName: 'Completed First Pressure-Plates Puzzle',
+  },
+  [CH5_PLOT.ENTERED_ENEMY_RUSH]: { displayName: 'Entered Enemy Rush' },
+  [CH5_PLOT.FLOWERY_LEFT_PARTY]: { displayName: 'Flowery Left the Party' },
+  [CH5_PLOT.ENTERED_FLOWER_DINER]: { displayName: 'Entered Flower Diner' },
+  [CH5_PLOT.FINISHED_FLOWER_DINER_SCENE]: {
+    displayName: 'Finished Flower Diner Scene',
+  },
+  [CH5_PLOT.REACHED_FOUR_SWITCH_PUZZLE]: {
+    displayName: 'Reached Four-Switch Puzzle',
+  },
+  [CH5_PLOT.BYPASSED_SECOND_PRESSURE_PLATE_PUZZLE]: {
+    displayName: 'Bypassed the Second Pressure-Plate Puzzle',
+  },
+  [CH5_PLOT.FLOWERY_LEARNED_ABOUT_CONFIG_MENU]: {
+    displayName: 'Flowery Learned About the Config Menu',
+  },
+  [CH5_PLOT.FLOWERY_SOLVED_FOUR_SWITCH_PUZZLE]: {
+    displayName: 'Flowery Solved Four-Switch Puzzle',
+  },
+  [CH5_PLOT.REFUSED_FLOWERYS_EXIT]: {
+    displayName: "Refused Flowery's Exit",
+  },
+  [CH5_PLOT.ENTERED_AQUAS_GARDEN]: { displayName: "Entered Aqua's Garden" },
+  [CH5_PLOT.OVERHEARD_AQUA_AND_SETH]: {
+    displayName: 'Overheard Aqua and Seth Discuss the Feather',
+  },
+  [CH5_PLOT.DEFEATED_AQUA]: { displayName: 'Defeated Aqua' },
+  [CH5_PLOT.MET_AQUA_AGAIN_DURING_PLATFORMING]: {
+    displayName: 'Met Aqua Again During Platforming',
+  },
+  [CH5_PLOT.ASGORE_TAKEN_TO_FLOWER_CASTLE]: {
+    displayName: 'Asgore Taken to Flower Castle',
+  },
+  [CH5_PLOT.ENTERED_CLIFFS]: { displayName: 'Entered Cliffs' },
+  [CH5_PLOT.STARTED_CLIFF_CLIMB]: { displayName: 'Started Cliff Climb' },
+  [CH5_PLOT.WATCHED_AQUA_IMITATE_SETH]: {
+    displayName: 'Watched Aqua Imitate Seth',
+  },
+  [CH5_PLOT.ENCOUNTERED_SETH_IN_CLIFFS]: {
+    displayName: 'Encountered Seth in Cliffs',
+  },
+  [CH5_PLOT.AQUA_DEFEATED_SETHS_BULLET_PATTERN]: {
+    displayName: "Aqua Defeated Seth's Bullet Pattern",
+  },
+  [CH5_PLOT.SAW_AQUA_CARRYING_SETH]: {
+    displayName: 'Saw Aqua Carrying Seth',
+  },
+  [CH5_PLOT.COMPLETED_STARWALKER_DASH]: {
+    displayName: 'Completed Starwalker Dash',
+  },
+  [CH5_PLOT.COMPLETED_TWIRLFLOWER_WIND_SECTION]: {
+    displayName: 'Completed Twirlflower Wind Section',
+  },
+  [CH5_PLOT.COMPLETED_NETSKIE_CLIMB]: {
+    displayName: 'Completed Netskie Climb',
+  },
+  [CH5_PLOT.MADE_SETH_FLEE_WITH_DASH]: {
+    displayName: 'Made Seth Flee with a Dash',
+  },
+  [CH5_PLOT.SETH_TAUGHT_AQUA_TO_USE_WIND]: {
+    displayName: 'Seth Taught Aqua to Use the Wind',
+  },
+  [CH5_PLOT.DEFEATED_AQUA_AND_SETH]: {
+    displayName: 'Defeated Aqua and Seth',
+  },
+  [CH5_PLOT.THROWN_OUT_OF_FLOWER_CASTLE]: {
+    displayName: 'Thrown Out of Flower Castle',
+  },
+  [CH5_PLOT.ESCAPED_FLOWER_CASTLE_JAIL]: {
+    displayName: 'Escaped Flower Castle Jail',
+  },
+  [CH5_PLOT.RALSEI_REMOVED_TEMPORARY_BUTLER_OUTFIT]: {
+    displayName: 'Ralsei Removed His Temporary Butler Outfit',
+  },
+  [CH5_PLOT.RETURNED_TO_FLOWER_CASTLE]: {
+    displayName: 'Returned to Flower Castle',
+  },
+  [CH5_PLOT.ENTERED_FLOWER_CASTLE_FOYER]: {
+    displayName: 'Entered Flower Castle Foyer',
+  },
+  [CH5_PLOT.GREW_FOYER_BEANSTALK]: {
+    displayName: 'Grew Foyer Beanstalk',
+  },
+  [CH5_PLOT.STARTED_CLIMBING_CASTLE_SPROUT]: {
+    displayName: 'Started Climbing the Castle Sprout',
+  },
+  [CH5_PLOT.FINISHED_CLIMBING_CASTLE_SPROUT]: {
+    displayName: 'Finished Climbing the Castle Sprout',
+  },
+  [CH5_PLOT.ENCOUNTERED_SETH_IN_CASTLE]: {
+    displayName: 'Encountered Seth in Castle',
+  },
+  [CH5_PLOT.SETH_BATTLE_STARTED]: { displayName: 'Seth Battle Started' },
+  [CH5_PLOT.YELLOW_AND_BLUE_TRIAL_STARTED]: {
+    displayName: 'Yellow and Blue Trial Started',
+  },
+  [CH5_PLOT.COMPLETED_YELLOW_AND_BLUE_TRIAL]: {
+    displayName: 'Completed Yellow and Blue Trial',
+  },
+  [CH5_PLOT.SUSIE_REJECTED_SEALING_CASTLE_TOWN_FOUNTAIN]: {
+    displayName: "Susie Rejected Sealing Castle Town's Fountain",
+  },
+  [CH5_PLOT.DEFEATED_TRIPLE_SHI_FORMATION]: {
+    displayName: 'Defeated the Triple Shi Formation',
+  },
+  [CH5_PLOT.RALSEIS_BREAKDOWN]: { displayName: "Ralsei's Breakdown" },
+  [CH5_PLOT.REACHED_GREEN_CHECKPOINT]: {
+    displayName: 'Reached Green Checkpoint',
+  },
+  [CH5_PLOT.COMPLETED_ORANGE_GAUNTLET]: {
+    displayName: 'Completed Orange Gauntlet',
+  },
+  [CH5_PLOT.DEFEATED_FLOWERY]: { displayName: 'Defeated Flowery' },
+  [CH5_PLOT.ASGORE_ADMITTED_PLAYING_ALONG]: {
+    displayName: 'Asgore Admitted He Was Playing Along',
+  },
+  [CH5_PLOT.SAID_GOODBYE_TO_FLOWERS]: {
+    displayName: 'Said Goodbye to Flowers',
+  },
+  [CH5_PLOT.SEALED_KNIGHTS_FOUNTAIN]: {
+    displayName: "Sealed Knight's Fountain",
+  },
+  [CH5_PLOT.FOUND_SHELTER_CODE]: { displayName: 'Found Shelter Code' },
+  [CH5_PLOT.LEFT_FLOWER_SHOP_WITH_SUSIE]: {
+    displayName: 'Left Flower Shop with Susie',
+  },
+  [CH5_PLOT.WALKED_SUSIE_HOME]: {
+    displayName: 'Walked Susie Home',
+  },
+  [CH5_PLOT.CREDITS_FINISHED]: { displayName: 'Credits Finished' },
+};
+
 export const PLOT_META_BY_CHAPTER = {
   1: CH1_PLOT_META,
   2: CH2_PLOT_META,
   3: CH3_PLOT_META,
   4: CH4_PLOT_META,
+  5: CH5_PLOT_META,
 } as const satisfies Partial<
-  Record<1 | 2 | 3 | 4, Record<number, PlotPointProperties>>
+  Record<1 | 2 | 3 | 4 | 5, Record<number, PlotPointProperties>>
 >;
