@@ -9087,7 +9087,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueType: 'boolean',
   },
   [FLAGS.ATE_HONEY_TOAST]: {
-    displayName: 'Ate the toast',
+    displayName: 'Brought toast to school',
     description: 'Whether you tried to bring the honey toast to the school, causing Kris to eat it.',
     valueType: 'boolean',
   },
