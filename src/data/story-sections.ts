@@ -1640,6 +1640,15 @@ export const STORY_SECTIONS = {
           ],
         },
         {
+          id: 'love-dojo',
+          title: 'Love Dojo',
+          flags: [
+            'LISTENED_TO_CAPN_DOJO',
+            'DOJO_WEATHER',
+            'DOJO_WEATHER_STARWALKER',
+          ],
+        },
+        {
           id: 'kris-room',
           title: 'Kris\'s Room',
           flags: [
@@ -1688,10 +1697,10 @@ export const STORY_SECTIONS = {
           id: 'other',
           title: 'Other',
           flags: [
-            'LISTENED_TO_CAPN_DOJO',
             'TALKED_TO_JIGSAW_JOE_BAKERY',
             'TRASHY_TRIO_DOJO_OUTCOME',
             'TRASHY_TRIO_NPC_INTERACTIONS',
+            'TALKED_TO_SWATCH_CH5',
             'KING_SCAR_CONVO',
           ],
         },
@@ -1736,15 +1745,16 @@ export const STORY_SECTIONS = {
           ],
         },
         {
-          id: 'buttons-puzzle',
-          title: 'Buttons Puzzle',
+          id: 'pressure-plate-puzzle',
+          title: 'Pressure Plate Puzzle',
           flags: [
             'OBTAINED_REVIVEMINT_CH5',
+            'PRESSURE_PLATE_PUZZLE_DOOR',
           ],
         },
         {
-          id: 'diner-to-shrine',
-          title: 'Diner to Shrine',
+          id: 'way-home-to-shrine',
+          title: 'Way Home to Shrine',
           flags: [
             'FLOWER_KING_DARK_WORLD_LEAVE_ATTEMPTS',
             'OBTAINED_GREENTEA_PREAQUA',
@@ -1937,6 +1947,26 @@ export const STORY_SECTIONS = {
           ],
         },
         {
+          id: 'left-wing',
+          title: 'Left Wing',
+          flags: [
+            'CASTLE_LEFT_PLOT',
+            'LEFTCASTLE_SHINOBEETLE_FLOWERYDOLLARS',
+            'TRAMPLED_BLUES_FLOWERS',
+            'OBTAINED_TENSIONMAX_ZEN',
+            'HUNG_OUT_WITH_RALSEI',
+          ],
+        },
+        {
+          id: 'right-wing',
+          title: 'Right Wing',
+          flags: [
+            'CASTLE_RIGHT_PLOT',
+            'VOUCHER_CHOSEN',
+            'HELD_MUSHROOM_PINKCOIN',
+          ],
+        },
+        {
           id: 'terakota-puzzle',
           title: 'Terakota Statue Puzzle',
           flags: [
@@ -1950,7 +1980,24 @@ export const STORY_SECTIONS = {
             'TERAKOTA_BONUS_PINKCOIN',
           ],
         },
+		{
+          id: 'first-shadow-puzzle',
+          title: 'First Shadow Platform Puzzle',
+          flags: [
+            'SHADOW_PLATFORM_X_FCASTLE_RIGHT_PUZZLE1',
+            'SHADOW_PLATFORM_Y_FCASTLE_RIGHT_PUZZLE1',
+            'SHADOW_PLATFORM_X_FCASTLE_RIGHT_PUZZLE2',
+            'SHADOW_PLATFORM_Y_FCASTLE_RIGHT_PUZZLE2',
+          ],
+        },
         {
+          id: 'second-diner',
+          title: 'Second Diner',
+          flags: [
+            'SECOND_DINER_SAVEPOINT',
+          ],
+        },
+		{
           id: 'fox-hunt',
           title: 'Fox Hunt',
           flags: [
@@ -1972,23 +2019,14 @@ export const STORY_SECTIONS = {
             'FOXHUNT_CHAOS_DOG',
           ],
         },
-        {
-          id: 'left-wing',
-          title: 'Left Wing',
+		{
+          id: 'second-shadow-puzzle',
+          title: 'Second Shadow Platform Puzzle',
           flags: [
-            'CASTLE_LEFT_PLOT',
-            'LEFTCASTLE_SHINOBEETLE_FLOWERYDOLLARS',
-            'OBTAINED_TENSIONMAX_ZEN',
-            'HUNG_OUT_WITH_RALSEI',
-          ],
-        },
-        {
-          id: 'right-wing',
-          title: 'Right Wing',
-          flags: [
-            'CASTLE_RIGHT_PLOT',
-            'VOUCHER_CHOSEN',
-            'HELD_MUSHROOM_PINKCOIN',
+            'SHADOW_PLATFORM_X_FCASTLE_SIDEPUZZLE1',
+            'SHADOW_PLATFORM_Y_FCASTLE_SIDEPUZZLE1',
+            'SHADOW_PLATFORM_X_FCASTLE_SIDEPUZZLE2',
+            'SHADOW_PLATFORM_Y_FCASTLE_SIDEPUZZLE2',
           ],
         },
       ],

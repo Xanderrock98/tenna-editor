@@ -1144,6 +1144,8 @@ export const FLAGS = {
   KING_SCAR_CONVO: 1465,
   ASGORE_HONEY_TOAST: 1466,
   ATE_HONEY_TOAST: 1467,
+  TALKED_TO_SWATCH_CH5: 1468,
+  DOJO_WEATHER: 1469,
   // Chapter 4 Dark Sanctuary
   MONEYFOUNTAIN_DONATION_OVER_100: 1500,
   CANDY_BOWL_PROGRESS: 1501,
@@ -1367,8 +1369,9 @@ export const FLAGS = {
   THOUGHTS_ON_SANS: 1759,
   INTERACTED_WITH_GIANT_TEACUP: 1760,
   SANS_SIGN_INTERACTION_CH5: 1761,
-  SHADOW_PLATFORM_X: 1763,
-  SHADOW_PLATFORM_Y: 1764,
+  RIGHT_PUZZLE_SHADOW_PLATFORM_X: 1763,
+  RIGHT_PUZZLE_SHADOW_PLATFORM_Y: 1764,
+  SECOND_DINER_SAVEPOINT: 1765,
   TEM_DRAW_CARICATURE: 1766,
   SKIPPED_FESTIVAL: 1767,
   ASKED_PINK_ABOUT_PLACE: 1768,
@@ -1450,7 +1453,12 @@ export const FLAGS = {
   ENTERED_DOG_BALLOON_ROOM: 1872,
   TERAKOTA_PUZZLE_PINKCOIN: 1875,
   FREE_DRINK_OUTCOME: 1879,
+  DOJO_WEATHER_STARWALKER: 1882,
   SUSIE_FLOWER_CROWN_WEIRDROUTE: 1883,
+  SIDEPUZZLE_SHADOW_PLATFORM_X: 1884,
+  SIDEPUZZLE_SHADOW_PLATFORM_Y: 1885,
+  TRAMPLED_BLUES_FLOWERS: 1886,
+  PRESSURE_PLATE_PUZZLE_DOOR: 1887,
   USED_PARTY_ACTION_CH5: 1888,
   FRIEND_INTERACTED: 1895,
   TALKED_TO_MILKLOOKER_BEFORE_PIZZAPANTS: 1900,
@@ -8337,6 +8345,31 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       },
     },
   },
+  [FLAGS.DOJO_WEATHER]: {
+    displayName: "Talked to Lanina & Elnino",
+    description: "Whether you talked to Lanina and Elnino in the Love Dojo.",
+    valueType: 'boolean',
+  },
+  [FLAGS.DOJO_WEATHER_STARWALKER]: {
+    displayName: "Talked to Lanina & Elnino with Starwalker",
+    description: "Whether you talked to Lanina and Elnino in the Love Dojo with Starwalker recruited.",
+    valueType: 'boolean',
+  },
+  [FLAGS.TRAMPLED_BLUES_FLOWERS]: {
+    displayName: "Trampled Blue\'s flowers",
+    description: "Whether you stepped on Blue\'s flowers on your way to meeting Yellow.",
+    valueType: 'boolean',
+  },
+  [FLAGS.PRESSURE_PLATE_PUZZLE_DOOR]: {
+    displayName: "Interacted with pressure plate puzzle door",
+    description: "Whether you interacted with the door for the pressure plate puzzle in the Garden.",
+    valueType: 'boolean',
+  },
+  [FLAGS.TALKED_TO_SWATCH_CH5]: {
+    displayName: "Talked to Swatch",
+    description: "Whether you talked to Swatch to give Susie a makeover.",
+    valueType: 'boolean',
+  },
   [FLAGS.AMOUNT_OF_GIANT_TEACUPS]: {
     displayName: 'Amount of giant teacups',
     description:
@@ -8860,17 +8893,34 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     description: 'Volatile. Used to keep track of the microwave timer during Toriel\'s toast request.',
     valueType: 'number',
   },
-  [FLAGS.SHADOW_PLATFORM_X]: {
-    displayName: 'Shadow platform X positions',
-    description: 'Raw bitfield state handling the X positions of moveable shadow platforms found in Flower Castle.',
+  [FLAGS.RIGHT_PUZZLE_SHADOW_PLATFORM_X]: {
+    displayName: 'First shadow puzzle X positions',
+    description: 'Raw bitfield state handling the X positions of moveable shadow platforms in the first shadow puzzle.',
     valueType: 'number',
     valueRules: { min: 0 },
   },
-  [FLAGS.SHADOW_PLATFORM_Y]: {
-    displayName: 'Shadow platform Y positions',
-    description: 'Raw bitfield state handling the X positions of moveable shadow platforms found in Flower Castle.',
+  [FLAGS.RIGHT_PUZZLE_SHADOW_PLATFORM_Y]: {
+    displayName: 'First shadow puzzle Y positions',
+    description: 'Raw bitfield state handling the Y positions of moveable shadow platforms in the first shadow puzzle.',
     valueType: 'number',
     valueRules: { min: 0 },
+  },
+  [FLAGS.SIDEPUZZLE_SHADOW_PLATFORM_X]: {
+    displayName: 'Second shadow puzzle X positions',
+    description: 'Raw bitfield state handling the X positions of moveable shadow platforms in the second shadow puzzle.',
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
+  [FLAGS.SIDEPUZZLE_SHADOW_PLATFORM_Y]: {
+    displayName: 'Second shadow puzzle Y positions',
+    description: 'Raw bitfield state handling the Y positions of moveable shadow platforms in the second shadow puzzle.',
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
+  [FLAGS.SECOND_DINER_SAVEPOINT]: {
+    displayName: 'Interacted with save point',
+    description: 'Whether you interacted with the save point in the second diner, causing it to appear on the table next time you enter the room.',
+    valueType: 'boolean',
   },
   [FLAGS.TALKED_TORIEL_TOAST_REQUEST]: {
     displayName: 'Toriel toast request',
