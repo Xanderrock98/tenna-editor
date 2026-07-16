@@ -1987,7 +1987,7 @@ export const STORY_SECTIONS = {
           title: 'Right Wing',
           flags: [
             'CASTLE_RIGHT_PLOT',
-            'FLOWER_CHOSEN',
+            'VOUCHER_CHOSEN',
             'HELD_MUSHROOM_PINKCOIN',
           ],
         },

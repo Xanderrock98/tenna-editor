@@ -1367,6 +1367,8 @@ export const FLAGS = {
   THOUGHTS_ON_SANS: 1759,
   INTERACTED_WITH_GIANT_TEACUP: 1760,
   SANS_SIGN_INTERACTION_CH5: 1761,
+  SHADOW_PLATFORM_X: 1763,
+  SHADOW_PLATFORM_Y: 1764,
   TEM_DRAW_CARICATURE: 1766,
   SKIPPED_FESTIVAL: 1767,
   ASKED_PINK_ABOUT_PLACE: 1768,
@@ -1435,7 +1437,7 @@ export const FLAGS = {
   FOXHUNT_PINKCOIN: 1840,
   FOXHUNT_FLOWERYDOLLARS: 1841,
   PINK_PROGRESS: 1846,
-  FLOWER_CHOSEN: 1850,
+  VOUCHER_CHOSEN: 1850,
   FINAL_STARWALKER_FLAG: 1851,
   LEFTCASTLE_SHINOBEETLE_FLOWERYDOLLARS: 1853,
   INTERACTED_WITH_MIKE_DOOR_WITHOUT_MIKE_BATTLE: 1854,
@@ -8263,7 +8265,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       },
     },
   },
-  [FLAGS.FLOWER_CHOSEN]: {
+  [FLAGS.VOUCHER_CHOSEN]: {
     displayName: 'Drink voucher chosen',
     description: 'What free drink voucher from Ralsei you chose.',
     valueType: 'map',
@@ -8481,6 +8483,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.ITEM_HELD_DURING_ROOM_TRANSITION]: {
     displayName: 'Item held during room transition',
+    volatile: true,
     description:
       'Volatile. Keeps track of the item you had on your head before entering a new room if that room keeps the item.',
     valueType: 'map',
@@ -8794,6 +8797,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.UNHAPPY_SUSIE_NOELLE]: {
     displayName: 'Unhappy Susie and Noelle',
+    volatile: true,
     description: 'Volatile. Used to set Susie and Noelle\'s expressions to unhappy after Pizzapants finds out the truth about Pizzarina in Chapter 5. Is set to 0 after leaving the room.',
     valueType: 'boolean',
   },
@@ -8834,8 +8838,15 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.WEIRD_ROUTE_FAIL_CH5]: {
     displayName: 'Nothing changed',
-    description: 'Aborted the Weird Route at the lake.',
+    description: 'Aborted the Chapter 5 Weird Route at the lake. Also unlocks Kris\'s Shattered Rose title and changes later dialogue.',
     valueType: 'boolean',
+  },
+  [FLAGS.FINAL_STARWALKER_FLAG]: {
+    displayName: 'Final Starwalker flags',
+    description:
+      "Raw bitfield state for Original Starwalker's final Castle scene.",
+    valueType: 'number',
+    valueRules: { min: 0 },
   },
   [FLAGS.TERAKOTA_PUZZLE_FLAGS]: {
     displayName: 'Terakota statue push flags',
@@ -8845,9 +8856,21 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.TORIEL_TOAST_TIMER]: {
     displayName: 'Microwave toast timer',
-    description:
-      "Volatile. Used to keep track of the microwave timer during Toriel's toast request.",
+    volatile: true,
+    description: 'Volatile. Used to keep track of the microwave timer during Toriel\'s toast request.',
     valueType: 'number',
+  },
+  [FLAGS.SHADOW_PLATFORM_X]: {
+    displayName: 'Shadow platform X positions',
+    description: 'Raw bitfield state handling the X positions of moveable shadow platforms found in Flower Castle.',
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
+  [FLAGS.SHADOW_PLATFORM_Y]: {
+    displayName: 'Shadow platform Y positions',
+    description: 'Raw bitfield state handling the X positions of moveable shadow platforms found in Flower Castle.',
+    valueType: 'number',
+    valueRules: { min: 0 },
   },
   [FLAGS.TALKED_TORIEL_TOAST_REQUEST]: {
     displayName: 'Toriel toast request',
@@ -9463,6 +9486,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.WALKED_SUSIE_HOME_CONVO]: {
     displayName: 'Walking Susie home dialogue state',
+    volatile: true,
     description: "Volatile. Handles Susie's dialogue while walking her home.",
     valueType: 'map',
     valueRules: {
