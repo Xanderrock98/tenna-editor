@@ -10244,6 +10244,19 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       "Suggested Tenna to Mettaton in Chapter 4, if it wasn't repaired.",
     valueType: 'boolean',
   },
+  [FLAGS.WEIRD_ROUTE_FAIL_CH5]: {
+    displayName: 'Nothing changed',
+    description:
+      "Aborted the Chapter 5 Weird Route at the lake. Also unlocks Kris's Shattered Rose title and changes later dialogue.",
+    valueType: 'boolean',
+  },
+  [FLAGS.FINAL_STARWALKER_FLAG]: {
+    displayName: 'Final Starwalker flags',
+    description:
+      "Raw bitfield state for Original Starwalker's final Castle scene.",
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
   [FLAGS.INTERACTED_WITH_TV_FIXED]: {
     displayName: 'Checked the fixed TV',
     description: "Interacted with the TV at Kris's house, if it was repaired.",
