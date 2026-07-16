@@ -30,6 +30,7 @@ import {
 } from '@data';
 import ja from './locales/ja.json';
 import ko from './locales/ko.json';
+import it from './locales/it.json';
 
 export const SUPPORTED_LOCALES = {
   en: {
@@ -44,6 +45,10 @@ export const SUPPORTED_LOCALES = {
     displayName: 'Korean',
     flag: 'kr',
   },
+  it: {
+    displayName: 'Italian',
+    flag: 'it',
+  },
 } as const;
 
 export type Locale = UiLocale;
@@ -54,6 +59,7 @@ type TranslationValues = Record<string, string | number>;
 const TRANSLATIONS: Record<Exclude<Locale, 'en'>, TranslationDictionary> = {
   ja,
   ko,
+  it,
 };
 
 const FLAG_NAMES_BY_ID = Object.fromEntries(
@@ -138,7 +144,7 @@ const UI_FALLBACKS: TranslationDictionary = {
     'Optional: choose your existing dr.ini to preserve metadata that is not stored in save files.',
   'ui.download.baseContainer': 'Base container',
   'ui.download.baseContainerDescription':
-    'Optional: choose an existing container to preserve entries that are not selected below.',
+    'Save metadata is generated automatically. Optionally choose an existing container to preserve entries that are not selected below.',
   'ui.download.changesSinceBaseline': 'Changes since last upload or download',
   'ui.download.clearBase': 'Clear base',
   'ui.download.downloadMultipleSaves': 'Download multiple saves',
@@ -291,6 +297,7 @@ const UI_FALLBACKS: TranslationDictionary = {
   'ui.field.currentRoom': 'Current Room',
   'ui.field.inDarkWorld': 'Currently in Dark World',
   'ui.field.inGameSlot': 'In-game slot',
+  'ui.field.lightWorldMoney': 'Light World Money',
   'ui.field.money': 'Money (D$)',
   'ui.field.name': 'Name',
   'ui.field.playerName': 'Player Name',
@@ -427,7 +434,7 @@ const UI_FALLBACKS: TranslationDictionary = {
   'ui.about.license': 'License',
   'ui.about.specialThanks': 'Special Thanks',
   'ui.about.specialThanksToby':
-    'Toby Fox and whole Team behind Deltarune - for creating the game.',
+    'Toby Fox and whole Team behind DELTARUNE - for creating the game.',
   'ui.about.specialThanksSpamton':
     'Spamton Editor - for being direct inspiration.',
   'ui.about.specialThanksSpamtonSuffix': ' - for being direct inspiration.',
@@ -439,7 +446,7 @@ const UI_FALLBACKS: TranslationDictionary = {
   'ui.about.specialThanksJackySuffix':
     " - for save data research and references that helped with a lot of Tenna Editor's data mapping.",
   'ui.about.specialThanksWiki':
-    'Deltarune Wiki - for much useful information that sped up the process of building this project significantly.',
+    'DELTARUNE Wiki - for much useful information that sped up the process of building this project significantly.',
   'ui.about.specialThanksWikiSuffix':
     ' - for much useful information that sped up the process of building this project significantly.',
   'ui.about.specialThanksUmt':

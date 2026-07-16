@@ -70,7 +70,6 @@ export const FLAG_BITFIELDS = {
   PINK_DOOR_SHORTCUT_CUTSCENE: 'PINK_DOOR_SHORTCUT_CUTSCENE',
   PINK_DOOR_INTERACTED_NO_KEY: 'PINK_DOOR_INTERACTED_NO_KEY',
   PINK_DOOR_PINKCOIN: 'PINK_DOOR_PINKCOIN',
-  FINAL_STARWALKER: 'FINAL_STARWALKER',
   UNLOCKED_SETH_BREAKS_PRECAFE: 'UNLOCKED_SETH_BREAKS_PRECAFE',
   UNLOCKED_YELLOW_BREAKS_PRECAFE: 'UNLOCKED_YELLOW_BREAKS_PRECAFE',
   UNLOCKED_GREEN_BREAKS_PRECAFE: 'UNLOCKED_GREEN_BREAKS_PRECAFE',
@@ -132,6 +131,7 @@ export const FLAG_BITFIELDS = {
   BREAKWATCHED_ORANGE_RALSEI: 'BREAKWATCHED_ORANGE_RALSEI',
   BREAKWATCHED_PINK_ORANGE: 'BREAKWATCHED_PINK_ORANGE',
   BREAKWATCHED_PINK_KRIS: 'BREAKWATCHED_PINK_KRIS',
+  SAW_FINAL_STARWALKER: 'SAW_FINAL_STARWALKER',
 } as const;
 
 export type FlagBitfieldName = keyof typeof FLAG_BITFIELDS;
@@ -569,14 +569,6 @@ export const FLAG_BITFIELDS_META: Record<
     width: 1,
     displayName: 'Got Pink Coin',
     description: 'Whether you got the Pink Coin in the Pink Door room.',
-    valueType: 'boolean',
-  },
-  [FLAG_BITFIELDS.FINAL_STARWALKER]: {
-    parent: FLAGS.FINAL_STARWALKER_FLAG,
-    index: 0,
-    width: 1,
-    displayName: 'Final &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Starwalker',
-    description: 'Whether you saw the original Starwalker transform into the final Starwalker.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.UNLOCKED_SETH_BREAKS_PRECAFE]: {
@@ -1112,6 +1104,12 @@ export const FLAG_BITFIELDS_META: Record<
     width: 1,
     displayName: 'Pink & Kris',
     description: 'Watched status of the Pink & Kris break.',
+  [FLAG_BITFIELDS.SAW_FINAL_STARWALKER]: {
+    parent: FLAGS.FINAL_STARWALKER_FLAG,
+    index: 0,
+    displayName: 'Final Starwalker scene',
+    description:
+      "Saw Original Starwalker's final Starwalker scene at the top of the Castle; enables Kris's Walkerstar title.",
     valueType: 'boolean',
   },
 };

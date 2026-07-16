@@ -82,7 +82,7 @@ export function AboutAttributions() {
             <li>
               {t(
                 'ui.about.specialThanksToby',
-                'Toby Fox and whole Team behind Deltarune - for creating the game.',
+                'Toby Fox and whole Team behind DELTARUNE - for creating the game.',
               )}
             </li>
             <li>
@@ -111,7 +111,7 @@ export function AboutAttributions() {
               )}
             </li>
             <li>
-              <Link href="https://deltarune.wiki">Deltarune Wiki</Link>
+              <Link href="https://deltarune.wiki">DELTARUNE Wiki</Link>
               {t(
                 'ui.about.specialThanksWikiSuffix',
                 ' - for much useful information that sped up the process of building this project significantly.',

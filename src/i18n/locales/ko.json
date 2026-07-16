@@ -56,7 +56,7 @@
   "ui.download.baseDrIni": "기본 dr.ini",
   "ui.download.baseDrIniDescription": "선택 사항: 세이브 파일에 저장되지 않은 메타데이터를 보존하려면 기존 dr.ini를 선택하세요.",
   "ui.download.baseContainer": "기본 컨테이너",
-  "ui.download.baseContainerDescription": "선택 사항: 아래에서 선택하지 않은 항목을 보존하려면 기존 컨테이너를 선택하세요.",
+  "ui.download.baseContainerDescription": "세이브 메타데이터는 자동으로 생성됩니다. 선택 사항: 아래에서 선택하지 않은 항목을 보존하려면 기존 컨테이너를 선택하세요.",
   "ui.download.changesSinceBaseline": "마지막 업로드 또는 다운로드 이후 변경 사항",
   "ui.download.clearBase": "기본값 지우기",
   "ui.download.downloadMultipleSaves": "여러 세이브 다운로드",
