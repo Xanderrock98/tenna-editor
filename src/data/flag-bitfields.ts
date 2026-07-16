@@ -1104,6 +1104,8 @@ export const FLAG_BITFIELDS_META: Record<
     width: 1,
     displayName: 'Pink & Kris',
     description: 'Watched status of the Pink & Kris break.',
+	valueType: 'boolean',
+  },
   [FLAG_BITFIELDS.SAW_FINAL_STARWALKER]: {
     parent: FLAGS.FINAL_STARWALKER_FLAG,
     index: 0,
