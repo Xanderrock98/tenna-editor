@@ -142,7 +142,7 @@ export function ResponsiveTableFields({
   return (
     <div
       className={mergeClass(
-        'flex min-w-0 flex-col gap-2 md:contents',
+        'responsive-table-fields flex min-w-0 flex-col gap-2 md:grid md:items-center md:gap-3',
         className,
       )}
     >
