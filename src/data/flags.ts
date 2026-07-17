@@ -8239,12 +8239,14 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.TROPICAL_STARWALKER_PINKCOIN]: {
     displayName: 'Got Pink Coin',
-    description: 'Whether you got the Pink Coin in the Tropical Starwalker room.',
+    description:
+      'Whether you got the Pink Coin in the Tropical Starwalker room.',
     valueType: 'boolean',
   },
   [FLAGS.SPAWNED_TROPICAL_STARWALKER]: {
     displayName: 'Spawned Tropical Starwalker',
-    description: 'Whether you activated the bell that spawns Tropical Starwalker and drops the pink chest.',
+    description:
+      'Whether you activated the bell that spawns Tropical Starwalker and drops the pink chest.',
     valueType: 'boolean',
   },
   [FLAGS.RALSEI_HAT_STATE_CH5]: {
@@ -8293,7 +8295,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.UNLOCKED_BREAK_CHARACTERS_PRECAFE]: {
     displayName: 'Pre-Cafe break character unlocks',
-    description: 'Raw bitfield state for break character unlocks prior to revisiting the Flower Cafe. Used for checking if a character was recently unlocked or lost.',
+    description:
+      'Raw bitfield state for break character unlocks prior to revisiting the Flower Cafe. Used for checking if a character was recently unlocked or lost.',
     valueType: 'number',
     valueRules: { min: 0 },
   },
@@ -8322,13 +8325,15 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueRules: { min: 0 },
   },
   [FLAGS.ENTERED_DOG_BALLOON_ROOM]: {
-    displayName: "Entered Annoying Dog balloon room",
-    description: "Whether you entered the Annying Dog balloon room that is before the egg room.",
+    displayName: 'Entered Annoying Dog balloon room',
+    description:
+      'Whether you entered the Annying Dog balloon room that is before the egg room.',
     valueType: 'boolean',
   },
   [FLAGS.TERAKOTA_PUZZLE_PINKCOIN]: {
-    displayName: "Got Pink Coin",
-    description: "Whether you got the Pink Coin in the Terakota statue puzzle room.",
+    displayName: 'Got Pink Coin',
+    description:
+      'Whether you got the Pink Coin in the Terakota statue puzzle room.',
     valueType: 'boolean',
   },
   [FLAGS.FREE_DRINK_OUTCOME]: {
@@ -8340,34 +8345,37 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
         0: 'Default state',
         1: 'Susie drank your drink without your permission',
         2: 'You stopped Susie from drinking your drink',
-        3: 'You wanted Susie to drink your drink so she drank Ralsei\'s',
+        3: "You wanted Susie to drink your drink so she drank Ralsei's",
         4: 'Ralsei let Susie drink his drink',
       },
     },
   },
   [FLAGS.DOJO_WEATHER]: {
-    displayName: "Talked to Lanina & Elnino",
-    description: "Whether you talked to Lanina and Elnino in the Love Dojo.",
+    displayName: 'Talked to Lanina & Elnino',
+    description: 'Whether you talked to Lanina and Elnino in the Love Dojo.',
     valueType: 'boolean',
   },
   [FLAGS.DOJO_WEATHER_STARWALKER]: {
-    displayName: "Talked to Lanina & Elnino with Starwalker",
-    description: "Whether you talked to Lanina and Elnino in the Love Dojo with Starwalker recruited.",
+    displayName: 'Talked to Lanina & Elnino with Starwalker',
+    description:
+      'Whether you talked to Lanina and Elnino in the Love Dojo with Starwalker recruited.',
     valueType: 'boolean',
   },
   [FLAGS.TRAMPLED_BLUES_FLOWERS]: {
-    displayName: "Trampled Blue\'s flowers",
-    description: "Whether you stepped on Blue\'s flowers on your way to meeting Yellow.",
+    displayName: "Trampled Blue's flowers",
+    description:
+      "Whether you stepped on Blue's flowers on your way to meeting Yellow.",
     valueType: 'boolean',
   },
   [FLAGS.PRESSURE_PLATE_PUZZLE_DOOR]: {
-    displayName: "Interacted with pressure plate puzzle door",
-    description: "Whether you interacted with the door for the pressure plate puzzle in the Garden.",
+    displayName: 'Interacted with pressure plate puzzle door',
+    description:
+      'Whether you interacted with the door for the pressure plate puzzle in the Garden.',
     valueType: 'boolean',
   },
   [FLAGS.TALKED_TO_SWATCH_CH5]: {
-    displayName: "Talked to Swatch",
-    description: "Whether you talked to Swatch to give Susie a makeover.",
+    displayName: 'Talked to Swatch',
+    description: 'Whether you talked to Swatch to give Susie a makeover.',
     valueType: 'boolean',
   },
   [FLAGS.AMOUNT_OF_GIANT_TEACUPS]: {
@@ -8591,7 +8599,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     displayName: "Listened to Berdly's poem",
     description: "Listened to Berdly's poem for Noelle to use on Susie.",
     valueType: 'map',
-	valueRules: {
+    valueRules: {
       map: {
         0: 'Default state',
         1: 'Yes',
@@ -8603,7 +8611,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     displayName: 'Berdly poem response',
     description: "Thoughts on Berdly's poem.",
     valueType: 'map',
-	valueRules: {
+    valueRules: {
       map: {
         0: 'Default state',
         1: 'ME LIKE!!!!',
@@ -8675,7 +8683,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     displayName: 'Who rode the ferris wheel',
     description: "Who rode Sans' ferris wheel during the Festival.",
     valueType: 'map',
-	valueRules: {
+    valueRules: {
       map: {
         0: 'Default state',
         1: 'Kris and Noelle',
@@ -8689,7 +8697,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     displayName: 'Kris and Noelle ferris wheel outcome',
     description: 'Outcome of riding the ferris wheel with Noelle.',
     valueType: 'map',
-	valueRules: {
+    valueRules: {
       map: {
         0: 'Default state',
         1: "Rejected because you didn't vote Susie and Noelle for Festival King and Queen",
@@ -8703,7 +8711,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     displayName: 'Kris and Noelle ferris wheel choice',
     description: 'What you did in the ferris wheel with Noelle.',
     valueType: 'map',
-	valueRules: {
+    valueRules: {
       map: {
         0: 'Default state',
         1: 'Shake the Ferris wheel',
@@ -8715,7 +8723,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     displayName: 'Kris and Susie ferris wheel choice',
     description: 'What you did in the ferris wheel with Susie.',
     valueType: 'map',
-	valueRules: {
+    valueRules: {
       map: {
         0: 'Default state',
         1: 'Make heart with hands',
@@ -8727,7 +8735,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     displayName: 'Susie and Noelle ferris wheel choice',
     description: 'What you did when Susie and Noelle were in the ferris wheel.',
     valueType: 'map',
-	valueRules: {
+    valueRules: {
       map: {
         0: 'Default state',
         1: "Close eyes think about what they're doing now",
@@ -8787,43 +8795,50 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.TALKED_TO_BLUE_EARS_AFTER_PIZZAPANTS]: {
     displayName: 'Talked to Blue Ears afterwards',
-    description: 'Whether you talked to Blue Ears after someone went up to Pizzapants.',
+    description:
+      'Whether you talked to Blue Ears after someone went up to Pizzapants.',
     valueType: 'boolean',
   },
   [FLAGS.TALKED_TO_CATTY_AFTER_PIZZAPANTS]: {
     displayName: 'Talked to Catty afterwards',
-    description: 'Whether you talked to Catty after someone went up to Pizzapants.',
+    description:
+      'Whether you talked to Catty after someone went up to Pizzapants.',
     valueType: 'boolean',
   },
   [FLAGS.TALKED_TO_BRATTY_AFTER_PIZZAPANTS]: {
     displayName: 'Talked to Bratty afterwards',
-    description: 'Whether you talked to Bratty after someone went up to Pizzapants.',
+    description:
+      'Whether you talked to Bratty after someone went up to Pizzapants.',
     valueType: 'boolean',
   },
   [FLAGS.TALKED_TO_MILKLOOKER_AFTER_PIZZAPANTS]: {
     displayName: 'Talked to Milklooker afterwards',
-    description: 'Whether you talked to Milklooker after someone went up to Pizzapants.',
+    description:
+      'Whether you talked to Milklooker after someone went up to Pizzapants.',
     valueType: 'boolean',
   },
   [FLAGS.TALKED_TO_MILKLOOKER_DURING_PIZZAPANTS]: {
-    displayName: 'Talked to Milklooker during Pizzapants\' show',
-    description: 'Whether you talked to Milklooker after Pizzapants does his intro.',
+    displayName: "Talked to Milklooker during Pizzapants' show",
+    description:
+      'Whether you talked to Milklooker after Pizzapants does his intro.',
     valueType: 'boolean',
   },
   [FLAGS.TALKED_TO_MILKLOOKER_BEFORE_PIZZAPANTS]: {
-    displayName: 'Talked to Milklooker before Pizzapants\' intro',
-    description: 'Whether you talked to Milklooker before Pizzapants does his intro.',
+    displayName: "Talked to Milklooker before Pizzapants' intro",
+    description:
+      'Whether you talked to Milklooker before Pizzapants does his intro.',
     valueType: 'boolean',
   },
   [FLAGS.POST_PIZZAPANTS_BRATTY_BLUE_EARS]: {
-    displayName: 'Bratty is no longer Blue Ears\'s friend',
-    description: 'Progress of talking to Bratty and Blue Ears after Pizzapants found out Pizzerina wasn\'t real.',
+    displayName: "Bratty is no longer Blue Ears's friend",
+    description:
+      "Progress of talking to Bratty and Blue Ears after Pizzapants found out Pizzerina wasn't real.",
     valueType: 'map',
     valueRules: {
       map: {
         0: 'Default state',
         1: 'Talked to Bratty, who tells you to talk to Blue Ears',
-        2: 'Talked to Blue Ears, who said Bratty isn\'t his friend anymore',
+        2: "Talked to Blue Ears, who said Bratty isn't his friend anymore",
         3: 'Talked to Bratty again, who said it makes sense',
       },
     },
@@ -8831,12 +8846,14 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   [FLAGS.UNHAPPY_SUSIE_NOELLE]: {
     displayName: 'Unhappy Susie and Noelle',
     volatile: true,
-    description: 'Volatile. Used to set Susie and Noelle\'s expressions to unhappy after Pizzapants finds out the truth about Pizzarina in Chapter 5. Is set to 0 after leaving the room.',
+    description:
+      "Volatile. Used to set Susie and Noelle's expressions to unhappy after Pizzapants finds out the truth about Pizzarina in Chapter 5. Is set to 0 after leaving the room.",
     valueType: 'boolean',
   },
   [FLAGS.RIBBON_CHEST_STATE]: {
     displayName: 'Ribbon chest state',
-    description: 'Tracks the Chapter 5 RedRibbon chest and first ribbon equip scenes.',
+    description:
+      'Tracks the Chapter 5 RedRibbon chest and first ribbon equip scenes.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -8860,7 +8877,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.WATCHED_GARDEN_INTRO]: {
     displayName: 'Watched Garden of Hopes and Dreams intro',
-    description: 'If you\'ve watched the Garden of Hopes and Dreams intro sequence.',
+    description:
+      "If you've watched the Garden of Hopes and Dreams intro sequence.",
     valueType: 'boolean',
   },
   [FLAGS.WEIRD_ROUTE_STOP_COUNT]: {
@@ -8871,7 +8889,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.WEIRD_ROUTE_FAIL_CH5]: {
     displayName: 'Nothing changed',
-    description: 'Aborted the Chapter 5 Weird Route at the lake. Also unlocks Kris\'s Shattered Rose title and changes later dialogue.',
+    description:
+      "Aborted the Chapter 5 Weird Route at the lake. Also unlocks Kris's Shattered Rose title and changes later dialogue.",
     valueType: 'boolean',
   },
   [FLAGS.FINAL_STARWALKER_FLAG]: {
@@ -8883,43 +8902,50 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.TERAKOTA_PUZZLE_FLAGS]: {
     displayName: 'Terakota statue push flags',
-    description: 'Raw bitfield state handling pushed Terakota statues for the Terakota Pink Coin puzzle.',
+    description:
+      'Raw bitfield state handling pushed Terakota statues for the Terakota Pink Coin puzzle.',
     valueType: 'number',
     valueRules: { min: 0 },
   },
   [FLAGS.TORIEL_TOAST_TIMER]: {
     displayName: 'Microwave toast timer',
     volatile: true,
-    description: 'Volatile. Used to keep track of the microwave timer during Toriel\'s toast request.',
+    description:
+      "Volatile. Used to keep track of the microwave timer during Toriel's toast request.",
     valueType: 'number',
   },
   [FLAGS.RIGHT_PUZZLE_SHADOW_PLATFORM_X]: {
     displayName: 'First shadow puzzle X positions',
-    description: 'Raw bitfield state handling the X positions of moveable shadow platforms in the first shadow puzzle.',
+    description:
+      'Raw bitfield state handling the X positions of moveable shadow platforms in the first shadow puzzle.',
     valueType: 'number',
     valueRules: { min: 0 },
   },
   [FLAGS.RIGHT_PUZZLE_SHADOW_PLATFORM_Y]: {
     displayName: 'First shadow puzzle Y positions',
-    description: 'Raw bitfield state handling the Y positions of moveable shadow platforms in the first shadow puzzle.',
+    description:
+      'Raw bitfield state handling the Y positions of moveable shadow platforms in the first shadow puzzle.',
     valueType: 'number',
     valueRules: { min: 0 },
   },
   [FLAGS.SIDEPUZZLE_SHADOW_PLATFORM_X]: {
     displayName: 'Second shadow puzzle X positions',
-    description: 'Raw bitfield state handling the X positions of moveable shadow platforms in the second shadow puzzle.',
+    description:
+      'Raw bitfield state handling the X positions of moveable shadow platforms in the second shadow puzzle.',
     valueType: 'number',
     valueRules: { min: 0 },
   },
   [FLAGS.SIDEPUZZLE_SHADOW_PLATFORM_Y]: {
     displayName: 'Second shadow puzzle Y positions',
-    description: 'Raw bitfield state handling the Y positions of moveable shadow platforms in the second shadow puzzle.',
+    description:
+      'Raw bitfield state handling the Y positions of moveable shadow platforms in the second shadow puzzle.',
     valueType: 'number',
     valueRules: { min: 0 },
   },
   [FLAGS.SECOND_DINER_SAVEPOINT]: {
     displayName: 'Interacted with save point',
-    description: 'Whether you interacted with the save point in the second diner, causing it to appear on the table next time you enter the room.',
+    description:
+      'Whether you interacted with the save point in the second diner, causing it to appear on the table next time you enter the room.',
     valueType: 'boolean',
   },
   [FLAGS.TALKED_TORIEL_TOAST_REQUEST]: {
@@ -8970,13 +8996,15 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.CASTLE_CLIMB_CUTSCENES]: {
     displayName: 'Castle climb cutscenes',
-    description: 'Raw bitfield state handling which castle climb cutscenes you\'ve watched.',
+    description:
+      "Raw bitfield state handling which castle climb cutscenes you've watched.",
     valueType: 'number',
     valueRules: { min: 0 },
   },
   [FLAGS.PLATFORMING_INTRO_FLAGS]: {
     displayName: 'Platforming intro flags',
-    description: 'Raw bitfield state handling flags for the platforming intro room.',
+    description:
+      'Raw bitfield state handling flags for the platforming intro room.',
     valueType: 'number',
     valueRules: { min: 0 },
   },
@@ -8987,12 +9015,13 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.INTERACTED_WITH_DESTROYED_FLOWERY]: {
     displayName: 'Interacted with damaged Flowery',
-    description: 'Whether you interacted with the destroyed golden flower at the end of the chapter.',
+    description:
+      'Whether you interacted with the destroyed golden flower at the end of the chapter.',
     valueType: 'boolean',
   },
   [FLAGS.ASRIEL_LOVE_LETTER]: {
-    displayName: 'Looked at Asriel\'s love letter',
-    description: 'Whether you looked at Asriel\'s love letter to Dess.',
+    displayName: "Looked at Asriel's love letter",
+    description: "Whether you looked at Asriel's love letter to Dess.",
     valueType: 'boolean',
   },
   [FLAGS.LOOKED_AT_DEODORANT]: {
@@ -9002,7 +9031,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.PINK_LOSSES]: {
     displayName: 'Times died to Pink',
-    description: 'Times you died to Pink in a single session. Resets to 0 if you reload the game and start the battle again.',
+    description:
+      'Times you died to Pink in a single session. Resets to 0 if you reload the game and start the battle again.',
     valueType: 'number',
   },
   [FLAGS.STRENGTH_TESTER_NAPSTABLOOK]: {
@@ -9049,12 +9079,14 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.STRENGTH_TESTER_WEIRDROUTE]: {
     displayName: 'Susie talked about strength tester',
-    description: 'Whether you interacted with the strength tester during the Weird Route.',
+    description:
+      'Whether you interacted with the strength tester during the Weird Route.',
     valueType: 'boolean',
   },
   [FLAGS.LOOKED_IN_CATTI_HOUSE]: {
     displayName: 'Looked at Catti through her window',
-    description: 'Whether you looked through Catti\'s window and saw her sister licking her face clean.',
+    description:
+      "Whether you looked through Catti's window and saw her sister licking her face clean.",
     valueType: 'boolean',
   },
   [FLAGS.CASTLE_LEFT_PLOT]: {
@@ -9065,24 +9097,24 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       map: {
         0: 'Default state',
         5: 'Watched Asgore and Flowery cutscene',
-        9: 'Defeated Yellow\'s bullet pattern in the room with Blue\'s flowers',
+        9: "Defeated Yellow's bullet pattern in the room with Blue's flowers",
         10: 'Met Yellow and got the yellow key',
         25: 'Unlocked yellow door',
         26: 'Yellow is finding a place to bury himself alive',
         28: 'Started digging hole',
         30: 'Dug Yellow-shaped hole',
         31: 'Entered all punishments worse than burying room',
-        35: 'Destroyed Yellow\'s Hyper Punishment Gun or got hurt too much that Yellow stopped it',
+        35: "Destroyed Yellow's Hyper Punishment Gun or got hurt too much that Yellow stopped it",
         40: 'Met Blue',
         42: 'Blue is looking for Yellow',
-        43: 'Blue found Yellow\'s corn-scented rope on the train tracks',
+        43: "Blue found Yellow's corn-scented rope on the train tracks",
         44: 'Blue found an expanded cowboy hat',
         45: 'Blue walked to the sand trap room',
         51: 'Blue found the Yellow-shaped hole with a red splatter',
         52: 'Blue unlocked blue door',
         70: 'Defeated Yellow and Blue',
         90: 'Watched hot spring cutscene',
-        91: 'Ralsei told Susie that the flowers can\'t come to Castle Town',
+        91: "Ralsei told Susie that the flowers can't come to Castle Town",
         100: 'Used scissors to cut the bush',
       },
     },
@@ -9100,7 +9132,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
         5: 'Reached the end of the knife dodging room',
         10: 'Watched Asgore and Flowery cutscene',
         11: 'Met Orange',
-        15: 'Defeated Orange\'s bullet pattern',
+        15: "Defeated Orange's bullet pattern",
         29: 'Entered second diner',
         30: 'Introduced to Green',
         40: 'Orange and Seth finished talking',
@@ -9109,7 +9141,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
         43: 'Orange said she is serious',
         44: 'Orange threatened to go omega again',
         45: 'Orange went omega',
-        50: 'Defeated Aqua, Seth, and Orange\'s bullet patterns',
+        50: "Defeated Aqua, Seth, and Orange's bullet patterns",
         70: 'Started Green and Orange fight',
         80: 'Got free drink vouchers',
         100: 'Used scissors to cut the bush',
@@ -9123,12 +9155,14 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.ROUXLS_CAFE_WHAT_HAPPENED]: {
     displayName: 'Asked what happened',
-    description: 'Whether you asked Rouxls what happened in the Castle Town cafe.',
+    description:
+      'Whether you asked Rouxls what happened in the Castle Town cafe.',
     valueType: 'boolean',
   },
   [FLAGS.SEAM_SHADOW_CRYSTAL_CH5]: {
     displayName: 'Gave Seam the fourth Shadow Crystal or Terakota attacked',
-    description: 'Used to track if you gave the fourth Shadow Crystal to Seam, however it is also set when Terakota attacks you in battle, likely by mistake.',
+    description:
+      'Used to track if you gave the fourth Shadow Crystal to Seam, however it is also set when Terakota attacks you in battle, likely by mistake.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -9141,7 +9175,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.SEAM_SHADOW_CRYSTAL_CH5_FAILED]: {
     displayName: 'Failed to get fourth Shadow Crystal',
-    description: 'Whether you talked to Seam after failing to get the fourth Shadow Crystal.',
+    description:
+      'Whether you talked to Seam after failing to get the fourth Shadow Crystal.',
     valueType: 'boolean',
   },
   [FLAGS.SEAM_JACKENSTEIN]: {
@@ -9161,7 +9196,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.ATE_HONEY_TOAST]: {
     displayName: 'Brought toast to school',
-    description: 'Whether you tried to bring the honey toast to the school, causing Kris to eat it.',
+    description:
+      'Whether you tried to bring the honey toast to the school, causing Kris to eat it.',
     valueType: 'boolean',
   },
   [FLAGS.THRASH_FIT_HAIR]: {
@@ -9324,7 +9360,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.SUGGESTED_TENNA_TO_METTATON_CH5]: {
     displayName: 'Gave Tenna to Mettaton for first time',
-    description: 'Gave Tenna to Mettaton in Chapter 5 if you hadn\'t done so in Chapter 4.',
+    description:
+      "Gave Tenna to Mettaton in Chapter 5 if you hadn't done so in Chapter 4.",
     valueType: 'boolean',
   },
   [FLAGS.TERRACOTA_BATTLE_TALK]: {
@@ -9460,7 +9497,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.HUNG_OUT_WITH_RALSEI]: {
     displayName: 'Hung out with Ralsei normally',
-    description: 'If you hung out with Ralsei normally near the hot springs or inspected the hot spring in the case you didn\'t hang out with Ralsei.',
+    description:
+      "If you hung out with Ralsei normally near the hot springs or inspected the hot spring in the case you didn't hang out with Ralsei.",
     valueType: 'boolean',
   },
   [FLAGS.TALKED_TO_SODA_MACHINE]: {
@@ -9519,7 +9557,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.FLOWERYGARDENING_FLOWERYDOLLARS]: {
     displayName: 'Got 50 Flowery Dollars',
-    description: 'Whether you got 50 Flowery Dollars from the Flowery face room.',
+    description:
+      'Whether you got 50 Flowery Dollars from the Flowery face room.',
     valueType: 'boolean',
   },
   [FLAGS.WALKED_SUSIE_HOME]: {
@@ -9642,7 +9681,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     displayName: 'Pink',
     description: 'Whether you can take breaks that involve Pink.',
     valueType: 'map',
-	valueRules: {
+    valueRules: {
       map: {
         0: 'Locked',
         1: 'Unlocked',
@@ -9651,7 +9690,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.ASGORE_DOCUMENT_PROGRESS]: {
     displayName: 'Asgore document progress',
-    description: 'Raw bitfield state handling Asgore\'s documents on the left and right sides of Flower Castle.',
+    description:
+      "Raw bitfield state handling Asgore's documents on the left and right sides of Flower Castle.",
     valueType: 'number',
     valueRules: { min: 0 },
   },
@@ -9673,7 +9713,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.OBTAINED_REVIVEMINT_CH5]: {
     displayName: 'Got ReviveMint',
-    description: 'Whether you got the ReviveMint in the Floradinn dinner dash room.',
+    description:
+      'Whether you got the ReviveMint in the Floradinn dinner dash room.',
     valueType: 'boolean',
   },
   [FLAGS.OBTAINED_GREENTEA_PREAQUA]: {
@@ -9698,7 +9739,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.TERAKOTA_BONUS_PINKCOIN]: {
     displayName: 'Got bonus Pink Coin',
-    description: 'Whether you got the Pink Coin in the room above the Terakota puzzle.',
+    description:
+      'Whether you got the Pink Coin in the room above the Terakota puzzle.',
     valueType: 'boolean',
   },
   [FLAGS.HELD_MUSHROOM_PINKCOIN]: {
@@ -9728,17 +9770,20 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.LEFTCASTLE_SHINOBEETLE_FLOWERYDOLLARS]: {
     displayName: 'Got 50 Flowery Dollars',
-    description: 'Whether you got the 50 Flowery Dollars in the Shinobeetle room.',
+    description:
+      'Whether you got the 50 Flowery Dollars in the Shinobeetle room.',
     valueType: 'boolean',
   },
   [FLAGS.SUSIE_FLOWER_CROWN_WEIRDROUTE]: {
     displayName: 'Susie made a flower crown',
-    description: 'Whether Susie put a flower crown on your head during the Weird Route.',
+    description:
+      'Whether Susie put a flower crown on your head during the Weird Route.',
     valueType: 'boolean',
   },
   [FLAGS.USED_PARTY_ACTION_CH5]: {
     displayName: 'Used a party act on a Garden of Cliffs enemy',
-    description: 'Used S-Action or R-Action on an enemy in Garden or Cliffs, or was reminded if you didn\'t.',
+    description:
+      "Used S-Action or R-Action on an enemy in Garden or Cliffs, or was reminded if you didn't.",
     valueType: 'boolean',
   },
   [FLAGS.FRIEND_INTERACTED]: {
@@ -10317,19 +10362,6 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     description:
       "Suggested Tenna to Mettaton in Chapter 4, if it wasn't repaired.",
     valueType: 'boolean',
-  },
-  [FLAGS.WEIRD_ROUTE_FAIL_CH5]: {
-    displayName: 'Nothing changed',
-    description:
-      "Aborted the Chapter 5 Weird Route at the lake. Also unlocks Kris's Shattered Rose title and changes later dialogue.",
-    valueType: 'boolean',
-  },
-  [FLAGS.FINAL_STARWALKER_FLAG]: {
-    displayName: 'Final Starwalker flags',
-    description:
-      "Raw bitfield state for Original Starwalker's final Castle scene.",
-    valueType: 'number',
-    valueRules: { min: 0 },
   },
   [FLAGS.INTERACTED_WITH_TV_FIXED]: {
     displayName: 'Checked the fixed TV',
@@ -11056,12 +11088,13 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.PINK_FRIEND_INTERACTION]: {
     displayName: 'Friend bite cutscene',
-    description: 'Whether Pink talked to you about a cat bite after interacting with Friend.',
+    description:
+      'Whether Pink talked to you about a cat bite after interacting with Friend.',
     valueType: 'boolean',
   },
   [FLAGS.LISTENED_TO_CAPN_DOJO]: {
-    displayName: 'Listened to Cap\'n',
-    description: 'Whether you listened to Cap\'n in the Love Dojo.',
+    displayName: "Listened to Cap'n",
+    description: "Whether you listened to Cap'n in the Love Dojo.",
     valueType: 'boolean',
   },
   [FLAGS.TALKED_TO_JIGSAW_JOE_BAKERY]: {
@@ -11070,23 +11103,25 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueType: 'boolean',
   },
   [FLAGS.LOOKED_IN_KRIS_WARDROBE]: {
-    displayName: 'Looked in Kris\'s wardrobe',
-    description: 'Whether you looked in Kris\'s wardrobe.',
+    displayName: "Looked in Kris's wardrobe",
+    description: "Whether you looked in Kris's wardrobe.",
     valueType: 'boolean',
   },
   [FLAGS.KRIS_LAMP]: {
     displayName: 'Kris lamp',
-    description: 'Whether you interacted with the lamp, turning it into Kris lamp.',
+    description:
+      'Whether you interacted with the lamp, turning it into Kris lamp.',
     valueType: 'boolean',
   },
   [FLAGS.MOSS_TROPHY]: {
     displayName: 'Interacted with Moss trophy',
-    description: 'Whether you interacted with the Moss trophy in Kris\'s room.',
+    description: "Whether you interacted with the Moss trophy in Kris's room.",
     valueType: 'boolean',
   },
   [FLAGS.LOOKED_IN_SUSIES_WARDROBE]: {
-    displayName: 'Looked in Susie\'s wardrobe',
-    description: 'Whether you looked in Susie\'s wardrobe and saw Queen with the duck costume.',
+    displayName: "Looked in Susie's wardrobe",
+    description:
+      "Whether you looked in Susie's wardrobe and saw Queen with the duck costume.",
     valueType: 'boolean',
   },
   [FLAGS.WHAT_NOELLE_LIKES]: {
@@ -11103,22 +11138,25 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.NUZZLED_SUSIE_DOLL]: {
     displayName: 'Nuzzled Susie doll',
-    description: 'Whether you nuzzled the Susie doll in Susie\'s room.',
+    description: "Whether you nuzzled the Susie doll in Susie's room.",
     valueType: 'boolean',
   },
   [FLAGS.SAW_RALSEI_ROOM_CH5]: {
-    displayName: 'Saw Ralsei\'s room for the first time',
-    description: 'Whether you entered Ralsei\'s room after having not entered it previously in Chapter 4.',
+    displayName: "Saw Ralsei's room for the first time",
+    description:
+      "Whether you entered Ralsei's room after having not entered it previously in Chapter 4.",
     valueType: 'boolean',
   },
   [FLAGS.ENTERED_RALSEI_ROOM]: {
-    displayName: 'Entered Ralsei\'s room',
-    description: 'Whether you entered Ralsei\'s room after having entered it previously in Chapter 4.',
+    displayName: "Entered Ralsei's room",
+    description:
+      "Whether you entered Ralsei's room after having entered it previously in Chapter 4.",
     valueType: 'boolean',
   },
   [FLAGS.RALSEI_RANCHER_LOCKED_AGAIN]: {
     displayName: 'Ralsei Rancher locked (again)',
-    description: 'Whether you opened the Ralsei Rancher wardrobe in Ralsei\'s room.',
+    description:
+      "Whether you opened the Ralsei Rancher wardrobe in Ralsei's room.",
     valueType: 'boolean',
   },
   [FLAGS.THOUGHTS_ON_RALSEI_TRYING_DIFFERENT_DRINKS]: {
@@ -11135,39 +11173,44 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.PILLOW_FIGHT]: {
     displayName: 'Pillow Fight',
-    description: 'Whether Susie attacked the pillow in Ralsei\'s room.',
+    description: "Whether Susie attacked the pillow in Ralsei's room.",
     valueType: 'boolean',
   },
   [FLAGS.YELLOWCAVE_FLOWERYDOLLARS]: {
-    displayName: 'Got 50 Flowery Dollars from Yellow\'s cave',
-    description: 'Whether you got 50 Flowery Dollars from the Yellow cave room.',
+    displayName: "Got 50 Flowery Dollars from Yellow's cave",
+    description:
+      'Whether you got 50 Flowery Dollars from the Yellow cave room.',
     valueType: 'boolean',
   },
   [FLAGS.TRIED_TO_ENTER_BEACH_NO_ICECREAM_WEIRDROUTE]: {
     displayName: 'Tried to go to beach without ice cream',
-    description: 'Whether you tried to go to the beach before getting ice cream during the Weird Route.',
+    description:
+      'Whether you tried to go to the beach before getting ice cream during the Weird Route.',
     valueType: 'boolean',
   },
   [FLAGS.TRIED_TO_ENTER_CHURCH_WEIRDROUTE]: {
     displayName: 'Tried to enter church',
-    description: 'Whether you tried to enter the church during the Weird Route.',
+    description:
+      'Whether you tried to enter the church during the Weird Route.',
     valueType: 'boolean',
   },
   [FLAGS.RODE_FERRIS_WHEEL_WEIRDROUTE]: {
     displayName: 'Rode the ferris wheel',
-    description: 'Whether you rode the ferris wheel with Susie during the Weird Route.',
+    description:
+      'Whether you rode the ferris wheel with Susie during the Weird Route.',
     valueType: 'map',
     valueRules: {
       map: {
         0: 'Default state',
         1: 'Rode the wheel',
-        2: 'Didn\'t ride the wheel',
+        2: "Didn't ride the wheel",
       },
     },
   },
   [FLAGS.TRIED_TO_ENTER_SCHOOL_WEIRDROUTE]: {
     displayName: 'Tried to enter school',
-    description: 'Whether you tried to enter the school during the Weird Route.',
+    description:
+      'Whether you tried to enter the school during the Weird Route.',
     valueType: 'boolean',
   },
   [FLAGS.FOXHUNT_FLAGS]: {

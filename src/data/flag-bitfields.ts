@@ -27,20 +27,29 @@ export const FLAG_BITFIELDS = {
   PLATFORMING_INTRO_JUMP_TUTORIAL: 'PLATFORMING_INTRO_JUMP_TUTORIAL',
   PLATFORMING_INTRO_ACT_TUTORIAL: 'PLATFORMING_INTRO_ACT_TUTORIAL',
   PLATFORMING_INTRO_TREE_SMASHED: 'PLATFORMING_INTRO_TREE_SMASHED',
-  PLATFORMING_INTRO_TREE_FRUIT1_SMASHED: 'PLATFORMING_INTRO_TREE_FRUIT1_SMASHED',
-  PLATFORMING_INTRO_TREE_FRUIT2_SMASHED: 'PLATFORMING_INTRO_TREE_FRUIT2_SMASHED',
-  PLATFORMING_INTRO_TREE_FRUIT3_SMASHED: 'PLATFORMING_INTRO_TREE_FRUIT3_SMASHED',
+  PLATFORMING_INTRO_TREE_FRUIT1_SMASHED:
+    'PLATFORMING_INTRO_TREE_FRUIT1_SMASHED',
+  PLATFORMING_INTRO_TREE_FRUIT2_SMASHED:
+    'PLATFORMING_INTRO_TREE_FRUIT2_SMASHED',
+  PLATFORMING_INTRO_TREE_FRUIT3_SMASHED:
+    'PLATFORMING_INTRO_TREE_FRUIT3_SMASHED',
   PLATFORMING_INTRO_BRAMBLES_ACTED: 'PLATFORMING_INTRO_BRAMBLES_ACTED',
   PLATFORMING_INTRO_ATTACK_WALL: 'PLATFORMING_INTRO_ATTACK_WALL',
   PLATFORMING_INTRO_PINKBELL: 'PLATFORMING_INTRO_PINKBELL',
-  PLATFORMING_INTRO_BELL_AQUAPLATFORMING1: 'PLATFORMING_INTRO_BELL_AQUAPLATFORMING1',
-  PLATFORMING_INTRO_BELL_AQUAPLATFORMING2: 'PLATFORMING_INTRO_BELL_AQUAPLATFORMING2',
+  PLATFORMING_INTRO_BELL_AQUAPLATFORMING1:
+    'PLATFORMING_INTRO_BELL_AQUAPLATFORMING1',
+  PLATFORMING_INTRO_BELL_AQUAPLATFORMING2:
+    'PLATFORMING_INTRO_BELL_AQUAPLATFORMING2',
   PLATFORMING_INTRO_BELL_AQUAHOLE: 'PLATFORMING_INTRO_BELL_AQUAHOLE',
-  PLATFORMING_INTRO_BELL_AQUAHOLE_LEFT1: 'PLATFORMING_INTRO_BELL_AQUAHOLE_LEFT1',
-  PLATFORMING_INTRO_BELL_AQUAHOLE_LEFT2: 'PLATFORMING_INTRO_BELL_AQUAHOLE_LEFT2',
-  PLATFORMING_INTRO_BELL_AQUAHOLE_LEFT3: 'PLATFORMING_INTRO_BELL_AQUAHOLE_LEFT3',
+  PLATFORMING_INTRO_BELL_AQUAHOLE_LEFT1:
+    'PLATFORMING_INTRO_BELL_AQUAHOLE_LEFT1',
+  PLATFORMING_INTRO_BELL_AQUAHOLE_LEFT2:
+    'PLATFORMING_INTRO_BELL_AQUAHOLE_LEFT2',
+  PLATFORMING_INTRO_BELL_AQUAHOLE_LEFT3:
+    'PLATFORMING_INTRO_BELL_AQUAHOLE_LEFT3',
   SCISSORS_PUZZLE_SHAPED_BUSH_CUT: 'SCISSORS_PUZZLE_SHAPED_BUSH_CUT',
-  SCISSORS_PUZZLE_FLOWERY_FACE_PATH_CUT: 'SCISSORS_PUZZLE_FLOWERY_FACE_PATH_CUT',
+  SCISSORS_PUZZLE_FLOWERY_FACE_PATH_CUT:
+    'SCISSORS_PUZZLE_FLOWERY_FACE_PATH_CUT',
   RALSEI_HOLD_Z_HINT: 'RALSEI_HOLD_Z_HINT',
   HOPSCHEF_PROGRESS: 'HOPSCHEF_PROGRESS',
   ASGORE_DOCUMENT_TOTALREAD: 'ASGORE_DOCUMENT_TOTALREAD',
@@ -131,14 +140,22 @@ export const FLAG_BITFIELDS = {
   BREAKWATCHED_ORANGE_RALSEI: 'BREAKWATCHED_ORANGE_RALSEI',
   BREAKWATCHED_PINK_ORANGE: 'BREAKWATCHED_PINK_ORANGE',
   BREAKWATCHED_PINK_KRIS: 'BREAKWATCHED_PINK_KRIS',
-  SHADOW_PLATFORM_X_FCASTLE_RIGHT_PUZZLE1: 'SHADOW_PLATFORM_X_FCASTLE_RIGHT_PUZZLE1',
-  SHADOW_PLATFORM_X_FCASTLE_RIGHT_PUZZLE2: 'SHADOW_PLATFORM_X_FCASTLE_RIGHT_PUZZLE2',
-  SHADOW_PLATFORM_X_FCASTLE_SIDEPUZZLE1: 'SHADOW_PLATFORM_X_FCASTLE_SIDEPUZZLE1',
-  SHADOW_PLATFORM_X_FCASTLE_SIDEPUZZLE2: 'SHADOW_PLATFORM_X_FCASTLE_SIDEPUZZLE2',
-  SHADOW_PLATFORM_Y_FCASTLE_RIGHT_PUZZLE1: 'SHADOW_PLATFORM_Y_FCASTLE_RIGHT_PUZZLE1',
-  SHADOW_PLATFORM_Y_FCASTLE_RIGHT_PUZZLE2: 'SHADOW_PLATFORM_Y_FCASTLE_RIGHT_PUZZLE2',
-  SHADOW_PLATFORM_Y_FCASTLE_SIDEPUZZLE1: 'SHADOW_PLATFORM_Y_FCASTLE_SIDEPUZZLE1',
-  SHADOW_PLATFORM_Y_FCASTLE_SIDEPUZZLE2: 'SHADOW_PLATFORM_Y_FCASTLE_SIDEPUZZLE2',
+  SHADOW_PLATFORM_X_FCASTLE_RIGHT_PUZZLE1:
+    'SHADOW_PLATFORM_X_FCASTLE_RIGHT_PUZZLE1',
+  SHADOW_PLATFORM_X_FCASTLE_RIGHT_PUZZLE2:
+    'SHADOW_PLATFORM_X_FCASTLE_RIGHT_PUZZLE2',
+  SHADOW_PLATFORM_X_FCASTLE_SIDEPUZZLE1:
+    'SHADOW_PLATFORM_X_FCASTLE_SIDEPUZZLE1',
+  SHADOW_PLATFORM_X_FCASTLE_SIDEPUZZLE2:
+    'SHADOW_PLATFORM_X_FCASTLE_SIDEPUZZLE2',
+  SHADOW_PLATFORM_Y_FCASTLE_RIGHT_PUZZLE1:
+    'SHADOW_PLATFORM_Y_FCASTLE_RIGHT_PUZZLE1',
+  SHADOW_PLATFORM_Y_FCASTLE_RIGHT_PUZZLE2:
+    'SHADOW_PLATFORM_Y_FCASTLE_RIGHT_PUZZLE2',
+  SHADOW_PLATFORM_Y_FCASTLE_SIDEPUZZLE1:
+    'SHADOW_PLATFORM_Y_FCASTLE_SIDEPUZZLE1',
+  SHADOW_PLATFORM_Y_FCASTLE_SIDEPUZZLE2:
+    'SHADOW_PLATFORM_Y_FCASTLE_SIDEPUZZLE2',
   SAW_FINAL_STARWALKER: 'SAW_FINAL_STARWALKER',
 } as const;
 
@@ -160,35 +177,40 @@ export const FLAG_BITFIELDS_META: Record<
     parent: FLAGS.CASTLE_CLIMB_CUTSCENES,
     index: 1,
     displayName: 'Saw Rouxls looking for extra darlings cutscene',
-    description: 'Whether you saw the Rouxls looking for extra darlings cutscene. (26.7 seconds to 5 minutes)',
+    description:
+      'Whether you saw the Rouxls looking for extra darlings cutscene. (26.7 seconds to 5 minutes)',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.CASTLE_CLIMB_CUTSCENE2]: {
     parent: FLAGS.CASTLE_CLIMB_CUTSCENES,
     index: 4,
     displayName: 'Saw Rouxls looking for extra darlings cutscene a second time',
-    description: 'Whether you saw the Rouxls looking for extra darlings cutscene a second time. (26.7 seconds to 5 minutes)',
+    description:
+      'Whether you saw the Rouxls looking for extra darlings cutscene a second time. (26.7 seconds to 5 minutes)',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.CASTLE_CLIMB_CUTSCENE3]: {
     parent: FLAGS.CASTLE_CLIMB_CUTSCENES,
     index: 5,
     displayName: 'Saw Shadowguy sock cutscene',
-    description: 'Whether you saw the Shadowguy sock cutscene. (25 to 26.6 seconds)',
+    description:
+      'Whether you saw the Shadowguy sock cutscene. (25 to 26.6 seconds)',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.CASTLE_CLIMB_CUTSCENE4]: {
     parent: FLAGS.CASTLE_CLIMB_CUTSCENES,
     index: 6,
     displayName: 'Saw sad Iconman cutscene',
-    description: 'Whether you saw the sad Iconman cutscene. (23.3 to 24.9 seconds)',
+    description:
+      'Whether you saw the sad Iconman cutscene. (23.3 to 24.9 seconds)',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.CASTLE_CLIMB_CUTSCENE5]: {
     parent: FLAGS.CASTLE_CLIMB_CUTSCENES,
     index: 2,
     displayName: 'Saw Princess Ralsei cutscene',
-    description: 'Whether you saw the Princess Ralsei cutscene. (under 23.3 seconds)',
+    description:
+      'Whether you saw the Princess Ralsei cutscene. (under 23.3 seconds)',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.CASTLE_CLIMB_CUTSCENE5_CHOICE]: {
@@ -208,14 +230,16 @@ export const FLAG_BITFIELDS_META: Record<
     parent: FLAGS.CASTLE_CLIMB_CUTSCENES,
     index: 8,
     displayName: 'Saw Princess Ralsei cutscene a second time',
-    description: 'Whether you saw the Princess Ralsei cutscene a second time. (under 23.3 seconds)',
+    description:
+      'Whether you saw the Princess Ralsei cutscene a second time. (under 23.3 seconds)',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.CASTLE_CLIMB_CUTSCENE9]: {
     parent: FLAGS.CASTLE_CLIMB_CUTSCENES,
     index: 7,
     displayName: 'Saw Rouxls & Mizzle cutscene a second time',
-    description: 'Whether you the Rouxls & Mizzle cutscene a second time. (over 5 minutes)',
+    description:
+      'Whether you the Rouxls & Mizzle cutscene a second time. (over 5 minutes)',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.PLATFORMING_INTRO_JUMP_TUTORIAL]: {
@@ -243,84 +267,96 @@ export const FLAG_BITFIELDS_META: Record<
     parent: FLAGS.PLATFORMING_INTRO_FLAGS,
     index: 4,
     displayName: 'Fruit 1 destroyed',
-    description: 'Whether you used Rude Buster on the first tree fruit, destroying it.',
+    description:
+      'Whether you used Rude Buster on the first tree fruit, destroying it.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.PLATFORMING_INTRO_TREE_FRUIT2_SMASHED]: {
     parent: FLAGS.PLATFORMING_INTRO_FLAGS,
     index: 5,
     displayName: 'Fruit 2 destroyed',
-    description: 'Whether you used Rude Buster on the second tree fruit, destroying it.',
+    description:
+      'Whether you used Rude Buster on the second tree fruit, destroying it.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.PLATFORMING_INTRO_TREE_FRUIT3_SMASHED]: {
     parent: FLAGS.PLATFORMING_INTRO_FLAGS,
     index: 6,
     displayName: 'Fruit 3 destroyed',
-    description: 'Whether you used Rude Buster on the third tree fruit, destroying it.',
+    description:
+      'Whether you used Rude Buster on the third tree fruit, destroying it.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.PLATFORMING_INTRO_BRAMBLES_ACTED]: {
     parent: FLAGS.PLATFORMING_INTRO_FLAGS,
     index: 7,
     displayName: 'Acted on vines',
-    description: 'Whether you tried acting on the vines, prompting Susie to tell you to use your sword.',
+    description:
+      'Whether you tried acting on the vines, prompting Susie to tell you to use your sword.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.PLATFORMING_INTRO_ATTACK_WALL]: {
     parent: FLAGS.PLATFORMING_INTRO_FLAGS,
     index: 8,
     displayName: 'Attack wall',
-    description: 'Whether you attacked a wall, prompting Ralsei to tell you how to jump.',
+    description:
+      'Whether you attacked a wall, prompting Ralsei to tell you how to jump.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.PLATFORMING_INTRO_PINKBELL]: {
     parent: FLAGS.PLATFORMING_INTRO_FLAGS,
     index: 9,
     displayName: 'Got Pink Coin',
-    description: 'Whether you destroyed the pink coin bell in the platforming tutorial room.',
+    description:
+      'Whether you destroyed the pink coin bell in the platforming tutorial room.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.PLATFORMING_INTRO_BELL_AQUAPLATFORMING1]: {
     parent: FLAGS.PLATFORMING_INTRO_FLAGS,
     index: 10,
     displayName: 'Destroyed tutorial bell',
-    description: 'Whether you destroyed the bell in the platforming tutorial room.',
+    description:
+      'Whether you destroyed the bell in the platforming tutorial room.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.PLATFORMING_INTRO_BELL_AQUAPLATFORMING2]: {
     parent: FLAGS.PLATFORMING_INTRO_FLAGS,
     index: 11,
     displayName: 'Destroyed long tutorial bell',
-    description: 'Whether you destroyed the long bell in the platforming tutorial room.',
+    description:
+      'Whether you destroyed the long bell in the platforming tutorial room.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.PLATFORMING_INTRO_BELL_AQUAHOLE]: {
     parent: FLAGS.PLATFORMING_INTRO_FLAGS,
     index: 12,
     displayName: 'Destroyed pre-Shrine bell',
-    description: 'Whether you destroyed the bell in the room before the Shrine.',
+    description:
+      'Whether you destroyed the bell in the room before the Shrine.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.PLATFORMING_INTRO_BELL_AQUAHOLE_LEFT1]: {
     parent: FLAGS.PLATFORMING_INTRO_FLAGS,
     index: 13,
     displayName: 'Destroyed first Shrine door bell',
-    description: 'Whether you destroyed the first bell in the Shrine fast travel door room.',
+    description:
+      'Whether you destroyed the first bell in the Shrine fast travel door room.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.PLATFORMING_INTRO_BELL_AQUAHOLE_LEFT2]: {
     parent: FLAGS.PLATFORMING_INTRO_FLAGS,
     index: 14,
     displayName: 'Destroyed second Shrine door bell',
-    description: 'Whether you destroyed the second bell in the Shrine fast travel door room.',
+    description:
+      'Whether you destroyed the second bell in the Shrine fast travel door room.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.PLATFORMING_INTRO_BELL_AQUAHOLE_LEFT3]: {
     parent: FLAGS.PLATFORMING_INTRO_FLAGS,
     index: 15,
     displayName: 'Destroyed third Shrine door bell',
-    description: 'Whether you destroyed the third bell in the Shrine fast travel door room.',
+    description:
+      'Whether you destroyed the third bell in the Shrine fast travel door room.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.SCISSORS_PUZZLE_SHAPED_BUSH_CUT]: {
@@ -365,7 +401,8 @@ export const FLAG_BITFIELDS_META: Record<
     index: 0,
     width: 2,
     displayName: 'Total documents read',
-    description: 'Tracks how many of Asgore\'s documents you have read in total.',
+    description:
+      "Tracks how many of Asgore's documents you have read in total.",
     valueType: 'number',
     valueRules: { min: 0 },
   },
@@ -374,7 +411,8 @@ export const FLAG_BITFIELDS_META: Record<
     index: 2,
     width: 1,
     displayName: 'Read left documents first',
-    description: 'Whether you read the documents on the left side of Flower Castle before the documents on the right side.',
+    description:
+      'Whether you read the documents on the left side of Flower Castle before the documents on the right side.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.ASGORE_DOCUMENT_RIGHTFIRST]: {
@@ -382,7 +420,8 @@ export const FLAG_BITFIELDS_META: Record<
     index: 3,
     width: 1,
     displayName: 'Read right documents first',
-    description: 'Whether you read the documents on the right side of Flower Castle before the documents on the left side.',
+    description:
+      'Whether you read the documents on the right side of Flower Castle before the documents on the left side.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.TERAKOTA_PUZZLE_STATUE1]: {
@@ -432,7 +471,8 @@ export const FLAG_BITFIELDS_META: Record<
     index: 0,
     width: 1,
     displayName: 'Pushed first Terakota statue',
-    description: 'Whether you pushed the Terakota statue at the entrance of the Terakota room.',
+    description:
+      'Whether you pushed the Terakota statue at the entrance of the Terakota room.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.FOXHUNT_FOX1]: {
@@ -440,7 +480,8 @@ export const FLAG_BITFIELDS_META: Record<
     index: 1,
     width: 1,
     displayName: 'Got running fox',
-    description: 'Whether you got the fox running between Terakota statues for the fox hunt.',
+    description:
+      'Whether you got the fox running between Terakota statues for the fox hunt.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.FOXHUNT_FOX2]: {
@@ -448,7 +489,8 @@ export const FLAG_BITFIELDS_META: Record<
     index: 2,
     width: 1,
     displayName: 'Got bullet fox',
-    description: 'Whether you got the fox hidden between paw bullets for the fox hunt.',
+    description:
+      'Whether you got the fox hidden between paw bullets for the fox hunt.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.FOXHUNT_FOX3]: {
@@ -464,7 +506,8 @@ export const FLAG_BITFIELDS_META: Record<
     index: 4,
     width: 1,
     displayName: 'Got Terakota statue fox',
-    description: 'Whether you got the fox hidden under a Terakota statue for the fox hunt.',
+    description:
+      'Whether you got the fox hidden under a Terakota statue for the fox hunt.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.FOXHUNT_FOX5]: {
@@ -488,7 +531,8 @@ export const FLAG_BITFIELDS_META: Record<
     index: 7,
     width: 2,
     displayName: 'Terakota statue push dialogue',
-    description: 'Handles the dialogue that plays when pushing more Terakota statues off after finding the Terakota fox.',
+    description:
+      'Handles the dialogue that plays when pushing more Terakota statues off after finding the Terakota fox.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -512,7 +556,8 @@ export const FLAG_BITFIELDS_META: Record<
     index: 9,
     width: 1,
     displayName: 'Fought Terakota',
-    description: 'Whether you fought the Terakota in the Terakota statues room.',
+    description:
+      'Whether you fought the Terakota in the Terakota statues room.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.FOXHUNT_CHAOS_AQUA]: {
@@ -552,7 +597,8 @@ export const FLAG_BITFIELDS_META: Record<
     index: 0,
     width: 1,
     displayName: 'Unlocked shortcut to door',
-    description: 'Whether the shortcut leading from the start of Top of Castle to the Pink Door has been unlocked.',
+    description:
+      'Whether the shortcut leading from the start of Top of Castle to the Pink Door has been unlocked.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.PINK_DOOR_SHORTCUT_CUTSCENE]: {
@@ -560,7 +606,8 @@ export const FLAG_BITFIELDS_META: Record<
     index: 1,
     width: 1,
     displayName: 'Watched shortcut cutscene',
-    description: 'Whether you have watched the cutscene of the shortcut to the Pink Door being created.',
+    description:
+      'Whether you have watched the cutscene of the shortcut to the Pink Door being created.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.PINK_DOOR_INTERACTED_NO_KEY]: {
@@ -584,7 +631,8 @@ export const FLAG_BITFIELDS_META: Record<
     index: 0,
     width: 2,
     displayName: 'Seth (Pre-Cafe revisit)',
-    description: 'Previous unlock state of breaks involving Seth prior to revisiting the Flower Cafe. Used for checking if they were recently unlocked or lost.',
+    description:
+      'Previous unlock state of breaks involving Seth prior to revisiting the Flower Cafe. Used for checking if they were recently unlocked or lost.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -599,7 +647,8 @@ export const FLAG_BITFIELDS_META: Record<
     index: 1,
     width: 2,
     displayName: 'Yellow (Pre-Cafe revisit)',
-    description: 'Previous unlock state of breaks involving Yellow prior to revisiting the Flower Cafe. Used for checking if they were recently unlocked or lost.',
+    description:
+      'Previous unlock state of breaks involving Yellow prior to revisiting the Flower Cafe. Used for checking if they were recently unlocked or lost.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -614,7 +663,8 @@ export const FLAG_BITFIELDS_META: Record<
     index: 2,
     width: 2,
     displayName: 'Green (Pre-Cafe revisit)',
-    description: 'Previous unlock state of breaks involving Green prior to revisiting the Flower Cafe. Used for checking if they were recently unlocked or lost.',
+    description:
+      'Previous unlock state of breaks involving Green prior to revisiting the Flower Cafe. Used for checking if they were recently unlocked or lost.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -629,7 +679,8 @@ export const FLAG_BITFIELDS_META: Record<
     index: 3,
     width: 2,
     displayName: 'Aqua (Pre-Cafe revisit)',
-    description: 'Previous unlock state of breaks involving Aqua prior to revisiting the Flower Cafe. Used for checking if she was recently unlocked.',
+    description:
+      'Previous unlock state of breaks involving Aqua prior to revisiting the Flower Cafe. Used for checking if she was recently unlocked.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -643,7 +694,8 @@ export const FLAG_BITFIELDS_META: Record<
     index: 4,
     width: 2,
     displayName: 'Blue (Pre-Cafe revisit)',
-    description: 'Previous unlock state of breaks involving Blue prior to revisiting the Flower Cafe. Used for checking if he was recently unlocked or lost.',
+    description:
+      'Previous unlock state of breaks involving Blue prior to revisiting the Flower Cafe. Used for checking if he was recently unlocked or lost.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -658,7 +710,8 @@ export const FLAG_BITFIELDS_META: Record<
     index: 5,
     width: 2,
     displayName: 'Orange (Pre-Cafe revisit)',
-    description: 'Previous unlock state of breaks involving Orange prior to revisiting the Flower Cafe. Used for checking if she was recently unlocked or lost.',
+    description:
+      'Previous unlock state of breaks involving Orange prior to revisiting the Flower Cafe. Used for checking if she was recently unlocked or lost.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -673,7 +726,8 @@ export const FLAG_BITFIELDS_META: Record<
     index: 6,
     width: 2,
     displayName: 'Pink (Pre-Cafe revisit)',
-    description: 'Previous unlock state of breaks involving Pink prior to revisiting the Flower Cafe. Used for checking if she was recently unlocked.',
+    description:
+      'Previous unlock state of breaks involving Pink prior to revisiting the Flower Cafe. Used for checking if she was recently unlocked.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -1112,71 +1166,79 @@ export const FLAG_BITFIELDS_META: Record<
     width: 1,
     displayName: 'Pink & Kris',
     description: 'Watched status of the Pink & Kris break.',
-	valueType: 'boolean',
+    valueType: 'boolean',
   },
   [FLAG_BITFIELDS.SHADOW_PLATFORM_X_FCASTLE_RIGHT_PUZZLE1]: {
     parent: FLAGS.RIGHT_PUZZLE_SHADOW_PLATFORM_X,
     index: 0,
     width: 5,
     displayName: 'Vertical platform X position',
-    description: 'X position of the vertical shadow platform in the first shadow platform puzzle room.',
-	valueType: 'number',
+    description:
+      'X position of the vertical shadow platform in the first shadow platform puzzle room.',
+    valueType: 'number',
   },
   [FLAG_BITFIELDS.SHADOW_PLATFORM_X_FCASTLE_RIGHT_PUZZLE2]: {
     parent: FLAGS.RIGHT_PUZZLE_SHADOW_PLATFORM_X,
     index: 1,
     width: 5,
     displayName: 'Horizontal platform X position',
-    description: 'X position of the horizontal shadow platform in the first shadow platform puzzle room.',
-	valueType: 'number',
+    description:
+      'X position of the horizontal shadow platform in the first shadow platform puzzle room.',
+    valueType: 'number',
   },
   [FLAG_BITFIELDS.SHADOW_PLATFORM_Y_FCASTLE_RIGHT_PUZZLE1]: {
     parent: FLAGS.RIGHT_PUZZLE_SHADOW_PLATFORM_Y,
     index: 0,
     width: 5,
     displayName: 'Vertical platform Y position',
-    description: 'Y position of the vertical shadow platform in the first shadow platform puzzle room.',
-	valueType: 'number',
+    description:
+      'Y position of the vertical shadow platform in the first shadow platform puzzle room.',
+    valueType: 'number',
   },
   [FLAG_BITFIELDS.SHADOW_PLATFORM_Y_FCASTLE_RIGHT_PUZZLE2]: {
     parent: FLAGS.RIGHT_PUZZLE_SHADOW_PLATFORM_Y,
     index: 1,
     width: 5,
     displayName: 'Horizontal platform Y position',
-    description: 'Y position of the horizontal shadow platform in the first shadow platform puzzle room.',
-	valueType: 'number',
+    description:
+      'Y position of the horizontal shadow platform in the first shadow platform puzzle room.',
+    valueType: 'number',
   },
   [FLAG_BITFIELDS.SHADOW_PLATFORM_X_FCASTLE_SIDEPUZZLE1]: {
     parent: FLAGS.SIDEPUZZLE_SHADOW_PLATFORM_X,
     index: 0,
     width: 5,
     displayName: 'Large platform X position',
-    description: 'X position of the large shadow platform in the second shadow platform puzzle room.',
-	valueType: 'number',
+    description:
+      'X position of the large shadow platform in the second shadow platform puzzle room.',
+    valueType: 'number',
   },
   [FLAG_BITFIELDS.SHADOW_PLATFORM_X_FCASTLE_SIDEPUZZLE2]: {
     parent: FLAGS.SIDEPUZZLE_SHADOW_PLATFORM_X,
     index: 1,
     width: 5,
     displayName: 'Small platform X position',
-    description: 'X position of the small shadow platform in the second shadow platform puzzle room.',
-	valueType: 'number',
+    description:
+      'X position of the small shadow platform in the second shadow platform puzzle room.',
+    valueType: 'number',
   },
   [FLAG_BITFIELDS.SHADOW_PLATFORM_Y_FCASTLE_SIDEPUZZLE1]: {
     parent: FLAGS.SIDEPUZZLE_SHADOW_PLATFORM_Y,
     index: 0,
     width: 5,
     displayName: 'Large platform Y position',
-    description: 'Y position of the large shadow platform in the second shadow platform puzzle room.',
-	valueType: 'number',
+    description:
+      'Y position of the large shadow platform in the second shadow platform puzzle room.',
+    valueType: 'number',
   },
   [FLAG_BITFIELDS.SHADOW_PLATFORM_Y_FCASTLE_SIDEPUZZLE2]: {
     parent: FLAGS.SIDEPUZZLE_SHADOW_PLATFORM_Y,
     index: 1,
     width: 5,
     displayName: 'Small platform Y position',
-    description: 'Y position of the small shadow platform in the second shadow platform puzzle room.',
-	valueType: 'number',
+    description:
+      'Y position of the small shadow platform in the second shadow platform puzzle room.',
+    valueType: 'number',
   },
   [FLAG_BITFIELDS.SAW_FINAL_STARWALKER]: {
     parent: FLAGS.FINAL_STARWALKER_FLAG,

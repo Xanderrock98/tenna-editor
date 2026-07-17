@@ -1624,7 +1624,7 @@ export const STORY_SECTIONS = {
         },
         {
           id: 'seam-shop',
-          title: 'Seam\'s Shop',
+          title: "Seam's Shop",
           flags: [
             'SEAM_SHADOW_CRYSTAL_CH5',
             'SEAM_SHADOW_CRYSTAL_CH5_FAILED',
@@ -1634,10 +1634,7 @@ export const STORY_SECTIONS = {
         {
           id: 'cafe',
           title: 'Cafe',
-          flags: [
-            'ROUXLS_CAFE',
-            'ROUXLS_CAFE_WHAT_HAPPENED',
-          ],
+          flags: ['ROUXLS_CAFE', 'ROUXLS_CAFE_WHAT_HAPPENED'],
         },
         {
           id: 'love-dojo',
@@ -1650,16 +1647,12 @@ export const STORY_SECTIONS = {
         },
         {
           id: 'kris-room',
-          title: 'Kris\'s Room',
-          flags: [
-            'LOOKED_IN_KRIS_WARDROBE',
-            'KRIS_LAMP',
-            'MOSS_TROPHY',
-          ],
+          title: "Kris's Room",
+          flags: ['LOOKED_IN_KRIS_WARDROBE', 'KRIS_LAMP', 'MOSS_TROPHY'],
         },
-		{
+        {
           id: 'susie-room',
-          title: 'Susie\'s Room',
+          title: "Susie's Room",
           flags: [
             'LOOKED_IN_SUSIES_WARDROBE',
             'WHAT_NOELLE_LIKES',
@@ -1668,7 +1661,7 @@ export const STORY_SECTIONS = {
         },
         {
           id: 'ralsei-room',
-          title: 'Ralsei\'s Room',
+          title: "Ralsei's Room",
           flags: [
             'ENTERED_RALSEI_ROOM',
             'RALSEI_RANCHER_LOCKED_AGAIN',
@@ -1693,7 +1686,7 @@ export const STORY_SECTIONS = {
             'CASTLE_CLIMB_CUTSCENE9',
           ],
         },
-		{
+        {
           id: 'other',
           title: 'Other',
           flags: [
@@ -1747,10 +1740,7 @@ export const STORY_SECTIONS = {
         {
           id: 'pressure-plate-puzzle',
           title: 'Pressure Plate Puzzle',
-          flags: [
-            'OBTAINED_REVIVEMINT_CH5',
-            'PRESSURE_PLATE_PUZZLE_DOOR',
-          ],
+          flags: ['OBTAINED_REVIVEMINT_CH5', 'PRESSURE_PLATE_PUZZLE_DOOR'],
         },
         {
           id: 'way-home-to-shrine',
@@ -1787,10 +1777,7 @@ export const STORY_SECTIONS = {
         {
           id: 'hopchef',
           title: 'Hopchef',
-          flags: [
-            'HOPSCHEF_PROGRESS',
-            'TOOK_TREE_CAKE',
-          ],
+          flags: ['HOPSCHEF_PROGRESS', 'TOOK_TREE_CAKE'],
         },
         {
           id: 'tropical-starwalker',
@@ -1808,7 +1795,7 @@ export const STORY_SECTIONS = {
       clusters: [
         {
           id: 'pinks-shop',
-          title: 'Pink\'s Shop',
+          title: "Pink's Shop",
           flags: [
             'ASKED_PINK_ABOUT_PLACE',
             'ASKED_PINK_ABOUT_NAME',
@@ -1816,21 +1803,15 @@ export const STORY_SECTIONS = {
             'PINK_FRIEND_INTERACTION',
           ],
         },
-		{
+        {
           id: 'netskie-climb',
           title: 'Netskie Climb',
-          flags: [
-            'OBTAINED_MISTLEWP',
-            'OBTAINED_NETSKIEHAT_NETSKIECLIMB',
-          ],
+          flags: ['OBTAINED_MISTLEWP', 'OBTAINED_NETSKIEHAT_NETSKIECLIMB'],
         },
-		{
+        {
           id: 'other',
           title: 'Other',
-          flags: [
-            'FRIEND_INTERACTED',
-            'YELLOWCAVE_FLOWERYDOLLARS',
-          ],
+          flags: ['FRIEND_INTERACTED', 'YELLOWCAVE_FLOWERYDOLLARS'],
         },
       ],
     },
@@ -1939,7 +1920,7 @@ export const STORY_SECTIONS = {
         },
         {
           id: 'asgores-documents',
-          title: 'Asgore\'s Documents',
+          title: "Asgore's Documents",
           flags: [
             'ASGORE_DOCUMENT_TOTALREAD',
             'ASGORE_DOCUMENT_LEFTFIRST',
@@ -1980,7 +1961,7 @@ export const STORY_SECTIONS = {
             'TERAKOTA_BONUS_PINKCOIN',
           ],
         },
-		{
+        {
           id: 'first-shadow-puzzle',
           title: 'First Shadow Platform Puzzle',
           flags: [
@@ -1993,11 +1974,9 @@ export const STORY_SECTIONS = {
         {
           id: 'second-diner',
           title: 'Second Diner',
-          flags: [
-            'SECOND_DINER_SAVEPOINT',
-          ],
+          flags: ['SECOND_DINER_SAVEPOINT'],
         },
-		{
+        {
           id: 'fox-hunt',
           title: 'Fox Hunt',
           flags: [
@@ -2019,7 +1998,7 @@ export const STORY_SECTIONS = {
             'FOXHUNT_CHAOS_DOG',
           ],
         },
-		{
+        {
           id: 'second-shadow-puzzle',
           title: 'Second Shadow Platform Puzzle',
           flags: [
@@ -2048,10 +2027,7 @@ export const STORY_SECTIONS = {
         {
           id: 'ultra-dash',
           title: 'Ultra Dash',
-          flags: [
-            'FINAL_STARWALKER',
-            'OBTAINED_DOGDOLLAR_CH5',
-          ],
+          flags: ['SAW_FINAL_STARWALKER', 'OBTAINED_DOGDOLLAR_CH5'],
         },
       ],
     },
