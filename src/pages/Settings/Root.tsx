@@ -12,7 +12,6 @@ import {
 import { exportAllSaves, importAllSaves } from '@utils';
 import { toast } from '@services';
 import { useRef } from 'react';
-import FlagJp from '@assets/flags/flag-jp.png';
 import FlagKr from '@assets/flags/flag-kr.png';
 import FlagUs from '@assets/flags/flag-us.png';
 import FlagIt from '@assets/flags/flag-it.png';
@@ -34,7 +33,6 @@ const LANGUAGE_OPTIONS: SelectItem[] = Object.entries(SUPPORTED_LOCALES)
 
 const FLAG_ASSETS = {
   us: FlagUs,
-  jp: FlagJp,
   kr: FlagKr,
   it: FlagIt,
 };
