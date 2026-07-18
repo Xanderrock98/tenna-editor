@@ -30,7 +30,7 @@ export async function getChangelog() {
     let descriptionLines: string[] = [];
 
     const finishEntry = () => {
-      entry.description = descriptionLines.join(' ').trim() || null;
+      entry.description = descriptionLines.join('\n').trim() || null;
       descriptionLines = [];
       entries.push(entry);
     };
@@ -50,14 +50,18 @@ export async function getChangelog() {
 
         entry.version = version ?? null;
         entry.date = date ?? null;
-      } else if (line.startsWith('### ')) {
-        scope = line.split(' ')[1].toLocaleLowerCase() as ChangelogScope;
-      } else if (line.startsWith('- ')) {
-        if (scope) {
-          entry.scopes[scope].push(line.split('- ')[1]);
+      } else {
+        const scopeHeading = line.match(
+          /^### (Added|Changed|Fixed|Removed)\s*$/i,
+        );
+
+        if (scopeHeading) {
+          scope = scopeHeading[1].toLocaleLowerCase() as ChangelogScope;
+        } else if (line.startsWith('- ') && scope) {
+          entry.scopes[scope].push(line.slice(2));
+        } else if (entry.version && !scope) {
+          descriptionLines.push(line);
         }
-      } else if (entry.version && !scope && line.trim()) {
-        descriptionLines.push(line.trim());
       }
     });
     finishEntry();

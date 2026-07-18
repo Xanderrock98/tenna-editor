@@ -1,5 +1,6 @@
 import { Card, Heading, Link, Section } from '@components';
 import Markdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 
 type ChangelogScope = 'added' | 'changed' | 'fixed' | 'removed';
 
@@ -16,7 +17,11 @@ export function AboutChangelog() {
   return (
     <article className="page">
       {changelog.map((entry) => {
-        if (!entry.version) return;
+        const hasChanges =
+          entry.description ||
+          Object.values(entry.scopes).some((elements) => elements.length > 0);
+
+        if (!entry.version || !hasChanges) return;
         return (
           <Section key={entry.version} id={entry.version}>
             <Card className="p-6 flex flex-col gap-4">
@@ -30,8 +35,26 @@ export function AboutChangelog() {
               </div>
               <div className="flex flex-col gap-3">
                 {entry.description && (
-                  <div className="text-text-2">
-                    <Markdown components={{ a: Link }}>
+                  <div className="flex max-w-5xl flex-col gap-4 text-text-2">
+                    <Markdown
+                      rehypePlugins={[rehypeRaw]}
+                      components={{
+                        a: Link,
+                        h3: ({ children }) => (
+                          <Heading level={5} className="mt-2 text-text-1">
+                            {children}
+                          </Heading>
+                        ),
+                        p: ({ children }) => (
+                          <p className="leading-relaxed">{children}</p>
+                        ),
+                        code: ({ children }) => (
+                          <code className="border border-border bg-surface-2 px-1 py-0.5 font-mono text-sm text-text-1">
+                            {children}
+                          </code>
+                        ),
+                      }}
+                    >
                       {entry.description}
                     </Markdown>
                   </div>

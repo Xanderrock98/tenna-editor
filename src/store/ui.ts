@@ -4,9 +4,9 @@ import { immer } from 'zustand/middleware/immer';
 import { STORE_NAMESPACE } from './schema';
 import { createDebouncedJSONStorage } from 'zustand-debounce';
 
-export const UI_VERSION = 6;
+export const UI_VERSION = 7;
 
-export type UiLocale = 'en' | 'ja' | 'ko' | 'it';
+export type UiLocale = 'en' | 'ko' | 'it';
 
 export interface Ui {
   locale: UiLocale;
@@ -189,6 +189,13 @@ export const useUi = create<UiState>()(
           const current = nextState as { ui: Partial<Ui> };
           if (current.ui?.home) {
             current.ui.home.allowManualPlotEntry ??= false;
+          }
+        }
+
+        if (version < 7) {
+          const current = nextState as { ui: Partial<Ui> };
+          if ((current.ui.locale as string) === 'ja') {
+            current.ui.locale = 'en';
           }
         }
 
