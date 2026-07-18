@@ -24,6 +24,8 @@ export const FLAG_BITFIELDS = {
   CASTLE_CLIMB_CUTSCENE5_CHOICE: 'CASTLE_CLIMB_CUTSCENE5_CHOICE',
   CASTLE_CLIMB_CUTSCENE6: 'CASTLE_CLIMB_CUTSCENE6',
   CASTLE_CLIMB_CUTSCENE9: 'CASTLE_CLIMB_CUTSCENE9',
+  IDEAL_DINER_TALKED_TO_YELLOW: 'IDEAL_DINER_TALKED_TO_YELLOW',
+  IDEAL_DINER_CHECKED_REGISTER: 'IDEAL_DINER_CHECKED_REGISTER',
   PLATFORMING_INTRO_JUMP_TUTORIAL: 'PLATFORMING_INTRO_JUMP_TUTORIAL',
   PLATFORMING_INTRO_ACT_TUTORIAL: 'PLATFORMING_INTRO_ACT_TUTORIAL',
   PLATFORMING_INTRO_TREE_SMASHED: 'PLATFORMING_INTRO_TREE_SMASHED',
@@ -156,6 +158,16 @@ export const FLAG_BITFIELDS = {
     'SHADOW_PLATFORM_Y_FCASTLE_SIDEPUZZLE1',
   SHADOW_PLATFORM_Y_FCASTLE_SIDEPUZZLE2:
     'SHADOW_PLATFORM_Y_FCASTLE_SIDEPUZZLE2',
+  FCASTLE_BOUNCE1_BELL1: 'FCASTLE_BOUNCE1_BELL1',
+  FCASTLE_BOUNCE1_BELL2: 'FCASTLE_BOUNCE1_BELL2',
+  FCASTLE_BOUNCE1_BELL3: 'FCASTLE_BOUNCE1_BELL3',
+  FCASTLE_BOUNCE1_BELL4: 'FCASTLE_BOUNCE1_BELL4',
+  FCASTLE_BOUNCE3_GOLDCOIN: 'FCASTLE_BOUNCE3_GOLDCOIN',
+  FCASTLE_RIGHT_PUZZLE_COIN1: 'FCASTLE_RIGHT_PUZZLE_COIN1',
+  FCASTLE_RIGHT_PUZZLE_GOLDCOIN: 'FCASTLE_RIGHT_PUZZLE_GOLDCOIN',
+  FCASTLE_RIGHT_PUZZLE_COIN2: 'FCASTLE_RIGHT_PUZZLE_COIN2',
+  FCASTLE_SIDEPUZZLE_GOLDCOIN1: 'FCASTLE_SIDEPUZZLE_GOLDCOIN1',
+  FCASTLE_SIDEPUZZLE_GOLDCOIN2: 'FCASTLE_SIDEPUZZLE_GOLDCOIN2',
   SAW_FINAL_STARWALKER: 'SAW_FINAL_STARWALKER',
 } as const;
 
@@ -239,7 +251,25 @@ export const FLAG_BITFIELDS_META: Record<
     index: 7,
     displayName: 'Saw Rouxls & Mizzle cutscene a second time',
     description:
-      'Whether you the Rouxls & Mizzle cutscene a second time. (over 5 minutes)',
+      'Whether you saw the Rouxls & Mizzle cutscene a second time. (over 5 minutes)',
+    valueType: 'boolean',
+  },
+  [FLAG_BITFIELDS.IDEAL_DINER_TALKED_TO_YELLOW]: {
+    parent: FLAGS.IDEAL_DINER_FLAGS,
+    index: 0,
+    width: 2,
+    displayName: 'Talked to Yellow',
+    description:
+      'Whether you talked to Yellow in the Ideal Diner.',
+    valueType: 'boolean',
+  },
+  [FLAG_BITFIELDS.IDEAL_DINER_CHECKED_REGISTER]: {
+    parent: FLAGS.IDEAL_DINER_FLAGS,
+    index: 1,
+    width: 2,
+    displayName: 'Checked cash register',
+    description:
+      'Whether you checked the cash register in the Ideal Diner.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.PLATFORMING_INTRO_JUMP_TUTORIAL]: {
@@ -1239,6 +1269,86 @@ export const FLAG_BITFIELDS_META: Record<
     description:
       'Y position of the small shadow platform in the second shadow platform puzzle room.',
     valueType: 'number',
+  },
+  [FLAG_BITFIELDS.FCASTLE_BOUNCE1_BELL1]: {
+    parent: FLAGS.FCASTLE_BELLS_FLAGS,
+    index: 0,
+    displayName: 'Destroyed first bell',
+    description:
+      'Whether you destroyed the first bell in the right section of the first bounce flower room.',
+    valueType: 'boolean',
+  },
+  [FLAG_BITFIELDS.FCASTLE_BOUNCE1_BELL2]: {
+    parent: FLAGS.FCASTLE_BELLS_FLAGS,
+    index: 1,
+    displayName: 'Destroyed second bell',
+    description:
+      'Whether you destroyed the second bell in the right section of the first bounce flower room.',
+    valueType: 'boolean',
+  },
+  [FLAG_BITFIELDS.FCASTLE_BOUNCE1_BELL3]: {
+    parent: FLAGS.FCASTLE_BELLS_FLAGS,
+    index: 2,
+    displayName: 'Destroyed third bell',
+    description:
+      'Whether you destroyed the third bell in the right section of the first bounce flower room.',
+    valueType: 'boolean',
+  },
+  [FLAG_BITFIELDS.FCASTLE_BOUNCE1_BELL4]: {
+    parent: FLAGS.FCASTLE_BELLS_FLAGS,
+    index: 3,
+    displayName: 'Destroyed large bell',
+    description:
+      'Whether you destroyed the large bell at the top of the first bounce flower room.',
+    valueType: 'boolean',
+  },
+  [FLAG_BITFIELDS.FCASTLE_BOUNCE3_GOLDCOIN]: {
+    parent: FLAGS.FCASTLE_BELLS_FLAGS,
+    index: 4,
+    displayName: 'Collected gold coin',
+    description:
+      'Whether you collected the gold coin in the right section of the punishment zone platforming room.',
+    valueType: 'boolean',
+  },
+  [FLAG_BITFIELDS.FCASTLE_RIGHT_PUZZLE_COIN1]: {
+    parent: FLAGS.FCASTLE_BELLS_FLAGS,
+    index: 10,
+    displayName: 'Collected left silver coin',
+    description:
+      'Whether you collected the left silver coin in the first shadow platform puzzle room.',
+    valueType: 'boolean',
+  },
+  [FLAG_BITFIELDS.FCASTLE_RIGHT_PUZZLE_GOLDCOIN]: {
+    parent: FLAGS.FCASTLE_BELLS_FLAGS,
+    index: 11,
+    displayName: 'Collected gold coin',
+    description:
+      'Whether you collected the gold coin in the first shadow platform puzzle room.',
+    valueType: 'boolean',
+  },
+  [FLAG_BITFIELDS.FCASTLE_RIGHT_PUZZLE_COIN2]: {
+    parent: FLAGS.FCASTLE_BELLS_FLAGS,
+    index: 12,
+    displayName: 'Collected right silver coin',
+    description:
+      'Whether you collected the right silver coin in the first shadow platform puzzle room.',
+    valueType: 'boolean',
+  },
+  [FLAG_BITFIELDS.FCASTLE_SIDEPUZZLE_GOLDCOIN1]: {
+    parent: FLAGS.FCASTLE_BELLS_FLAGS,
+    index: 14,
+    displayName: 'Collected first gold coin',
+    description:
+      'Whether you collected the first gold coin in the second shadow platform puzzle room.',
+    valueType: 'boolean',
+  },
+  [FLAG_BITFIELDS.FCASTLE_SIDEPUZZLE_GOLDCOIN2]: {
+    parent: FLAGS.FCASTLE_BELLS_FLAGS,
+    index: 15,
+    displayName: 'Collected second gold coin',
+    description:
+      'Whether you collected the second gold coin in the second shadow platform puzzle room..',
+    valueType: 'boolean',
   },
   [FLAG_BITFIELDS.SAW_FINAL_STARWALKER]: {
     parent: FLAGS.FINAL_STARWALKER_FLAG,

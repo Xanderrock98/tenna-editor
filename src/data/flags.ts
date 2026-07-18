@@ -1095,6 +1095,13 @@ export const FLAGS = {
   STRENGTH_TESTER_NOELLE_TIMING: 1383,
   AMOUNT_OF_GIANT_TEACUPS: 1390,
   VOICE_CLIPS_ENABLED: 1391,
+  RALSEIS_ENABLED: 1392,
+  ALVIN_CONFIDED: 1393,
+  PUT_HANDS_IN_EYEBALL_BOWL: 1394,
+  SUSIE_SCARED_BY_MUMMY: 1395,
+  NOELLE_SCARED_BY_ALPHYS: 1396,
+  TALKED_TO_CATTI_FESTIVAL: 1397,
+  DRANK_HAUNTED_BLOOD: 1398,
   HOPSCHEF_PROGRESS_FLAG: 1399,
   TOOK_TREE_CAKE: 1400,
   SHEARY_CUT_AMOUNT: 1401,
@@ -1108,8 +1115,15 @@ export const FLAGS = {
   TALKED_TO_MILKLOOKER_AFTER_PIZZAPANTS: 1409,
   WATCHED_GARDEN_INTRO: 1410,
   FLOWERY_DOLLARS: 1411,
+  INFINITE_FLOWERY_DOLLARS_CHEST: 1412,
+  WATCHED_WATERING_CAN_CUTSCENE: 1413,
+  IDEAL_DINER_FLAGS: 1414,
   POST_PIZZAPANTS_BRATTY_BLUE_EARS: 1415,
   UNHAPPY_SUSIE_NOELLE: 1416,
+  READ_HAUNTED_POEM: 1417,
+  TALKED_TO_CATTI_EYEBALL_BOWL: 1418,
+  NOELLE_EXPLAINED_CATTIS_HATRED: 1419,
+  SHAKING_NOELLE_PORTRAIT: 1420,
   // Chapter 5 Thrash Fit
   THRASH_FIT_HAIR: 1421,
   THRASH_FIT_SHIRT: 1422,
@@ -1425,6 +1439,7 @@ export const FLAGS = {
   UNLOCKED_PINK_BREAKS: 1816,
   ASGORE_DOCUMENT_PROGRESS: 1817,
   PINK_DOOR_FLAGS: 1818,
+  GARDEN_VINE_CUTSCENE: 1819,
   STRENGTH_TESTER_WEIRDROUTE: 1822,
   RIVER_PINKCOIN: 1827,
   OBTAINED_GREENTEA_SHEARYDODGE: 1828,
@@ -1445,6 +1460,8 @@ export const FLAGS = {
   LEFTCASTLE_SHINOBEETLE_FLOWERYDOLLARS: 1853,
   INTERACTED_WITH_MIKE_DOOR_WITHOUT_MIKE_BATTLE: 1854,
   UNLOCKED_BREAK_CHARACTERS_PRECAFE: 1856,
+  FLOWERYFIGHT_ENDED: 1864,
+  FLOWERYFIGHT_ATTEMPTS: 1865,
   OBTAINED_DOGDOLLAR_CH5: 1866,
   BOUGHT_BREAKS1: 1430,
   BOUGHT_BREAKS2: 1892,
@@ -1452,6 +1469,7 @@ export const FLAGS = {
   WATCHED_BREAKS2: 1893,
   ENTERED_DOG_BALLOON_ROOM: 1872,
   TERAKOTA_PUZZLE_PINKCOIN: 1875,
+  SUSIE_TOLD_NOELLE_ABOUT_KRIS_PIANO: 1876,
   FREE_DRINK_OUTCOME: 1879,
   DOJO_WEATHER_STARWALKER: 1882,
   SUSIE_FLOWER_CROWN_WEIRDROUTE: 1883,
@@ -1460,11 +1478,25 @@ export const FLAGS = {
   TRAMPLED_BLUES_FLOWERS: 1886,
   PRESSURE_PLATE_PUZZLE_DOOR: 1887,
   USED_PARTY_ACTION_CH5: 1888,
+  GARDEN_VINE_CUTSCENE_PETALFEATHER: 1889,
+  TIMES_LOOKED_AT_PHONE: 1890,
+  FCASTLE_BELLS_FLAGS: 1891,
+  FLOWERYFIGHT_TRIAL: 1894,
   FRIEND_INTERACTED: 1895,
+  SAW_GOLD_AQUA_BP: 1896,
+  LEVEL_UP_COUNT_CH5: 1897,
+  AT_MAGIC_GAIN_COUNT_CH5: 1898,
+  CLIFF_BONUSCOMBAT_DESTROYED_CHEESE: 1899,
   TALKED_TO_MILKLOOKER_BEFORE_PIZZAPANTS: 1900,
+  FCASTLE_TOP_ASCENT_FAILURES: 1901,
+  FCASTLE_TOP_ASCENT_FAILURE_ROOM: 1902,
+  FCASTLE_TOP_ASCENT_RALSEI_LONG: 1903,
   PLATMODE_JUMP_COUNT: 1904,
   PLATMODE_SWING_COUNT: 1905,
+  ATTACKED_AQUA_OR_SETH: 1906,
+  OBTAINED_SHADOW_CRYSTAL_CH5: 1907,
   DEFEATED_PINK: 1908,
+  OBTAINED_SPINCAKE_CH5: 1909,
 } as const;
 
 export type FlagIndex = (typeof FLAGS)[keyof typeof FLAGS];
@@ -2931,7 +2963,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.OBTAINED_SPINCAKE_CH2]: {
     displayName: 'Got SpinCake (fresh)',
-    description: 'Whether you received a fresh Spincake since Chapter 2.',
+    description: 'Whether you received a fresh SpinCake since Chapter 2.',
     valueType: 'boolean',
   },
   [FLAGS.MR_SOCIETY_LEFT]: {
@@ -8404,6 +8436,76 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       },
     },
   },
+  [FLAGS.RALSEIS_ENABLED]: {
+    displayName: 'Enabled/Disabled Ralseis and your thoughts on Flowery',
+    description: 'If you had disabled Ralseis in the settings. Later set to your thoughts on Flowery when Ralsei asks about him.',
+    valueType: 'boolean',
+    valueRules: {
+      map: {
+        0: 'Enabled Ralseis',
+        1: 'Disabled Ralseis',
+        5: "Let's be his friend",
+        6: "Wait and see",
+        7: "He sucks",
+      },
+    },
+  },
+  [FLAGS.ALVIN_CONFIDED]: {
+    displayName: 'Alvin confided about the church',
+    description: "Whether you talked to Father Alvin and he told you about the church being in shambles and reading Susie's note.",
+    valueType: 'boolean',
+  },
+  [FLAGS.PUT_HANDS_IN_EYEBALL_BOWL]: {
+    displayName: 'Put hands in eyeball bowl',
+    description: "Whether you, Susie, and Noelle put your hands in the eyeball bowl.",
+    valueType: 'boolean',
+  },
+  [FLAGS.SUSIE_SCARED_BY_MUMMY]: {
+    displayName: 'Susie got scared by mummy',
+    description: "Whether you interacted with the mummy coffin, causing Susie to get scared by it.",
+    valueType: 'boolean',
+  },
+  [FLAGS.NOELLE_SCARED_BY_ALPHYS]: {
+    displayName: 'Noelle got scared by Alphys',
+    description: "Whether you interacted with the sparkle in the corner of the room, causing Noelle to get jumpscared by Alphys.",
+    valueType: 'boolean',
+  },
+  [FLAGS.TALKED_TO_CATTI_FESTIVAL]: {
+    displayName: 'Catti talked to Kris',
+    description: "Whether Catti talked to Kris about letting Noelle go out with Susie.",
+    valueType: 'boolean',
+  },
+  [FLAGS.DRANK_HAUNTED_BLOOD]: {
+    displayName: 'Drank cool haunted blood',
+    description: "Whether you drank the cool haunted blood with Susie.",
+    valueType: 'boolean',
+  },
+  [FLAGS.READ_HAUNTED_POEM]: {
+    displayName: 'Read haunted poem',
+    description: "Whether you read the haunted poem.",
+    valueType: 'boolean',
+  },
+  [FLAGS.TALKED_TO_CATTI_EYEBALL_BOWL]: {
+    displayName: 'Catti scolded Susie and Noelle for breaking the sacred rule',
+    description: "Whether you talked to Catti after Susie and Noelle held hands in the eyeball bowl.",
+    valueType: 'boolean',
+  },
+  [FLAGS.NOELLE_EXPLAINED_CATTIS_HATRED]: {
+    displayName: "Noelle explained Catti's hatred of Susie",
+    description: "Whether you interacted with Catti's stand after she left, causing Noelle to explain why Catti dislikes Susie.",
+    valueType: 'boolean',
+  },
+  [FLAGS.SUSIE_TOLD_NOELLE_ABOUT_KRIS_PIANO]: {
+    displayName: "Susie told Noelle about Kris playing the piano",
+    description: "Whether you interacted with the doors to the choir room, causing Susie to tell Noelle about Kris playing the piano if you had told her you would play it again in Chapter 4.",
+    valueType: 'boolean',
+  },
+  [FLAGS.SHAKING_NOELLE_PORTRAIT]: {
+    displayName: 'Shaking Noelle portrait',
+    volatile: true,
+    description: "Volatile. Causes Noelle's talking portrait to shake. Set during the cutscene where Noelle gets scared by Alphys, before being set back afterwards. Also set to be disabled when leaving the church.",
+    valueType: 'boolean',
+  },
   [FLAGS.STRONGEST_AQUA_ATTACK]: {
     displayName: 'Strongest Aqua attack',
     description: "Which of Aqua's attacks you got hit most from.",
@@ -8874,6 +8976,32 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     displayName: 'Flowery Dollars',
     description: 'Your amount of Flowery Dollars.',
     valueType: 'number',
+  },
+  [FLAGS.INFINITE_FLOWERY_DOLLARS_CHEST]: {
+    displayName: '"Infinite money" chest state',
+    description:
+      'Tracks the state of the "infinite money" chest.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Opened chest at least once',
+        2: 'Found out the dollars were actually Flowery Dollars',
+      },
+    },
+  },
+  [FLAGS.WATCHED_WATERING_CAN_CUTSCENE]: {
+    displayName: 'Watched watering can cutscene',
+    description:
+      "Whether you've watched the cutscene that plays when you first pick up a watering can.",
+    valueType: 'boolean',
+  },
+  [FLAGS.IDEAL_DINER_FLAGS]: {
+    displayName: 'Ideal Diner flags',
+    description:
+      "Raw bitfield state the Ideal Diner.",
+    valueType: 'number',
+    valueRules: { min: 0 },
   },
   [FLAGS.WATCHED_GARDEN_INTRO]: {
     displayName: 'Watched Garden of Hopes and Dreams intro',
@@ -9786,6 +9914,30 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       "Used S-Action or R-Action on an enemy in Garden or Cliffs, or was reminded if you didn't.",
     valueType: 'boolean',
   },
+  [FLAGS.GARDEN_VINE_CUTSCENE]: {
+    displayName: 'Watched beanstalk cutscene',
+    description:
+      "Whether you watched the cutscene between Flowery and Asgore in the climb to Cliffs.",
+    valueType: 'boolean',
+  },
+  [FLAGS.GARDEN_VINE_CUTSCENE_PETALFEATHER]: {
+    displayName: 'Had Petal Feather when watching cutscene',
+    description: 'Whether had the Petal Feather while watching the beanstalk cutscene.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: "Didn't have the Petal Feather",
+        2: 'Had the Petal Feather or attempted to climb the beanstalk without the Petal Feather',
+      },
+    },
+  },
+  [FLAGS.TIMES_LOOKED_AT_PHONE]: {
+    displayName: 'Times you tried to look at your phone',
+    description:
+      "The amount of times you tried looking at your phone at the end of the chapter.",
+    valueType: 'number',
+  },
   [FLAGS.FRIEND_INTERACTED]: {
     displayName: 'Acted on Friend',
     description: 'Whether you acted on and was damaged by Friend in Chapter 5.',
@@ -9801,9 +9953,40 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     description: "Kris's swing count in platform mode.",
     valueType: 'number',
   },
+  [FLAGS.ATTACKED_AQUA_OR_SETH]: {
+    displayName: 'Attacked Aqua or Seth',
+    description: 'Whether you attacked Aqua or Seth in their battle together. Doing this causes you to lose the ability to have breaks with Seth.',
+    valueType: 'boolean',
+    valueRules: {
+      booleanMap: {
+        trueValues: ['-1'],
+        falseValues: [0],
+        writeTrue: '-1',
+        writeFalse: 0,
+      },
+    },
+  },
+  [FLAGS.OBTAINED_SHADOW_CRYSTAL_CH5]: {
+    displayName: 'Got the Shadow Crystal',
+    description: 'Obtained the Shadow Crystal from Pink in Chapter 5.',
+    valueType: 'boolean',
+  },
   [FLAGS.DEFEATED_PINK]: {
     displayName: 'Defeated Pink',
     description: 'Whether you defeated Pink.',
+    valueType: 'boolean',
+    valueRules: {
+      booleanMap: {
+        trueValues: [2],
+        falseValues: [0],
+        writeTrue: 2,
+        writeFalse: 0,
+      },
+    },
+  },
+  [FLAGS.OBTAINED_SPINCAKE_CH5]: {
+    displayName: 'Got SpinCake',
+    description: 'Whether you received a SpinCake in Chapter 5.',
     valueType: 'boolean',
   },
   [FLAGS.MONEYFOUNTAIN_DONATION_OVER_100]: {
@@ -9910,9 +10093,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.WILL_KRIS_PLAY_AGAIN]: {
     displayName: 'Piano story response',
-    unused: true,
     description:
-      'What you told Susie after her piano story. Unaccessed as of chapter 4.',
+      'What you told Susie after her piano story.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -10387,7 +10569,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueType: 'number',
   },
   [FLAGS.LEVEL_UP_COUNT_CH4]: {
-    displayName: 'Times Leveled',
+    displayName: 'Level-ups',
     description:
       'The number of times you have leveled up by violently defeating an encounter. Used for certain increases that only occur every 2, 4, or 10 encounters.',
     valueType: 'number',
@@ -10651,7 +10833,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueType: 'boolean',
   },
   [FLAGS.AT_MAGIC_GAIN_COUNT_CH4]: {
-    displayName: 'Times Gained AT',
+    displayName: 'AT/Magic gains',
     description:
       'The number of times your AT and Magic have increased due to leveling up (every ten encounters).',
     valueType: 'number',
@@ -10821,22 +11003,22 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.OBTAINED_SHADOW_CRYSTAL_CH1]: {
     displayName: 'Got the Shadow Crystal',
-    description: 'Obtained the Shadow Crystal from Jevil in chapter 1.',
+    description: 'Obtained the Shadow Crystal from Jevil in Chapter 1.',
     valueType: 'boolean',
   },
   [FLAGS.OBTAINED_SHADOW_CRYSTAL_CH2]: {
     displayName: 'Got the Shadow Crystal',
-    description: 'Obtained the Shadow Crystal from Spamton NEO in chapter 2.',
+    description: 'Obtained the Shadow Crystal from Spamton NEO in Chapter 2.',
     valueType: 'boolean',
   },
   [FLAGS.OBTAINED_SHADOW_CRYSTAL_CH3]: {
     displayName: 'Got the Shadow Crystal',
-    description: 'Obtained the Shadow Crystal from the Knight in chapter 3.',
+    description: 'Obtained the Shadow Crystal from the Knight in Chapter 3.',
     valueType: 'boolean',
   },
   [FLAGS.OBTAINED_SHADOW_CRYSTAL_CH4]: {
     displayName: 'Got the Shadow Crystal',
-    description: 'Obtained the Shadow Crystal from Gerson in chapter 4.',
+    description: 'Obtained the Shadow Crystal from Gerson in Chapter 4.',
     valueType: 'boolean',
   },
   [FLAGS.TALKED_TO_CUP_STACK_DURING_FINAL_CLIMB]: {
@@ -11218,6 +11400,77 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     description: 'Raw bitfield state for the fox hunt.',
     valueType: 'number',
     valueRules: { min: 0 },
+  },
+  [FLAGS.FCASTLE_BELLS_FLAGS]: {
+    displayName: 'Various Flower Castle collection flags',
+    description: 'Raw bitfield state for bells and coins in the two shadow platform puzzle rooms in the right wing and the bounce flower platforming rooms in the left wing of Flower Castle.',
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
+  [FLAGS.FLOWERYFIGHT_ENDED]: {
+    displayName: 'Flowery battle ended',
+    description:
+      'Whether the Flowery battle was ended in some way, either by losing to him or beating him.',
+    valueType: 'boolean',
+  },
+  [FLAGS.FLOWERYFIGHT_ATTEMPTS]: {
+    displayName: 'Flowery attempts',
+    description:
+      "The amount of attempts against Flowery you've had in a single session. Resets if you reload the game and start the battle again.",
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'One attempt',
+        2: 'Two or more attempts',
+      },
+    },
+  },
+  [FLAGS.FLOWERYFIGHT_TRIAL]: {
+    displayName: 'Did the Flowery trial',
+    volatile: true,
+    description:
+      'Volatile. Determines whether you already did the trial in the Flowery fight. Resets if you reload the game and start the battle again.',
+    valueType: 'boolean',
+  },
+  [FLAGS.SAW_GOLD_AQUA_BP]: {
+    displayName: 'Saw golden Aqua bullet pattern',
+    description:
+      'Whether you saw the golden Aqua bullet pattern that appears to the right of the Shrine.',
+    valueType: 'boolean',
+  },
+  [FLAGS.LEVEL_UP_COUNT_CH5]: {
+    displayName: 'Level-ups',
+    description:
+      'The number of times you have leveled up by violently defeating an encounter. Used for certain increases that only occur every 2, 4, or 10 encounters.',
+    valueType: 'number',
+  },
+  [FLAGS.AT_MAGIC_GAIN_COUNT_CH5]: {
+    displayName: 'AT/Magic gains',
+    description:
+      'The number of times your AT and Magic have increased due to leveling up (every ten encounters).',
+    valueType: 'number',
+  },
+  [FLAGS.CLIFF_BONUSCOMBAT_DESTROYED_CHEESE]: {
+    displayName: "Destroyed Wind Struggler's abandonded cheese",
+    description: "Whether you destroyed the cheese after Wind Struggler left.",
+    valueType: 'boolean',
+  },
+  [FLAGS.FCASTLE_TOP_ASCENT_FAILURES]: {
+    displayName: 'Ascent failures',
+    description:
+      'The number of times you failed the Top of Castle ascent platforming segment.',
+    valueType: 'number',
+  },
+  [FLAGS.FCASTLE_TOP_ASCENT_FAILURE_ROOM]: {
+    displayName: "Unlocked failure room",
+    description: "Whether you unlocked the failure room by failing the platforming segment 10 times.",
+    valueType: 'boolean',
+  },
+  [FLAGS.FCASTLE_TOP_ASCENT_RALSEI_LONG]: {
+    displayName: "Ralsei is long",
+    description: "Whether Ralsei was long when you left the failure room. This will make him start out as long if you hook him to the pumpkin again.",
+    valueType: 'boolean',
   },
   [FLAGS.ASKED_CATTY_DAD_KINGQUEEN]: {
     displayName: "Asked Catty's dad",

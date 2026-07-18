@@ -551,6 +551,11 @@ export const STORY_SECTIONS = {
           title: 'Home',
           flags: ['CALLED_MOM_BUSY'],
         },
+        {
+          id: 'violence-stats',
+          title: 'Violence Stats',
+          flags: ['AT_MAGIC_GAIN_COUNT_CH2', 'LEVEL_UP_COUNT_CH2'],
+        },
       ],
     },
   ],
@@ -1436,6 +1441,11 @@ export const STORY_SECTIONS = {
             'LAKE_CUTSCENE_PROGRESS_CH4',
           ],
         },
+        {
+          id: 'violence-stats',
+          title: 'Violence Stats',
+          flags: ['AT_MAGIC_GAIN_COUNT_CH4', 'LEVEL_UP_COUNT_CH4'],
+        },
       ],
     },
   ],
@@ -1546,6 +1556,22 @@ export const STORY_SECTIONS = {
           ],
         },
         {
+          id: 'church',
+          title: 'Church',
+          flags: [
+            'ALVIN_CONFIDED',
+            'SUSIE_SCARED_BY_MUMMY',
+            'NOELLE_SCARED_BY_ALPHYS',
+            'PUT_HANDS_IN_EYEBALL_BOWL',
+            'TALKED_TO_CATTI_FESTIVAL',
+            'TALKED_TO_CATTI_EYEBALL_BOWL',
+            'NOELLE_EXPLAINED_CATTIS_HATRED',
+            'DRANK_HAUNTED_BLOOD',
+            'READ_HAUNTED_POEM',
+            'SUSIE_TOLD_NOELLE_ABOUT_KRIS_PIANO',
+          ],
+        },
+        {
           id: 'other',
           title: 'Other',
           flags: [
@@ -1569,6 +1595,7 @@ export const STORY_SECTIONS = {
             'TEM_DRAW_CARICATURE',
             'SKIPPED_FESTIVAL',
             'WALKED_SUSIE_HOME',
+            'TIMES_LOOKED_AT_PHONE',
           ],
         },
         {
@@ -1690,6 +1717,7 @@ export const STORY_SECTIONS = {
           id: 'other',
           title: 'Other',
           flags: [
+            'OBTAINED_SPINCAKE_CH5',
             'TALKED_TO_JIGSAW_JOE_BAKERY',
             'TRASHY_TRIO_DOJO_OUTCOME',
             'TRASHY_TRIO_NPC_INTERACTIONS',
@@ -1722,6 +1750,8 @@ export const STORY_SECTIONS = {
             'OBTAINED_GREENTEA_SHEARYDODGE',
             'RIVER_PINKCOIN',
             'ITEMS_GIVEN_TO_FLOWERY',
+            'INFINITE_FLOWERY_DOLLARS_CHEST',
+            'WATCHED_WATERING_CAN_CUTSCENE',
             'KOOBY_DEVELOPED',
           ],
         },
@@ -1740,7 +1770,19 @@ export const STORY_SECTIONS = {
         {
           id: 'pressure-plate-puzzle',
           title: 'Pressure Plate Puzzle',
-          flags: ['OBTAINED_REVIVEMINT_CH5', 'PRESSURE_PLATE_PUZZLE_DOOR'],
+          flags: [
+            'OBTAINED_REVIVEMINT_CH5',
+            'PRESSURE_PLATE_PUZZLE_DOOR',
+            'RALSEIS_ENABLED',
+          ],
+        },
+        {
+          id: 'ideal-diner',
+          title: 'Ideal Diner',
+          flags: [
+            'IDEAL_DINER_TALKED_TO_YELLOW',
+            'IDEAL_DINER_CHECKED_REGISTER',
+          ],
         },
         {
           id: 'way-home-to-shrine',
@@ -1757,6 +1799,7 @@ export const STORY_SECTIONS = {
           title: 'Shrine & Platforming Intro',
           flags: [
             'OBTAINED_PETAL_FEATHER',
+            'SAW_GOLD_AQUA_BP',
             'PLATFORMING_INTRO_JUMP_TUTORIAL',
             'PLATFORMING_INTRO_ACT_TUTORIAL',
             'PLATFORMING_INTRO_TREE_SMASHED',
@@ -1787,6 +1830,15 @@ export const STORY_SECTIONS = {
             'TROPICAL_STARWALKER_PINKCOIN',
           ],
         },
+        {
+          id: 'climb-to-cliffs',
+          title: 'Climb to Cliffs',
+          flags: [
+            'GARDEN_VINE_CUTSCENE',
+            'GARDEN_VINE_CUTSCENE_PETALFEATHER',
+            'FRIEND_INTERACTED',
+          ],
+        },
       ],
     },
     {
@@ -1804,6 +1856,11 @@ export const STORY_SECTIONS = {
           ],
         },
         {
+          id: 'egg-room',
+          title: 'Egg Room',
+          flags: ['ENTERED_DOG_BALLOON_ROOM', 'OBTAINED_EGG_CH5'],
+        },
+		{
           id: 'netskie-climb',
           title: 'Netskie Climb',
           flags: ['OBTAINED_MISTLEWP', 'OBTAINED_NETSKIEHAT_NETSKIECLIMB'],
@@ -1811,7 +1868,12 @@ export const STORY_SECTIONS = {
         {
           id: 'other',
           title: 'Other',
-          flags: ['FRIEND_INTERACTED', 'YELLOWCAVE_FLOWERYDOLLARS'],
+          flags: ['YELLOWCAVE_FLOWERYDOLLARS', 'CLIFF_BONUSCOMBAT_DESTROYED_CHEESE'],
+        },
+        {
+          id: 'aqua-seth-battle',
+          title: 'Aqua and Seth Battle',
+          flags: ['ATTACKED_AQUA_OR_SETH'],
         },
       ],
     },
@@ -1934,8 +1996,25 @@ export const STORY_SECTIONS = {
             'CASTLE_LEFT_PLOT',
             'LEFTCASTLE_SHINOBEETLE_FLOWERYDOLLARS',
             'TRAMPLED_BLUES_FLOWERS',
-            'OBTAINED_TENSIONMAX_ZEN',
             'HUNG_OUT_WITH_RALSEI',
+          ],
+        },
+        {
+          id: 'first-platforming-room',
+          title: "First Platforming Room",
+          flags: [
+            'FCASTLE_BOUNCE1_BELL1',
+            'FCASTLE_BOUNCE1_BELL2',
+            'FCASTLE_BOUNCE1_BELL3',
+            'FCASTLE_BOUNCE1_BELL4',
+          ],
+        },
+		{
+          id: 'the-way-that-punishes-you',
+          title: "The Way That Punishes You",
+          flags: [
+            'OBTAINED_TENSIONMAX_ZEN',
+            'FCASTLE_BOUNCE3_GOLDCOIN',
           ],
         },
         {
@@ -1969,6 +2048,9 @@ export const STORY_SECTIONS = {
             'SHADOW_PLATFORM_Y_FCASTLE_RIGHT_PUZZLE1',
             'SHADOW_PLATFORM_X_FCASTLE_RIGHT_PUZZLE2',
             'SHADOW_PLATFORM_Y_FCASTLE_RIGHT_PUZZLE2',
+            'FCASTLE_RIGHT_PUZZLE_COIN1',
+            'FCASTLE_RIGHT_PUZZLE_GOLDCOIN',
+            'FCASTLE_RIGHT_PUZZLE_COIN2',
           ],
         },
         {
@@ -2006,6 +2088,8 @@ export const STORY_SECTIONS = {
             'SHADOW_PLATFORM_Y_FCASTLE_SIDEPUZZLE1',
             'SHADOW_PLATFORM_X_FCASTLE_SIDEPUZZLE2',
             'SHADOW_PLATFORM_Y_FCASTLE_SIDEPUZZLE2',
+            'FCASTLE_SIDEPUZZLE_GOLDCOIN1',
+            'FCASTLE_SIDEPUZZLE_GOLDCOIN2',
           ],
         },
       ],
@@ -2014,6 +2098,15 @@ export const STORY_SECTIONS = {
       id: 'top-of-flower-castle',
       title: 'Top of Flower Castle',
       clusters: [
+        {
+          id: 'ascent-platforming',
+          title: 'Ascent Platforming',
+          flags: [
+            'FCASTLE_TOP_ASCENT_FAILURES',
+            'FCASTLE_TOP_ASCENT_FAILURE_ROOM',
+            'FCASTLE_TOP_ASCENT_RALSEI_LONG',
+          ],
+        },
         {
           id: 'pink-door',
           title: 'Pink Door',
@@ -2025,30 +2118,45 @@ export const STORY_SECTIONS = {
           ],
         },
         {
+          id: 'pink',
+          title: 'Pink',
+          flags: [
+            'PINK_COINS',
+            'PINK_PROGRESS',
+            'PINK_LOSSES',
+            'OBTAINED_SHADOW_CRYSTAL_CH5',
+            'DEFEATED_PINK',
+          ],
+        },
+        {
           id: 'ultra-dash',
           title: 'Ultra Dash',
           flags: ['SAW_FINAL_STARWALKER', 'OBTAINED_DOGDOLLAR_CH5'],
         },
+        {
+          id: 'flowery-battle',
+          title: 'Flowery Battle',
+          flags: ['FLOWERYFIGHT_ATTEMPTS', 'FLOWERYFIGHT_ENDED'],
+        },
       ],
+    },
+    {
+      id: 'violence-stats',
+      title: 'Violence Stats',
+      flags: ['AT_MAGIC_GAIN_COUNT_CH5', 'LEVEL_UP_COUNT_CH5'],
     },
     {
       id: 'all-flags-ch5',
       title: 'All other flags',
       flags: [
         'RALSEI_HAT_STATE_CH5',
-        'PINK_COINS',
-        'PINK_PROGRESS',
-        'PINK_LOSSES',
         'VOICE_CLIPS_ENABLED',
         'FLOWERY_DOLLARS',
         'PLATMODE_JUMP_COUNT',
         'PLATMODE_SWING_COUNT',
-        'DEFEATED_PINK',
         'TERRACOTA_BATTLE_TALK',
         'NETSKIE_BATTLE_TALK',
         'USED_PARTY_ACTION_CH5',
-        'ENTERED_DOG_BALLOON_ROOM',
-        'OBTAINED_EGG_CH5',
         'INTERACTED_WITH_DESTROYED_FLOWERY',
       ],
     },
