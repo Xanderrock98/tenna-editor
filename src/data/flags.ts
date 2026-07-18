@@ -1093,6 +1093,8 @@ export const FLAGS = {
   STRENGTH_TESTER_DOGARESSA: 1381,
   STRENGTH_TESTER_CHOICE: 1382,
   STRENGTH_TESTER_NOELLE_TIMING: 1383,
+  DASH_LEAFPILE_FLAGS: 1384,
+  GARDEN_AQUADASH_PLAT_COINS1: 1385,
   AMOUNT_OF_GIANT_TEACUPS: 1390,
   VOICE_CLIPS_ENABLED: 1391,
   RALSEIS_ENABLED: 1392,
@@ -1441,6 +1443,7 @@ export const FLAGS = {
   PINK_DOOR_FLAGS: 1818,
   GARDEN_VINE_CUTSCENE: 1819,
   STRENGTH_TESTER_WEIRDROUTE: 1822,
+  GARDEN_AQUADASH_PLAT_COINS2: 1825,
   RIVER_PINKCOIN: 1827,
   OBTAINED_GREENTEA_SHEARYDODGE: 1828,
   OBTAINED_REVIVEMINT_CH5: 1829,
@@ -9217,6 +9220,27 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       "Whether you looked through Catti's window and saw her sister licking her face clean.",
     valueType: 'boolean',
   },
+  [FLAGS.DASH_LEAFPILE_FLAGS]: {
+    displayName: 'Leaf pile flags',
+    description:
+      "Raw bitfield state handling the destruction status of leaf piles in Garden dash sections.",
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
+  [FLAGS.GARDEN_AQUADASH_PLAT_COINS1]: {
+    displayName: 'End of Garden dash coins 1',
+    description:
+      "Raw bitfield state handling the first half of collectables in the platforming dash section of the End of Garden area.",
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
+  [FLAGS.GARDEN_AQUADASH_PLAT_COINS2]: {
+    displayName: 'End of Garden dash coins 2',
+    description:
+      "Raw bitfield state handling the second half of collectables in the platforming dash section of the End of Garden area.",
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
   [FLAGS.CASTLE_LEFT_PLOT]: {
     displayName: 'Plot',
     description: 'Plot of the left wing of flower castle.',
@@ -9922,7 +9946,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.GARDEN_VINE_CUTSCENE_PETALFEATHER]: {
     displayName: 'Had Petal Feather when watching cutscene',
-    description: 'Whether had the Petal Feather while watching the beanstalk cutscene.',
+    description: 'Whether you had the Petal Feather while watching the beanstalk cutscene.',
     valueType: 'map',
     valueRules: {
       map: {
