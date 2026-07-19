@@ -1465,6 +1465,7 @@ export const STORY_SECTIONS = {
             'TORIEL_TOAST_REQUEST_TOILET_FLUSH',
             'PUT_TOAST_IN_MICROWAVE',
             'LOOKED_AT_MICROWAVE',
+            'TRIED_TO_DROP_TOAST',
             'GAVE_TORIEL_TOAST',
             'TALKED_TORIEL_HOW_YOU_SLEPT',
             'TALKED_TORIEL_LAST_NIGHT',
@@ -1593,6 +1594,7 @@ export const STORY_SECTIONS = {
             'AMOUNT_OF_GIANT_TEACUPS',
             'SANS_SIGN_INTERACTION_CH5',
             'TEM_DRAW_CARICATURE',
+            'TALKED_TO_RUDY_FESTIVAL',
             'SKIPPED_FESTIVAL',
             'WALKED_SUSIE_HOME',
             'TIMES_LOOKED_AT_PHONE',
@@ -1621,6 +1623,15 @@ export const STORY_SECTIONS = {
       id: 'castle-town',
       title: 'Castle Town',
       clusters: [
+        {
+          id: 'post-thrash-fit',
+          title: 'Post-Thrash Fit Creation',
+          flags: [
+            'THRASH_FIT_TALKED_TO_QUEEN',
+            'THRASH_FIT_TALKED_TO_LANCER',
+            'THRASH_FIT_TALKED_TO_TENNA',
+          ],
+        },
         {
           id: 'mike-zone',
           title: 'Mike Room',
@@ -1736,6 +1747,7 @@ export const STORY_SECTIONS = {
           title: 'Garden Intro',
           flags: [
             'WATCHED_GARDEN_INTRO',
+            'FLORADINN_ENCOUNTER_OUTCOME',
             'FLORADINN_FLATTER_AMOUNT',
             'FLORADINN_CONVINCE_AMOUNT',
             'FLORADINN_FLIRTS_AMOUNT',
@@ -1749,6 +1761,8 @@ export const STORY_SECTIONS = {
           flags: [
             'OBTAINED_GREENTEA_SHEARYDODGE',
             'RIVER_PINKCOIN',
+            'FLORADINN_FLOWERY_LEFT_ENCOUNTER_OUTCOME',
+            'FLORADINN_FLOWERY_RIGHT_ENCOUNTER_OUTCOME',
             'ITEMS_GIVEN_TO_FLOWERY',
             'INFINITE_FLOWERY_DOLLARS_CHEST',
             'WATCHED_WATERING_CAN_CUTSCENE',
@@ -1780,6 +1794,7 @@ export const STORY_SECTIONS = {
           id: 'floradinn-tea-party',
           title: 'Floradinn Tea Party',
           flags: [
+            'NETSKIE_TREASURE_GARDEN_ENCOUNTER_OUTCOME',
             'OBTAINED_REVIVEMINT_CH5',
             'NEWDASH_DESTOYEDTEA',
             'NEWDASH_LEAFPILE1',
@@ -1799,9 +1814,11 @@ export const STORY_SECTIONS = {
           ],
         },
         {
-          id: 'pressure-plate-puzzle',
-          title: 'Pressure Plate Puzzle',
+          id: 'glow-tile-puzzle',
+          title: 'Glow Tile Puzzle',
           flags: [
+            'GARDEN_GLOW_TILE_PUZZLE1_COMPLETE',
+            'GARDEN_GLOW_TILE_PUZZLE2_SEEN',
             'PRESSURE_PLATE_PUZZLE_DOOR',
             'RALSEIS_ENABLED',
           ],
@@ -1842,7 +1859,12 @@ export const STORY_SECTIONS = {
         {
           id: 'hopchef',
           title: 'Hopchef',
-          flags: ['HOPSCHEF_PROGRESS', 'TOOK_TREE_CAKE'],
+          flags: [
+            'HOPSCHEF_PROGRESS',
+            'HOPSCHEF_REWARDS',
+            'TOOK_TREE_CAKE',
+            'HOPSCHEF_HIGH_SCORE',
+          ],
         },
         {
           id: 'tropical-starwalker',
@@ -1905,6 +1927,29 @@ export const STORY_SECTIONS = {
       title: 'Cliffs to Flower Castle',
       clusters: [
         {
+          id: 'first-climb',
+          title: "First Climb",
+          flags: [
+            'CLIFFS_CUTDOWN_TUTORIAL_BULLETPATTERN',
+            'CLIFFS_CUTDOWN_TUTORIAL_GRASSRIGHT1',
+            'CLIFFS_CUTDOWN_TUTORIAL_GRASSRIGHT2',
+            'CLIFFS_CUTDOWN_TUTORIAL_GRASSLEFT1',
+            'CLIFFS_CUTDOWN_TUTORIAL_GRASSLEFT2',
+            'CLIFFS_CUTDOWN_TUTORIAL_GRASSLEFT3',
+            'CLIFFS_CUTDOWN_TUTORIAL_PINKBELL',
+            'SHI_ENCOUNTER_OUTCOME',
+            'LEAFLING_ENCOUNTER_OUTCOME',
+          ],
+        },
+        {
+          id: 'ferroll',
+          title: "Ferroll",
+          flags: [
+            'FERROLL_SMASHED_PARTY',
+            'FERROLL_SMASHED_MONEY',
+          ],
+        },
+        {
           id: 'pinks-shop',
           title: "Pink's Shop",
           flags: [
@@ -1919,15 +1964,32 @@ export const STORY_SECTIONS = {
           title: 'Egg Room',
           flags: ['ENTERED_DOG_BALLOON_ROOM', 'OBTAINED_EGG_CH5'],
         },
+        {
+          id: 'windstruggler-room',
+          title: 'Windstruggler Room',
+          flags: [
+            'CLIFFS_BONUSCOMBAT_BULLETPATTERN',
+            'CLIFFS_BONUSCOMBAT_PINKBELL',
+            'CLIFFS_BONUSCOMBAT_DESTROYED_CHEESE'
+          ],
+        },
 		{
           id: 'netskie-climb',
           title: 'Netskie Climb',
-          flags: ['OBTAINED_MISTLEWP', 'OBTAINED_NETSKIEHAT_NETSKIECLIMB'],
+          flags: [
+            'OBTAINED_MISTLEWP',
+            'OBTAINED_NETSKIEHAT_NETSKIECLIMB',
+            'NETSKIE_TREASURE_ENCOUNTER_OUTCOME',
+          ],
         },
         {
           id: 'other',
           title: 'Other',
-          flags: ['YELLOWCAVE_FLOWERYDOLLARS', 'CLIFF_BONUSCOMBAT_DESTROYED_CHEESE'],
+          flags: [
+            'YELLOWCAVE_FLOWERYDOLLARS',
+            'KAWKAW_ENCOUNTER_OUTCOME',
+            'SHI_NOTANENEMY_ENCOUNTER_OUTCOME',
+          ],
         },
         {
           id: 'aqua-seth-battle',
@@ -2053,6 +2115,7 @@ export const STORY_SECTIONS = {
           title: 'Left Wing',
           flags: [
             'CASTLE_LEFT_PLOT',
+            'SHINOBEETLE_ENCOUNTER_OUTCOME',
             'LEFTCASTLE_SHINOBEETLE_FLOWERYDOLLARS',
             'TRAMPLED_BLUES_FLOWERS',
             'HUNG_OUT_WITH_RALSEI',
@@ -2072,6 +2135,7 @@ export const STORY_SECTIONS = {
           id: 'the-way-that-punishes-you',
           title: "The Way That Punishes You",
           flags: [
+            'SHI_SANDTRAP_ENCOUNTER_OUTCOME',
             'OBTAINED_TENSIONMAX_ZEN',
             'FCASTLE_BOUNCE3_GOLDCOIN',
           ],
@@ -2081,6 +2145,7 @@ export const STORY_SECTIONS = {
           title: 'Right Wing',
           flags: [
             'CASTLE_RIGHT_PLOT',
+            'DEFEATED_FIRST_ORANGE_BP',
             'VOUCHER_CHOSEN',
             'HELD_MUSHROOM_PINKCOIN',
           ],
@@ -2089,6 +2154,7 @@ export const STORY_SECTIONS = {
           id: 'terakota-puzzle',
           title: 'Terakota Statue Puzzle',
           flags: [
+            'TERAKOTA_ENCOUNTER_OUTCOME',
             'TERAKOTA_PUZZLE_STATUE1',
             'TERAKOTA_PUZZLE_STATUE2',
             'TERAKOTA_PUZZLE_STATUE3',
@@ -2158,12 +2224,25 @@ export const STORY_SECTIONS = {
       title: 'Top of Flower Castle',
       clusters: [
         {
+          id: 'start-of-top',
+          title: 'Start of Castle Top',
+          flags: [
+            'SHINOBEETLE_SETH_ENCOUNTER_OUTCOME',
+          ],
+        },
+        {
+          id: 'ultra-dash',
+          title: 'Ultra Dash',
+          flags: ['SAW_FINAL_STARWALKER', 'FLORADINN_ULTRADASH_ENCOUNTER_OUTCOME'],
+        },
+        {
           id: 'ascent-platforming',
           title: 'Ascent Platforming',
           flags: [
             'FCASTLE_TOP_ASCENT_FAILURES',
             'FCASTLE_TOP_ASCENT_FAILURE_ROOM',
             'FCASTLE_TOP_ASCENT_RALSEI_LONG',
+            'OBTAINED_DOGDOLLAR_CH5',
           ],
         },
         {
@@ -2188,11 +2267,6 @@ export const STORY_SECTIONS = {
           ],
         },
         {
-          id: 'ultra-dash',
-          title: 'Ultra Dash',
-          flags: ['SAW_FINAL_STARWALKER', 'OBTAINED_DOGDOLLAR_CH5'],
-        },
-        {
           id: 'flowery-battle',
           title: 'Flowery Battle',
           flags: ['FLOWERYFIGHT_ATTEMPTS', 'FLOWERYFIGHT_ENDED'],
@@ -2208,6 +2282,7 @@ export const STORY_SECTIONS = {
       id: 'all-flags-ch5',
       title: 'All other flags',
       flags: [
+        'PETAL_FEATHER_CONTROLS',
         'RALSEI_HAT_STATE_CH5',
         'VOICE_CLIPS_ENABLED',
         'FLOWERY_DOLLARS',
