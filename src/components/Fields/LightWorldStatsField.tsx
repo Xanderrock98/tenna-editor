@@ -3,7 +3,7 @@ import { useSave } from '@store';
 import { useTranslation } from '../../i18n';
 
 type LightWorldStatsType =
-  'attack' | 'defence' | 'experience' | 'health' | 'maxHealth' | 'level';
+  'attack' | 'defence' | 'experience' | 'health' | 'maxHealth' | 'level' | 'money';
 
 const STATS_TITLES: Record<LightWorldStatsType, string> = {
   attack: 'Attack',
@@ -12,6 +12,7 @@ const STATS_TITLES: Record<LightWorldStatsType, string> = {
   health: 'Current HP',
   maxHealth: 'Max HP',
   level: 'Level',
+  money: 'Money ($)',
 } as const;
 
 const STATS_TITLE_KEYS: Record<LightWorldStatsType, string> = {
@@ -21,6 +22,7 @@ const STATS_TITLE_KEYS: Record<LightWorldStatsType, string> = {
   health: 'ui.stats.currentHp',
   maxHealth: 'ui.stats.maxHp',
   level: 'ui.stats.level',
+  money: 'ui.stats.lgold',
 };
 
 interface LightWorldStatsFieldProps {
