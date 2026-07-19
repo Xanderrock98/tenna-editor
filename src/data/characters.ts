@@ -1,5 +1,5 @@
 import type { BaseProperties, WithOverrides } from '@types';
-import { type ChapterIndex } from './chapters';
+import { CHAPTERS, type ChapterIndex } from './chapters';
 import { WEAPONS, type WeaponIndex } from './weapons';
 import { ROOMS, type RoomIndex } from './rooms';
 import { ARMORS, type ArmorIndex } from './armors';
@@ -289,6 +289,13 @@ interface CharacterPropertiesOverrides {
   room: RoomIndex;
 }
 
+interface CharacterBaseStats {
+  maxHealth: number;
+  attack: number;
+  defence: number;
+  magic: number;
+}
+
 interface CharacterProperties
   extends
     BaseProperties,
@@ -299,6 +306,7 @@ interface CharacterProperties
   allowedWeapons: Set<WeaponIndex>;
   allowedArmors: Set<ArmorIndex>;
   allowedSpells: Set<SpellIndex>;
+  baseStats: Record<ChapterIndex, CharacterBaseStats>;
 }
 
 export const CHARACTERS_META: Record<CharacterIndex, CharacterProperties> = {
@@ -310,6 +318,13 @@ export const CHARACTERS_META: Record<CharacterIndex, CharacterProperties> = {
     allowedWeapons: new Set<WeaponIndex>([]),
     allowedArmors: new Set<ArmorIndex>([]),
     allowedSpells: new Set<SpellIndex>([SPELLS.EMPTY]),
+    baseStats: {
+      [CHAPTERS.CH1]: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
+      [CHAPTERS.CH2]: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
+      [CHAPTERS.CH3]: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
+      [CHAPTERS.CH4]: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
+      [CHAPTERS.CH5]: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
+    },
   },
   [CHARACTERS.KRIS]: {
     displayName: 'Kris',
@@ -517,6 +532,13 @@ export const CHARACTERS_META: Record<CharacterIndex, CharacterProperties> = {
 
       return overrides;
     },
+    baseStats: {
+      [CHAPTERS.CH1]: { maxHealth: 90, attack: 10, defence: 2, magic: 0 },
+      [CHAPTERS.CH2]: { maxHealth: 120, attack: 12, defence: 2, magic: 0 },
+      [CHAPTERS.CH3]: { maxHealth: 160, attack: 14, defence: 2, magic: 0 },
+      [CHAPTERS.CH4]: { maxHealth: 200, attack: 17, defence: 2, magic: 0 },
+      [CHAPTERS.CH5]: { maxHealth: 240, attack: 17, defence: 2, magic: 0 },
+    },
   },
   [CHARACTERS.SUSIE]: {
     displayName: 'Susie',
@@ -646,6 +668,13 @@ export const CHARACTERS_META: Record<CharacterIndex, CharacterProperties> = {
       }
 
       return overrides;
+    },
+    baseStats: {
+      [CHAPTERS.CH1]: { maxHealth: 110, attack: 14, defence: 2, magic: 1 },
+      [CHAPTERS.CH2]: { maxHealth: 140, attack: 16, defence: 2, magic: 1 },
+      [CHAPTERS.CH3]: { maxHealth: 190, attack: 18, defence: 2, magic: 2 },
+      [CHAPTERS.CH4]: { maxHealth: 230, attack: 22, defence: 2, magic: 3 },
+      [CHAPTERS.CH5]: { maxHealth: 290, attack: 22, defence: 2, magic: 3 },
     },
   },
   [CHARACTERS.RALSEI]: {
@@ -812,6 +841,13 @@ export const CHARACTERS_META: Record<CharacterIndex, CharacterProperties> = {
 
       return overrides;
     },
+    baseStats: {
+      [CHAPTERS.CH1]: { maxHealth: 70, attack: 8, defence: 2, magic: 7 },
+      [CHAPTERS.CH2]: { maxHealth: 100, attack: 10, defence: 2, magic: 9 },
+      [CHAPTERS.CH3]: { maxHealth: 140, attack: 12, defence: 2, magic: 11 },
+      [CHAPTERS.CH4]: { maxHealth: 180, attack: 15, defence: 2, magic: 14 },
+      [CHAPTERS.CH5]: { maxHealth: 210, attack: 15, defence: 2, magic: 14 },
+    },
   },
   [CHARACTERS.NOELLE]: {
     displayName: 'Noelle',
@@ -916,6 +952,13 @@ export const CHARACTERS_META: Record<CharacterIndex, CharacterProperties> = {
       }
 
       return overrides;
+    },
+    baseStats: {
+      [CHAPTERS.CH1]: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
+      [CHAPTERS.CH2]: { maxHealth: 90, attack: 3, defence: 1, magic: 11 },
+      [CHAPTERS.CH3]: { maxHealth: 90, attack: 3, defence: 1, magic: 11 },
+      [CHAPTERS.CH4]: { maxHealth: 90, attack: 3, defence: 1, magic: 11 },
+      [CHAPTERS.CH5]: { maxHealth: 90, attack: 3, defence: 1, magic: 11 },
     },
   },
 };
