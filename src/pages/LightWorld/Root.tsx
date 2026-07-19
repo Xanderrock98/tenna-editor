@@ -73,7 +73,6 @@ export function LightWorldRoot() {
                       <LightWorldStatsField type="experience" id="experience" />
                       <LightWorldStatsField type="attack" id="attack" />
                       <LightWorldStatsField type="defence" id="defence" />
-                      <LightWorldStatsField type="money" id="money" />
                     </Section>
 
                     <div className="flex flex-col gap-4">
