@@ -5,6 +5,55 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+## [0.12.0] - 2026-07-18
+
+**Sorry to keep you waiting!** This is one of the biggest Tenna Editor updates so far, with major improvements across Chapter 5 editing, save management, and localization.
+
+### Chapter 5
+
+Chapter 5 support has grown significantly. The Story tab now covers most useful progression points, interactions, minigames, collectibles, and side content, with hundreds of flags organized into sections that are easier to browse. Named plot points, character titles, and Chapter 5-specific equipment behavior make the rest of the editor more complete and accurate as well.
+
+### Save import and export
+
+This release introduces an entirely new, experimental import and export workflow. Tenna Editor can now work with Nintendo Switch `deltarune.sav` containers, import several PC saves from individual files, folders, or ZIP archives, let you review them before they are added, and export multiple saves together. `dr.ini` metadata can be preserved or generated automatically for both PC and Switch exports.
+
+This should make moving and converting larger collections of saves much less tedious. Because these features handle many different file and archive layouts, please report anything that does not import or export as expected.
+
+### Languages
+
+This release also introduces a new localization system. Interface text and editor data including items, rooms, flags, descriptions, and character information can now be translated, while any missing or newly added text safely falls back to English. Korean and Italian are the first substantial community translations, and both already cover most of the editor. Together, they give us a strong foundation that can be expanded and improved as the project grows.
+
+### Thank you
+
+A huge thank you to [Xanderrock98](https://github.com/Xanderrock98) for the massive expansion of Chapter 5 flags and Story sections, [newhajinyoon](https://github.com/newhajinyoon) and [lori2012real](https://github.com/lori2012real) for the extensive Korean and Italian translation work, and [Araraura](https://github.com/Araraura) for improving the Flags page. Their work helped turn this into one of the largest and most complete Tenna Editor releases so far.
+
+A special thank you to <span class="text-red">maxdefolsch</span> and [mc-intosh](https://github.com/McMistrzYT) for researching, identifying, and documenting flags. Their work - especially maxdefolsch's extensive research was essential to improving the accuracy and coverage of the editor's flag data.
+
+Thank you as well to everyone who tested the editor and reported bugs, incorrect data, compatibility problems, and other issues.
+
+### Added
+
+- Added Nintendo Switch `deltarune.sav` import and export, including automatic `dr.ini` generation.
+- Added multi-save workflows: import individual PC saves, folders, ZIP archives, or multi-entry Switch containers; review saves before importing; and export selected saves as a PC ZIP or Switch container. ([Issue #103](https://github.com/tennaproject/tenna-editor/issues/103))
+- Added interface localization, a language selector, and substantial Korean and Italian community translations. Missing translations fall back to English. Thanks [newhajinyoon](https://github.com/newhajinyoon) and [lori2012real](https://github.com/lori2012real)! ([PR #88](https://github.com/tennaproject/tenna-editor/pull/88), [PR #91](https://github.com/tennaproject/tenna-editor/pull/91), [PR #107](https://github.com/tennaproject/tenna-editor/pull/107))
+- Added an advanced option to enter plot point values manually instead of choosing from the known list.
+- Added Light World money editing. Thanks [RainKotobic](https://github.com/RainKotobic) for reporting! ([Issue #100](https://github.com/tennaproject/tenna-editor/issues/100))
+- Added named Chapter 5 plot points and Chapter 5-specific character titles and equipment behavior, including Susie's ribbon unlock.
+- Expanded the Story editor with hundreds of additional categorized flags, primarily for Chapter 5. Thanks [Xanderrock98](https://github.com/Xanderrock98) for the substantial contribution! ([PR #97](https://github.com/tennaproject/tenna-editor/pull/97))
+
+### Changed
+
+- Chapter 5 is no longer marked as experimental.
+- The Flags page now lists flag IDs in ascending order. Thanks [Araraura](https://github.com/Araraura)! ([PR #93](https://github.com/tennaproject/tenna-editor/pull/93))
+
+### Fixed
+
+- Fixed downloads sometimes failing in browsers that start them asynchronously. Thanks [attn10010110-hue](https://github.com/attn10010110-hue), [robinsonvallan-cloud](https://github.com/robinsonvallan-cloud), and [SebEatsCookies](https://github.com/SebEatsCookies) for reporting! ([Issue #85](https://github.com/tennaproject/tenna-editor/issues/85), [Issue #72](https://github.com/tennaproject/tenna-editor/issues/72), [Issue #63](https://github.com/tennaproject/tenna-editor/issues/63))
+- Fixed dropdown positioning and scrolling on mobile devices. Thanks [cursedsome](https://github.com/cursedsome) for reporting! ([Issue #99](https://github.com/tennaproject/tenna-editor/issues/99))
+- Corrected Chapter 5 equipment availability for party members. Thanks [LandofHeros2234](https://github.com/LandofHeros2234) for reporting! ([Issue #84](https://github.com/tennaproject/tenna-editor/issues/84))
+
 ## [0.11.0-beta] - 2026-06-29
 
 Critical bug fixes and some minor flag additions. More to come soon!

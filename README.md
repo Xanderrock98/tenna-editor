@@ -87,6 +87,7 @@ I put a lot of effort into making the layout look distinct and directly inspired
 - [@Araraura](https://github.com/Araraura)
 - [@jjezewski](https://github.com/jjezewski) - creator & maintainer
 - [@krisgrant](https://github.com/krisgrant)
+- [@lori2012real](https://github.com/lori2012real)
 - [@Matojeje](https://github.com/Matojeje)
 - [@MiaouKING](https://github.com/MiaouKING)
 - [@newhajinyoon](https://github.com/newhajinyoon)

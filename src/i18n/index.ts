@@ -28,7 +28,6 @@ import {
   WEAPONS,
   WEAPONS_META,
 } from '@data';
-import ja from './locales/ja.json';
 import ko from './locales/ko.json';
 import it from './locales/it.json';
 
@@ -36,10 +35,6 @@ export const SUPPORTED_LOCALES = {
   en: {
     displayName: 'English',
     flag: 'us',
-  },
-  ja: {
-    displayName: 'Japanese',
-    flag: 'jp',
   },
   ko: {
     displayName: 'Korean',
@@ -57,7 +52,6 @@ type TranslationDictionary = Record<string, string>;
 type TranslationValues = Record<string, string | number>;
 
 const TRANSLATIONS: Record<Exclude<Locale, 'en'>, TranslationDictionary> = {
-  ja,
   ko,
   it,
 };

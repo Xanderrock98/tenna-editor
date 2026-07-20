@@ -8,7 +8,7 @@ import {
   Select,
   GlowBar,
 } from '@components';
-import { CHARACTERS, type CharacterIndex } from '@data';
+import { CHAPTERS, CHARACTERS, type CharacterIndex } from '@data';
 import { useCharacterOverrideInputs } from '@hooks';
 import { useSave, useUi } from '@store';
 import {
@@ -82,6 +82,13 @@ function CharacterCard({
       allowedArmors: new Set([]),
       allowedWeapons: new Set([]),
       allowedSpells: new Set([]),
+      baseStats: {
+        [CHAPTERS.CH1]: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
+        [CHAPTERS.CH2]: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
+        [CHAPTERS.CH3]: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
+        [CHAPTERS.CH4]: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
+        [CHAPTERS.CH5]: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
+      },
     };
   } else {
     const overrides = characterMeta?.getOverrides?.({

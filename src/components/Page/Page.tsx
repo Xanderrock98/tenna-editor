@@ -10,34 +10,47 @@ export function Page({ children }: PageProps) {
   const reducedMotion = useReducedMotion();
 
   useEffect(() => {
-    let timerId: NodeJS.Timeout | null = null;
+    if (!location.hash) return;
 
-    if (location.hash) {
-      const id = location.hash.replace('#', '');
+    let highlightTimerId: ReturnType<typeof setTimeout> | null = null;
+    let observer: MutationObserver | null = null;
+
+    const id = location.hash.slice(1);
+    const scrollToHash = () => {
       const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+      if (!element) return false;
 
-        if (!reducedMotion) {
-          element.animate(
-            [
-              { boxShadow: '0 0 0 4px var(--color-blue)' },
-              { boxShadow: '0 0 0 0 var(--color-blue)' },
-            ],
-            { duration: 1500, easing: 'ease-out' },
-          );
-        } else {
-          element.style.boxShadow = '0 0 0 8px var(--color-blue)';
-          timerId = setTimeout(() => {
-            element.style.boxShadow = '';
-          }, 2000);
-        }
+      element.scrollIntoView({ behavior: 'smooth' });
+
+      if (!reducedMotion) {
+        element.animate(
+          [
+            { boxShadow: '0 0 0 4px var(--color-blue)' },
+            { boxShadow: '0 0 0 0 var(--color-blue)' },
+          ],
+          { duration: 1500, easing: 'ease-out' },
+        );
+      } else {
+        element.style.boxShadow = '0 0 0 8px var(--color-blue)';
+        highlightTimerId = setTimeout(() => {
+          element.style.boxShadow = '';
+        }, 2000);
       }
+
+      return true;
+    };
+
+    if (!scrollToHash()) {
+      observer = new MutationObserver(() => {
+        if (scrollToHash()) observer?.disconnect();
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
     }
 
     return () => {
-      if (timerId) {
-        clearTimeout(timerId);
+      observer?.disconnect();
+      if (highlightTimerId) {
+        clearTimeout(highlightTimerId);
       }
     };
   }, [location, reducedMotion]);

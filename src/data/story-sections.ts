@@ -730,6 +730,17 @@ export const STORY_SECTIONS = {
           flags: ['OBTAINED_RAMB_BOARD_REWARD_2'],
         },
         {
+          id: 'parental-lock-conversation',
+          title: 'Parental Lock Conversation',
+          flags: [
+            'PARENTAL_LOCK_CONCERN_TARGET',
+            'SUSIE_REASSURANCE',
+            'RALSEI_REASSURANCE',
+            'ICECREAM_FOR_SUSIE',
+            'FESTIVAL_RAL_WHOELSE',
+          ],
+        },
+        {
           id: 'gacha-room',
           title: 'Gacha Room',
           flags: ['OBTAINED_1225_ROOM'],

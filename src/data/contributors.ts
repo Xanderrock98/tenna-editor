@@ -30,6 +30,11 @@ export const CONTRIBUTORS: Contributor[] = [
     url: 'https://github.com/krisgrant',
   },
   {
+    displayName: 'lori2012real',
+    login: 'lori2012real',
+    url: 'https://github.com/lori2012real',
+  },
+  {
     displayName: 'Matojeje',
     login: 'Matojeje',
     url: 'https://github.com/Matojeje',
