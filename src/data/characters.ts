@@ -1,5 +1,5 @@
 import type { BaseProperties, WithOverrides } from '@types';
-import { CHAPTERS, type ChapterIndex } from './chapters';
+import type { ChapterIndex } from './chapters';
 import { WEAPONS, type WeaponIndex } from './weapons';
 import { ROOMS, type RoomIndex } from './rooms';
 import { ARMORS, type ArmorIndex } from './armors';
@@ -319,11 +319,11 @@ export const CHARACTERS_META: Record<CharacterIndex, CharacterProperties> = {
     allowedArmors: new Set<ArmorIndex>([]),
     allowedSpells: new Set<SpellIndex>([SPELLS.EMPTY]),
     baseStats: {
-      [CHAPTERS.CH1]: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
-      [CHAPTERS.CH2]: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
-      [CHAPTERS.CH3]: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
-      [CHAPTERS.CH4]: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
-      [CHAPTERS.CH5]: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
+      1: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
+      2: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
+      3: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
+      4: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
+      5: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
     },
   },
   [CHARACTERS.KRIS]: {
@@ -533,11 +533,11 @@ export const CHARACTERS_META: Record<CharacterIndex, CharacterProperties> = {
       return overrides;
     },
     baseStats: {
-      [CHAPTERS.CH1]: { maxHealth: 90, attack: 10, defence: 2, magic: 0 },
-      [CHAPTERS.CH2]: { maxHealth: 120, attack: 12, defence: 2, magic: 0 },
-      [CHAPTERS.CH3]: { maxHealth: 160, attack: 14, defence: 2, magic: 0 },
-      [CHAPTERS.CH4]: { maxHealth: 200, attack: 17, defence: 2, magic: 0 },
-      [CHAPTERS.CH5]: { maxHealth: 240, attack: 17, defence: 2, magic: 0 },
+      1: { maxHealth: 90, attack: 10, defence: 2, magic: 0 },
+      2: { maxHealth: 120, attack: 12, defence: 2, magic: 0 },
+      3: { maxHealth: 160, attack: 14, defence: 2, magic: 0 },
+      4: { maxHealth: 200, attack: 17, defence: 2, magic: 0 },
+      5: { maxHealth: 240, attack: 17, defence: 2, magic: 0 },
     },
   },
   [CHARACTERS.SUSIE]: {
@@ -670,11 +670,11 @@ export const CHARACTERS_META: Record<CharacterIndex, CharacterProperties> = {
       return overrides;
     },
     baseStats: {
-      [CHAPTERS.CH1]: { maxHealth: 110, attack: 14, defence: 2, magic: 1 },
-      [CHAPTERS.CH2]: { maxHealth: 140, attack: 16, defence: 2, magic: 1 },
-      [CHAPTERS.CH3]: { maxHealth: 190, attack: 18, defence: 2, magic: 2 },
-      [CHAPTERS.CH4]: { maxHealth: 230, attack: 22, defence: 2, magic: 3 },
-      [CHAPTERS.CH5]: { maxHealth: 290, attack: 22, defence: 2, magic: 3 },
+      1: { maxHealth: 110, attack: 14, defence: 2, magic: 1 },
+      2: { maxHealth: 140, attack: 16, defence: 2, magic: 1 },
+      3: { maxHealth: 190, attack: 18, defence: 2, magic: 2 },
+      4: { maxHealth: 230, attack: 22, defence: 2, magic: 3 },
+      5: { maxHealth: 290, attack: 22, defence: 2, magic: 3 },
     },
   },
   [CHARACTERS.RALSEI]: {
@@ -842,11 +842,11 @@ export const CHARACTERS_META: Record<CharacterIndex, CharacterProperties> = {
       return overrides;
     },
     baseStats: {
-      [CHAPTERS.CH1]: { maxHealth: 70, attack: 8, defence: 2, magic: 7 },
-      [CHAPTERS.CH2]: { maxHealth: 100, attack: 10, defence: 2, magic: 9 },
-      [CHAPTERS.CH3]: { maxHealth: 140, attack: 12, defence: 2, magic: 11 },
-      [CHAPTERS.CH4]: { maxHealth: 180, attack: 15, defence: 2, magic: 14 },
-      [CHAPTERS.CH5]: { maxHealth: 210, attack: 15, defence: 2, magic: 14 },
+      1: { maxHealth: 70, attack: 8, defence: 2, magic: 7 },
+      2: { maxHealth: 100, attack: 10, defence: 2, magic: 9 },
+      3: { maxHealth: 140, attack: 12, defence: 2, magic: 11 },
+      4: { maxHealth: 180, attack: 15, defence: 2, magic: 14 },
+      5: { maxHealth: 210, attack: 15, defence: 2, magic: 14 },
     },
   },
   [CHARACTERS.NOELLE]: {
@@ -954,11 +954,11 @@ export const CHARACTERS_META: Record<CharacterIndex, CharacterProperties> = {
       return overrides;
     },
     baseStats: {
-      [CHAPTERS.CH1]: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
-      [CHAPTERS.CH2]: { maxHealth: 90, attack: 3, defence: 1, magic: 11 },
-      [CHAPTERS.CH3]: { maxHealth: 90, attack: 3, defence: 1, magic: 11 },
-      [CHAPTERS.CH4]: { maxHealth: 90, attack: 3, defence: 1, magic: 11 },
-      [CHAPTERS.CH5]: { maxHealth: 90, attack: 3, defence: 1, magic: 11 },
+      1: { maxHealth: 0, attack: 0, defence: 0, magic: 0 },
+      2: { maxHealth: 90, attack: 3, defence: 1, magic: 11 },
+      3: { maxHealth: 90, attack: 3, defence: 1, magic: 11 },
+      4: { maxHealth: 90, attack: 3, defence: 1, magic: 11 },
+      5: { maxHealth: 90, attack: 3, defence: 1, magic: 11 },
     },
   },
 };
