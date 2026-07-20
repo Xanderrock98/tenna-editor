@@ -229,7 +229,14 @@ export const FLAG_BITFIELDS = {
   FCASTLE_RIGHT_PUZZLE_COIN2: 'FCASTLE_RIGHT_PUZZLE_COIN2',
   FCASTLE_SIDEPUZZLE_GOLDCOIN1: 'FCASTLE_SIDEPUZZLE_GOLDCOIN1',
   FCASTLE_SIDEPUZZLE_GOLDCOIN2: 'FCASTLE_SIDEPUZZLE_GOLDCOIN2',
+  DANGEROUS_PLATFORMING_JUMPS: 'DANGEROUS_PLATFORMING_JUMPS',
+  DANGEROUS_PLATFORMING_CHUTE: 'DANGEROUS_PLATFORMING_CHUTE',
+  DANGEROUS_PLATFORMING_PAYOFF: 'DANGEROUS_PLATFORMING_PAYOFF',
+  DANGEROUS_PLATFORMING_AQUASETH: 'DANGEROUS_PLATFORMING_AQUASETH',
   SAW_FINAL_STARWALKER: 'SAW_FINAL_STARWALKER',
+  PLATCONTROLS_HIGHLIGHTED: 'PLATCONTROLS_HIGHLIGHTED',
+  SAW_FERROLL: 'SAW_FERROLL',
+  ENCOUNTERED_SHI_SANDPIT: 'ENCOUNTERED_SHI_SANDPIT',
 } as const;
 
 export type FlagBitfieldName = keyof typeof FLAG_BITFIELDS;
@@ -1889,7 +1896,40 @@ export const FLAG_BITFIELDS_META: Record<
     index: 15,
     displayName: 'Collected second gold coin',
     description:
-      'Whether you collected the second gold coin in the second shadow platform puzzle room..',
+      'Whether you collected the second gold coin in the second shadow platform puzzle room.',
+    valueType: 'boolean',
+  },
+  [FLAG_BITFIELDS.DANGEROUS_PLATFORMING_JUMPS]: {
+    parent: FLAGS.DANGEROUS_PLATFORMING_CHUTE_FLAGS,
+    index: 0,
+    width: 4,
+    displayName: 'Wall jump attempts',
+    description:
+      'The amount of times you tried to jump over the wall. Used for dialogue that appears when trying to jump over it a certain amount of times. Ends up getting reset to 1 if you try jumping in the jail chute after Yellow does, possible by mistake an an unused bitfield labelled as "CHUTE" exists.',
+    valueType: 'number',
+  },
+  [FLAG_BITFIELDS.DANGEROUS_PLATFORMING_CHUTE]: {
+    parent: FLAGS.DANGEROUS_PLATFORMING_CHUTE_FLAGS,
+    index: 4,
+    displayName: 'Chute jumps',
+    description:
+      'Unused bitfield likely intended to be used when you tried jumping in the jail chute, however the bitfield for trying to jump over the wall is used instead.',
+    valueType: 'boolean',
+  },
+  [FLAG_BITFIELDS.DANGEROUS_PLATFORMING_PAYOFF]: {
+    parent: FLAGS.DANGEROUS_PLATFORMING_CHUTE_FLAGS,
+    index: 5,
+    displayName: 'Managed to get over the wall',
+    description:
+      "Whether you got over the wall using Blue's cloud platform after trying to jump over it beforehand.",
+    valueType: 'boolean',
+  },
+  [FLAG_BITFIELDS.DANGEROUS_PLATFORMING_AQUASETH]: {
+    parent: FLAGS.DANGEROUS_PLATFORMING_CHUTE_FLAGS,
+    index: 6,
+    displayName: 'Saw Aqua and Seth scene',
+    description:
+      'Whether you saw the scene of Aqua running after Yellow to also get blown up.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.SAW_FINAL_STARWALKER]: {
@@ -1898,6 +1938,40 @@ export const FLAG_BITFIELDS_META: Record<
     displayName: 'Final Starwalker scene',
     description:
       "Saw Original Starwalker's final Starwalker scene at the top of the Castle; enables Kris's Walkerstar title.",
+    valueType: 'boolean',
+  },
+  [FLAG_BITFIELDS.PLATCONTROLS_HIGHLIGHTED]: {
+    parent: FLAGS.MISC_BITFIELD_FLAGS,
+    index: 0,
+    width: 2,
+    displayName: 'Platformer controls highlighted',
+    description:
+      "Handles whether the controls for platformer mode in the settings are highlighted.",
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Highlighted',
+        1: 'Selected; in the process of being unhighlighted',
+        2: 'Unhighlighted',
+      },
+    },
+  },
+  [FLAG_BITFIELDS.SAW_FERROLL]: {
+    parent: FLAGS.MISC_BITFIELD_FLAGS,
+    index: 1,
+    width: 2,
+    displayName: 'Met Ferroll',
+    description:
+      "Whether you have talked to Ferroll. This applies to both when he is in the cave and when he is in Pink's room.",
+    valueType: 'boolean',
+  },
+  [FLAG_BITFIELDS.ENCOUNTERED_SHI_SANDPIT]: {
+    parent: FLAGS.MISC_BITFIELD_FLAGS,
+    index: 2,
+    width: 2,
+    displayName: 'Encountered Shi',
+    description:
+      "Whether you encountered the Shi in the sand trap.",
     valueType: 'boolean',
   },
 };

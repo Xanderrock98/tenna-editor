@@ -1604,15 +1604,17 @@ export const STORY_SECTIONS = {
           id: 'weird-route',
           title: 'Weird Route',
           flags: [
+            'TRIED_TO_ENTER_BEACH_NO_ICECREAM_WEIRDROUTE',
             'INTERACTED_WITH_ASGORES_FLOWERS_WEIRDROUTE',
             'SUSIE_FLOWER_CROWN_WEIRDROUTE',
-            'SUSIE_MADE_LEMONADE_WEIRDROUTE',
-            'SUSIE_PICKED_UP_COIN_WEIRDROUTE',
-            'TRIED_TO_ENTER_CHURCH_WEIRDROUTE',
             'RODE_FERRIS_WHEEL_WEIRDROUTE',
+            'SUSIE_TEMMIE_ART_RESPONSE_WEIRDROUTE',
+            'SUSIE_TEMMIE_COLLEGE_RESPONSE_WEIRDROUTE',
+            'SUSIE_MADE_LEMONADE_WEIRDROUTE',
             'STRENGTH_TESTER_WEIRDROUTE',
             'TRIED_TO_ENTER_SCHOOL_WEIRDROUTE',
-            'TRIED_TO_ENTER_BEACH_NO_ICECREAM_WEIRDROUTE',
+            'SUSIE_PICKED_UP_COIN_WEIRDROUTE',
+            'TRIED_TO_ENTER_CHURCH_WEIRDROUTE',
             'WEIRD_ROUTE_STOP_COUNT',
             'WEIRD_ROUTE_FAIL_CH5',
           ],
@@ -1753,6 +1755,8 @@ export const STORY_SECTIONS = {
             'FLORADINN_FLIRTS_AMOUNT',
             'WATCHED_FLOWERY_ASGORE_FISHING',
             'WATCHED_COWBOY_SHOW',
+            'OBTAINED_NETSKIEHAT_GARDEN',
+            'GARDEN_MUSHROOM_PUZZLE',
           ],
         },
         {
@@ -1945,6 +1949,7 @@ export const STORY_SECTIONS = {
           id: 'ferroll',
           title: "Ferroll",
           flags: [
+            'SAW_FERROLL',
             'FERROLL_SMASHED_PARTY',
             'FERROLL_SMASHED_MONEY',
           ],
@@ -2002,6 +2007,11 @@ export const STORY_SECTIONS = {
       id: 'flower-castle',
       title: 'Flower Castle',
       clusters: [
+        {
+          id: 'jail',
+          title: 'Jail',
+          flags: ['SAW_PILLAR_TO_LIGHTWORLD_FCASTLE', 'CASTLE_JAIL_SAVEPOINT', 'RALSEI_BUTLER_STATE'],
+        },
         {
           id: 'flower-cafe',
           title: 'Flower Cafe',
@@ -2135,9 +2145,13 @@ export const STORY_SECTIONS = {
           id: 'the-way-that-punishes-you',
           title: "The Way That Punishes You",
           flags: [
+            'ENCOUNTERED_SHI_SANDPIT',
             'SHI_SANDTRAP_ENCOUNTER_OUTCOME',
             'OBTAINED_TENSIONMAX_ZEN',
             'FCASTLE_BOUNCE3_GOLDCOIN',
+            'DANGEROUS_PLATFORMING_AQUASETH',
+            'DANGEROUS_PLATFORMING_JUMPS',
+            'DANGEROUS_PLATFORMING_PAYOFF',
           ],
         },
         {
@@ -2282,6 +2296,7 @@ export const STORY_SECTIONS = {
       id: 'all-flags-ch5',
       title: 'All other flags',
       flags: [
+        'PLATCONTROLS_HIGHLIGHTED',
         'PETAL_FEATHER_CONTROLS',
         'RALSEI_HAT_STATE_CH5',
         'VOICE_CLIPS_ENABLED',

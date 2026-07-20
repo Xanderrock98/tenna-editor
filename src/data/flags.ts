@@ -1416,6 +1416,7 @@ export const FLAGS = {
   THOUGHTS_ON_SANS: 1759,
   INTERACTED_WITH_GIANT_TEACUP: 1760,
   SANS_SIGN_INTERACTION_CH5: 1761,
+  MISC_BITFIELD_FLAGS: 1762,
   RIGHT_PUZZLE_SHADOW_PLATFORM_X: 1763,
   RIGHT_PUZZLE_SHADOW_PLATFORM_Y: 1764,
   SECOND_DINER_SAVEPOINT: 1765,
@@ -1473,8 +1474,13 @@ export const FLAGS = {
   ASGORE_DOCUMENT_PROGRESS: 1817,
   PINK_DOOR_FLAGS: 1818,
   GARDEN_VINE_CUTSCENE: 1819,
+  SUSIE_TEMMIE_ART_RESPONSE_WEIRDROUTE: 1820,
+  SUSIE_TEMMIE_COLLEGE_RESPONSE_WEIRDROUTE: 1821,
   STRENGTH_TESTER_WEIRDROUTE: 1822,
+  SAW_PILLAR_TO_LIGHTWORLD_FCASTLE: 1823,
+  RALSEI_BUTLER_STATE: 1824,
   GARDEN_AQUADASH_PLAT_COINS2: 1825,
+  OBTAINED_NETSKIEHAT_GARDEN: 1826,
   RIVER_PINKCOIN: 1827,
   OBTAINED_GREENTEA_SHEARYDODGE: 1828,
   OBTAINED_REVIVEMINT_CH5: 1829,
@@ -1486,8 +1492,11 @@ export const FLAGS = {
   TERAKOTA_BONUS_PINKCOIN: 1835,
   HELD_MUSHROOM_PINKCOIN: 1836,
   OBTAINED_TENSIONMAX_ZEN: 1837,
+  DANGEROUS_PLATFORMING_CHUTE_FLAGS: 1838,
+  CASTLE_JAIL_SAVEPOINT: 1839,
   FOXHUNT_PINKCOIN: 1840,
   FOXHUNT_FLOWERYDOLLARS: 1841,
+  GARDEN_MUSHROOM_PUZZLE: 1842,
   PINK_PROGRESS: 1846,
   VOUCHER_CHOSEN: 1850,
   FINAL_STARWALKER_FLAG: 1851,
@@ -9676,6 +9685,13 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
       },
     },
   },
+  [FLAGS.MISC_BITFIELD_FLAGS]: {
+    displayName: 'Miscellaneous bitfield flags',
+    description:
+      "Raw bitfield state handling 3 miscellaneous flags.",
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
   [FLAGS.TEM_DRAW_CARICATURE]: {
     displayName: 'Tem draw caricature',
     description: 'If Tem drew a caricature. Unaccessed as of Chapter 5.',
@@ -9945,6 +9961,11 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueType: 'number',
     valueRules: { min: 0 },
   },
+  [FLAGS.OBTAINED_NETSKIEHAT_GARDEN]: {
+    displayName: 'Got NetskieHat',
+    description: 'Whether you got the NetskieHat in the mushroom room of Garden.',
+    valueType: 'boolean',
+  },
   [FLAGS.RIVER_PINKCOIN]: {
     displayName: 'Got river Pink Coin',
     description: 'Whether you got the Pink Coin in the river room.',
@@ -9997,6 +10018,24 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     description: 'Whether you got the TensionMax in the zen room.',
     valueType: 'boolean',
   },
+  [FLAGS.DANGEROUS_PLATFORMING_CHUTE_FLAGS]: {
+    displayName: 'Jail chute flags',
+    description: 'Raw bitfield state handling special dialogue in the All Punishments Worse Than Burying room.',
+    valueType: 'number',
+    valueRules: { min: 0 },
+  },
+  [FLAGS.CASTLE_JAIL_SAVEPOINT]: {
+    displayName: 'Save point state',
+    description: 'State of interacting with save points after escaping jail.',
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: 'Interacted with first save point',
+        2: 'Interacted with second save point after having interacted with the first',
+      },
+    },
+  },
   [FLAGS.OBTAINED_DOGDOLLAR_CH5]: {
     displayName: 'Got DogDollar',
     description: 'Whether you got the DogDollar in the Laddery room.',
@@ -10010,6 +10049,11 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   [FLAGS.FOXHUNT_FLOWERYDOLLARS]: {
     displayName: 'Got 10 Flowery Dollars',
     description: 'Whether you got the 10 Flowery Dollars in the fox hunt room.',
+    valueType: 'boolean',
+  },
+  [FLAGS.GARDEN_MUSHROOM_PUZZLE]: {
+    displayName: 'Solved mushroom box puzzle',
+    description: 'Whether you solved the mushroom box puzzle in Garden.',
     valueType: 'boolean',
   },
   [FLAGS.LEFTCASTLE_SHINOBEETLE_FLOWERYDOLLARS]: {
@@ -10045,6 +10089,54 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
         0: 'Default state',
         1: "Didn't have the Petal Feather",
         2: 'Had the Petal Feather or attempted to climb the beanstalk without the Petal Feather',
+      },
+    },
+  },
+  [FLAGS.SUSIE_TEMMIE_ART_RESPONSE_WEIRDROUTE]: {
+    displayName: "Response to Susie talking about Temmie's art",
+    description: "Your response to when Susie says that Temmie's art is crazy good during the Weird Route.",
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: "I like your art too",
+        2: "Yeah she's a genius",
+      },
+    },
+  },
+  [FLAGS.SUSIE_TEMMIE_COLLEGE_RESPONSE_WEIRDROUTE]: {
+    displayName: "Response to Susie talking about you going to College",
+    description: "Your response to when Susie asks if you're going to college when you say Temmie is a genius during the Weird Route.",
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: "Not if you don't",
+        2: "Beats me",
+      },
+    },
+  },
+  [FLAGS.SAW_PILLAR_TO_LIGHTWORLD_FCASTLE]: {
+    displayName: "Pillar back to Light World state",
+    description: "Handles the pillar back to the Light World in Flower Castle.",
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: "Saw the pillar",
+        2: "Tried to go back to the Light World",
+      },
+    },
+  },
+  [FLAGS.RALSEI_BUTLER_STATE]: {
+    displayName: "Butler Ralsei",
+    description: "Handles the dialogue after Ralsei gets rid of his butler outfit.",
+    valueType: 'map',
+    valueRules: {
+      map: {
+        0: 'Default state',
+        1: "Susie asked Ralsei if he liked being a butler",
+        2: "Butler outfit goes through the drains",
       },
     },
   },
