@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion';
-import { useEffect, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
 
 interface PageProps {
@@ -8,6 +8,23 @@ interface PageProps {
 export function Page({ children }: PageProps) {
   const location = useLocation();
   const reducedMotion = useReducedMotion();
+  const [sectionLinksVisible, setSectionLinksVisible] = useState(false);
+
+  useEffect(() => {
+    const syncSectionLinks = (event: KeyboardEvent) => {
+      setSectionLinksVisible(event.shiftKey);
+    };
+    const hideSectionLinks = () => setSectionLinksVisible(false);
+
+    window.addEventListener('keydown', syncSectionLinks, true);
+    window.addEventListener('keyup', syncSectionLinks, true);
+    window.addEventListener('blur', hideSectionLinks);
+    return () => {
+      window.removeEventListener('keydown', syncSectionLinks, true);
+      window.removeEventListener('keyup', syncSectionLinks, true);
+      window.removeEventListener('blur', hideSectionLinks);
+    };
+  }, []);
 
   useEffect(() => {
     if (!location.hash) return;
@@ -25,16 +42,17 @@ export function Page({ children }: PageProps) {
       if (!reducedMotion) {
         element.animate(
           [
-            { boxShadow: '0 0 0 4px var(--color-blue)' },
+            { boxShadow: '0 0 0 4px var(--color-blue)', offset: 0 },
+            { boxShadow: '0 0 0 4px var(--color-blue)', offset: 0.5 },
             { boxShadow: '0 0 0 0 var(--color-blue)' },
           ],
-          { duration: 1500, easing: 'ease-out' },
+          { duration: 3000, easing: 'ease-out' },
         );
       } else {
         element.style.boxShadow = '0 0 0 8px var(--color-blue)';
         highlightTimerId = setTimeout(() => {
           element.style.boxShadow = '';
-        }, 2000);
+        }, 3000);
       }
 
       return true;
@@ -61,6 +79,8 @@ export function Page({ children }: PageProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: reducedMotion ? 0 : 0.2, ease: 'easeIn' }}
+      data-section-links-container=""
+      data-section-links-visible={sectionLinksVisible || undefined}
       className="bg-surface-2 h-full flex flex-col min-w-0 min-h-0"
     >
       {children}

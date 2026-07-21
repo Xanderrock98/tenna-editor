@@ -1,4 +1,4 @@
-import { Heading } from '@components';
+import { Heading, Section } from '@components';
 import { FLAG_BITFIELDS, FLAGS } from '@data';
 import type { StoryFieldName } from '@data';
 import { StoryFlagField } from './StoryFlagField';
@@ -8,15 +8,19 @@ function flagNameToId(name: string): string {
 }
 
 interface StoryFlagClusterProps {
+  id: string;
   title: string;
   flags: StoryFieldName[];
 }
 
-export function StoryFlagCluster({ title, flags }: StoryFlagClusterProps) {
+export function StoryFlagCluster({ id, title, flags }: StoryFlagClusterProps) {
   if (flags.length === 0) return null;
 
   return (
-    <section className="border border-border bg-surface-2/50 p-4 flex flex-col gap-3">
+    <Section
+      id={id}
+      className="border border-border bg-surface-2/50 p-4 flex flex-col gap-3"
+    >
       <Heading level={5} className="text-text-1 border-b border-border/50 pb-2">
         {title}
       </Heading>
@@ -43,6 +47,6 @@ export function StoryFlagCluster({ title, flags }: StoryFlagClusterProps) {
           );
         })}
       </div>
-    </section>
+    </Section>
   );
 }
