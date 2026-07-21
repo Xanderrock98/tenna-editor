@@ -7,6 +7,7 @@ import {
   type StoryFieldName,
 } from '@data/story-sections';
 import { flagHelpers } from '@utils';
+import { useLocation } from 'react-router-dom';
 import { StoryFlagCluster } from './StoryFlagCluster';
 import { StoryFlagGrid } from './StoryFlagGrid';
 import { StorySection } from './StorySection';
@@ -44,6 +45,7 @@ function filterSection(
 }
 
 export function StoryChapterSections({ chapter }: StoryChapterSectionsProps) {
+  const location = useLocation();
   const sections = STORY_SECTIONS[chapter];
   const query = useFieldSearch()?.trim().toLowerCase();
 
@@ -64,8 +66,8 @@ export function StoryChapterSections({ chapter }: StoryChapterSectionsProps) {
 
   return (
     <>
-      {filteredSections.map((section, index) => (
-        <ProgressiveMount key={section.id} delayMs={index * 20}>
+      {filteredSections.map((section, index) => {
+        const content = (
           <StorySection id={section.id} title={section.title}>
             {'flags' in section ? (
               <StoryFlagGrid flags={[...section.flags]} />
@@ -74,6 +76,7 @@ export function StoryChapterSections({ chapter }: StoryChapterSectionsProps) {
                 {section.clusters.map((cluster) => (
                   <StoryFlagCluster
                     key={cluster.id}
+                    id={cluster.id}
                     title={cluster.title}
                     flags={[...cluster.flags]}
                   />
@@ -81,8 +84,16 @@ export function StoryChapterSections({ chapter }: StoryChapterSectionsProps) {
               </div>
             )}
           </StorySection>
-        </ProgressiveMount>
-      ))}
+        );
+
+        return location.hash ? (
+          <div key={section.id}>{content}</div>
+        ) : (
+          <ProgressiveMount key={section.id} delayMs={index * 20}>
+            {content}
+          </ProgressiveMount>
+        );
+      })}
     </>
   );
 }

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added copyable links for editor sections. Hold Shift to reveal link targets and copy controls. Opening a link scrolls to and highlights the requested section.
+
 ## [0.12.0] - 2026-07-18
 
 **Sorry to keep you waiting!** This is one of the biggest Tenna Editor updates so far, with major improvements across Chapter 5 editing, save management, and localization.
