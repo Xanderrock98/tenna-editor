@@ -5,9 +5,11 @@ import { characterHelpers } from '@utils/data-helpers';
 import { getCharacterColor } from '@utils/get-character-color';
 import {
   Card,
+  Button,
   Checkbox,
   GlowBar,
   Heading,
+  HelpTip,
   InlineGroup,
   Section,
   CharacterHeader,
@@ -21,12 +23,16 @@ import {
   translateMeta,
   useTranslation,
 } from '../i18n';
+import { useSave } from '@store';
+import { resetCharacterCoreStats } from '@utils';
 
 interface CharacterPageProps {
   character: CharacterIndex;
   icon?: ReactNode;
   allowAllElements: boolean;
   setAllowAllElements: (value: boolean) => void;
+  preserveCustomStats: boolean;
+  setPreserveCustomStats: (value: boolean) => void;
 }
 
 export function CharacterPage({
@@ -34,6 +40,8 @@ export function CharacterPage({
   icon,
   allowAllElements,
   setAllowAllElements,
+  preserveCustomStats,
+  setPreserveCustomStats,
 }: CharacterPageProps) {
   const { t } = useTranslation();
   const color = getCharacterColor(character);
@@ -42,6 +50,14 @@ export function CharacterPage({
     characterHelpers.getById(character),
     t,
   ).displayName;
+  const chapter = useSave((s) => s.save?.meta.chapter) ?? 1;
+  const updateSave = useSave((s) => s.updateSave);
+
+  function resetStats() {
+    updateSave((save) => {
+      resetCharacterCoreStats(save.characters[character], character, chapter);
+    });
+  }
 
   return (
     <div className="page lg:h-full">
@@ -58,6 +74,35 @@ export function CharacterPage({
               { name },
             )}
           />
+        </InlineGroup>
+        <InlineGroup>
+          <Checkbox
+            onChange={setPreserveCustomStats}
+            checked={preserveCustomStats}
+            label={t(
+              'ui.party.preserveCustomStats',
+              'Keep custom stats when changing equipment',
+            )}
+          />
+          <HelpTip
+            title={t(
+              'ui.party.preserveCustomStats',
+              'Keep custom stats when changing equipment',
+            )}
+          >
+            <p>
+              {t(
+                'ui.party.preserveCustomStatsDescription',
+                'When enabled, changing a weapon or armor keeps the existing AT, DF and MAG instead of recalculating them for the new equipment.',
+              )}
+            </p>
+            <p>
+              {t(
+                'ui.party.resetStatsDescription',
+                'Reset stats restores the normal AT, DF and MAG for this chapter and the currently equipped items.',
+              )}
+            </p>
+          </HelpTip>
         </InlineGroup>
       </div>
 
@@ -88,43 +133,50 @@ export function CharacterPage({
                     type="maxHealth"
                   />
                 </Section>
-                <Section
-                  id="stats"
-                  className="flex justify-between items-end w-full gap-3"
-                >
-                  <StatsField
-                    id={'stats-attack'}
-                    character={character}
-                    type="attack"
-                  />
-                  <StatsField
-                    id={'stats-defence'}
-                    character={character}
-                    type="defence"
-                  />
-                  <StatsField
-                    id={'stats-magic'}
-                    character={character}
-                    type="magic"
-                  />
+                <Section id="stats" className="flex w-full flex-col gap-3">
+                  <div className="flex w-full items-end justify-between gap-3">
+                    <StatsField
+                      id={'stats-attack'}
+                      character={character}
+                      type="attack"
+                    />
+                    <StatsField
+                      id={'stats-defence'}
+                      character={character}
+                      type="defence"
+                    />
+                    <StatsField
+                      id={'stats-magic'}
+                      character={character}
+                      type="magic"
+                    />
+                  </div>
+                  <div className="flex justify-end">
+                    <Button onClick={resetStats} size="sm">
+                      {t('ui.party.resetStats', 'Reset stats')}
+                    </Button>
+                  </div>
                 </Section>
                 <Section id="loadout" className="flex flex-col gap-3">
                   <LoadoutField
                     id="weapon"
                     character={character}
                     allowAllElements={allowAllElements}
+                    recalculateStats={!preserveCustomStats}
                     type="weapon"
                   />
                   <LoadoutField
                     id="primary-armor"
                     character={character}
                     allowAllElements={allowAllElements}
+                    recalculateStats={!preserveCustomStats}
                     type="primaryArmor"
                   />
                   <LoadoutField
                     id="secondary-armor"
                     character={character}
                     allowAllElements={allowAllElements}
+                    recalculateStats={!preserveCustomStats}
                     type="secondaryArmor"
                   />
                 </Section>
