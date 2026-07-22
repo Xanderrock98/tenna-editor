@@ -124,7 +124,9 @@ export function FlagField(props: FlagFieldProps) {
       <FieldWrapper
         id={id}
         className={className}
+        title={displayName}
         description={description}
+        flag={sourceFlag}
         inline
       >
         <Checkbox
@@ -149,6 +151,7 @@ export function FlagField(props: FlagFieldProps) {
         className={className}
         title={displayName}
         description={description}
+        flag={sourceFlag}
         value={(currentValue as number) ?? 0}
         placeholder={t('ui.flag.numberPlaceholder', 'Enter number...')}
         min={valueRules?.min ?? 0}
@@ -182,6 +185,7 @@ export function FlagField(props: FlagFieldProps) {
           className={className}
           description={description}
           title={displayName}
+          flag={sourceFlag}
           label
         >
           <Select
@@ -209,6 +213,7 @@ export function FlagField(props: FlagFieldProps) {
         className={mergeClass('gap-3', className)}
         description={description}
         title={displayName}
+        flag={sourceFlag}
         label
       >
         <div className="flex flex-wrap">
