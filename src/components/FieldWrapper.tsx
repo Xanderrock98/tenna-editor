@@ -10,6 +10,7 @@ interface FieldWrapperProps {
   id?: string;
   title?: string;
   description?: string;
+  flag?: number;
   className?: string | undefined;
   inline?: boolean;
   label?: boolean;
@@ -28,11 +29,20 @@ export function FieldWrapper({
   id,
   title,
   description,
+  flag,
   className,
   children,
   inline = false,
   label = false,
 }: FieldWrapperProps) {
+  const flagTag =
+    flag !== undefined ? (
+      <span className="font-mono text-sm font-normal text-text-3">
+        <span className="select-none">#</span>
+        <span className="select-all">{flag}</span>
+      </span>
+    ) : undefined;
+
   return (
     <Section id={id} className={mergeClass('flex flex-col gap-2', className)}>
       <InlineGroup>
@@ -43,7 +53,9 @@ export function FieldWrapper({
           </TextLabel>
         )}
         {description && (
-          <HelpTip title={title}>{renderMaybeMarkdown(description)}</HelpTip>
+          <HelpTip title={title} titleExtra={flagTag}>
+            {renderMaybeMarkdown(description)}
+          </HelpTip>
         )}
       </InlineGroup>
 

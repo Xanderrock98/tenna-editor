@@ -6,6 +6,7 @@ interface NumberFieldProps {
   className?: string;
   title: string;
   description?: string;
+  flag?: number;
   value: number;
   placeholder?: string;
   min?: number;
@@ -19,6 +20,7 @@ export function NumberField({
   className,
   title,
   description,
+  flag,
   value,
   placeholder,
   min,
@@ -32,6 +34,7 @@ export function NumberField({
       className={className}
       title={title}
       description={description}
+      flag={flag}
       label
     >
       <NumberInput

@@ -5,10 +5,11 @@ import { useTranslation } from '../i18n';
 
 interface HelpTipProps {
   title?: string;
+  titleExtra?: ReactNode;
   children?: ReactNode;
 }
 
-export function HelpTip({ title, children }: HelpTipProps) {
+export function HelpTip({ title, titleExtra, children }: HelpTipProps) {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isSuppressed, setIsSuppressed] = useState(false);
@@ -27,6 +28,16 @@ export function HelpTip({ title, children }: HelpTipProps) {
     if (tipTimerRef.current) window.clearTimeout(tipTimerRef.current);
     tipTimerRef.current = window.setTimeout(() => setIsSuppressed(false), 500);
   }
+
+  const baseTitle = title ?? t('ui.common.help', 'Help');
+  const modalTitle = titleExtra ? (
+    <span className="inline-flex flex-wrap items-baseline gap-x-2">
+      <span>{baseTitle}</span>
+      {titleExtra}
+    </span>
+  ) : (
+    baseTitle
+  );
 
   return (
     <div
@@ -60,7 +71,7 @@ export function HelpTip({ title, children }: HelpTipProps) {
         isOpen={isOpen}
         setOpen={setIsOpen}
         onClose={onClose}
-        title={title ?? t('ui.common.help', 'Help')}
+        title={modalTitle}
         variant="compact"
       >
         <div className="ui-prose-muted">{children}</div>
