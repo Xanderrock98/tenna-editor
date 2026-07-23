@@ -10180,9 +10180,9 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueType: 'boolean',
     valueRules: {
       booleanMap: {
-        trueValues: ['-1'],
+        trueValues: [-1],
         falseValues: [0],
-        writeTrue: '-1',
+        writeTrue: -1,
         writeFalse: 0,
       },
     },
