@@ -105,7 +105,8 @@ export const FLAG_BITFIELDS = {
   HOPSCHEF_REWARDS: 'HOPSCHEF_REWARDS',
   FERROLL_SMASHED_PARTY: 'FERROLL_SMASHED_PARTY',
   FERROLL_SMASHED_MONEY: 'FERROLL_SMASHED_MONEY',
-  CLIFFS_CUTDOWN_TUTORIAL_BULLETPATTERN: 'CLIFFS_CUTDOWN_TUTORIAL_BULLETPATTERN',
+  CLIFFS_CUTDOWN_TUTORIAL_BULLETPATTERN:
+    'CLIFFS_CUTDOWN_TUTORIAL_BULLETPATTERN',
   CLIFFS_CUTDOWN_TUTORIAL_GRASSRIGHT1: 'CLIFFS_CUTDOWN_TUTORIAL_GRASSRIGHT1',
   CLIFFS_CUTDOWN_TUTORIAL_GRASSRIGHT2: 'CLIFFS_CUTDOWN_TUTORIAL_GRASSRIGHT2',
   CLIFFS_CUTDOWN_TUTORIAL_GRASSLEFT1: 'CLIFFS_CUTDOWN_TUTORIAL_GRASSLEFT1',
@@ -439,7 +440,7 @@ export const FLAG_BITFIELDS_META: Record<
     index: 15,
     displayName: 'Crashed tea party',
     description:
-      "Whether you crashed the Floradinn tea party in the second dash room.",
+      'Whether you crashed the Floradinn tea party in the second dash room.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.NEWDASH_LEAFPILE16]: {
@@ -455,8 +456,7 @@ export const FLAG_BITFIELDS_META: Record<
     index: 0,
     width: 2,
     displayName: 'Talked to Yellow',
-    description:
-      'Whether you talked to Yellow in the Ideal Diner.',
+    description: 'Whether you talked to Yellow in the Ideal Diner.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.IDEAL_DINER_CHECKED_REGISTER]: {
@@ -829,8 +829,7 @@ export const FLAG_BITFIELDS_META: Record<
     parent: FLAGS.GARDEN_AQUADASH_PLAT_COINS2,
     index: 0,
     displayName: 'Got Pink Coin',
-    description:
-      'Whether you destroyed the Pink Coin bell in End of Garden.',
+    description: 'Whether you destroyed the Pink Coin bell in End of Garden.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.SCISSORS_PUZZLE_SHAPED_BUSH_CUT]: {
@@ -914,56 +913,64 @@ export const FLAG_BITFIELDS_META: Record<
     parent: FLAGS.CLIFFS_CUTDOWN_TUTORIAL_FLAGS,
     index: 11,
     displayName: 'Cut second right grass',
-    description: 'Whether you cut the second piece of grass on the right side of the room.',
+    description:
+      'Whether you cut the second piece of grass on the right side of the room.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.CLIFFS_CUTDOWN_TUTORIAL_GRASSRIGHT1]: {
     parent: FLAGS.CLIFFS_CUTDOWN_TUTORIAL_FLAGS,
     index: 12,
     displayName: 'Cut first right grass',
-    description: 'Whether you cut the first piece of grass on the right side of the room.',
+    description:
+      'Whether you cut the first piece of grass on the right side of the room.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.CLIFFS_CUTDOWN_TUTORIAL_GRASSLEFT1]: {
     parent: FLAGS.CLIFFS_CUTDOWN_TUTORIAL_FLAGS,
     index: 13,
     displayName: 'Cut first left grass',
-    description: 'Whether you cut the first piece of grass on the left side of the room.',
+    description:
+      'Whether you cut the first piece of grass on the left side of the room.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.CLIFFS_CUTDOWN_TUTORIAL_GRASSLEFT2]: {
     parent: FLAGS.CLIFFS_CUTDOWN_TUTORIAL_FLAGS,
     index: 14,
     displayName: 'Cut second left grass',
-    description: 'Whether you cut the second piece of grass on the left side of the room.',
+    description:
+      'Whether you cut the second piece of grass on the left side of the room.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.CLIFFS_CUTDOWN_TUTORIAL_GRASSLEFT3]: {
     parent: FLAGS.CLIFFS_CUTDOWN_TUTORIAL_FLAGS,
     index: 15,
     displayName: 'Cut third left grass',
-    description: 'Whether you cut the third piece of grass on the left side of the room.',
+    description:
+      'Whether you cut the third piece of grass on the left side of the room.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.CLIFFS_CUTDOWN_TUTORIAL_PINKBELL]: {
     parent: FLAGS.CLIFFS_CUTDOWN_TUTORIAL_FLAGS,
     index: 16,
     displayName: 'Got Pink Coin',
-    description: 'Whether you destroyed the Pink Coin bell in the Cliffs First Climb platforming room.',
+    description:
+      'Whether you destroyed the Pink Coin bell in the Cliffs First Climb platforming room.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.CLIFFS_BONUSCOMBAT_PINKBELL]: {
     parent: FLAGS.CLIFFS_CUTDOWN_TUTORIAL_FLAGS,
     index: 17,
     displayName: 'Got Pink Coin',
-    description: 'Whether you destroyed the Pink Coin bell in the Cliffs Windstruggler room.',
+    description:
+      'Whether you destroyed the Pink Coin bell in the Cliffs Windstruggler room.',
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.CLIFFS_BONUSCOMBAT_BULLETPATTERN]: {
     parent: FLAGS.CLIFFS_CUTDOWN_TUTORIAL_FLAGS,
     index: 18,
     displayName: "Defeated Seth's bullet pattern",
-    description: "Whether you defeated Seth's bullet pattern in the Cliffs Windstruggler room.",
+    description:
+      "Whether you defeated Seth's bullet pattern in the Cliffs Windstruggler room.",
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.ASGORE_DOCUMENT_TOTALREAD]: {
@@ -1041,8 +1048,7 @@ export const FLAG_BITFIELDS_META: Record<
     index: 10,
     width: 1,
     displayName: "Defeated Orange's first bullet pattern",
-    description:
-      "Whether you defeated Orange's first bullet pattern.",
+    description: "Whether you defeated Orange's first bullet pattern.",
     valueType: 'boolean',
   },
   [FLAG_BITFIELDS.FOXHUNT_FIRST_TERAKOTA]: {
@@ -1946,7 +1952,7 @@ export const FLAG_BITFIELDS_META: Record<
     width: 2,
     displayName: 'Platformer controls highlighted',
     description:
-      "Handles whether the controls for platformer mode in the settings are highlighted.",
+      'Handles whether the controls for platformer mode in the settings are highlighted.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -1970,8 +1976,7 @@ export const FLAG_BITFIELDS_META: Record<
     index: 2,
     width: 2,
     displayName: 'Encountered Shi',
-    description:
-      "Whether you encountered the Shi in the sand trap.",
+    description: 'Whether you encountered the Shi in the sand trap.',
     valueType: 'boolean',
   },
 };

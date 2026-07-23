@@ -1674,8 +1674,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.PETAL_FEATHER_CONTROLS]: {
     displayName: 'Petal Feather controls',
-    description:
-      "The controls you set for platforming with the Petal Feather.",
+    description: 'The controls you set for platforming with the Petal Feather.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -8501,72 +8500,82 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.RALSEIS_ENABLED]: {
     displayName: 'Enabled/Disabled Ralseis and your thoughts on Flowery',
-    description: 'If you had disabled Ralseis in the settings. Later set to your thoughts on Flowery when Ralsei asks about him.',
+    description:
+      'If you had disabled Ralseis in the settings. Later set to your thoughts on Flowery when Ralsei asks about him.',
     valueType: 'boolean',
     valueRules: {
       map: {
         0: 'Enabled Ralseis',
         1: 'Disabled Ralseis',
         5: "Let's be his friend",
-        6: "Wait and see",
-        7: "He sucks",
+        6: 'Wait and see',
+        7: 'He sucks',
       },
     },
   },
   [FLAGS.ALVIN_CONFIDED]: {
     displayName: 'Alvin confided about the church',
-    description: "Whether you talked to Father Alvin and he told you about the church being in shambles and reading Susie's note.",
+    description:
+      "Whether you talked to Father Alvin and he told you about the church being in shambles and reading Susie's note.",
     valueType: 'boolean',
   },
   [FLAGS.PUT_HANDS_IN_EYEBALL_BOWL]: {
     displayName: 'Put hands in eyeball bowl',
-    description: "Whether you, Susie, and Noelle put your hands in the eyeball bowl.",
+    description:
+      'Whether you, Susie, and Noelle put your hands in the eyeball bowl.',
     valueType: 'boolean',
   },
   [FLAGS.SUSIE_SCARED_BY_MUMMY]: {
     displayName: 'Susie got scared by mummy',
-    description: "Whether you interacted with the mummy coffin, causing Susie to get scared by it.",
+    description:
+      'Whether you interacted with the mummy coffin, causing Susie to get scared by it.',
     valueType: 'boolean',
   },
   [FLAGS.NOELLE_SCARED_BY_ALPHYS]: {
     displayName: 'Noelle got scared by Alphys',
-    description: "Whether you interacted with the sparkle in the corner of the room, causing Noelle to get jumpscared by Alphys.",
+    description:
+      'Whether you interacted with the sparkle in the corner of the room, causing Noelle to get jumpscared by Alphys.',
     valueType: 'boolean',
   },
   [FLAGS.TALKED_TO_CATTI_FESTIVAL]: {
     displayName: 'Catti talked to Kris',
-    description: "Whether Catti talked to Kris about letting Noelle go out with Susie.",
+    description:
+      'Whether Catti talked to Kris about letting Noelle go out with Susie.',
     valueType: 'boolean',
   },
   [FLAGS.DRANK_HAUNTED_BLOOD]: {
     displayName: 'Drank cool haunted blood',
-    description: "Whether you drank the cool haunted blood with Susie.",
+    description: 'Whether you drank the cool haunted blood with Susie.',
     valueType: 'boolean',
   },
   [FLAGS.READ_HAUNTED_POEM]: {
     displayName: 'Read haunted poem',
-    description: "Whether you read the haunted poem.",
+    description: 'Whether you read the haunted poem.',
     valueType: 'boolean',
   },
   [FLAGS.TALKED_TO_CATTI_EYEBALL_BOWL]: {
     displayName: 'Catti scolded Susie and Noelle for breaking the sacred rule',
-    description: "Whether you talked to Catti after Susie and Noelle held hands in the eyeball bowl.",
+    description:
+      'Whether you talked to Catti after Susie and Noelle held hands in the eyeball bowl.',
     valueType: 'boolean',
   },
   [FLAGS.NOELLE_EXPLAINED_CATTIS_HATRED]: {
     displayName: "Noelle explained Catti's hatred of Susie",
-    description: "Whether you interacted with Catti's stand after she left, causing Noelle to explain why Catti dislikes Susie.",
+    description:
+      "Whether you interacted with Catti's stand after she left, causing Noelle to explain why Catti dislikes Susie.",
     valueType: 'boolean',
   },
   [FLAGS.SUSIE_TOLD_NOELLE_ABOUT_KRIS_PIANO]: {
-    displayName: "Susie told Noelle about Kris playing the piano",
-    description: "Whether you interacted with the doors to the choir room, causing Susie to tell Noelle about Kris playing the piano if you had told her you would play it again in Chapter 4.",
+    displayName: 'Susie told Noelle about Kris playing the piano',
+    description:
+      'Whether you interacted with the doors to the choir room, causing Susie to tell Noelle about Kris playing the piano if you had told her you would play it again in Chapter 4.',
     valueType: 'boolean',
   },
   [FLAGS.SHAKING_NOELLE_PORTRAIT]: {
     displayName: 'Shaking Noelle portrait',
     volatile: true,
-    description: "Volatile. Causes Noelle's talking portrait to shake. Set during the cutscene where Noelle gets scared by Alphys, before being set back afterwards. Also set to be disabled when leaving the church.",
+    description:
+      "Volatile. Causes Noelle's talking portrait to shake. Set during the cutscene where Noelle gets scared by Alphys, before being set back afterwards. Also set to be disabled when leaving the church.",
     valueType: 'boolean',
   },
   [FLAGS.STRONGEST_AQUA_ATTACK]: {
@@ -9042,8 +9051,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.INFINITE_FLOWERY_DOLLARS_CHEST]: {
     displayName: '"Infinite money" chest state',
-    description:
-      'Tracks the state of the "infinite money" chest.',
+    description: 'Tracks the state of the "infinite money" chest.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -9061,8 +9069,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.IDEAL_DINER_FLAGS]: {
     displayName: 'Ideal Diner flags',
-    description:
-      "Raw bitfield state the Ideal Diner.",
+    description: 'Raw bitfield state the Ideal Diner.',
     valueType: 'number',
     valueRules: { min: 0 },
   },
@@ -9283,21 +9290,21 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   [FLAGS.DASH_LEAFPILE_FLAGS]: {
     displayName: 'Leaf pile flags',
     description:
-      "Raw bitfield state handling the destruction status of leaf piles in Garden dash sections.",
+      'Raw bitfield state handling the destruction status of leaf piles in Garden dash sections.',
     valueType: 'number',
     valueRules: { min: 0 },
   },
   [FLAGS.GARDEN_AQUADASH_PLAT_COINS1]: {
     displayName: 'End of Garden dash coins 1',
     description:
-      "Raw bitfield state handling the first half of collectables in the platforming dash section of the End of Garden area.",
+      'Raw bitfield state handling the first half of collectables in the platforming dash section of the End of Garden area.',
     valueType: 'number',
     valueRules: { min: 0 },
   },
   [FLAGS.GARDEN_AQUADASH_PLAT_COINS2]: {
     displayName: 'End of Garden dash coins 2',
     description:
-      "Raw bitfield state handling the second half of collectables in the platforming dash section of the End of Garden area.",
+      'Raw bitfield state handling the second half of collectables in the platforming dash section of the End of Garden area.',
     valueType: 'number',
     valueRules: { min: 0 },
   },
@@ -9510,8 +9517,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.GARDEN_GLOW_TILE_PUZZLE1_COMPLETE]: {
     displayName: 'Completed first glow tile puzzle',
-    description:
-      'Whether you completed the first glow tile puzzle.',
+    description: 'Whether you completed the first glow tile puzzle.',
     valueType: 'boolean',
   },
   [FLAGS.GARDEN_GLOW_TILE_PUZZLE2_SEEN]: {
@@ -9688,8 +9694,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.MISC_BITFIELD_FLAGS]: {
     displayName: 'Miscellaneous bitfield flags',
-    description:
-      "Raw bitfield state handling 3 miscellaneous flags.",
+    description: 'Raw bitfield state handling 3 miscellaneous flags.',
     valueType: 'number',
     valueRules: { min: 0 },
   },
@@ -9964,7 +9969,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.OBTAINED_NETSKIEHAT_GARDEN]: {
     displayName: 'Got NetskieHat',
-    description: 'Whether you got the NetskieHat in the mushroom room of Garden.',
+    description:
+      'Whether you got the NetskieHat in the mushroom room of Garden.',
     valueType: 'boolean',
   },
   [FLAGS.RIVER_PINKCOIN]: {
@@ -10021,7 +10027,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.DANGEROUS_PLATFORMING_CHUTE_FLAGS]: {
     displayName: 'Jail chute flags',
-    description: 'Raw bitfield state handling special dialogue in the All Punishments Worse Than Burying room.',
+    description:
+      'Raw bitfield state handling special dialogue in the All Punishments Worse Than Burying room.',
     valueType: 'number',
     valueRules: { min: 0 },
   },
@@ -10078,12 +10085,13 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   [FLAGS.GARDEN_VINE_CUTSCENE]: {
     displayName: 'Watched beanstalk cutscene',
     description:
-      "Whether you watched the cutscene between Flowery and Asgore in the climb to Cliffs.",
+      'Whether you watched the cutscene between Flowery and Asgore in the climb to Cliffs.',
     valueType: 'boolean',
   },
   [FLAGS.GARDEN_VINE_CUTSCENE_PETALFEATHER]: {
     displayName: 'Had Petal Feather when watching cutscene',
-    description: 'Whether you had the Petal Feather while watching the beanstalk cutscene.',
+    description:
+      'Whether you had the Petal Feather while watching the beanstalk cutscene.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -10095,56 +10103,59 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.SUSIE_TEMMIE_ART_RESPONSE_WEIRDROUTE]: {
     displayName: "Response to Susie talking about Temmie's art",
-    description: "Your response to when Susie says that Temmie's art is crazy good during the Weird Route.",
+    description:
+      "Your response to when Susie says that Temmie's art is crazy good during the Weird Route.",
     valueType: 'map',
     valueRules: {
       map: {
         0: 'Default state',
-        1: "I like your art too",
+        1: 'I like your art too',
         2: "Yeah she's a genius",
       },
     },
   },
   [FLAGS.SUSIE_TEMMIE_COLLEGE_RESPONSE_WEIRDROUTE]: {
-    displayName: "Response to Susie talking about you going to College",
-    description: "Your response to when Susie asks if you're going to college when you say Temmie is a genius during the Weird Route.",
+    displayName: 'Response to Susie talking about you going to College',
+    description:
+      "Your response to when Susie asks if you're going to college when you say Temmie is a genius during the Weird Route.",
     valueType: 'map',
     valueRules: {
       map: {
         0: 'Default state',
         1: "Not if you don't",
-        2: "Beats me",
+        2: 'Beats me',
       },
     },
   },
   [FLAGS.SAW_PILLAR_TO_LIGHTWORLD_FCASTLE]: {
-    displayName: "Pillar back to Light World state",
-    description: "Handles the pillar back to the Light World in Flower Castle.",
+    displayName: 'Pillar back to Light World state',
+    description: 'Handles the pillar back to the Light World in Flower Castle.',
     valueType: 'map',
     valueRules: {
       map: {
         0: 'Default state',
-        1: "Saw the pillar",
-        2: "Tried to go back to the Light World",
+        1: 'Saw the pillar',
+        2: 'Tried to go back to the Light World',
       },
     },
   },
   [FLAGS.RALSEI_BUTLER_STATE]: {
-    displayName: "Butler Ralsei",
-    description: "Handles the dialogue after Ralsei gets rid of his butler outfit.",
+    displayName: 'Butler Ralsei',
+    description:
+      'Handles the dialogue after Ralsei gets rid of his butler outfit.',
     valueType: 'map',
     valueRules: {
       map: {
         0: 'Default state',
-        1: "Susie asked Ralsei if he liked being a butler",
-        2: "Butler outfit goes through the drains",
+        1: 'Susie asked Ralsei if he liked being a butler',
+        2: 'Butler outfit goes through the drains',
       },
     },
   },
   [FLAGS.TIMES_LOOKED_AT_PHONE]: {
     displayName: 'Times you tried to look at your phone',
     description:
-      "The amount of times you tried looking at your phone at the end of the chapter.",
+      'The amount of times you tried looking at your phone at the end of the chapter.',
     valueType: 'number',
   },
   [FLAGS.FRIEND_INTERACTED]: {
@@ -10164,7 +10175,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.ATTACKED_AQUA_OR_SETH]: {
     displayName: 'Attacked Aqua or Seth',
-    description: 'Whether you attacked Aqua or Seth in their battle together. Doing this causes you to lose the ability to have breaks with Seth.',
+    description:
+      'Whether you attacked Aqua or Seth in their battle together. Doing this causes you to lose the ability to have breaks with Seth.',
     valueType: 'boolean',
     valueRules: {
       booleanMap: {
@@ -10200,7 +10212,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.GOT_SUSIE_HEAL_BOOST_CH5]: {
     displayName: "Got Susie's magic boost",
-    description: "Whether Susie's base magic was boosted by 4 points for beating Hammer of Justice or Sound of Justice in Chapter 4 as part of the 0.0.250 patch.",
+    description:
+      "Whether Susie's base magic was boosted by 4 points for beating Hammer of Justice or Sound of Justice in Chapter 4 as part of the 0.0.250 patch.",
     valueType: 'boolean',
   },
   [FLAGS.MONEYFOUNTAIN_DONATION_OVER_100]: {
@@ -10307,8 +10320,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.WILL_KRIS_PLAY_AGAIN]: {
     displayName: 'Piano story response',
-    description:
-      'What you told Susie after her piano story.',
+    description: 'What you told Susie after her piano story.',
     valueType: 'map',
     valueRules: {
       map: {
@@ -11675,14 +11687,12 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.TALKED_TO_RUDY_FESTIVAL]: {
     displayName: 'Talked to Rudy',
-    description:
-      'Whether you talked to Rudy during the Festival.',
+    description: 'Whether you talked to Rudy during the Festival.',
     valueType: 'boolean',
   },
   [FLAGS.TRIED_TO_DROP_TOAST]: {
     displayName: 'Tried to drop honey toast',
-    description:
-      'Whether you tried to drop the honey toast.',
+    description: 'Whether you tried to drop the honey toast.',
     valueType: 'boolean',
   },
   [FLAGS.PINK_FRIEND_INTERACTION]: {
@@ -11693,7 +11703,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.DEFEATED_FIRST_ORANGE_BP_FLAG]: {
     displayName: 'Orange first bullet pattern flag',
-    description: "Raw bitfield state for defeating Orange's first bullet pattern.",
+    description:
+      "Raw bitfield state for defeating Orange's first bullet pattern.",
     valueType: 'number',
     valueRules: { min: 0 },
   },
@@ -11783,7 +11794,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.CLIFFS_CUTDOWN_TUTORIAL_FLAGS]: {
     displayName: 'Cliffs cutdown flags',
-    description: "Raw bitfield state for the first platforming room of First Climb as well as the Cliffs Windstruggler room.",
+    description:
+      'Raw bitfield state for the first platforming room of First Climb as well as the Cliffs Windstruggler room.',
     valueType: 'number',
     valueRules: { min: 0 },
   },
@@ -11832,7 +11844,8 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.FCASTLE_BELLS_FLAGS]: {
     displayName: 'Various Flower Castle collection flags',
-    description: 'Raw bitfield state for bells and coins in the two shadow platform puzzle rooms in the right wing and the bounce flower platforming rooms in the left wing of Flower Castle.',
+    description:
+      'Raw bitfield state for bells and coins in the two shadow platform puzzle rooms in the right wing and the bounce flower platforming rooms in the left wing of Flower Castle.',
     valueType: 'number',
     valueRules: { min: 0 },
   },
@@ -11882,7 +11895,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.CLIFFS_BONUSCOMBAT_DESTROYED_CHEESE]: {
     displayName: "Destroyed Wind Struggler's abandonded cheese",
-    description: "Whether you destroyed the cheese after Wind Struggler left.",
+    description: 'Whether you destroyed the cheese after Wind Struggler left.',
     valueType: 'boolean',
   },
   [FLAGS.FCASTLE_TOP_ASCENT_FAILURES]: {
@@ -11892,13 +11905,15 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
     valueType: 'number',
   },
   [FLAGS.FCASTLE_TOP_ASCENT_FAILURE_ROOM]: {
-    displayName: "Unlocked failure room",
-    description: "Whether you unlocked the failure room by failing the platforming segment 10 times.",
+    displayName: 'Unlocked failure room',
+    description:
+      'Whether you unlocked the failure room by failing the platforming segment 10 times.',
     valueType: 'boolean',
   },
   [FLAGS.FCASTLE_TOP_ASCENT_RALSEI_LONG]: {
-    displayName: "Ralsei is long",
-    description: "Whether Ralsei was long when you left the failure room. This will make him start out as long if you hook him to the pumpkin again.",
+    displayName: 'Ralsei is long',
+    description:
+      'Whether Ralsei was long when you left the failure room. This will make him start out as long if you hook him to the pumpkin again.',
     valueType: 'boolean',
   },
   [FLAGS.ASKED_CATTY_DAD_KINGQUEEN]: {
@@ -11926,8 +11941,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.LEAFLING_ENCOUNTER_OUTCOME]: {
     displayName: 'Leafling',
-    description:
-      'Tracks the state of the Leafling encounter in Cliffs.',
+    description: 'Tracks the state of the Leafling encounter in Cliffs.',
     valueType: 'map',
     valueRules: {
       map: ENCOUNTER_OUTCOMES,
@@ -11953,8 +11967,7 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   },
   [FLAGS.KAWKAW_ENCOUNTER_OUTCOME]: {
     displayName: 'Kawkaw',
-    description:
-      'Tracks the state of the Kawkaw encounter in Cliffs.',
+    description: 'Tracks the state of the Kawkaw encounter in Cliffs.',
     valueType: 'map',
     valueRules: {
       map: ENCOUNTER_OUTCOMES,

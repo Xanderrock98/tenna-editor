@@ -1943,7 +1943,7 @@ export const STORY_SECTIONS = {
       clusters: [
         {
           id: 'first-climb',
-          title: "First Climb",
+          title: 'First Climb',
           flags: [
             'CLIFFS_CUTDOWN_TUTORIAL_BULLETPATTERN',
             'CLIFFS_CUTDOWN_TUTORIAL_GRASSRIGHT1',
@@ -1958,7 +1958,7 @@ export const STORY_SECTIONS = {
         },
         {
           id: 'ferroll',
-          title: "Ferroll",
+          title: 'Ferroll',
           flags: [
             'SAW_FERROLL',
             'FERROLL_SMASHED_PARTY',
@@ -1986,10 +1986,10 @@ export const STORY_SECTIONS = {
           flags: [
             'CLIFFS_BONUSCOMBAT_BULLETPATTERN',
             'CLIFFS_BONUSCOMBAT_PINKBELL',
-            'CLIFFS_BONUSCOMBAT_DESTROYED_CHEESE'
+            'CLIFFS_BONUSCOMBAT_DESTROYED_CHEESE',
           ],
         },
-		{
+        {
           id: 'netskie-climb',
           title: 'Netskie Climb',
           flags: [
@@ -2021,7 +2021,11 @@ export const STORY_SECTIONS = {
         {
           id: 'jail',
           title: 'Jail',
-          flags: ['SAW_PILLAR_TO_LIGHTWORLD_FCASTLE', 'CASTLE_JAIL_SAVEPOINT', 'RALSEI_BUTLER_STATE'],
+          flags: [
+            'SAW_PILLAR_TO_LIGHTWORLD_FCASTLE',
+            'CASTLE_JAIL_SAVEPOINT',
+            'RALSEI_BUTLER_STATE',
+          ],
         },
         {
           id: 'flower-cafe',
@@ -2144,7 +2148,7 @@ export const STORY_SECTIONS = {
         },
         {
           id: 'first-platforming-room',
-          title: "First Platforming Room",
+          title: 'First Platforming Room',
           flags: [
             'FCASTLE_BOUNCE1_BELL1',
             'FCASTLE_BOUNCE1_BELL2',
@@ -2152,9 +2156,9 @@ export const STORY_SECTIONS = {
             'FCASTLE_BOUNCE1_BELL4',
           ],
         },
-		{
+        {
           id: 'the-way-that-punishes-you',
-          title: "The Way That Punishes You",
+          title: 'The Way That Punishes You',
           flags: [
             'ENCOUNTERED_SHI_SANDPIT',
             'SHI_SANDTRAP_ENCOUNTER_OUTCOME',
@@ -2251,14 +2255,15 @@ export const STORY_SECTIONS = {
         {
           id: 'start-of-top',
           title: 'Start of Castle Top',
-          flags: [
-            'SHINOBEETLE_SETH_ENCOUNTER_OUTCOME',
-          ],
+          flags: ['SHINOBEETLE_SETH_ENCOUNTER_OUTCOME'],
         },
         {
           id: 'ultra-dash',
           title: 'Ultra Dash',
-          flags: ['SAW_FINAL_STARWALKER', 'FLORADINN_ULTRADASH_ENCOUNTER_OUTCOME'],
+          flags: [
+            'SAW_FINAL_STARWALKER',
+            'FLORADINN_ULTRADASH_ENCOUNTER_OUTCOME',
+          ],
         },
         {
           id: 'ascent-platforming',
