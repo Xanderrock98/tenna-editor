@@ -2318,6 +2318,7 @@ export const STORY_SECTIONS = {
         'NETSKIE_BATTLE_TALK',
         'USED_PARTY_ACTION_CH5',
         'INTERACTED_WITH_DESTROYED_FLOWERY',
+        'GOT_SUSIE_HEAL_BOOST_CH5',
       ],
     },
   ],

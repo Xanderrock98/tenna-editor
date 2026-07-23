@@ -1541,6 +1541,7 @@ export const FLAGS = {
   OBTAINED_SHADOW_CRYSTAL_CH5: 1907,
   DEFEATED_PINK: 1908,
   OBTAINED_SPINCAKE_CH5: 1909,
+  GOT_SUSIE_HEAL_BOOST_CH5: 1915,
 } as const;
 
 export type FlagIndex = (typeof FLAGS)[keyof typeof FLAGS];
@@ -10195,6 +10196,11 @@ export const FLAGS_META: Partial<Record<FlagIndex, FlagProperties>> = {
   [FLAGS.OBTAINED_SPINCAKE_CH5]: {
     displayName: 'Got SpinCake',
     description: 'Whether you received a SpinCake in Chapter 5.',
+    valueType: 'boolean',
+  },
+  [FLAGS.GOT_SUSIE_HEAL_BOOST_CH5]: {
+    displayName: "Got Susie's magic boost",
+    description: "Whether Susie's base magic was boosted by 4 points for beating Hammer of Justice or Sound of Justice in Chapter 4 as part of the 0.0.250 patch.",
     valueType: 'boolean',
   },
   [FLAGS.MONEYFOUNTAIN_DONATION_OVER_100]: {
